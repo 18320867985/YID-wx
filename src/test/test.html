@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="../css/all.css" />
+		<style type="text/css">
+			body {
+				padding: 100px;
+			}
+			
+			table {
+				background: red;
+				table-layout: fixed;
+				border: 1px solid #ddd;
+			}
+			
+			th,
+			td {
+				border: 1px solid #ddd;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+ <button type="submit"  id="id">btn</button>
+		<select>
+			<optgroup label="js">
+			
+				<option value="0">
+					jquery
+				</option>
+
+				<option value="1">
+					vuejs
+				</option>
+
+				<option value="2">
+					html5
+				</option>
+			</optgroup>
+		</select>
+
+		<ul>
+			<li class="comp-btn">
+				<a class="comp-btn-item">技术牛逼</a>
+			</li>
+			<li class="comp-btn">
+				<a class="comp-btn-item">信息大师</a>
+			</li>
+		</ul>
+		
+		<input type="text" name="" id=""   value="" list="data_list"  />
+		<datalist id="data_list">
+				<option value="jquery">
+					jquery
+				</option>
+
+				<option value="vuejs">
+					vuejs
+				</option>
+
+				<option value="html5">
+					html5
+				</option>
+		</datalist>
+
+	
+		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/all.js" type="text/javascript" charset="utf-8"></script>
+
+		<!--[if lte IE 8]>
+			<script src="../js/respond.min.js" type="text/javascript" charset="utf-8"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			
+		
+//		var $el= document.getElementById("id");
+//		
+//		if($el.addEventListener){
+//			alert("addEventListener")
+//		}else{
+////			$el.attachEvent("on"+type,function(){
+////				alert();
+////			})
+//			alert("attachEvent")
+//			$el.datt
+//		}
+
+
+
+		alert(common.array.where([1,2,3,4],function(item){
+			
+			return item==4;
+		}))
+			
+		</script>
+
+	</body>
+
+</html>
