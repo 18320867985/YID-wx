@@ -4,14 +4,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  *	公共类库
  */
 
-(function ($) {
+;(function ($) {
+
+	// 冲突common兼容
+	var _common = window.common = window.Common = window.com;
 
 	/**创建Common对象**/
-	window.common = window.Common = function Common() {};
+	var Common = window.com = window.common = window.Common = function () {};
 
 	// 添加扩展extend
 	Common.extend = function (obj) {
-
 		if ((typeof obj === "undefined" ? "undefined" : _typeof(obj)) === "object") {
 
 			for (var i in obj) {
@@ -59,48 +61,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		}
 	});
 
-	/**延迟加载**/
-	Common.extend({
-		/**
-   * 延迟加载
-   *  * <img class="load-lazy"
-   * 	src="images/Home/lazy.jpg"
-   * alt="新品上市图片"
-   * data-src="images/Home/板块图片1.png"
-   * > 
-   * */
-		lazy: function lazy() {
-
-			var window_h = $(window).height();
-
-			$(window).scroll(function () {
-
-				setTimeout(function () {
-
-					$(".load-lazy").each(function () {
-
-						var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-						var img_h2 = parseInt($(this).offset().top) + $(this).height();
-						if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
-
-							$(this).attr("src", $(this).attr("data-src"));
-
-							/*ie8 不支持
-        * .animate({
-       "opacity":0.2
-       }).animate({
-       "opacity": 1
-       }, 500);
-       		
-       * */
-						}
-					});
-				}, 100);
-			});
-		}
-
-	});
-
 	/**绑定自定义事件**/
 	Common.extend({
 		events: {
@@ -138,25 +98,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	/**array的扩展方法**/
 	Common.extend({
-		array: {
+		list: {
 
 			// min value
-			min: function min(list) {
-				list = list || [];
+			min: function min(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
 				var _array_min = 0;
 				var isOne = true;
-				for (var i = 0; i < list.length; i++) {
+				for (var i = 0; i < data.length; i++) {
 					var _temp = 0;
 
-					if (typeof list[i] !== "number") {
+					if (typeof data[i] !== "number") {
 
 						//  is not a number
-						var _num = Number(list[i]);
+						var _num = Number(data[i]);
 						_temp = isNaN(_num) ? 0 : _num;
 					} else {
 
 						//  is a number
-						_temp = list[i];
+						_temp = data[i];
 					}
 
 					if (isOne) {
@@ -174,23 +137,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			},
 
 			// max value
-			max: function max(list) {
-				list = list || [];
+			max: function max(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
 				var _array_max = 0;
 
 				var isOne = true;
-				for (var i = 0; i < list.length; i++) {
+				for (var i = 0; i < data.length; i++) {
 					var _temp = 0;
 
-					if (typeof list[i] !== "number") {
+					if (typeof data[i] !== "number") {
 
 						//  is not a number
-						var _num = Number(list[i]);
+						var _num = Number(data[i]);
 						_temp = isNaN(_num) ? 0 : _num;
 					} else {
 
 						//  is a number
-						_temp = list[i];
+						_temp = data[i];
 					}
 
 					if (isOne) {
@@ -205,12 +171,204 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				}
 
 				return _array_max;
+			},
+
+			// data where
+			where: function where(data, fn) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("第一个参数必须是个数组，第二是回调函数");
+				}
+				var _arrs = [];
+				if (data.constructor === Array) {
+
+					if (typeof fn !== "function") {
+						return data;
+					}
+					for (var i = 0; i < data.length; i++) {
+
+						if (fn(data[i])) {
+							_arrs.push(data[i]);
+						}
+					}
+				}
+
+				return _arrs;
+			},
+
+			// data map
+			map: function map(data, fn) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("第一个参数必须是个数组，第二是回调函数");
+				}
+
+				if (data.constructor === Array) {
+
+					if (typeof fn !== "function") {
+						return data;
+					}
+
+					for (var i = 0; i < data.length; i++) {
+
+						data[i] = fn(data[i]) || data[i];
+					}
+				}
+
+				return data;
+			},
+
+			//  data first
+			first: function first(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					return data[0];
+				} else {
+					return null;
+				}
+			},
+
+			//  data last
+			last: function last(data) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					return data[data.length - 1];
+				} else {
+					return null;
+				}
+			},
+
+			//  data  slice
+			slice: function slice(data, startIndex, endIndex) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+					startIndex = typeof startIndex === "number" ? startIndex : 0;
+					endIndex = typeof endIndex === "number" ? endIndex : 0;
+					var _arrs = [];
+					for (var i = startIndex; i < data.length; i++) {
+
+						if (i < endIndex) {
+							_arrs.push(data[i]);
+						}
+					}
+
+					return _arrs;
+				} else {
+					return [];
+				}
+			},
+
+			//  sort
+			sort: function sort(data, fn) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+
+					Array.prototype.sort.call(data, fn);
+
+					return data;
+				} else {
+					return [];
+				}
+			},
+
+			//  reverse
+			reverse: function reverse(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				if (data.length > 0) {
+
+					Array.prototype.reverse.call(data);
+
+					return data;
+				} else {
+					return [];
+				}
+			},
+
+			//  sum
+			sum: function sum(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if (data.length > 0) {
+
+					for (var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+					}
+
+					return _sum;
+				} else {
+					return 0;
+				}
+			},
+
+			//  avg
+			avg: function avg(data) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if (data.length > 0) {
+
+					for (var i = 0; i < data.length; i++) {
+
+						var _num = Number(data[i]);
+						_num = isNaN(_num) ? 0 : _num;
+						_sum = _sum + _num;
+					}
+
+					return _sum / data.length;
+				} else {
+					return 0;
+				}
+			},
+			//  splice
+			splice: function splice(data, startIndex, endIndex) {
+				data = data || [];
+
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+				var _sum = 0;
+				if (data.length > 0) {
+
+					Array.prototype.splice.call(data, startIndex, endIndex);
+
+					return data;
+				} else {
+					return [];
+				}
 			}
 
 		}
 
 	});
-})(window.jQuery || window.Zepto);
+})();
 /*
  * 默认js
  * 添加 class="bs-date " 
@@ -11971,6 +12129,52 @@ var iframe = function ($) {
 		setHeight: _setHeight
 	};
 }(window.jQuery);
+/**延迟加载**/
+
+/**
+ * 延迟加载
+ *  * <img class="load-lazy"
+ * 	src="images/Home/lazy.jpg"
+ * alt="新品上市图片"
+ * data-src="images/Home/板块图片1.png"
+ * > 
+ * */
+var lazy = function ($) {
+
+	var _init = function _init() {
+
+		var window_h = $(window).height();
+
+		$(window).scroll(function () {
+
+			setTimeout(function () {
+
+				$(".load-lazy").each(function () {
+
+					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
+					var img_h2 = parseInt($(this).offset().top) + $(this).height();
+					if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
+
+						$(this).attr("src", $(this).attr("data-src"));
+
+						/*ie8 不支持
+       * .animate({
+      "opacity":0.2
+      }).animate({
+      "opacity": 1
+      }, 500);
+      		
+      * */
+					}
+				});
+			}, 100);
+		});
+	};
+
+	return {
+		init: _init
+	};
+}(window.jQuery || window.Zepto);
 //
 //
 //var pickerSelect=(function(mui){
@@ -12323,6 +12527,188 @@ var threeAddress = function () {
 					return objs[name].children || [];
 				}
 			}
+		}
+	};
+
+	return {
+		init: _init
+	};
+}();
+/*
+ 三级地址
+ * 
+ * <div class="form-group form-inline">
+ * 
+	<label for="">year</label>
+
+	<select class="form-control" name="" id="date-year" data-start="1970" data-text="==选择年份==">
+
+	</select>
+	<label for="">Month</label>
+
+	<select class="form-control" name="" id="date-month" data-text="==选择月份==">
+
+	</select>
+	<label for="">date</label>
+
+	<select class="form-control" name="" id="date-day" data-text="==选择天数==">
+
+	</select>
+
+	</div>
+ * 
+ * */
+
+var threeDate = function () {
+
+	var _init = function _init() {
+
+		var _year = document.getElementById("date-year");
+		var _month = document.getElementById("date-month");
+		var _day = document.getElementById("date-day");
+
+		createYear();
+
+		_year.onchange = function () {
+			var v = _year.value || "";
+
+			if (v == "") {
+				createMonth(0);
+				createday(0);
+			} else {
+				createMonth(12);
+				createday(0);
+			}
+		};
+
+		_month.onchange = function () {
+			var y = _year.value || "";
+			if (y == "") {
+				return;
+			}
+			var m = _month.value || "";
+			if (m == "") {
+				createday(0);
+				return;
+			}
+			y = Number(y);
+			m = Number(m);
+			var d = 0;
+			switch (m) {
+				case 1:
+					d = 31;
+					break;
+				case 2:
+					d = 30;
+					if (y % 400 == 0 || y % 4 == 0 && y % 100 != 0) {
+						//document.write(num + "是闰年。");
+						d = 29;
+					} else {
+						//document.write(num + "是平年。");
+						d = 28;
+					}
+
+					break;
+				case 3:
+					d = 31;
+					break;
+				case 4:
+					d = 30;
+					break;
+				case 5:
+					d = 31;
+					break;
+				case 6:
+					d = 30;
+					break;
+				case 7:
+					d = 31;
+					break;
+				case 8:
+					d = 31;
+					break;
+				case 9:
+					d = 30;
+					break;
+				case 10:
+					d = 31;
+					break;
+				case 11:
+					d = 30;
+					break;
+				case 12:
+					d = 31;
+					break;
+			}
+
+			createday(d);
+		};
+
+		function createYear() {
+
+			var fragment = document.createDocumentFragment();
+
+			var startid = _year.getAttribute("data-start") || 1970;
+			var _yearName = _year.getAttribute("data-text") || "==选择年份==";
+			startid = Number(startid);
+			startid = isNaN(startid) ? 1970 : startid;
+
+			var fragment = document.createDocumentFragment();
+			var endId = new Date().getFullYear();
+
+			var _notOption = document.createElement("option");
+			_notOption.innerText = _yearName;
+			_notOption.value = "";
+			_notOption.selected = "selected";
+			fragment.appendChild(_notOption);
+
+			for (; startid <= endId; endId--) {
+				var _option = document.createElement("option");
+				_option.innerText = endId;
+				_option.value = endId;
+				fragment.appendChild(_option);
+			}
+			_year.innerHTML = "";
+			_year.appendChild(fragment);
+		}
+
+		function createMonth(max) {
+
+			//max=max.constructor===Number?max:12;
+			var fragment = document.createDocumentFragment();
+			var _monthName = _month.getAttribute("data-text") || "==选择月份==";
+			var _notOption = document.createElement("option");
+			_notOption.innerText = _monthName;
+			_notOption.value = "";
+			_notOption.selected = "selected";
+			fragment.appendChild(_notOption);
+			for (var m = 0; m < max; m++) {
+				var _option = document.createElement("option");
+				_option.innerText = m + 1;
+				_option.value = m + 1;
+				fragment.appendChild(_option);
+			}
+			_month.innerHTML = "";
+			_month.appendChild(fragment);
+		}
+
+		function createday(max) {
+
+			var fragment = document.createDocumentFragment();
+			var _dayName = _day.getAttribute("data-text") || "==选择天数==";
+			var _notOption = document.createElement("option");
+			_notOption.innerText = _dayName;
+			_notOption.value = "";
+			_notOption.selected = "selected";
+			fragment.appendChild(_notOption);
+			for (var d = 0; d < max; d++) {
+				var _option = document.createElement("option");
+				_option.innerText = d + 1;
+				_option.value = d + 1;
+				fragment.appendChild(_option);
+			}
+			_day.innerHTML = "";
+			_day.appendChild(fragment);
 		}
 	};
 

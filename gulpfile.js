@@ -67,33 +67,15 @@ var paths = {
 	// 原有的js库
 	jsCommon: [
 
-		"src/js-dev/libs/prefix-css3.min.js", // pc端 自动补全css3前缀 
-		
-		"src/js-dev/libs/modernizr/modernizr-2.6.2.min.js",  // modernizr  检测css3和h5
-		
-		//"src/js-dev/libs/jq/jquery-1.11.0.min.js",  // jquery.js
-		
-		//"src/js-dev/libs/jq/jquery-drag.min.js",	// 拖动元素
-		
-		//"src/js-dev/libs/jq/jquery.touchSwipe.min.js",	//jquery.touchSwipe.min.js 
-		
-		"src/js-dev/libs/jq/jquery-Effect.min.js",  		//jquery-Effect.min.js
-		
-		"src/js-dev/libs/jq/jquery.superslide.2.1.1.js",  //jquery.superslide.2.1.1.js
-		
+
+		"src/js-dev/libs/zepto/zepto.js", //zepto.js
+			
 		"src/js-dev/libs/vd/vd.js",  //数据验证
 		
-		"src/js-dev/libs/bs-3/bootstrap.js",  // bootstrap.js 3.0
-		
-		//"src/js-dev/libs/bs-4/bootstrap.js",  // bootstrap.js 4.0
-		
-		//"src/js-dev/libs/ie/respond.js",  // 兼容ie8 响应式
-		
+		"src/js-dev/libs/mui/mui.js", // mui插件
+	
 		//"src/js-dev/libs/vue/vue.min.js",  // vue.min.js
 
-		//"src/js-dev/libs/mui/mui.js", // mui插件
-
-		//"src/js-dev/libs/zepto/zepto.js", //z epto.js
 
 		"src/js-dev/temp/*.js", // 合并自定义的js
 
@@ -261,6 +243,7 @@ gulp.task("t_mincss", function() {
 	gulp.src(paths.lessPath).pipe(connect.reload());
 
 });
+
 
 //sass合并css文件
 gulp.task("t_minscss", function() {

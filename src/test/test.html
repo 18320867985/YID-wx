@@ -69,35 +69,25 @@
 				</option>
 		</datalist>
 
-	
+	<script src="../js-dev/libs/jq/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/all.js" type="text/javascript" charset="utf-8"></script>
+
 
 		<!--[if lte IE 8]>
 			<script src="../js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
 		<script type="text/javascript">
+	
+			var tt=common.localStorage.setItem("test ","test1")
+			
+			var tt=common.localStorage.setItem(" test","test2")
+			var tt=common.localStorage.setItem("  est    ","test3")
 			
 		
-//		var $el= document.getElementById("id");
-//		
-//		if($el.addEventListener){
-//			alert("addEventListener")
-//		}else{
-////			$el.attachEvent("on"+type,function(){
-////				alert();
-////			})
-//			alert("attachEvent")
-//			$el.datt
-//		}
-
-
-
-		alert(common.array.where([1,2,3,4],function(item){
-			
-			return item==4;
-		}))
+				var tt2=common.localStorage.getItem("est")
+				alert(tt2)
 			
 		</script>
 
