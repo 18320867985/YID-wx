@@ -1,0 +1,25 @@
+/*footer*/
+
+.footer.mui-bar-tab {
+    padding:  3px 0;
+    .mui-tab-item {
+        .iconfont{
+            font-size: 20px;
+        }
+        .icon-shopping{
+            font-size: 26px;
+        }
+        // tab-label
+        .mui-tab-label {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    }
+}
+
+
+// content
+
+.footer + .mui-content {
+  padding-bottom: 70px;  
+}

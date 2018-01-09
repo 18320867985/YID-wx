@@ -5,7 +5,7 @@ $namespace: "mui-" !default;
 
 // Type
 // --------------------------------------------------
-$font-family-default: "Helvetica Neue", Helvetica, sans-serif !default;
+$font-family-default: "微软雅黑", "宋体", "Helvetica Neue", Helvetica, sans-serif !default;
 $font-size-default: 17px !default;
 $font-weight: 500 !default;
 $font-weight-light: 400 !default;
@@ -17,14 +17,14 @@ $line-height-default: 21px !default;
 
 // Main theme colors
 //blue theme
-$primary-color: #007aff !default;
+$primary-color: $text-primary; //edit   // #007aff !default;
 //green theme
 //$primary-color: #4cd964 !default;
 //$chrome-color:  rgba(247,247,247,.98) !default;
 $chrome-color:  rgb(247,247,247) !default;
 
 // Action colors
-$default-color:  #929292 !default;
+$default-color: $text-default;  // edit   //  #929292 !default;
 $positive-color: #4cd964 !default;
 $negative-color: #dd524d !default;
 $warning-color: #f0ad4e !default;

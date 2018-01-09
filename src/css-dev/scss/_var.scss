@@ -1,8 +1,41 @@
 /*var*/
 
+//
+//@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+//@brand-success:         #5cb85c;
+//@brand-info:            #5bc0de;
+//@brand-warning:         #f0ad4e;
+//@brand-danger:          #d9534f;
 
+$text-default: #8e8e8e;      // 默认
+$text-primary: #15ace4;      // 选中
+$text-info:    #5bc0de;      // 信息
+$text-warning: #f0ad4e;     // 警告   
+$text-danger:  #ff0000;      // 危险 
 
+$text-h:#eee;                // 标题
+$text-alert: #323232;        // 提示
+$text-disabled:#8ad5f1;       // 不可用的
 
+// text-color  class 
+.text-default{
+    color: $text-default;      // 默认
+}
+.text-primary{
+    color: $text-primary;      // 选中
+}
+
+.text-info{
+    color: $text-info;      // 信息
+}
+
+.text-warning {
+    color:$text-warning;      // 警告   
+}  
+   
+.text-danger{
+    color: $text-danger;     // 危险   
+} 
 
 
 //=================下面编写scss页面代码======================

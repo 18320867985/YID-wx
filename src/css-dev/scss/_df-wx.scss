@@ -1,0 +1,352 @@
+﻿co
+/*默认样式*/
+
+body {
+    font-size: 14px;
+    font-family: "微软雅黑", "宋体";
+    //background: $body-bg;
+}
+
+
+
+img {
+    display: inline-block;
+}
+
+span,
+a {
+    margin: 0px;
+    padding: 0px;
+    outline: none !important;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    ;
+}
+
+
+/*颜色*/
+
+.text-white {
+    color: #fff;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+
+/*边框与背景*/
+
+.rd {
+    border-radius: 5px;
+}
+
+.rd-no {
+    border-radius: 0px;
+}
+
+.rd-no2 {
+    border-radius: 0px !important;
+}
+
+.br-no {
+    border: none;
+}
+
+.br-no2 {
+    border: none !important;
+}
+
+.bg-no {
+    background: none;
+}
+
+.bg-no2 {
+    background: none !important;
+}
+
+.padding-no {
+    padding: 0px;
+}
+
+.padding-no2 {
+    padding: 0px !important;
+}
+
+.margin-no {
+    margin: 0px;
+}
+
+.margin-no2 {
+    margin: 0px !important;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-max100 {
+    max-width: 100%;
+}
+
+.height-100 {
+    height: 100%;
+}
+
+.height-max100 {
+    max-height: 100%;
+}
+
+
+/*定位display*/
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative
+}
+
+.fixed {
+    position: fixed
+}
+
+.bottom-0 {
+    bottom: 0px;
+}
+
+.top-0 {
+    top: 0px;
+}
+
+.left-0 {
+    left: 0px;
+}
+
+.right-0 {
+    right: 0px;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.inline-block-none {
+    display: inline-block;
+    float: none;
+}
+
+
+/*input*/
+
+input,
+.btn {
+    outline: none;
+}
+
+input:focus,
+.btn:focus {
+    outline: none !important;
+}
+
+.input-underline {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
+}
+
+.input-underline:focus {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
+}
+
+.input-br-no {
+    border: none !important;
+    box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
+    background: none;
+}
+
+.input-br-no:focus {
+    border: none !important;
+    background: none;
+    box-shadow: 0px 0px 0px #fff, 0px 0px 0px #fff !important;
+}
+
+.input-xs-x {
+    line-height: 25px;
+    height: 25px;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+.btn-xs-x {
+    line-height: 25px !important;
+    height: 25px !important;
+    padding: 0px 7px !important;
+    font-size: 12px !important;
+}
+
+.width-0-5 {
+    width: 5%;
+}
+.width-1 {
+    width: 10%;
+}
+
+.width-1-5 {
+    width: 15%;
+}
+
+.width-2 {
+    width: 20%;
+}
+
+.width-2-5 {
+    width: 25%;
+}
+
+.width-3 {
+    width: 30%;
+}
+
+.width-3-5 {
+    width: 35%;
+}
+
+.width-4 {
+    width: 40%;
+}
+
+.width-4-5 {
+    width: 45%;
+}
+
+.width-5 {
+    width: 50%;
+}
+
+
+
+/*其他*/
+
+.overflow-y {
+    overflow-y: hidden;
+}
+
+.overflow-x {
+    overflow-y: hidden;
+}
+
+.v-hide {
+    display: none;
+}
+
+.v-text-index {
+    position: absolute !important;
+    display: inline-block !important;
+    text-indent: -99999px;
+    margin: -2px !important;
+    padding: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    outline: none !important;
+}
+
+.content-responsive img {
+    height: auto;
+    max-width: 100% !important;
+}
+
+// 用于大于1200屏幕的
+.img-100 {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+/* 输入框focus焦点*/
+
+input[type=text]:focus,
+input[type=password]:focus,
+select:focus,
+textarea:focus {
+    outline: none !important;
+}
+
+//a link
+a:hover {
+    text-decoration: none;
+}
+
+select option {
+    outline: none !important;
+}
+
+
+/*ellipsis*/
+.ellipsis {
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.ellipsis-no {
+    white-space: normal;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+.table-fixed{
+    table-layout: fixed;
+}
+.table-auto{
+    
+    table-layout: auto;
+}
+
+
+
+.padding-l-no {
+    padding-left: 0;
+}
+
+.padding-r-no {
+    padding-right: 0;
+}
+
+.padding-lr-no {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+
+/*clr*/
+
+.clr:before,
+.clr:after {
+    display: table;
+    content: " ";
+}
+
+.clr:after {
+    clear: both;
+}

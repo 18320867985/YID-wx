@@ -1,8 +1,8 @@
 
 
-@import "var.scss";                     // variable                      
+@import "var.scss";                           // variable                      
 
-@import "mui-scss/mui.scss";              // mui scss
+@import "mui-scss/mui.scss";                  // mui scss
 //
 ////@import "bs-scss-4/bootstrap.scss";       // bootstrap 4.* scss
 //
@@ -10,15 +10,29 @@
 
 //@import "fa-scss/font-awesome.scss";        // fa 字体
 
-@import "component-scss/comp-all.scss";      //  组件
+@import "component-scss/comp-all.scss";          //  组件
 
-@import "df.scss";                        // default scss
+//@import "df-pc.scss";                        // pc端     default scss
+
+@import "df-wx.scss";                         // 微信端  default scss
 
 @import "common.scss";                        // 公共的 scss
 
-@import "vd.scss";                        // 验证   scss
+@import "head.scss";                          // 头部
 
-@import "test.scss";                       // 测试   
+@import "footer.scss";                         // 尾部
+
+@import "other.scss";                         // 其他
+
+@import "vd.scss";                             // 验证   scss
+
+@import "index.scss";                          // 首页   
+
+
+
+@import "test.scss";                          // 测试   
+
+
 
 
 

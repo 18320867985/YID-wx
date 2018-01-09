@@ -1,0 +1,36 @@
+/*head*/
+
+// 首页
+.head.mui-bar {
+    // background: rgba(0,0,0,0.2);
+    // 菜单图标 
+    .mui-icon-bars {
+        color: #fff;
+    }
+    // input
+    .mui-title input {
+        font-size: 14px;
+        color: $text-default;
+        background: #fff;
+    }
+    // 右边的按钮
+    .head-right-btn {
+        position: absolute;
+        right: 3px;
+        top: 12px;
+        font-size: 17px;
+        color: #fff;
+    }
+    // mui-active 上拉的
+    &.mui-active {
+        // 菜单图标 
+        .mui-icon-bars {
+            color: $text-default;
+        }
+        .head-right-btn {
+            color: $text-default;
+        }
+    }
+}
+
+

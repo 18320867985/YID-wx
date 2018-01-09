@@ -1,0 +1,133 @@
+/*index*/
+
+// 轮播图
+.index-slider {
+    .mui-slider {
+        .mui-slider-item {
+            img {
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                min-height: 150px;
+            }
+        }
+        // 圆点
+        .mui-slider-indicator {
+            .mui-indicator {
+                background: #ccc;
+                &.mui-active {
+                    background: $text-primary;
+                }
+                &+.mui-indicator {
+                    margin-left: 1px;
+                }
+            }
+        }
+    }
+}
+
+// 导航
+.index-nav {
+    padding: 20px 10px;
+    background: #fff;
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            float: left;
+            text-align: center;
+            img {
+                display: inline-block;
+                float: none;
+                width: 45px !important;
+                height: 45px;
+            }
+            h4 {
+                margin-top: 5px;
+                font-size: 14px;
+                color: #707070;
+                font-weight: 500;
+            }
+        }
+    }
+    // 公告
+    .notice {
+        position: relative;
+        padding: 10px 0 15px 5px;
+        border-bottom: 1px solid #ddd;
+        .iconfont {
+            position: relative;
+            top: 3px;
+            font-size: 20px;
+            color: $text-primary;
+        }
+        .info {
+            font-size: 14px;
+            color: $text-default;
+        }
+    }
+}
+
+// 精品推荐
+.index-recommend {
+    padding: 10px;
+    h4 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: rgb(50, 50, 50);
+        font-size: 16px;
+    }
+    h5 {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: rgb(137, 137, 137);
+    }
+    img {
+        width: 100%;
+        max-height: 300px;
+    }
+}
+
+// index-list
+.index-list {
+    .mui-col-xs-6 {
+        padding: 10px;
+    
+        img {
+            width: 140px;
+            height: 160px;
+            margin-left: 10px;
+            display: inline-block;
+            float: none;
+        }
+        .caption {
+            h4 {
+                font-size: 14px;
+                color: rgb(50, 50, 50);
+                margin-bottom: 5px;
+            }
+            
+             p{
+                    color:rgb(137,137,137);
+                     margin-bottom:5px;
+                }
+            .op {
+                
+                padding-bottom: 10px;
+               
+                span{
+                    font-size: 14px;
+                }
+                .btn {
+                    float: right;
+                     margin-right: 5px;
+                    padding: 3px 5px;
+                    color: #fff;
+                    background: $text-danger;
+                    border: none;
+                }
+                border-bottom : 1px solid #ddd;
+            }
+        }
+    }
+}
