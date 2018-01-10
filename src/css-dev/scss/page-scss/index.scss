@@ -2,6 +2,7 @@
 
 // 轮播图
 .index-slider {
+    
     .mui-slider {
         .mui-slider-item {
             img {
@@ -11,16 +12,17 @@
                 min-height: 150px;
             }
         }
-        // 圆点
-        .mui-slider-indicator {
-            .mui-indicator {
-                background: #ccc;
-                &.mui-active {
-                    background: $text-primary;
-                }
-                &+.mui-indicator {
-                    margin-left: 1px;
-                }
+    }
+    // 圆点
+    .mui-slider-indicator {
+        .mui-indicator {
+            background: #ccc;
+            box-shadow: none;
+            &.mui-active {
+                background: $text-primary;
+            }
+            &+.mui-indicator {
+                margin-left: 1px;
             }
         }
     }
@@ -88,11 +90,14 @@
     }
 }
 
-// index-list
+// index-list 列表
 .index-list {
     .mui-col-xs-6 {
         padding: 10px;
-    
+        text-align: center;
+        @media(max-width: 320px) {
+            padding: 10px 2px;
+        }
         img {
             width: 140px;
             height: 160px;
@@ -106,27 +111,37 @@
                 color: rgb(50, 50, 50);
                 margin-bottom: 5px;
             }
-            
-             p{
-                    color:rgb(137,137,137);
-                     margin-bottom:5px;
+            p {
+                color: rgb(137, 137, 137);
+                line-height: 22px;
+                margin-bottom: 0;
+                &+p {
+                    margin-top: 0px;
                 }
+            }
             .op {
-                
-                padding-bottom: 10px;
-               
-                span{
+                margin-top: 5px;
+                padding-bottom: 15px;
+                span {
                     font-size: 14px;
                 }
                 .btn {
                     float: right;
-                     margin-right: 5px;
+                    margin-right: 5px;
                     padding: 3px 5px;
                     color: #fff;
                     background: $text-danger;
                     border: none;
+                    transition: all 0.5s;
+                    @media(max-width: 320px) {
+                        float: none;
+                        margin-right: 0;
+                    }
+                    &:active {
+                        background: darken($text-danger, 10%);
+                    }
                 }
-                border-bottom : 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
             }
         }
     }

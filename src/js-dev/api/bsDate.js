@@ -6,6 +6,7 @@
  */
 
 
+
 var bsDate = (function($) {
 
 	var _init = function() {
@@ -32,5 +33,6 @@ var bsDate = (function($) {
 	return {
 		init: _init
 	}
+
 
 })(window.jQuery);

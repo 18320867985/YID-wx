@@ -31,6 +31,25 @@
             color: $text-default;
         }
     }
+    
+    .mui-action-back:active {
+        
+       color:$text-warning;
+    }
 }
 
 
+// 返回 头部
+.child-head{
+    
+    .mui-icon.iconfont{
+        color:$text-back;
+    } 
+    
+    .child-right-btn{
+        
+        position: absolute;
+        right: 10px;
+    }
+    
+}

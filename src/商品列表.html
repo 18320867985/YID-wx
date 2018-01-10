@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>商品列表</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body>
+
+		<!--头部-->
+		<header class="child-head prodlist-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">婴儿车</h1>
+		</header>
+
+		<!-- 底部--->
+		<nav class="footer mui-bar mui-bar-tab ">
+			<a class="mui-tab-item mui-active" href="#">
+				<span class="mui-icon iconfont icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon iconfont  icon-sousuo2"></span>
+				<span class="mui-tab-label">搜索</span>
+			</a>
+
+			<a class="mui-tab-item" href="javascript:;">
+				<span class="mui-icon  iconfont icon-menu"></span>
+				<span class="mui-tab-label">全部</span>
+			</a>
+			<a class="mui-tab-item " href="javascript:;">
+				<span class="mui-icon  iconfont icon-shopping"></span>
+				<span class="mui-tab-label">购物车</span>
+			</a>
+			<a class="mui-tab-item " href="javascript:;">
+				<span class="mui-icon  iconfont icon-geren"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<!--主体内容-->
+		<section class="prodlist mui-content  bg-white">
+
+			<!--左右拖拉菜单-->
+			<div class="prodlist-menu mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<div class="mui-scroll">
+					<a class="mui-control-item mui-active">
+						安全座椅
+					</a>
+					<a class="mui-control-item">
+						婴儿车
+					</a>
+					<a class="mui-control-item">
+						餐椅摇椅
+					</a>
+					<a class="mui-control-item">
+						提篮式座椅
+					</a>
+					<a class="mui-control-item">
+						学步座椅
+					</a>
+
+				</div>
+			</div>
+
+			<!--列表-->
+			<!--pullToRefresh-big 上拉加载大框-->
+			<div class="index-list  pullToRefresh-big">
+
+				<!-- pullToRefresh-box 上拉加载每一项-->
+				<div class="mui-row pullToRefresh-box">
+					<div class="mui-col-xs-6 ">
+						<a href="javascript:;">
+							<img src="images/index-list (1).png" alt="img" />
+						</a>
+						<div class="caption mui-text-left">
+							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
+							<p class="">口牛奶牛市兰</p>
+							<p>250ml*24 <span>家庭装</span></p>
+
+							<div class="op mui-clearfix mui-ellipsis">
+								<span class="text-danger">180元/箱</span>
+								<button class="btn" type="button">加入购物车</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="mui-col-xs-6">
+						<a href="javascript:;">
+							<img src="images/index-list (2).png" alt="img" />
+						</a>
+
+						<div class="caption mui-text-left">
+							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
+							<p class="mui-ellipsis">口牛奶牛市兰</p>
+							<p>250ml*24 <span>家庭装</span></p>
+
+							<div class="op mui-clearfix mui-ellipsis">
+								<span class="text-danger">79元/箱</span>
+								<button class="btn" type="button">加入购物车</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="mui-col-xs-6">
+						<a href="javascript:;">
+							<img src="images/index-list (3).png" alt="img" />
+						</a>
+
+						<div class="caption mui-text-left">
+							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
+							<p class="mui-ellipsis">口牛奶牛市兰口牛奶牛市兰</p>
+							<p>250ml*24 <span>家庭装</span></p>
+
+							<div class="op mui-clearfix mui-ellipsis">
+								<span class="text-danger">79.9元/箱</span>
+								<button class="btn" type="button">加入购物车</button>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="mui-col-xs-6">
+						<a href="javascript:;">
+							<img src="images/index-list (4).png" alt="img" />
+						</a>
+
+						<div class="caption mui-text-left">
+							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
+							<p class="mui-ellipsis">口牛奶牛市兰口牛奶牛市兰</p>
+							<p>250ml*24 <span>家庭装</span></p>
+
+							<div class="op mui-clearfix mui-ellipsis">
+								<span class="text-danger">79.9元/箱</span>
+								<button class="btn" type="button">加入购物车</button>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+
+			<div class="mui-col-xs-6">
+				<a href="javascript:;">
+					<img src="{{a1}}" alt="img" />
+				</a>
+
+				<div class="caption mui-text-left">
+					<h4 class="mui-ellipsis width-100">{{a2}}</h4>
+					<p class="mui-ellipsis">{{a3}}</p>
+					<p>{{a4}}<span>家庭装</span></p>
+
+					<div class="op mui-clearfix mui-ellipsis">
+						<span class="text-danger">{{a5}}元/箱</span>
+						<button class="btn" type="button">加入购物车</button>
+					</div>
+				</div>
+
+			</div>
+
+			{{/lists}}
+
+		</script>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			mui("#index_slider").slider({
+				interval: 3000
+			});
+
+			// 分页
+			mui.ready(function() {
+
+				muiPullToRefresh.init({
+					indexPage: 1, // 当前页
+					maxPage: 5, // 总共页数
+					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
+					pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+					url: "json/index.json", // ajax url
+					showText: { // 上拉 的文本
+						init: "上拉显示更多",
+						down: "上拉显示更多",
+						refresh: "正在加载...",
+						nomore: "没有更多数据了"
+					},
+					obj: {}, // ajax 参数
+					fn: function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+
+						$(this.pullToRefreshBox).append(html);
+
+					}
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -3892,45 +3892,6 @@ select option {
 .clr:after {
   clear: both; }
 
-.iconfont.renminbi {
-  margin-right: -5px; }
-
-/*head*/
-.head.mui-bar .mui-icon-bars {
-  color: #fff; }
-
-.head.mui-bar .mui-title input {
-  font-size: 14px;
-  color: #8e8e8e;
-  background: #fff; }
-
-.head.mui-bar .head-right-btn {
-  position: absolute;
-  right: 3px;
-  top: 12px;
-  font-size: 17px;
-  color: #fff; }
-
-.head.mui-bar.mui-active .mui-icon-bars {
-  color: #8e8e8e; }
-
-.head.mui-bar.mui-active .head-right-btn {
-  color: #8e8e8e; }
-
-/*footer*/
-.footer.mui-bar-tab {
-  padding: 3px 0; }
-  .footer.mui-bar-tab .mui-tab-item .iconfont {
-    font-size: 20px; }
-  .footer.mui-bar-tab .mui-tab-item .icon-shopping {
-    font-size: 26px; }
-  .footer.mui-bar-tab .mui-tab-item .mui-tab-label {
-    margin-top: 5px;
-    font-size: 14px; }
-
-.footer + .mui-content {
-  padding-bottom: 70px; }
-
 /*错误显示*/
 .vd-box .vd-req,
 .vd-box .vd-pattern,
@@ -3993,6 +3954,122 @@ select option {
   color: red !important; }
 
 /*提交按钮*/
+.mui-bar ~ .mui-content .mui-fullscreen {
+  top: 44px;
+  height: auto; }
+
+.mui-pull-top-tips {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -25px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  z-index: 1; }
+
+.mui-bar ~ .mui-pull-top-tips {
+  top: 24px; }
+
+.mui-pull-top-wrapper {
+  width: 42px;
+  height: 42px;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 4px 10px #bbb;
+          box-shadow: 0 4px 10px #bbb;
+  overflow: hidden; }
+
+.mui-pull-top-tips.mui-transitioning {
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms; }
+
+.mui-pull-top-tips .mui-pull-loading {
+  /*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+  margin: 0; }
+
+.mui-pull-top-wrapper .mui-icon,
+.mui-pull-top-wrapper .mui-spinner {
+  margin-top: 7px; }
+
+.mui-pull-top-wrapper .mui-icon.mui-reverse {
+  /*-webkit-transform: rotate(180deg) translateZ(0);*/ }
+
+.mui-pull-bottom-tips {
+  text-align: center;
+  background-color: #fff;
+  font-size: 15px;
+  line-height: 40px;
+  color: #777; }
+
+.mui-pull-top-canvas {
+  overflow: hidden;
+  background-color: #fafafa;
+  border-radius: 40px;
+  -webkit-box-shadow: 0 4px 10px #bbb;
+          box-shadow: 0 4px 10px #bbb;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto; }
+
+.mui-pull-top-canvas canvas {
+  width: 40px; }
+
+.mui-slider-indicator.mui-segmented-control {
+  background-color: #fff; }
+
+/*head*/
+.head.mui-bar .mui-icon-bars {
+  color: #fff; }
+
+.head.mui-bar .mui-title input {
+  font-size: 14px;
+  color: #8e8e8e;
+  background: #fff; }
+
+.head.mui-bar .head-right-btn {
+  position: absolute;
+  right: 3px;
+  top: 12px;
+  font-size: 17px;
+  color: #fff; }
+
+.head.mui-bar.mui-active .mui-icon-bars {
+  color: #8e8e8e; }
+
+.head.mui-bar.mui-active .head-right-btn {
+  color: #8e8e8e; }
+
+.head.mui-bar .mui-action-back:active {
+  color: #f0ad4e; }
+
+.child-head .mui-icon.iconfont {
+  color: #666; }
+
+.child-head .child-right-btn {
+  position: absolute;
+  right: 10px; }
+
+/*footer*/
+.footer.mui-bar-tab {
+  padding: 3px 0; }
+  .footer.mui-bar-tab .mui-tab-item .iconfont {
+    font-size: 20px; }
+  .footer.mui-bar-tab .mui-tab-item .icon-shopping {
+    font-size: 26px; }
+  .footer.mui-bar-tab .mui-tab-item .mui-tab-label {
+    margin-top: 5px;
+    font-size: 14px; }
+
+.footer + .mui-content {
+  padding-bottom: 60px; }
+
 /*index*/
 .index-slider .mui-slider .mui-slider-item img {
   width: 100%;
@@ -4000,11 +4077,13 @@ select option {
   max-height: 300px;
   min-height: 150px; }
 
-.index-slider .mui-slider .mui-slider-indicator .mui-indicator {
-  background: #ccc; }
-  .index-slider .mui-slider .mui-slider-indicator .mui-indicator.mui-active {
+.index-slider .mui-slider-indicator .mui-indicator {
+  background: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  .index-slider .mui-slider-indicator .mui-indicator.mui-active {
     background: #15ace4; }
-  .index-slider .mui-slider .mui-slider-indicator .mui-indicator + .mui-indicator {
+  .index-slider .mui-slider-indicator .mui-indicator + .mui-indicator {
     margin-left: 1px; }
 
 .index-nav {
@@ -4055,7 +4134,11 @@ select option {
     max-height: 300px; }
 
 .index-list .mui-col-xs-6 {
-  padding: 10px; }
+  padding: 10px;
+  text-align: center; }
+  @media (max-width: 320px) {
+    .index-list .mui-col-xs-6 {
+      padding: 10px 2px; } }
   .index-list .mui-col-xs-6 img {
     width: 140px;
     height: 160px;
@@ -4068,9 +4151,13 @@ select option {
     margin-bottom: 5px; }
   .index-list .mui-col-xs-6 .caption p {
     color: #898989;
-    margin-bottom: 5px; }
+    line-height: 22px;
+    margin-bottom: 0; }
+    .index-list .mui-col-xs-6 .caption p + p {
+      margin-top: 0px; }
   .index-list .mui-col-xs-6 .caption .op {
-    padding-bottom: 10px;
+    margin-top: 5px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #ddd; }
     .index-list .mui-col-xs-6 .caption .op span {
       font-size: 14px; }
@@ -4080,4 +4167,56 @@ select option {
       padding: 3px 5px;
       color: #fff;
       background: #ff0000;
-      border: none; }
+      border: none;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
+      @media (max-width: 320px) {
+        .index-list .mui-col-xs-6 .caption .op .btn {
+          float: none;
+          margin-right: 0; } }
+      .index-list .mui-col-xs-6 .caption .op .btn:active {
+        background: #cc0000; }
+
+/*
+ * 精品推荐
+ */
+.jingpin-banner img {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+  max-height: 300px; }
+
+/**
+ *  商品列表   
+ * 
+ * **/
+.mui-bar-nav ~ .prodlist.mui-content {
+  padding-top: 92px; }
+
+.prodlist-head.mui-bar-nav {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom: 1px solid #ddd; }
+
+.prodlist-menu.mui-segmented-control {
+  position: fixed;
+  top: 44px;
+  padding: 10px 5px;
+  min-height: 52px;
+  border-bottom: 1px solid #ddd; }
+  .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item {
+    display: inline-block;
+    line-height: 20px;
+    padding: 5px 10px;
+    margin: 0;
+    color: #777;
+    border-radius: 5px;
+    background: #f0f0f0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s; }
+    .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item + .mui-control-item {
+      margin-left: 10px; }
+    .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item.mui-active {
+      background: #1189b5;
+      color: #fff;
+      border-bottom: none; }

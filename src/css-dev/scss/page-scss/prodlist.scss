@@ -1,0 +1,46 @@
+/**
+ *  商品列表   
+ * 
+ * **/
+
+// 左右拖拉菜单
+.mui-bar-nav~.prodlist.mui-content {
+    padding-top: 92px;
+}
+
+// 去掉下面box-shadow
+.prodlist-head.mui-bar-nav {
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.prodlist-menu {
+    &.mui-segmented-control {
+        //  固定菜单
+        position: fixed;
+        top: 44px;
+        padding: 10px 5px;
+        min-height: 52px;
+        border-bottom: 1px solid #ddd;
+        .mui-scroll {
+            .mui-control-item {
+                display: inline-block;
+                line-height: 20px;
+                padding: 5px 10px;
+                margin: 0;
+                color: #777;
+                border-radius: 5px;
+                background: #f0f0f0;
+                transition: all 0.5s;
+                &+.mui-control-item {
+                    margin-left: 10px;
+                }
+                &.mui-active {
+                    background: darken( $text-primary,10%);
+                    color: #fff;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

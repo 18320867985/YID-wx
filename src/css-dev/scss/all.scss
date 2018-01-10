@@ -18,15 +18,13 @@
 
 @import "common.scss";                        // 公共的 scss
 
-@import "head.scss";                          // 头部
-
-@import "footer.scss";                         // 尾部
-
-@import "other.scss";                         // 其他
-
 @import "vd.scss";                             // 验证   scss
 
-@import "index.scss";                          // 首页   
+@import "refresh.scss";                        // 上拉加载
+
+@import "page-scss/page.scss";                  // 子页面scss集合 
+
+
 
 
 
