@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="" />
 		<meta name="Description" content="" />
@@ -115,7 +115,7 @@
 					</li>
 					<li class="width-2">
 						<a href="商品列表.html">
-							<img src="images/index-shijing.png" alt="" />
+							<img src="images/index-yinger.png" alt="" />
 							<h4>婴儿车</h4>
 						</a>
 					
@@ -171,7 +171,7 @@
 				<!-- pullToRefresh-box 上拉加载每一项-->
 				<div class="mui-row pullToRefresh-box">
 					<div class="mui-col-xs-6 ">
-						<a href="javascript:;">
+					<a href="商品详情.html">
 							<img src="images/index-list (1).png" alt="img" />
 						</a>
 						<div class="caption mui-text-left">
@@ -188,7 +188,7 @@
 					</div>
 			
 					<div class="mui-col-xs-6">
-						<a href="javascript:;">
+						<a href="商品详情.html">
 							<img src="images/index-list (2).png" alt="img" />
 						</a>
 					
@@ -206,7 +206,7 @@
 					</div>
 						
 					<div class="mui-col-xs-6">
-						<a href="javascript:;">
+					<a href="商品详情.html">
 							<img src="images/index-list (3).png" alt="img" />
 						</a>
 						
@@ -224,7 +224,7 @@
 					</div>
 						
 					<div class="mui-col-xs-6">
-						<a href="javascript:;">
+					<a href="商品详情.html">
 							<img src="images/index-list (4).png" alt="img" />
 						</a>
 						
@@ -245,6 +245,10 @@
 				
 			</div>
 			
+		<!--置顶-->
+		<aside class="zhiding">
+			<span class="iconfont icon-top "></span>
+		</aside>
 			
 		</section>
 		
@@ -254,7 +258,7 @@
 			{{#lists}}
 			
 				<div class="mui-col-xs-6">
-					<a href="javascript:;">
+					<a href="商品详情.html">
 						<img src="{{a1}}" alt="img" />
 					</a>
 					
@@ -290,7 +294,7 @@
 
 					muiPullToRefresh.init({
 						indexPage:1  , 								 // 当前页
-						maxPage :5   , 								// 总共页数
+						maxPage :10   , 								// 总共页数
 						pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
 						pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
 						url: "json/index.json",                		// ajax url

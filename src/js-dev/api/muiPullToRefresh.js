@@ -68,6 +68,7 @@ var muiPullToRefresh = (function(mui, $) {
 		return;
 	}
 
+
 	var _init = function pullUpToRefresh(obj) {
 		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
 		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;
@@ -85,7 +86,7 @@ var muiPullToRefresh = (function(mui, $) {
 			div.innerText = obj.showText.nomore;
 			div.style.textAlign = "center";
 			div.style.padding = "10px 0";
-			div.style.background = "#efeff4";
+			div.style.background = "#fff";
 			div.style.color = "#777";
 			div.style.fontSize = "16px";
 			document.querySelector(obj.pullToRefreshBig).appendChild(div);

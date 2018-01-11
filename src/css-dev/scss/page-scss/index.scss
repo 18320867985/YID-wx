@@ -13,19 +13,8 @@
             }
         }
     }
-    // 圆点
-    .mui-slider-indicator {
-        .mui-indicator {
-            background: #ccc;
-            box-shadow: none;
-            &.mui-active {
-                background: $text-primary;
-            }
-            &+.mui-indicator {
-                margin-left: 1px;
-            }
-        }
-    }
+   
+   
 }
 
 // 导航
@@ -95,7 +84,7 @@
     .mui-col-xs-6 {
         padding: 10px;
         text-align: center;
-        @media(max-width: 320px) {
+        @media(max-width: 359px) {
             padding: 10px 2px;
         }
         img {

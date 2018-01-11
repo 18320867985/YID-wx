@@ -7,8 +7,6 @@ body {
     //background: $body-bg;
 }
 
-
-
 img {
     display: inline-block;
 }
@@ -205,6 +203,7 @@ input:focus,
 .width-0-5 {
     width: 5%;
 }
+
 .width-1 {
     width: 10%;
 }
@@ -242,7 +241,6 @@ input:focus,
 }
 
 
-
 /*其他*/
 
 .overflow-y {
@@ -273,13 +271,16 @@ input:focus,
     max-width: 100% !important;
 }
 
+.response-img {
+    height: auto;
+    width: 100% !important;
+}
+
 // 用于大于1200屏幕的
 .img-100 {
     width: 100%;
     height: auto;
 }
-
-
 
 
 /* 输入框focus焦点*/
@@ -302,26 +303,27 @@ select option {
 
 
 /*ellipsis*/
+
 .ellipsis {
     max-width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
+
 .ellipsis-no {
     white-space: normal;
     word-break: break-all;
     word-wrap: break-word;
 }
-.table-fixed{
+
+.table-fixed {
     table-layout: fixed;
 }
-.table-auto{
-    
+
+.table-auto {
     table-layout: auto;
 }
-
-
 
 .padding-l-no {
     padding-left: 0;
@@ -337,8 +339,6 @@ select option {
 }
 
 
-
-
 /*clr*/
 
 .clr:before,
@@ -349,4 +349,30 @@ select option {
 
 .clr:after {
     clear: both;
+}
+
+
+/* Animated rotating icon */
+
+.spin {
+    display: inline-block;
+    animation: spin 1.5s infinite linear;
+}
+
+
+/* Prevent stack and spinners from being taken inline when inside a link */
+
+a .stack,
+a .spin {
+    display: inline-block;
+    text-decoration: none;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
 }

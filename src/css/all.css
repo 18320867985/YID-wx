@@ -15,6 +15,21 @@
 .text-danger {
   color: #ff0000; }
 
+.text-ash {
+  color: #aab2bd; }
+
+.text-ash-2 {
+  color: #e6e9ed; }
+
+.text-ash-3 {
+  color: #f0f3f5; }
+
+.text-h {
+  color: #444; }
+
+.text-label {
+  color: #777; }
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -3630,6 +3645,52 @@ body > .mui-progressbar {
   background: #f0f0f0;
   background: rgba(240, 240, 240, 0.8); }
 
+/*
+ * 标签选项卡
+ * 
+ * 
+ * <div class="tab-big">
+ * 
+	 <div class="tab-ttl">
+         <a class="tab-item active" data-target="#form_a">
+                            塑胶原料
+             </a>
+           <a class="tab-item"  data-target="#form_b">
+                            改性塑料
+            </a>
+          <a class=" tab-item"  data-target="#form_c">
+                            环保再生
+            </a>
+            <a class="tab-item"  data-target="#form_d">
+                            塑料助剂
+         </a>
+
+    </div>
+      
+     <div class="fabu-form tab-content ">
+                
+           <!--塑胶原料-->
+           <div class="form tab-content-item active" id="form_a">-塑胶原料</div>
+              <!--塑胶原料2-->
+           <div class="form tab-content-item " id="form_b">-塑胶原料2</div>
+              <!--塑胶原料3-->
+           <div class="form tab-content-item " id="form_c">-塑胶原料3</div>
+              <!--塑胶原料4-->
+           <div class="form tab-content-item " id="form_d">-塑胶原料4</div>
+ *          
+ *    </div>
+ * 
+ * </div>
+ * 
+ * */
+.tab-content-item {
+  display: none;
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s; }
+  .tab-content-item.active {
+    display: block;
+    background: #fff; }
+
 co
 body {
   font-size: 14px;
@@ -3838,6 +3899,10 @@ input:focus,
   height: auto;
   max-width: 100% !important; }
 
+.response-img {
+  height: auto;
+  width: 100% !important; }
+
 .img-100 {
   width: 100%;
   height: auto; }
@@ -3891,6 +3956,62 @@ select option {
 
 .clr:after {
   clear: both; }
+
+/* Animated rotating icon */
+.spin {
+  display: inline-block;
+  -webkit-animation: spin 1.5s infinite linear;
+          animation: spin 1.5s infinite linear; }
+
+/* Prevent stack and spinners from being taken inline when inside a link */
+a .stack,
+a .spin {
+  display: inline-block;
+  text-decoration: none; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg); } }
+
+.load-pullToRefresh {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  font-size: 16px;
+  color: #999; }
+
+.load-pullToRefresh .iconfont {
+  margin-right: 2px;
+  color: #999; }
+
+.mui-slider-indicator .mui-indicator {
+  background: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  .mui-slider-indicator .mui-indicator.mui-active {
+    background: #15ace4; }
+  .mui-slider-indicator .mui-indicator + .mui-indicator {
+    margin-left: 1px; }
+
+.icon-renminbi {
+  position: relative;
+  top: 3px;
+  margin-right: -5px;
+  margin-left: -5px; }
 
 /*错误显示*/
 .vd-box .vd-req,
@@ -4024,11 +4145,23 @@ select option {
 .mui-slider-indicator.mui-segmented-control {
   background-color: #fff; }
 
+.zhiding {
+  position: fixed;
+  bottom: 80px;
+  right: 15px;
+  z-index: 9998;
+  display: none; }
+  .zhiding .iconfont {
+    color: rgba(51, 51, 51, 0.8);
+    font-size: 40px; }
+
 /*head*/
 .head.mui-bar .mui-icon-bars {
   color: #fff; }
 
 .head.mui-bar .mui-title input {
+  position: relative;
+  top: -2px;
   font-size: 14px;
   color: #8e8e8e;
   background: #fff; }
@@ -4076,15 +4209,6 @@ select option {
   height: auto;
   max-height: 300px;
   min-height: 150px; }
-
-.index-slider .mui-slider-indicator .mui-indicator {
-  background: #ccc;
-  -webkit-box-shadow: none;
-          box-shadow: none; }
-  .index-slider .mui-slider-indicator .mui-indicator.mui-active {
-    background: #15ace4; }
-  .index-slider .mui-slider-indicator .mui-indicator + .mui-indicator {
-    margin-left: 1px; }
 
 .index-nav {
   padding: 20px 10px;
@@ -4136,7 +4260,7 @@ select option {
 .index-list .mui-col-xs-6 {
   padding: 10px;
   text-align: center; }
-  @media (max-width: 320px) {
+  @media (max-width: 359px) {
     .index-list .mui-col-xs-6 {
       padding: 10px 2px; } }
   .index-list .mui-col-xs-6 img {
@@ -4201,22 +4325,70 @@ select option {
 .prodlist-menu.mui-segmented-control {
   position: fixed;
   top: 44px;
-  padding: 10px 5px;
-  min-height: 52px;
+  height: 50px;
   border-bottom: 1px solid #ddd; }
-  .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item {
-    display: inline-block;
-    line-height: 20px;
-    padding: 5px 10px;
+  .prodlist-menu.mui-segmented-control .mui-scroll {
+    padding: 10px 5px; }
+    .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item {
+      display: inline-block;
+      line-height: 20px;
+      padding: 5px 10px;
+      margin: 0;
+      color: #777;
+      border-radius: 5px;
+      background: #f0f0f0;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
+      .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item + .mui-control-item {
+        margin-left: 10px; }
+      .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item.mui-active {
+        background: #1189b5;
+        color: #fff;
+        border-bottom: none; }
+
+/*商品详情*/
+.proddtl-imgs {
+  background: #fff; }
+  .proddtl-imgs .mui-slider-item img {
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    max-height: 300px; }
+  .proddtl-imgs .desc {
+    margin-top: 10px;
+    padding: 10px 15px; }
+    .proddtl-imgs .desc p {
+      font-size: 16px;
+      line-height: 24px;
+      color: #444 !important; }
+  .proddtl-imgs .rmb .iconfont {
+    font-size: 24px; }
+
+.proddtl-select {
+  margin: 10px 0; }
+  .proddtl-select .mui-table-view-cell {
+    border: none; }
+    .proddtl-select .mui-table-view-cell .sel {
+      color: #444; }
+    .proddtl-select .mui-table-view-cell .se2 {
+      margin-left: 10px;
+      color: #aab2bd;
+      font-size: 14px; }
+
+.proddtl-select2 {
+  margin: 10px 0;
+  padding: 15px 10px;
+  background: #fff; }
+  .proddtl-select2 h4 {
+    margin-bottom: 15px; }
+  .proddtl-select2 ul {
     margin: 0;
-    color: #777;
-    border-radius: 5px;
-    background: #f0f0f0;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s; }
-    .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item + .mui-control-item {
-      margin-left: 10px; }
-    .prodlist-menu.mui-segmented-control .mui-scroll .mui-control-item.mui-active {
-      background: #1189b5;
-      color: #fff;
-      border-bottom: none; }
+    padding: 0; }
+    .proddtl-select2 ul li label,
+    .proddtl-select2 ul li span {
+      color: #777; }
+    .proddtl-select2 ul li + li {
+      margin-top: 10px; }
+
+.proddtl-desc {
+  margin-bottom: 10px; }

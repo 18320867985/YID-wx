@@ -19,10 +19,11 @@
         //  固定菜单
         position: fixed;
         top: 44px;
-        padding: 10px 5px;
-        min-height: 52px;
+    
+       height: 50px;
         border-bottom: 1px solid #ddd;
         .mui-scroll {
+              padding: 10px 5px;
             .mui-control-item {
                 display: inline-block;
                 line-height: 20px;

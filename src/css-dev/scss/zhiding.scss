@@ -1,0 +1,17 @@
+
+
+// 置顶
+.zhiding{
+    position: fixed;
+    bottom: 80px;
+    right: 15px;
+    z-index: 9998;
+    display: none;
+    
+    
+    .iconfont{
+        color: rgba( #333,0.8);
+        font-size: 40px;
+    }
+    
+}

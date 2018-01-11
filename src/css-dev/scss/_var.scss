@@ -7,42 +7,66 @@
 //@brand-warning:         #f0ad4e;
 //@brand-danger:          #d9534f;
 
-$text-default: #8e8e8e;      // 默认
-$text-primary: #15ace4;      // 选中
-$text-info:    #5bc0de;      // 信息
-$text-warning: #f0ad4e;     // 警告   
-$text-danger:  #ff0000;      // 危险 
+$text-default: #8e8e8e; // 默认
+$text-primary: #15ace4; // 选中
+$text-info : #5bc0de; // 信息
+$text-warning: #f0ad4e; // 警告   
+$text-danger : #ff0000; // 危险 
 
-$text-h:#eee;                // 标题
-$text-alert: #323232;        // 提示
-$text-disabled:#8ad5f1;       // 不可用的
-$text-back:#666;              // 返回箭头
+$text-ash: #aab2bd;     // 谈灰
+$text-ash-2: #e6e9ed;
+$text-ash-3: #f0f3f5; 
+$text-h:rgb(50,50,50);            // h1-h6
+$text-label: #777;            //  label
 
+$text-h:#444; // 标题
 
+$text-alert: #323232; // 提示
+$text-disabled:#8ad5f1; // 不可用的
+$text-back:#666; // 返回箭头
 
 // text-color  class 
-.text-default{
-    color: $text-default;      // 默认
-}
-.text-primary{
-    color: $text-primary;      // 选中
+.text-default {
+    color: $text-default; // 默认
 }
 
-.text-info{
-    color: $text-info;      // 信息
+.text-primary {
+    color: $text-primary; // 选中
+}
+
+.text-info {
+    color: $text-info; // 信息
 }
 
 .text-warning {
-    color:$text-warning;      // 警告   
-}  
-   
-.text-danger{
-    color: $text-danger;     // 危险   
-} 
+    color: $text-warning; // 警告   
+}
+
+.text-danger {
+    color: $text-danger; // 危险   
+}
+
+.text-ash {
+    color: $text-ash;
+}
+
+.text-ash-2 {
+    color: $text-ash-2;
+}
+
+.text-ash-3 {
+    color: $text-ash-3;
+}
+
+.text-h {
+    color: $text-h;
+}
+
+.text-label {
+    color: $text-label;
+}
+
+
 
 
 //=================下面编写scss页面代码======================
-
-
-
-

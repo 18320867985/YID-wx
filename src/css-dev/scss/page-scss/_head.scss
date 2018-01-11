@@ -9,6 +9,8 @@
     }
     // input
     .mui-title input {
+        position: relative;
+        top:-2px;
         font-size: 14px;
         color: $text-default;
         background: #fff;
