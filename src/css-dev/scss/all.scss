@@ -10,13 +10,13 @@
 
 //@import "fa-scss/font-awesome.scss";        // fa 字体
 
+@import "mixin.scss";                          // 函数
+
 @import "component-scss/comp-all.scss";          //  组件
 
 //@import "df-pc.scss";                        // pc端     default scss
 
 @import "df-wx.scss";                         // 微信端  default scss
-
-@import "common.scss";                        // 公共的 scss
 
 @import "vd.scss";                             // 验证   scss
 

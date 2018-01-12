@@ -1336,28 +1336,28 @@ var threeDate = function () {
 }();
 
 
-/*单个按钮组件
+/*check按钮组件
  * 
  * 
  * <ul>
- * 	<li class="comp-btn"> 
- * 		<a class="comp-btn-item">技术牛逼</a>
+ * 	<li class="check-btn"> 
+ * 		<a class="check-btn-item">技术牛逼</a>
  * 	</li>
- * 	<li class="comp-btn"> 
- * 		<a class="comp-btn-item">信息大师</a>
+ * 	<li class="check-btn"> 
+ * 		<a class="check-btn-item">信息大师</a>
  * 	</li>
  * </ul>
  * 
  * 		
  * 选中点击事件
-		$(".comp-btn").on("comp_btn_select",function(event,element){			
+		$(".check-btn").on("check_btn_select",function(event,element){			
 			
 			// element 当前点击的元素
 			alert($(element));
 		});
 		
 		// 取消点击事件
-		$(".comp-btn").on("comp_btn_unselect",function(event,element){			
+		$(".check-btn").on("check_btn_unselect",function(event,element){			
 			
 			// element 当前点击的元素
 			alert($(element));
@@ -1367,44 +1367,20 @@ var threeDate = function () {
 
 +function ($) {
 
-	$(".comp-btn-item").on("click", function () {
+	$(".check-btn-item").on("click", function () {
 
 		if (typeof $(this).attr("data-bl") === "undefined") {
 			$(this).addClass("active");
 			$(this).attr("data-bl", "true");
 
 			//点击触发自定义事件
-			$(this).trigger("comp_btn_select", [this]);
+			$(this).trigger("check_btn_select", [this]);
 		} else {
 			//点击触发自定义事件
-			$(this).trigger("comp_btn_unselect", [this]);
+			$(this).trigger("check_btn_unselect", [this]);
 			$(this).removeClass("active");
 			$(this).removeAttr("data-bl");
 		}
-	});
-}(window.jQuery || window.Zepto);
-/*****单选按钮组件**
- * 
- * 
- * <div class="comp-radio">             
-   <div class="comp-radio-item active">盆</div>
-   <div class="comp-radio-item">箱</div>
-   <div class="comp-radio-item">斤</div>
-   <div class="comp-radio-item">米</div>
-   </div>
- * 
- * 
- * ****/
-
-+function ($) {
-
-	$(".comp-radio-item").on("tap", function () {
-		var p = $(this).parents(".comp-radio");
-		$(".comp-radio-item", p).removeClass("active");
-		$(this).addClass("active");
-
-		//点击触发自定义事件
-		$(this).trigger("radio_click", [this]);
 	});
 }(window.jQuery || window.Zepto);
 mui.init({
@@ -1440,11 +1416,11 @@ mui.init({
 /*
   
 <div class="number" >
-    <button class="plus btn" type="button">+</button>
-  <input class="num" type="number" value="1"data-min="0" data-max="9999" data-step="1" />
    <button class="minus btn" type="button">-</button>
+<input class="num" type="number" value="1" data-min="0" data-max="9999" data-step="1" />
+<button class="plus btn" type="button">+</button>
   
- </div>
+</div>
 
  * 数字框组件start
  * 事件：number_click
@@ -1528,6 +1504,35 @@ mui.init({
 }(window.jQuery || window.Zepto);
 
 /*****数字框组件end******/
+/*****单选按钮组件**
+ * 
+ * 
+ * <div class="radio-btn">             
+   <div class="radio-btn-item active">盆</div>
+   <div class="radio-btn-item">箱</div>
+   <div class="radio-btn-item">斤</div>
+   <div class="radio-btn-item">米</div>
+   </div>
+   
+   // 单选按钮点击触发自定义事件
+   $(".radio-btn").on("radio_click",function(event,el){
+   	
+   });
+ * 
+ * 
+ * ****/
+
++function ($) {
+
+  $(".radio-btn-item").on("tap", function () {
+    var p = $(this).parents(".radio-btn");
+    $(".radio-btn-item", p).removeClass("active");
+    $(this).addClass("active");
+
+    //点击触发自定义事件
+    $(this).trigger("radio_click", [this]);
+  });
+}(window.jQuery || window.Zepto);
 /*
  * 标签选项卡
  * 

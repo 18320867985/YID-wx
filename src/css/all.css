@@ -2384,7 +2384,7 @@ select {
         left: 0;
         top: -19px; }
   .mui-popover.mui-popover-action {
-    bottom: 0;
+    bottom: -18px;
     width: 100%;
     border-radius: 0;
     -webkit-transform: translate3d(0, 100%, 0);
@@ -3628,6 +3628,16 @@ body > .mui-progressbar {
     width: 100%;
     height: 100%; }
 
+/*自定义函数*/
+/*
+ * 
+ *数字框组件
+ <div class="number" >
+   <button class="minus btn" type="button">-</button>
+  <input class="num" type="number" value="1"data-min="0" data-max="9999" data-step="1" />
+    <button class="plus btn" type="button">+</button>
+ </div>
+ * */
 .thumbnail-content {
   overflow: hidden; }
 
@@ -3985,34 +3995,6 @@ a .spin {
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg); } }
 
-.load-pullToRefresh {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  margin-left: -50px;
-  width: 100px;
-  font-size: 16px;
-  color: #999; }
-
-.load-pullToRefresh .iconfont {
-  margin-right: 2px;
-  color: #999; }
-
-.mui-slider-indicator .mui-indicator {
-  background: #ccc;
-  -webkit-box-shadow: none;
-          box-shadow: none; }
-  .mui-slider-indicator .mui-indicator.mui-active {
-    background: #15ace4; }
-  .mui-slider-indicator .mui-indicator + .mui-indicator {
-    margin-left: 1px; }
-
-.icon-renminbi {
-  position: relative;
-  top: 3px;
-  margin-right: -5px;
-  margin-left: -5px; }
-
 /*错误显示*/
 .vd-box .vd-req,
 .vd-box .vd-pattern,
@@ -4154,6 +4136,34 @@ a .spin {
   .zhiding .iconfont {
     color: rgba(51, 51, 51, 0.8);
     font-size: 40px; }
+
+.load-pullToRefresh {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-left: -50px;
+  width: 100px;
+  font-size: 16px;
+  color: #999; }
+
+.load-pullToRefresh .iconfont {
+  margin-right: 2px;
+  color: #999; }
+
+.mui-slider-indicator .mui-indicator {
+  background: #ccc;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  .mui-slider-indicator .mui-indicator.mui-active {
+    background: #15ace4; }
+  .mui-slider-indicator .mui-indicator + .mui-indicator {
+    margin-left: 1px; }
+
+.icon-renminbi {
+  position: relative;
+  top: 3px;
+  margin-right: -5px;
+  margin-left: -5px; }
 
 /*head*/
 .head.mui-bar .mui-icon-bars {
@@ -4392,3 +4402,107 @@ a .spin {
 
 .proddtl-desc {
   margin-bottom: 10px; }
+
+.proddtl-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  height: 57px;
+  line-height: 57px;
+  background: #fff;
+  border-top: 1px solid #ddd; }
+  .proddtl-footer .item {
+    text-align: center;
+    color: #777;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    .proddtl-footer .item + .item {
+      border-left: 1px solid #ddd; }
+    .proddtl-footer .item .iconfont {
+      font-size: 36px;
+      vertical-align: middle;
+      color: #8e8e8e; }
+      .proddtl-footer .item .iconfont:active {
+        color: #ff0000; }
+      .proddtl-footer .item .iconfont.icon-shopping {
+        position: relative;
+        top: 2px;
+        font-size: 36px; }
+      .proddtl-footer .item .iconfont + .iconfont {
+        margin-left: 30px; }
+    .proddtl-footer .item .shop-cart {
+      position: relative;
+      margin-right: 10px; }
+      .proddtl-footer .item .shop-cart .mui-badge {
+        position: absolute;
+        top: -15px;
+        right: 0; }
+    .proddtl-footer .item .shop-add {
+      color: #777; }
+      .proddtl-footer .item .shop-add:active {
+        color: #ff0000; }
+    .proddtl-footer .item .mui-btn {
+      margin: 0; }
+
+.proddtl-select .popover-content {
+  background: #fff;
+  padding: 10px 0 20px; }
+  .proddtl-select .popover-content .img-box {
+    border-bottom: 1px solid #e6e9ed; }
+    .proddtl-select .popover-content .img-box img {
+      position: relative;
+      top: -30px;
+      left: 10px;
+      width: 120px;
+      height: 120px;
+      border: 1px solid #e6e9ed;
+      border-radius: 5px; }
+    .proddtl-select .popover-content .img-box .ttl {
+      padding-left: 20px; }
+      .proddtl-select .popover-content .img-box .ttl .iconfont {
+        font-size: 28px; }
+      .proddtl-select .popover-content .img-box .ttl li + li {
+        margin-top: 10px; }
+
+.proddtl-select .option {
+  margin: 0;
+  padding: 15px; }
+  .proddtl-select .option li label {
+    display: inline-block;
+    height: 31px;
+    line-height: 31px;
+    font-size: 14px; }
+  .proddtl-select .option li .radio-btn-item {
+    border: none; }
+    .proddtl-select .option li .radio-btn-item.active {
+      background: #e60000;
+      color: #fff; }
+  .proddtl-select .option li + li {
+    margin-top: 15px; }
+  .proddtl-select .option li .number {
+    width: 120px; }
+    .proddtl-select .option li .number .btn,
+    .proddtl-select .option li .number .num {
+      display: inline-block;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      padding: 0;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 0;
+      border: 1px solid #ddd; }
+    .proddtl-select .option li .number .btn {
+      width: 36px;
+      background: transparent;
+      color: #333; }
+      .proddtl-select .option li .number .btn:active {
+        background: #f0f3f5;
+        border: 1px solid #ddd; }
+    .proddtl-select .option li .number .num {
+      width: 48px;
+      border-left: none;
+      border-right: none;
+      background: #fff; }

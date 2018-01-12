@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="" />
 		<meta name="Description" content="" />
 		<title>商品详情</title>
@@ -24,28 +24,28 @@
 		</header>
 
 		<!-- 底部--->
-		<nav class="footer mui-bar mui-bar-tab ">
-			<a class="mui-tab-item mui-active" href="#">
-				<span class="mui-icon iconfont icon-home"></span>
-				<span class="mui-tab-label">首页</span>
-			</a>
-			<a class="mui-tab-item">
-				<span class="mui-icon iconfont  icon-sousuo2"></span>
-				<span class="mui-tab-label">搜索</span>
-			</a>
+		<nav class=" proddtl-footer  mui-bar-tab ">
+			<div class="mui-row">
+				<div class="mui-col-xs-4 item">
+					<!--购物车-->
+					<a class="shop-cart" href="javascript:;">
+						<span class="mui-icon  iconfont icon-shopping"></span>
+						<span class="mui-badge  mui-badge-danger">0</span>
+					</a>
+					<!--收藏-->
+					<a href="javascript:;">
+						<span class="mui-icon  iconfont icon-shoucang"></span>
+					</a>
 
-			<a class="mui-tab-item" href="javascript:;">
-				<span class="mui-icon  iconfont icon-menu"></span>
-				<span class="mui-tab-label">全部</span>
-			</a>
-			<a class="mui-tab-item " href="javascript:;">
-				<span class="mui-icon  iconfont icon-shopping"></span>
-				<span class="mui-tab-label">购物车</span>
-			</a>
-			<a class="mui-tab-item " href="javascript:;">
-				<span class="mui-icon  iconfont icon-geren"></span>
-				<span class="mui-tab-label">我的</span>
-			</a>
+				</div>
+				<div class="mui-col-xs-4 item">
+					<a class="shop-add" href="javascript:;">加入购物车</a>
+				</div>
+				<div class="mui-col-xs-4 item">
+					<a class="mui-btn  mui-btn-block mui-btn-danger rd-no" href="javascript:;">立即购买</a>
+				</div>
+
+			</div>
 		</nav>
 
 		<!--主体内容-->
@@ -109,14 +109,70 @@
 			<div class="proddtl-select">
 
 				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">
-						<a class="mui-navigate-right mui-ellipsis">
+					<li class="mui-table-view-cell ">
+						<a class="mui-navigate-right mui-ellipsis" href="#sheet" id="openSheet">
 							<span class="se1">选择</span>
 							<span class="se2">乐卡(Leso)儿童三轮车  黄色</span>
 						</a>
 					</li>
 
 				</ul>
+
+				<!--弹出 可选择菜单 -->
+				<div id="sheet" class="mui-popover mui-popover-bottom mui-popover-action ">
+
+					<div class="popover-content">
+
+						<div class="img-box mui-clearfix">
+							<img class="mui-pull-left" src="images/proddtl.png" alt="" />
+							<ul class="ttl mui-pull-left">
+								<li>
+									<span class="iconfont icon-renminbi text-danger"></span>
+									<span class="text-danger price ">288.00</span>
+								</li>
+								<li>
+									<label class="text-label" for="">已选项:</label>
+									<span class="select-color text-label">酷炫黄</span>
+								</li>
+
+							</ul>
+						</div>
+
+						<!-- 选择项-->
+						<ul class="option">
+							<li class="mui-row">
+								<label class=" mui-col-xs-2" for="">颜色</label>
+								<div class="radio-btn  mui-col-xs-10" data-color="">
+									<button type="button" class="radio-btn-item active">酷炫黄</button>
+									<button type="button" class="radio-btn-item ">太白金</button>
+									<button type="button" class="radio-btn-item ">宝丽橙</button>
+								</div>
+
+							</li>
+							<li class="mui-row">
+								<label class=" mui-col-xs-2" for="">尺寸</label>
+								<div class="radio-btn  mui-col-xs-10" data-size="">
+									<button type="button" class="radio-btn-item active">605*375*120</button>
+									<button type="button" class="radio-btn-item ">800*375*120</button>
+
+								</div>
+							</li>
+							<li class="mui-row">
+								<label class=" mui-col-xs-2" for="">数量</label>
+								<div class="number mui-col-xs-10">
+									<button class="minus btn" type="button">-</button>
+									<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
+									<button class="plus btn" type="button">+</button>
+								</div>
+							</li>
+
+						</ul>
+
+						<button class="mui-btn  mui-btn-danger mui-btn-block rd-no" type="button">立即购买</button>
+					</div>
+
+				</div>
+
 			</div>
 
 			<div class="proddtl-select2">
@@ -163,6 +219,29 @@
 		<script type="text/javascript">
 			// 图片预览
 			mui.previewImage();
+
+			// 加入购物车
+			$(".shop-add").on("tap", function() {
+				var $badge = $(".proddtl-footer .shop-cart").find(".mui-badge")
+				var v = $badge.text();
+				v = Number(v);
+				v = isNaN(v) ? 0 : ++v;
+				$badge.text(v);
+			});
+
+			// nummer点击事件
+			$(".number").on("number_click", function(event, element) {
+				//element 当前点击的元素	
+				//var p = $(element).parents(".number");	
+			});
+
+			// 单选按钮点击触发自定义事件
+			$(".radio-btn").on("radio_click", function(event, el) {
+				var bl = $(el).parent(".radio-btn").attr("data-color");
+				if(typeof bl !== "undefined") {
+					$(el).parents(".popover-content").find(".select-color").text(el.innerText);
+				}
+			});
 		</script>
 
 	</body>
