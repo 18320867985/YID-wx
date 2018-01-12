@@ -93,7 +93,7 @@
         }
         // 购物车图标
         .iconfont {
-            font-size: 36px;
+            font-size: 24px;
             vertical-align: middle;
             color: $text-default;
             &:active {
@@ -103,7 +103,7 @@
             &.icon-shopping {
                 position: relative;
                 top: 2px;
-                font-size: 36px;
+                font-size: 30px;
             }
             &+.iconfont {
                 margin-left: 30px;
@@ -169,20 +169,24 @@
             label{
                 display: inline-block;
                 height: 31px;
-                 line-height: 31px;
+                line-height: 31px;
                 font-size: 14px;
             }
             .radio-btn-item{
                
-                border: none;
+               margin-bottom: 15px;
+               
                &.active {
                    background: darken($text-danger,5%);
                    color:#fff;
+                    border: 1px solid $text-danger;
                    
                }
             } 
             &+li {
-                margin-top: 15px;
+              
+                padding-top: 15px;
+                border-top: 1px solid #ddd;
             }
             // num 框
             @include number(120px,30px,#ddd,16px);
