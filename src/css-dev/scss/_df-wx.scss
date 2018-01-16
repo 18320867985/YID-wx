@@ -376,3 +376,36 @@ a .spin {
         transform: rotate(359deg);
     }
 }
+
+
+
+//三联选择地址poppicker
+    .mui-poppicker-body .mui-picker {
+        background: #fff;
+    }
+    .mui-poppicker-body .mui-picker ul li {
+        color: #666;
+    }
+    .mui-pciker-rule.mui-pciker-rule-ft {
+//      background: orange;
+//      opacity: .5;
+    }
+
+//确定按钮
+.mui-btn.mui-btn-blue.mui-poppicker-btn-ok{
+    background: $text-danger;
+    color:#fff;
+    border: 1px solid darken($text-danger,10%);
+}
+
+//取消按钮
+.mui-btn.mui-poppicker-btn-cancel{
+  background: $text-danger;
+    color:#fff;
+    border: 1px solid darken($text-warning,10%);  
+}
+
+//选中项的样式
+.mui-pciker-list li.highlight{ 
+    color: $text-danger !important;
+}

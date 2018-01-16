@@ -32,3 +32,12 @@ mui.init({
 
 
 })(window.Zepto, mui);
+
+
+
+// 页脚的跳转
+$(".mui-bar-tab a").on("tap",function(){
+
+	var href=$(this).attr("href");
+	window.location.assign(href);
+})

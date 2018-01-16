@@ -74,7 +74,7 @@ var paths = {
 			
 		"src/js-dev/libs/mui/mui.pullToRefresh.material.js", // 循环初始化所有下拉刷新，上拉加载2。
 		
-		
+
 		"src/js-dev/libs/zepto/zepto.js", //zepto.js
 			
 		"src/js-dev/libs/vd/vd.js",  //数据验证
@@ -91,13 +91,13 @@ var paths = {
 	 */
 	jsPath: [
 
-		"src/js-dev/common/*.js", 		// 1.公共模块
+		"src/js-dev/common/**/*.js", 		// 1.公共模块
 		
-		"src/js-dev/api/*.js", 			// 2.自定api
+		"src/js-dev/api/**/*.js", 			// 2.自定api
 
-		"src/js-dev/component/*.js", 	// 3.公共组件
+		"src/js-dev/component/**/*.js", 	// 3.公共组件
 
-		"src/js-dev/modules/*.js" 		// 4.自定义模块
+		"src/js-dev/modules/**/*.js" 		// 4.自定义模块
 
 	],
 

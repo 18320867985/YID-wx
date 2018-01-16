@@ -1,0 +1,90 @@
+/*
+  <div class="radio-box">
+
+    <div class="radio-item">
+        <input  type="radio" id="inpu_1" name="radio-name">
+        <label for="inpu_1">网银支付</label>
+    </div>
+    
+   </div>
+   
+    <div class="checkbox">
+
+    <div class="check-item">
+        <input type="check-box" id="inpu_1" name="radio-name">
+        <label for="inpu_1">网银支付</label>
+    </div>
+    
+   </div>
+  */
+
+$radioCheck:24px;
+
+.radio-box,
+.check-box
+{
+  //radio
+    input[type='radio'],
+    input[type='checkbox']
+    
+    {
+        vertical-align: middle;
+        border: 0;
+        outline: 0!important;
+        background-color: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    input[type='radio']:before{
+        
+        font-family: iconfont;
+        content: "\e6c9";
+        font-size: $radioCheck;
+        color:#ccc; 
+    }
+    
+     input[type='radio']:checked:before{
+        
+        font-family: iconfont;
+        content: "\e654"; 
+        color:  $text-primary;
+      
+    }
+    
+    
+    
+  
+    input[type='checkbox']:before{
+        
+        font-family: iconfont;
+        content: "\e6c9";
+        font-size: $radioCheck;
+        color:#ccc;
+      
+    }
+    
+     input[type='checkbox']:checked:before{
+        
+        font-family: iconfont;
+        content: "\e652";
+        color: $text-primary;
+        
+      
+    }
+    
+    .radio-item,
+    .check-item
+    {
+        display:  inline-block;
+       
+    }
+    
+    .radio-item+.radio-item{
+        margin-left: 15px;
+    }
+    
+     .check-item+.check-item{
+        margin-left: 15px;
+    }
+    
+}

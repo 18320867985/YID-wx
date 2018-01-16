@@ -1,0 +1,141 @@
+
+/*确认订单*/
+
+.comforder{
+    
+} 
+
+.conforder-addr{
+    
+    .mui-table-view-cell{
+         position: relative;
+         padding:  10px 30px !important;
+         
+         // tel
+         .tel{
+             margin-bottom: 10px;
+         }
+         
+         .mui-icon-arrowright{
+             
+             position: absolute;
+             top: 25px;
+             right: 5px;
+         }
+    }
+}
+
+
+// 支付方式
+.conforder-pay{
+     margin-top: 10px;
+    >h4{
+        padding: 15px;
+        font-size: 18px;
+        font-weight: 400;
+        background: #fff;
+    }
+    
+   .radio-box{
+       padding: 10px;
+       font-size:16px;
+   }
+   
+   .mui-row{
+       padding: 10px;
+       label{
+             height: 34px;
+             line-height: 34px;
+       }
+       .date-box{
+           padding: 6px 10px;
+           margin: 0;
+           height: 34px;
+           width:95%;
+          
+           border-radius: 0;
+       }
+   }
+    
+    
+    
+}
+
+
+.conforder-order{
+   
+     
+     background: #fff;
+     >h4{
+        padding: 15px;
+      
+        font-size: 18px;
+        font-weight: 400;
+        border-bottom:1px solid #ddd;
+        background: #fff;
+    }
+    
+    img{
+       
+        width: 120px;
+        height: 120px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        
+    }
+    
+    .mui-row{
+        padding: 10px;
+        .cont{
+                border-bottom:1px solid #ddd;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+          
+            
+            h4{
+                height: 40px;
+                line-height: 20px;
+                font-size:18px;
+                font-weight: 400;
+                 color:#666;
+            }
+            
+            li+li{
+                margin-top: 10px;
+            }
+        }
+    }
+    
+    
+    
+}
+
+
+
+    // jiner
+    .conforder-jiner{
+         
+        padding: 10px 15px;
+        background: #fff;
+        
+        li+li{
+            margin-top: 10px;
+        }
+    }
+
+
+
+// 页脚
+ .proddtl-footer.conforder{
+     .mui-col-xs-8{
+         padding-right: 10px;
+         
+        .icon-renminbi{
+             color:$text-danger;
+        }
+     }
+ }

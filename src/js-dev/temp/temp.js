@@ -665,254 +665,6 @@ var lazy = function ($) {
 		init: _init
 	};
 }(window.jQuery || window.Zepto);
-/** 上拉加载
- * 
- * <!--pullToRefresh-big 上拉加载大框-->
-			<div class="index-list  pullToRefresh-big">
-				
-				<!-- pullToRefresh-box 上拉加载每一项-->
-				<div class="mui-row pullToRefresh-box">
-					<div class="mui-col-xs-6 ">
-						<a href="javascript:;">
-							<img src="images/index-list (1).png" alt="img" />
-						</a>
-						<div class="caption mui-text-left">
-							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
-							<p class="">口牛奶牛市兰</p>
-							<p>250ml*24 <span>家庭装</span></p>
-							
-							<div class="op mui-clearfix">
-								<span class="text-danger">79.9元/箱</span>
-								 <button class="btn" type="button">立即购买</button>
-							</div>
-						</div>
-						
-					</div>
-					
-				</div>
-					
-		</div>
-		
-	// js  
-		mui.ready(function() {
-
-			muiPullToRefresh.init({
-				indexPage:1  , 								 // 当前页
-				maxPage :10   , 							// 总共页数
-				pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
-				pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
-				url: "json/index.json",                		// ajax url
-				showText:{									// 上拉 的文本
-						init:"上拉显示更多",
-						down:"上拉显示更多",
-						refresh:"正在加载...",
-						nomore:"没有更多数据了"
-						},   
-				obj:{}  ,                              	// ajax 参数
-				fn:function(data){
-					data = data.constructor === Array ? data : JSON.parse(data);
-					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-					var html = template({
-							lists: data
-					});
-						
-				$(this.pullToRefreshBox).append(html);
-																	
-									
-				}
-			});
-			
-
-		});
-
-
- * 
- * **/
-
-var muiPullToRefresh = function (mui, $) {
-
-	if (!mui) {
-		return;
-	}
-
-	var _init = function pullUpToRefresh(obj) {
-		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
-		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;
-		obj.pullToRefreshBig = typeof obj.pullToRefreshBig === "string" ? obj.pullToRefreshBig : ".pullToRefresh-big";
-		obj.pullToRefreshBox = typeof obj.pullToRefreshBox === "string" ? obj.pullToRefreshBox : ".pullToRefresh-box";
-		obj.url = typeof obj.url === "string" ? obj.url : "";
-		obj.obj = obj.obj || {};
-		obj.obj = obj.obj.constructor === Object ? obj.obj : {};
-		obj.fn = typeof obj.fn === "function" ? obj.fn : function () {};
-		obj.showText = obj.showText || { init: "上拉显示更多", down: "上拉显示更多", refresh: "正在加载...", nomore: "没有更多数据了" };
-
-		// 没有更多数据
-		if (obj.maxPage <= obj.indexPage) {
-			var div = document.createElement("div");
-			div.innerText = obj.showText.nomore;
-			div.style.textAlign = "center";
-			div.style.padding = "10px 0";
-			div.style.background = "#fff";
-			div.style.color = "#777";
-			div.style.fontSize = "16px";
-			document.querySelector(obj.pullToRefreshBig).appendChild(div);
-			$(obj.pullToRefreshBig).css("margin-bottom", "0");
-
-			return;
-		}
-		//循环初始化所有下拉刷新，上拉加载。
-		mui.each(document.querySelectorAll(obj.pullToRefreshBig), function (index, pullRefreshEl) {
-
-			mui(pullRefreshEl).pullToRefresh({
-
-				up: {
-					callback: function callback() {
-						var self = this;
-						setTimeout(function () {
-							var ul = self.element.querySelector(obj.pullToRefreshBox);
-
-							//ajax数据 ......		
-							$.get(obj.url + "?pullToRefreshBoxid=" + obj.indexPage, obj.obj, function (data) {
-
-								obj.fn(data);
-								obj.indexPage++; //页码
-								self.endPullUpToRefresh(obj.indexPage >= obj.maxPage);
-							});
-						}, 1000);
-					},
-					contentinit: obj.showText.init,
-					contentdown: obj.showText.down,
-					contentrefresh: obj.showText.refresh,
-					contentnomore: obj.showText.nomore
-				}
-
-			});
-		});
-	};
-
-	return {
-		init: _init
-	};
-}(mui, window.Zepto || window.jQuery);
-//
-//
-//var pickerSelect=(function(mui){
-//	
-//	
-//			// 	一级选择
-//		var _oneSelect=	function oneSelect(selector, data) {
-//
-//				var userPicker = new mui.PopPicker();
-//				userPicker.setData(data);
-//
-//				var showUserPickerButton = document.querySelector(selector);
-//
-//				showUserPickerButton.addEventListener('tap', function(event) {
-//					userPicker.show(function(items) {
-//						event.target.blur();
-//						showUserPickerButton.value = items[0].text;
-//						showUserPickerButton.setAttribute("data-value", items[0].value);
-//						//返回 false 可以阻止选择框的关闭
-//						//return false;
-//					});
-//				}, false);
-//
-//			}
-//
-//			// 省份-级联示例
-//			var _getParam = function(obj, prop) {
-//				return obj[prop] || '';
-//			};
-//
-//			// 	二级选择
-//	var _twoSelect=		function twoSelect(selector) {
-//
-//				//级联示例
-//				var cityPicker = new mui.PopPicker({
-//					layer: 2
-//				});
-//				cityPicker.setData(cityData);
-//				var showCityPickerButton = document.querySelector(selector);
-//
-//				showCityPickerButton.addEventListener('tap', function(event) {
-//					cityPicker.show(function(items) {
-//						event.target.blur();
-//						showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text');
-//						//返回 false 可以阻止选择框的关闭
-//						//return false;
-//					});
-//				}, false);
-//
-//			}
-//
-//			// 三级选择
-//			var _threeSelect=function threeSelect(selector) {
-//
-//				//级联示例
-//				var cityPicker = new mui.PopPicker({
-//					layer: 3
-//				});
-//				cityPicker.setData(cityData3);
-//				var showCityPickerButton = document.querySelector(selector);
-//
-//				showCityPickerButton.addEventListener('tap', function(event) {
-//					cityPicker.show(function(items) {
-//						event.target.blur();
-//						showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text')+ "-" + _getParam(items[2], 'text');
-//						//返回 false 可以阻止选择框的关闭
-//						//return false;
-//					});
-//				}, false);
-//
-//			}
-//
-//			// 日期选择  class="mui-date" type="datetime,date ,time,month"
-//		var _dateSelect=	function dateSelect(dateSelect) {
-//
-//				dateSelect = dateSelect || ".dateSelect";
-//				var btns = $(dateSelect);
-//
-//				btns.each(function(i, btn) {
-//
-//					btn.addEventListener('tap', function(event) {
-//						var _self = this;
-//						this.blur();
-//						if(_self.picker) {
-//							_self.picker.show(function(rs) {
-//								_self.value = rs.text;
-//								_self.picker.dispose();
-//								_self.picker = null;
-//							});
-//						} else {
-//							var optionsJson = this.getAttribute('data-options') || '{}';
-//							var options = JSON.parse(optionsJson);
-//							var id = this.getAttribute('id');
-//
-//							_self.picker = new mui.DtPicker(options);
-//							_self.picker.show(function(rs) {
-//								_self.value = rs.text;
-//
-//								_self.picker.dispose();
-//								_self.picker = null;
-//							});
-//						}
-//
-//					}, false);
-//
-//				});
-//			}
-//		
-//		
-//		return{
-//			oneSelect:_oneSelect,
-//			twoSelect:_twoSelect,
-//			threeSelect:_threeSelect,
-//			dateSelect:_dateSelect
-//				
-//		}
-//	
-//	
-//})(mui);
 /*
 	 滚动监听
 	 <body data-spy="spy" data-target="#scroll_ttl">
@@ -1334,6 +1086,254 @@ var threeDate = function () {
 		init: _init
 	};
 }();
+/** 上拉加载
+ * 
+ * <!--pullToRefresh-big 上拉加载大框-->
+			<div class="index-list  pullToRefresh-big">
+				
+				<!-- pullToRefresh-box 上拉加载每一项-->
+				<div class="mui-row pullToRefresh-box">
+					<div class="mui-col-xs-6 ">
+						<a href="javascript:;">
+							<img src="images/index-list (1).png" alt="img" />
+						</a>
+						<div class="caption mui-text-left">
+							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
+							<p class="">口牛奶牛市兰</p>
+							<p>250ml*24 <span>家庭装</span></p>
+							
+							<div class="op mui-clearfix">
+								<span class="text-danger">79.9元/箱</span>
+								 <button class="btn" type="button">立即购买</button>
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+					
+		</div>
+		
+	// js  
+		mui.ready(function() {
+
+			muiPullToRefresh.init({
+				indexPage:1  , 								 // 当前页
+				maxPage :10   , 							// 总共页数
+				pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
+				pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
+				url: "json/index.json",                		// ajax url
+				showText:{									// 上拉 的文本
+						init:"上拉显示更多",
+						down:"上拉显示更多",
+						refresh:"正在加载...",
+						nomore:"没有更多数据了"
+						},   
+				obj:{}  ,                              	// ajax 参数
+				fn:function(data){
+					data = data.constructor === Array ? data : JSON.parse(data);
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+							lists: data
+					});
+						
+				$(this.pullToRefreshBox).append(html);
+																	
+									
+				}
+			});
+			
+
+		});
+
+
+ * 
+ * **/
+
+var muiPullToRefresh = function (mui, $) {
+
+	if (!mui) {
+		return;
+	}
+
+	var _init = function pullUpToRefresh(obj) {
+		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
+		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;
+		obj.pullToRefreshBig = typeof obj.pullToRefreshBig === "string" ? obj.pullToRefreshBig : ".pullToRefresh-big";
+		obj.pullToRefreshBox = typeof obj.pullToRefreshBox === "string" ? obj.pullToRefreshBox : ".pullToRefresh-box";
+		obj.url = typeof obj.url === "string" ? obj.url : "";
+		obj.obj = obj.obj || {};
+		obj.obj = obj.obj.constructor === Object ? obj.obj : {};
+		obj.fn = typeof obj.fn === "function" ? obj.fn : function () {};
+		obj.showText = obj.showText || { init: "上拉显示更多", down: "上拉显示更多", refresh: "正在加载...", nomore: "没有更多数据了" };
+
+		// 没有更多数据
+		if (obj.maxPage <= obj.indexPage) {
+			var div = document.createElement("div");
+			div.innerText = obj.showText.nomore;
+			div.style.textAlign = "center";
+			div.style.padding = "10px 0";
+			div.style.background = "#fff";
+			div.style.color = "#777";
+			div.style.fontSize = "16px";
+			document.querySelector(obj.pullToRefreshBig).appendChild(div);
+			$(obj.pullToRefreshBig).css("margin-bottom", "0");
+
+			return;
+		}
+		//循环初始化所有下拉刷新，上拉加载。
+		mui.each(document.querySelectorAll(obj.pullToRefreshBig), function (index, pullRefreshEl) {
+
+			mui(pullRefreshEl).pullToRefresh({
+
+				up: {
+					callback: function callback() {
+						var self = this;
+						setTimeout(function () {
+							var ul = self.element.querySelector(obj.pullToRefreshBox);
+
+							//ajax数据 ......		
+							$.get(obj.url + "?pullToRefreshBoxid=" + obj.indexPage, obj.obj, function (data) {
+
+								obj.fn(data);
+								obj.indexPage++; //页码
+								self.endPullUpToRefresh(obj.indexPage >= obj.maxPage);
+							});
+						}, 1000);
+					},
+					contentinit: obj.showText.init,
+					contentdown: obj.showText.down,
+					contentrefresh: obj.showText.refresh,
+					contentnomore: obj.showText.nomore
+				}
+
+			});
+		});
+	};
+
+	return {
+		init: _init
+	};
+}(mui, window.Zepto || window.jQuery);
+
+/**
+ * mui  select date
+ *<input class="date-box mui-date" type="text" data-options='{"type":"datetime","beginYear":2010,"endYear":2050}' name="" id="" value="" placeholder="输入时间" />
+ * 	
+ * // css
+ * <link rel="stylesheet" href="css/mui.picker.min.css" />
+ * 
+ * //js
+ * 	<script src="js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+ * 
+ * **/
+
+var muiSelectDate = function () {
+
+	var _init = function _init(selector) {
+		selector = selector || ".mui-date";
+		if (typeof selector === "string") {
+
+			// 时间
+			var btns = mui(selector);
+			btns.each(function (i, btn) {
+
+				btn.addEventListener('tap', function () {
+					this.blur();
+					var optionsJson = this.getAttribute('data-options') || '{}';
+					var options = JSON.parse(optionsJson);
+
+					/*
+      * 首次显示时实例化组件
+      * 示例为了简洁，将 options 放在了按钮的 dom 上
+      * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+      */
+					var picker = new mui.DtPicker(options);
+					picker.show(function (rs) {
+						btn.value = rs.text;
+						picker.dispose();
+					});
+				}, false);
+			});
+		}
+	};
+
+	return {
+		init: _init
+	};
+}();
+var pickerSelect = function (mui) {
+
+	// 	一级选择 
+	var _oneSelect = function oneSelect(selector, data) {
+
+		var userPicker = new mui.PopPicker();
+		userPicker.setData(data);
+
+		var showUserPickerButton = document.querySelector(selector);
+
+		showUserPickerButton.addEventListener('tap', function (event) {
+			userPicker.show(function (items) {
+				event.target.blur();
+				showUserPickerButton.value = items[0].text;
+				showUserPickerButton.setAttribute("data-value", items[0].value);
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+		}, false);
+	};
+
+	// 省份-级联示例
+	var _getParam = function _getParam(obj, prop) {
+		return obj[prop] || '';
+	};
+
+	// 	二级选择
+	var _twoSelect = function twoSelect(selector) {
+
+		//级联示例
+		var cityPicker = new mui.PopPicker({
+			layer: 2
+		});
+		cityPicker.setData(cityData);
+		var showCityPickerButton = document.querySelector(selector);
+
+		showCityPickerButton.addEventListener('tap', function (event) {
+			cityPicker.show(function (items) {
+				event.target.blur();
+				showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text');
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+		}, false);
+	};
+
+	// 三级选择
+	var _threeSelect = function threeSelect(selector) {
+
+		//级联示例
+		var cityPicker = new mui.PopPicker({
+			layer: 3
+		});
+		cityPicker.setData(cityData3);
+		var showCityPickerButton = document.querySelector(selector);
+
+		showCityPickerButton.addEventListener('tap', function (event) {
+			cityPicker.show(function (items) {
+				event.target.blur();
+				showCityPickerButton.value = _getParam(items[0], 'text') + "-" + _getParam(items[1], 'text') + "-" + _getParam(items[2], 'text');
+				//返回 false 可以阻止选择框的关闭
+				//return false;
+			});
+		}, false);
+	};
+
+	return {
+		oneSelect: _oneSelect,
+		twoSelect: _twoSelect,
+		threeSelect: _threeSelect
+	};
+}(mui);
 
 
 /*check按钮组件
@@ -1413,6 +1413,13 @@ mui.init({
 		mui.scrollTo(0, 300);
 	});
 })(window.Zepto, mui);
+
+// 页脚的跳转
+$(".mui-bar-tab a").on("tap", function () {
+
+	var href = $(this).attr("href");
+	window.location.assign(href);
+});
 /*
   
 <div class="number" >

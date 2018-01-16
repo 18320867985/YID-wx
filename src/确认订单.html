@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>确认订单</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+		<link rel="stylesheet" href="css/mui.picker.min.css" />
+
+	</head>
+
+	<body>
+
+		<!--头部-->
+		<header class="child-head prodlist-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">确认订单</h1>
+
+		</header>
+
+		<!-- 底部--->
+		<nav class=" proddtl-footer conforder mui-bar-tab ">
+			<div class="mui-row">
+
+				<div class="mui-col-xs-8 item mui-text-right">
+					<label for="">实付款:</label>
+					<span class="iconfont icon-renminbi text-danger"></span>
+					<span class="text-danger">288.00</span>
+				</div>
+				<div class="mui-col-xs-4 item">
+					<a class="mui-btn  mui-btn-block mui-btn-danger rd-no" href="javascript:;">提交订单</a>
+				</div>
+
+			</div>
+		</nav>
+
+		<!--主体内容-->
+		<section class=" mui-content ">
+
+			<div class="conforder">
+
+				<!--地址-->
+				<div class="conforder-addr">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+
+							<div class="tel">
+								<label for="">刘老板:</label>
+								<span class="text-777">
+					         		   	18320867988
+					         	 </span>
+							</div>
+							<p class="addr mui-ellipsis-2">广东省 深圳市 福田区 福华路海鹰大厦xxxx</p>
+
+							<!--右边icon-->
+							<span class="mui-icon mui-icon-arrowright text-ash"></span>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<!--支付方式-->
+				<div class="conforder-pay ">
+
+					<h4>支付方式</h4>
+
+					<div class="radio-box">
+
+						<div class="radio-item">
+
+							<label>	
+								<input  type="radio" id="inpu_1" name="radio-name" checked="">
+								网银支付
+							</label>
+
+						</div>
+						<div class="radio-item">
+
+							<label>
+								<input  type="radio" id="inpu_1" name="radio-name">
+								线下支付
+							</label>
+
+						</div>
+
+					</div>
+
+					<h4>配送方式</h4>
+
+					<div class="radio-box">
+
+						<div class="radio-item">
+
+							<label for="">
+								<input  type="radio" id="inpu_1" name="radio-name2" checked="">
+								顺丰配送
+							</label>
+
+						</div>
+						<div class="radio-item">
+
+							<label>
+								<input  type="radio" id="inpu_1" name="radio-name2">
+								其他
+							</label>
+
+						</div>
+
+					</div>
+
+					<h4>送货时间</h4>
+
+					<div class="mui-row">
+						<label class="mui-col-xs-3" for="">送货时间:</label>
+						<div class="mui-col-xs-9">
+							<input class="date-box mui-date" type="text" data-options='{"type":"datetime","beginYear":2010,"endYear":2050}' name="" id="" value="" placeholder="输入时间" />
+						</div>
+
+					</div>
+					
+
+				</div>
+
+				<!--商品信息-->
+				<div class="conforder-order">
+					<h4>商品信息</h4>
+					<div class="mui-row">
+
+						<div class="cont mui-clearfix">
+
+							<div class="mui-col-xs-5 mui-pull-left">
+								<img src="images/proddtl.png" alt="商品信息图片" />
+							</div>
+
+							<ul class="mui-col-xs-7 mui-pull-left">
+								<li>
+									<h4 class="mui-ellipsis-2 ttl">卡乐儿童 三轮车 三轮宝宝推车 尼诺二代</h4>
+								</li>
+								<li>
+									<label class="text-label" for="">颜色:</label>
+									<span class="text-ash">酷炫黄</span>
+								</li>
+								<li>
+									<span class="iconfont icon-renminbi text-danger"></span>
+									<span class="text-danger">288.00</span>
+									<span class="text-ash" style="margin-left: 10px;">x1</span>
+								</li>
+
+							</ul>
+						</div>
+
+						<!--留言-->
+						<div class="message mui-row">
+
+							<label class="mui-col-xs-2" for="">留言:</label>
+							<span class="mui-col-xs-10 ">士大夫大师傅的撒发射点犯得上犯得上</span>
+
+						</div>
+					</div>
+
+				</div>
+				<!--金额-->
+				<ul class="conforder-jiner">
+					<li class="mui-clearfix">
+						<label class="mui-pull-left" for="">
+								商品金额
+							</label>
+
+						<span class="mui-pull-right">
+								<span class="iconfont icon-renminbi text-danger"></span>
+						<span class="text-danger">288.00</span>
+						</span>
+					</li>
+					<li class="mui-clearfix">
+						<label class="mui-pull-left" for="">
+							优惠
+							</label>
+
+						<span class="mui-pull-right">
+								<span class="iconfont icon-renminbi text-danger"></span>
+						<span class="text-danger">0.00</span>
+						</span>
+					</li>
+					<li class="mui-clearfix">
+						<label class="mui-pull-left" for="">
+								运费
+							</label>
+
+						<span class="mui-pull-right">
+								<span class="iconfont icon-renminbi text-danger"></span>
+						<span class="text-danger">0.00</span>
+						</span>
+					</li>
+				</ul>
+
+			</div>
+			<!--置顶-->
+			<aside class="zhiding">
+				<span class="iconfont icon-top "></span>
+			</aside>
+
+		</section>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/mui.picker.min.js" type="text/javascript" charset="utf-8"></script>
+	
+		<script type="text/javascript">
+			
+			// mui-date
+			muiSelectDate.init()
+		</script>
+
+	</body>
+
+</html>
