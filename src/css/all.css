@@ -4675,3 +4675,66 @@ a .spin {
   padding-right: 10px; }
   .proddtl-footer.conforder .mui-col-xs-8 .icon-renminbi {
     color: #ff0000; }
+
+/*
+ * search
+ */
+.search-head {
+  background: #f2f2f2;
+  color: #8e8e8e; }
+  .search-head .iconfont,
+  .search-head .head-right-btn {
+    color: #8e8e8e !important; }
+  .search-head .head-right-btn:active {
+    color: #ff0000 !important; }
+
+.search-ttl {
+  padding: 20px 10px 10px 10px; }
+  .search-ttl h4 {
+    color: #8e8e8e;
+    font-size: 14px; }
+    .search-ttl h4 .mui-icon {
+      font-size: 18px; }
+  .search-ttl .next-btn:active {
+    color: #ff0000; }
+
+.search-history {
+  padding: 10px 0; }
+  .search-history .mui-col-xs-4 {
+    text-align: center; }
+    .search-history .mui-col-xs-4 a {
+      display: inline-block;
+      width: 90px;
+      height: 30px;
+      line-height: 30px;
+      margin-bottom: 15px;
+      color: #8e8e8e;
+      font-size: 14px;
+      background: #fff; }
+      .search-history .mui-col-xs-4 a:active {
+        color: #ff0000; }
+
+/*
+ addr 收货地址
+ * */
+.addr {
+  margin-top: 10px !important; }
+
+.addr-item {
+  position: relative; }
+  .addr-item ul {
+    margin: 0;
+    padding: 10px 10px 10px 15px;
+    background: #fff; }
+    .addr-item ul .default {
+      font-size: 14px; }
+    .addr-item ul li + li {
+      margin-top: 10px; }
+  .addr-item > .mui-icon {
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    z-index: 9;
+    font-size: 28px; }
+    .addr-item > .mui-icon:active {
+      color: #ff0000; }

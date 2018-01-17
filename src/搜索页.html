@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>搜索</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body>
+
+		<!--头部-->
+		<header class="head mui-bar search-head  mui-bar-nav">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">
+		    	<input type="search" name="" id="" value="" placeholder="输入关键字" data-url="" />
+		    </h1>
+			<span class="head-right-btn"> 搜索</span>
+		</header>
+
+		<!--主体内容-->
+		<section class="mui-content">
+
+			<div class="search-ttl">
+				<h4 class="mui-clearfix">大家都在搜索 
+				<span class="mui-pull-right next-btn">
+					<span class="mui-icon mui-icon-loop"></span>
+					换一批
+				</span>
+				</h4>
+			</div>
+			
+			<div class="search-history">
+				<div class="mui-row">
+					<div class="mui-col-xs-4 ">
+						<a href="javascript:;">进口奶粉</a>
+					</div>
+					<div class="mui-col-xs-4 mui-ellipsis">
+						<a href="javascript:;">宝宝服饰</a>
+					</div>
+					<div class="mui-col-xs-4 mui-ellipsis">
+						<a href="javascript:;">成人奶粉</a>
+					</div>
+					
+				</div>
+				<div class="mui-row">
+					<div class="mui-col-xs-4 mui-ellipsis">
+						<a href="javascript:;">婴儿车</a>
+					</div>
+					<div class="mui-col-xs-4 mui-ellipsis">
+						<a href="javascript:;">尿布湿</a>
+					</div>
+					<div class="mui-col-xs-4 mui-ellipsis">
+						<a href="javascript:;">玩具</a>
+					</div>
+					
+				</div>
+			</div>
+
+		</section>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		
+
+		<script type="text/javascript">
+			$(function(){
+				
+				// 点击历史搜索项
+				$(".search-history").on("tap","a",function(){
+					
+					$(".search-head  input[type=search]").val($(this).text()); 
+					
+				});
+				
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -16,10 +16,10 @@
 	<body>
 		<!--头部-->
 
-		<header class="head mui-bar    mui-bar-transparent">
+		<header class="head mui-bar mui-bar-transparent">
 			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
 			<h1 class="mui-title">
-		    	<input type="search" name="" id="" value="" placeholder="输入关键字" />
+		    	<input type="search" name="" id="" value="" placeholder="输入关键字" data-url="搜索页.html" />
 		    </h1>
 			<span class="head-right-btn"> 搜索</span>
 		</header>
@@ -32,12 +32,12 @@
 				<span class="mui-tab-label">首页</span>
 			</a>
 			
-			<a class="mui-tab-item" href="javascript:;">
+			<a class="mui-tab-item" href="搜索页.html">
 				<span class="mui-icon iconfont  icon-sousuo2"></span>
 				<span class="mui-tab-label">搜索</span>
 			</a>
 
-			<a class="mui-tab-item" href="javascript:;">
+			<a class="mui-tab-item"  href="javascript:;" >
 				<span class="mui-icon  iconfont icon-menu"></span>
 				<span class="mui-tab-label">全部</span>
 			</a>
@@ -286,6 +286,10 @@
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
+			
+			// 页面init
+			index.init();
+			
 			
 			mui("#index_slider").slider({
 				interval: 3000

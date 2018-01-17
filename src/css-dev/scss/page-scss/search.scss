@@ -1,0 +1,56 @@
+/*
+ * search
+ */
+
+.search-head {
+    background: rgb(242, 242, 242);
+    color: $text-default;
+    .iconfont,
+    .head-right-btn {
+        color: $text-default !important;
+    }
+    .head-right-btn {
+        &:active {
+            color: $text-danger !important;
+        }
+    }
+}
+
+// search-ttl
+.search-ttl {
+    padding: 20px 10px 10px 10px;
+    h4 {
+        color: $text-default;
+        font-size: 14px;
+        .mui-icon {
+            font-size: 18px;
+        }
+    }
+    // 换一批
+    .next-btn {
+        &:active {
+            color: $text-danger;
+        }
+    }
+}
+
+//search-history
+.search-history {
+    padding: 10px 0;
+    .mui-col-xs-4 {
+        text-align: center;
+        a {
+            display: inline-block;
+            width: 90px;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 15px;
+            color: $text-default;
+            font-size: 14px;
+            background: #fff;
+            &:active {
+                color: $text-danger;
+            }
+        }
+    }
+}

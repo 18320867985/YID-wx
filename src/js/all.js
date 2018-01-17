@@ -13081,4 +13081,21 @@ $(".mui-bar-tab a").on("tap", function () {
 		});
 	});
 }(window.jQuery || window.Zepto);
+var index = function () {
+
+	var _init = function _init() {
+
+		$(".head.mui-bar").find("input[type=search]").on("tap", function () {
+
+			var url = $(this).attr("data-url");
+			if (typeof url !== "undefined") {
+				window.location.assign(url);
+			}
+		});
+	};
+
+	return {
+		init: _init
+	};
+}();
 /*es6*/
