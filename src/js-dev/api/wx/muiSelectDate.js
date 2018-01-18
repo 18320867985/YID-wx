@@ -11,7 +11,6 @@
  * 
  * **/ 
 
-
 var muiSelectDate=(function(){
 	
 		var _init=  function(selector) {

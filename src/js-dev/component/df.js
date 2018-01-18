@@ -29,15 +29,24 @@ mui.init({
 		mui.scrollTo(0, 300);
 	});
 
-
-
 })(window.Zepto, mui);
 
-
-
 // 页脚的跳转
-$(".mui-bar-tab a").on("tap",function(){
+$(".mui-bar-tab a").on("tap", function() {
 
-	var href=$(this).attr("href");
+	var href = $(this).attr("href");
 	window.location.assign(href);
 })
+
+// 头部搜索页的跳转
+$(".head.mui-bar").find("input[type=search]").on("tap", function() {
+	$(this).blur();
+	if($(this).attr("data-toggle") === "skip") {
+		var url = $(this).attr("data-url");
+		if(typeof url !== "undefined") {
+			window.location.assign(url);
+		}
+	}
+	
+
+});

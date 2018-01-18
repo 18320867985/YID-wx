@@ -1,0 +1,14 @@
+/*
+ 产品分类
+ * */
+
+.prodclass-head {
+    &.mui-bar-nav {
+        // background: rgb(52,178,229);
+        
+        
+        .head-right-btn {
+            color: $text-back;
+        }
+    }
+}

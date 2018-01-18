@@ -1,0 +1,60 @@
+/*
+  左右两边滑动菜单
+ * */
+
+.topBottomTab-menu {
+    position: fixed;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+//左侧菜单组件
+.topBottomTab-menu {
+    position: fixed;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    background: #fafafa;
+}
+
+//左侧菜单组件标题
+.topBottomTab-menu-ttl {
+    height: 100%;
+    padding: 0;
+    overflow-y: scroll;
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+                padding: 10px 5px 10px 5px;
+                color: #666;
+                text-align: center;
+                background: #f8f8f8;
+            }
+            //选择样式
+            &.active a {
+                background: #fff;
+                color: red;
+            }
+        }
+    }
+}
+
+//左侧菜单组件内容
+.topBottomTab-menu-content {
+    height: 100%;
+    padding: 10px;
+    background: #f0f0f0;
+    overflow-y: scroll;
+}
+

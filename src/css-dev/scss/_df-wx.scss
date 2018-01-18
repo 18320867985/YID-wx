@@ -377,10 +377,9 @@ a .spin {
     }
 }
 
-
-
 //三联选择地址poppicker
-    .mui-poppicker-body .mui-picker {
+    .mui-poppicker-body .mui-picker ,
+    .mui-dtpicker-body .mui-picker {
         background: #fff;
     }
     .mui-poppicker-body .mui-picker ul li {
@@ -389,18 +388,24 @@ a .spin {
     .mui-pciker-rule.mui-pciker-rule-ft {
 //      background: orange;
 //      opacity: .5;
-    }
+   }
+   
+   
+   
 
 //确定按钮
-.mui-btn.mui-btn-blue.mui-poppicker-btn-ok{
-    background: $text-danger;
+.mui-btn.mui-btn-blue.mui-poppicker-btn-ok,
+.mui-dtpicker-header .mui-btn.mui-btn-blue
+{
+    background: $text-primary;
     color:#fff;
-    border: 1px solid darken($text-danger,10%);
+    border: 1px solid darken($text-primary,10%);
 }
 
 //取消按钮
-.mui-btn.mui-poppicker-btn-cancel{
-  background: $text-danger;
+.mui-btn.mui-poppicker-btn-cancel,
+.mui-dtpicker-header .mui-btn{
+  background: $text-warning;
     color:#fff;
     border: 1px solid darken($text-warning,10%);  
 }

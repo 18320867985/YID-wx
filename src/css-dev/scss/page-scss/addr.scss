@@ -20,12 +20,13 @@
         }
     }
     // 右边icon
-    >.mui-icon {
+    >.editaddr-btn {
         position: absolute;
         top: 40px;
         right: 15px;
         z-index: 9;
         font-size: 28px;
+        color:$text-label;
         
         &:active{
             color:$text-danger;

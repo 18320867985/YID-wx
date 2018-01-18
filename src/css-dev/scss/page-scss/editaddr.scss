@@ -1,0 +1,41 @@
+/*
+ * 编辑地址
+ */
+
+.editaddr-item {
+    ul {
+        width: 100%;
+        background: #fff;
+        padding: 20px 10px;
+        >li {
+            label
+            {
+                display: block;
+                height: 40px;
+                line-height: 40px;
+                margin: 0;
+            }
+            input[type=text]{
+                margin-bottom: 0;
+            }
+            // checkbox
+            .check-item {
+                margin-right: 10px;
+            }
+            &+li {
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid #ddd;
+            }
+        }
+    }
+    
+    // submit btn @charset
+    .submit-box{
+        padding: 10px;
+         .mui-btn-block {
+      
+    }
+    }
+   
+}
