@@ -1174,8 +1174,9 @@ var muiPullToRefresh = function (mui, $) {
 			div.style.textAlign = "center";
 			div.style.padding = "10px 0";
 			div.style.background = "#fff";
-			div.style.color = "#777";
-			div.style.fontSize = "16px";
+			//div.style.color = "#777";
+			//div.style.fontSize = "14px";
+			div.classList.add("mui-pull-bottom-wrapper");
 			document.querySelector(obj.pullToRefreshBig).appendChild(div);
 			$(obj.pullToRefreshBig).css("margin-bottom", "0");
 
@@ -1750,6 +1751,40 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 	});
 }(window.jQuery || window.Zepto);
 /*  左右两边滑动菜单
+ * 
+ * 	<!--头部-->
+	<header class=" topBottomTab-top">	</header>
+	
+	<!--内容-->
+	<section class=" topBottomTab-content">
+		<div class="topBottomTab-menu  mui-row ">
+			<!--左边菜单-->
+			<div class=" topBottomTab-menu-ttl  mui-col-xs-3">
+				<ul>
+					<li class="active">
+						<a href="javascript:;">奶粉</a>
+					</li>
+					<li>
+						<a href="javascript:;">叶子系列</a>
+					</li>
+					<li>
+						<a href="javascript:;">观叶植物</a>
+					</li>
+				</ul>
+			
+			</div>
+			<!--右边内容-->
+			<div class=" topBottomTab-menu-content mui-col-xs-9 ">
+					
+			</div>
+
+		</div>		
+	</div>
+	<!-- 底部--->
+	<nav class="topBottomTab-bottom"></nav>
+
+	
+
  
  	//  左右两边滑动菜单ttl 点击事件
 	$(".topBottomTab-menu-ttl ").on("topBottomTab_tap",function(target,el){

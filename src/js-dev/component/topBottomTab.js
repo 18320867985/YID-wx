@@ -1,4 +1,38 @@
 /*  左右两边滑动菜单
+ * 
+ * 	<!--头部-->
+	<header class=" topBottomTab-top">	</header>
+	
+	<!--内容-->
+	<section class=" topBottomTab-content">
+		<div class="topBottomTab-menu  mui-row ">
+			<!--左边菜单-->
+			<div class=" topBottomTab-menu-ttl  mui-col-xs-3">
+				<ul>
+					<li class="active">
+						<a href="javascript:;">奶粉</a>
+					</li>
+					<li>
+						<a href="javascript:;">叶子系列</a>
+					</li>
+					<li>
+						<a href="javascript:;">观叶植物</a>
+					</li>
+				</ul>
+			
+			</div>
+			<!--右边内容-->
+			<div class=" topBottomTab-menu-content mui-col-xs-9 ">
+					
+			</div>
+
+		</div>		
+	</div>
+	<!-- 底部--->
+	<nav class="topBottomTab-bottom"></nav>
+
+	
+
  
  	//  左右两边滑动菜单ttl 点击事件
 	$(".topBottomTab-menu-ttl ").on("topBottomTab_tap",function(target,el){
@@ -34,7 +68,7 @@
 	}
 
 	//选择的样式
-	$(".topBottomTab-menu-ttl ul").on("tap","li", function() {
+	$(".topBottomTab-menu-ttl ul").on("tap", "li", function() {
 
 		$(".topBottomTab-menu-ttl  ul li").removeClass("active");
 		$(this).addClass('active');
@@ -43,4 +77,4 @@
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 
-}(window.jQuery || window.Zepto)
+}(window.jQuery || window.Zepto);

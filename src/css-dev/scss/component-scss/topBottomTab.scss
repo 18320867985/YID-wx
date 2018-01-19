@@ -2,21 +2,15 @@
   左右两边滑动菜单
  * */
 
-.topBottomTab-menu {
-    position: fixed;
-    ul {
-        margin: 0;
-        padding: 0;
-    }
-}
-
+$topBottomTab-bg:rgb(238,242,245);
 //左侧菜单组件
 .topBottomTab-menu {
     position: fixed;
     left: 0;
     z-index: 9999;
     width: 100%;
-    background: #fafafa;
+    background: $topBottomTab-bg;
+  
 }
 
 //左侧菜单组件标题
@@ -27,7 +21,9 @@
     ul {
         margin: 0;
         padding: 0;
+       
         li {
+             
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
@@ -36,15 +32,19 @@
                 display: block;
                 width: 100%;
                 height: 100%;
-                padding: 10px 5px 10px 5px;
+                padding: 12px 5px ;
                 color: #666;
                 text-align: center;
-                background: #f8f8f8;
+                background: $topBottomTab-bg;
             }
             //选择样式
             &.active a {
                 background: #fff;
-                color: red;
+                color: darken( $text-danger,5%);
+            }
+            
+            &+li{
+                border-top:1px solid $text-ash-2;
             }
         }
     }

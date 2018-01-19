@@ -80,14 +80,25 @@
 
 		<script type="text/javascript">
 	
-			var tt=common.localStorage.setItem("test ","test1")
+		var FF=window.w=function (name){
+				
+				return new  FF.fn.init(name);
+			}
 			
-			var tt=common.localStorage.setItem(" test","test2")
-			var tt=common.localStorage.setItem("  est    ","test3")
+			FF.fn=FF.prototype={
+				
+				init:function(name){
+					this.name=name;
+					return this;
+				},
+				name:"ffFunction"
+				
+				
+			}
 			
-		
-				var tt2=common.localStorage.getItem("est")
-				alert(tt2)
+			FF.fn.init.prototype=FF.fn;
+			
+	
 			
 		</script>
 

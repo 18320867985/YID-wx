@@ -25,10 +25,16 @@
   color: #f0f3f5; }
 
 .text-h {
-  color: #444; }
+  color: #323232; }
 
 .text-label {
   color: #777; }
+
+.text-777 {
+  color: #777; }
+
+.text-999 {
+  color: #999; }
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
@@ -4094,17 +4100,11 @@ body > .mui-progressbar {
   左右两边滑动菜单
  * */
 .topBottomTab-menu {
-  position: fixed; }
-  .topBottomTab-menu ul {
-    margin: 0;
-    padding: 0; }
-
-.topBottomTab-menu {
   position: fixed;
   left: 0;
   z-index: 9999;
   width: 100%;
-  background: #fafafa; }
+  background: #eef2f5; }
 
 .topBottomTab-menu-ttl {
   height: 100%;
@@ -4122,13 +4122,15 @@ body > .mui-progressbar {
         display: block;
         width: 100%;
         height: 100%;
-        padding: 10px 5px 10px 5px;
+        padding: 12px 5px;
         color: #666;
         text-align: center;
-        background: #f8f8f8; }
+        background: #eef2f5; }
       .topBottomTab-menu-ttl ul li.active a {
         background: #fff;
-        color: red; }
+        color: #e60000; }
+      .topBottomTab-menu-ttl ul li + li {
+        border-top: 1px solid #e6e9ed; }
 
 .topBottomTab-menu-content {
   height: 100%;
@@ -4584,6 +4586,10 @@ a .spin {
 .mui-slider-indicator.mui-segmented-control {
   background-color: #fff; }
 
+.mui-pull-bottom-wrapper {
+  color: #999;
+  font-size: 16px; }
+
 .zhiding {
   position: fixed;
   bottom: 80px;
@@ -4841,7 +4847,7 @@ a .spin {
   .proddtl-select .mui-table-view-cell {
     border: none; }
     .proddtl-select .mui-table-view-cell .sel {
-      color: #444; }
+      color: #323232; }
     .proddtl-select .mui-table-view-cell .se2 {
       margin-left: 10px;
       color: #aab2bd;
@@ -5147,3 +5153,33 @@ a .spin {
  * */
 .prodclass-head.mui-bar-nav .head-right-btn {
   color: #666; }
+
+.prodclass-cont {
+  background: #fff; }
+  .prodclass-cont .item .ttl-1 {
+    margin-left: 8%;
+    margin-bottom: 10px;
+    color: #323232;
+    font-size: 16px;
+    font-weight: 400; }
+  .prodclass-cont .item .mui-col-xs-4 {
+    text-align: center; }
+    .prodclass-cont .item .mui-col-xs-4 img {
+      height: 80px;
+      width: 80px;
+      display: inline-block;
+      float: none; }
+    .prodclass-cont .item .mui-col-xs-4 h5 {
+      text-align: center;
+      color: #777;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; }
+  .prodclass-cont .item + .item {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f3f5; }
+  .prodclass-cont .mui-pull-bottom-wrapper {
+    color: #999;
+    font-size: 14px; }

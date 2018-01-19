@@ -87,8 +87,9 @@ var muiPullToRefresh = (function(mui, $) {
 			div.style.textAlign = "center";
 			div.style.padding = "10px 0";
 			div.style.background = "#fff";
-			div.style.color = "#777";
-			div.style.fontSize = "16px";
+			//div.style.color = "#777";
+			//div.style.fontSize = "14px";
+			div.classList.add("mui-pull-bottom-wrapper");
 			document.querySelector(obj.pullToRefreshBig).appendChild(div);
 			$(obj.pullToRefreshBig).css("margin-bottom", "0");
 

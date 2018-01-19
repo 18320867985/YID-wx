@@ -13,14 +13,14 @@ $text-info : #5bc0de; // 信息
 $text-warning: #f0ad4e; // 警告   
 $text-danger : #ff0000; // 危险 
 
+$text-777: #777;    
+$text-999: #999;      
+$text-h:rgb(50,50,50);   // h1-h6
 $text-ash: #aab2bd;     // 谈灰
 $text-ash-2: #e6e9ed;
 $text-ash-3: #f0f3f5; 
-$text-h:rgb(50,50,50);            // h1-h6
-$text-label: #777;            //  label
-
-$text-h:#444; // 标题
-
+           
+$text-label: $text-777;            //  label
 $text-alert: #323232; // 提示
 $text-disabled:#8ad5f1; // 不可用的
 $text-back:#666; // 返回箭头
@@ -66,6 +66,13 @@ $text-back:#666; // 返回箭头
     color: $text-label;
 }
 
+.text-777 {
+    color: $text-777;
+}
 
 
-//=================下面编写scss页面代码======================
+.text-999 {
+    color: $text-999;
+}
+
+
