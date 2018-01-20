@@ -55,7 +55,7 @@
 
 			<div class="topBottomTab-menu  mui-row  tab-big">
 
-				<div class=" topBottomTab-menu-ttl  width-2-5">
+				<div class=" topBottomTab-menu-ttl  width-2">
 					<ul class="tab-ttl">
 						<li class="active">
 							<a class="tab-item" href="javascript:;" data-page="10"  data-type="1" data-target="#a1">奶粉</a>
@@ -76,7 +76,7 @@
 					</ul>
 				</div>
 
-				<div class=" topBottomTab-menu-content  width-7-5  prodclass-cont tab-content">
+				<div class=" topBottomTab-menu-content  width-8  prodclass-cont tab-content">
 
 					<div class="tab-content-item   pullToRefresh-big active" id="a1">
 						<!--奶粉-->
@@ -183,7 +183,7 @@
 			{{#lists}}
 			<div class="mui-col-xs-4">
 				<a href="商品详情.html">
-					<img src='{{img}}' alt="" />
+					<img class="load-lazy" src="images/lazy.jpg" alt=""  data-src="{{img}}"/>
 					<h5>{{ttl}}</h5>
 				</a>
 				
@@ -198,8 +198,10 @@
 
 		<script type="text/javascript">
 			$(function() {
-
-				// 左右拖拉菜单
+				
+				wxLazy.init(); // 图片延迟加载	
+				
+				// 上下拖拉菜单
 				//点击事件
 				$(".tab-item").on("tab_select", function(event, element) {
 					//element 当前点击的元素	
@@ -245,6 +247,7 @@
 							_cont.find(".load-pullToRefresh").css("display", "none");
 							_cont.append(html);
 							$(_targetId).find(".ttl-1").text($(element).text()); 	// h4的标题文本设置
+							wxLazy.reset(); //重新获取延时加载的图片
 							getData(1, Number(_id), _targetId, {},_type);  				// 分页
 
 						});

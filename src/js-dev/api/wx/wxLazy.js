@@ -7,22 +7,23 @@
  * alt="新品上市图片"
  * data-src="images/Home/板块图片1.png"
  * > 
+ * 
+ * wxLazy.init(); // 图片延迟加载
  * */
-var lazy = (function($) {
+var wxLazy = (function($) {
 
 	var _init = function() {
 
 		var window_h = $(window).height();
 
 		$(window).scroll(function() {
-
 			setTimeout(function() {
 
 				$(".load-lazy").each(function() {
 
 					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
 					var img_h2 = parseInt($(this).offset().top) + $(this).height();
-					if($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
+					if($(window).scrollTop() >= img_h && $(window).scrollTop() < img_h2) {
 
 						$(this).attr("src", $(this).attr("data-src"));
 
@@ -38,12 +39,20 @@ var lazy = (function($) {
 					}
 
 				});
-			}, 100);
+			}, 400);
 		});
-	}
+	};
+
+	var _reset = function() {
+
+		$(".load-lazy").each(function() {
+			$(this).attr("src", $(this).attr("data-src"));
+		});
+	};
 
 	return {
-		init: _init
+		init: _init,
+		reset: _reset
 	}
 
 })(window.jQuery || window.Zepto);

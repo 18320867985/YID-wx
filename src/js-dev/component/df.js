@@ -33,9 +33,12 @@ mui.init({
 
 // 页脚的跳转
 $(".mui-bar-tab a").on("tap", function() {
-
+	
+	$(this).removeClass("mui-active");
 	var href = $(this).attr("href");
 	window.location.assign(href);
+	
+	return false;
 })
 
 // 头部搜索页的跳转

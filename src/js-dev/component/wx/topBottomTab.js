@@ -1,4 +1,4 @@
-/*  左右两边滑动菜单
+/*  上下滑动菜单
  * 
  * 	<!--头部-->
 	<header class=" topBottomTab-top">	</header>
@@ -31,10 +31,8 @@
 	<!-- 底部--->
 	<nav class="topBottomTab-bottom"></nav>
 
-	
-
  
- 	//  左右两边滑动菜单ttl 点击事件
+ 	//  上下滑动菜单ttl 点击事件
 	$(".topBottomTab-menu-ttl ").on("topBottomTab_tap",function(target,el){
 		alert($(el).text());
 	});
@@ -53,9 +51,9 @@
 	function setHeight() {
 
 		//获取head高度
-		var top_h = $(".topBottomTab-top").height() + 1;
+		var top_h = $(".topBottomTab-top").height() ;
 		//获取底部高度
-		var bottom_h = $(".topBottomTab-bottom").height() + 1;
+		var bottom_h = $(".topBottomTab-bottom").height() ;
 		//获取windown高度
 		var windown_h = $(window).height();
 
@@ -65,6 +63,7 @@
 			"height": menu_h,
 			"top": top_h
 		});
+		
 	}
 
 	//选择的样式

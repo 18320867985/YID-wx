@@ -68,7 +68,6 @@ var muiPullToRefresh = (function(mui, $) {
 		return;
 	}
 
-
 	var _init = function pullUpToRefresh(obj) {
 		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
 		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;

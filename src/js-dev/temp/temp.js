@@ -570,522 +570,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	});
 })();
-/*
- * 默认js
- * 添加 class="bs-date " 
-	<input type="text" class="form-control bs-date " value="" placeholder="订单开始时间" />
- * 
- */
-
-var bsDate = function ($) {
-
-	var _init = function _init() {
-		// bs 日历插件
-		$('.bs-date').datetimepicker({
-
-			format: "yyyy-mm-dd  ", //'yyyy-mm-dd hh:ii'
-			showMeridian: true,
-			autoclose: true,
-			todayBtn: true,
-			minView: 3 //选择日期
-			//forceParse :true  //转换格式
-
-		});
-
-		//日期不准输入
-		$('.bs-date').focus(function () {
-
-			$(this).blur();
-		});
-	};
-
-	return {
-		init: _init
-	};
-}(window.jQuery);
-/**
- * iframe
- * **/
-
-var iframe = function ($) {
-
-	// 设置iframe 高度
-	var _setHeight = function _setHeight() {
-		var windows_h = $(document).height() + 50;
-		$(window.parent.document).find(".parent-window").css("height", windows_h);
-	};
-
-	return {
-		setHeight: _setHeight
-	};
-}(window.jQuery);
-/**延迟加载**/
-
-/**
- * 延迟加载
- *  * <img class="load-lazy"
- * 	src="images/Home/lazy.jpg"
- * alt="新品上市图片"
- * data-src="images/Home/板块图片1.png"
- * > 
- * */
-var lazy = function ($) {
-
-	var _init = function _init() {
-
-		var window_h = $(window).height();
-
-		$(window).scroll(function () {
-
-			setTimeout(function () {
-
-				$(".load-lazy").each(function () {
-
-					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-					var img_h2 = parseInt($(this).offset().top) + $(this).height();
-					if ($(document).scrollTop() >= img_h && $(document).scrollTop() < img_h2) {
-
-						$(this).attr("src", $(this).attr("data-src"));
-
-						/*ie8 不支持
-       * .animate({
-      "opacity":0.2
-      }).animate({
-      "opacity": 1
-      }, 500);
-      		
-      * */
-					}
-				});
-			}, 100);
-		});
-	};
-
-	return {
-		init: _init
-	};
-}(window.jQuery || window.Zepto);
-/*
-	 滚动监听
-	 <body data-spy="spy" data-target="#scroll_ttl">
-		 
-		 <aside id="scroll_ttl">
-
-			<ul>
-				<li class="active">
-					<a href="#banner_1">1</a>
-				</li>
-				<li>
-					<a href="#banner_2">2</a>
-				</li>
-				<li>
-					<a href="#banner_3">3</a>
-				</li>
-			</ul>
-
-		</aside>
-	 </body>
- */
-var scroll = function ($) {
-
-	var obj = {
-
-		init: function init(top) {
-
-			var _top = Number(top);
-			_top = isNaN(_top) ? 0 : _top;
-
-			this.offsetTop = _top;
-			this.bindEvent(this.offsetTop);
-			this.onLoad();
-			this.onReset();
-		},
-
-		offsetTop: 0,
-
-		setOffsetTop: function setOffsetTop(top) {
-			this.offsetTop = typeof top === "number" ? top : 0;
-		},
-
-		onReset: function onReset() {
-
-			$(window).resize(function () {
-				this.scrollList();
-				this.scroll(this.offsetTop);
-			}.bind(this));
-		},
-		onLoad: function onLoad() {
-
-			$(window).load(function () {
-				this.scrollList();
-				this.scroll(this.offsetTop);
-			}.bind(this));
-		},
-
-		selector: function selector() {
-			var _tagget = $("[data-spy=spy]").attr("data-target");
-			return $(_tagget);
-		},
-
-		bindEvent: function bindEvent(top) {
-
-			var p = this.selector();
-			this.selector().find(" ul li  a").click(function () {
-
-				// animation
-				var $this = $(this);
-				var _top = Math.floor($($this.attr("href")).offset().top) - parseInt(top);
-				$("body,html").stop().animate({
-					scrollTop: _top
-				}, 500);
-			});
-		},
-
-		scroll: function scroll(top) {
-
-			var ff = this.getScrollList;
-			var p = this.selector();
-			$(window).on("scroll", function () {
-
-				var arrs = ff || [];
-
-				arrs.forEach(function (item) {
-
-					var m1 = parseInt(item.top); //- parseInt(top);
-					var m2 = parseInt(item.maxTop); //- parseInt(top);
-					if ($(window).scrollTop() >= m1 && $(window).scrollTop() < m2) {
-						//alert(item.selector)
-						p.find("ul li").removeClass("active");
-						$("[href=" + item.selector + "]").parent().addClass("active");
-						return false;
-					}
-				});
-			});
-		},
-
-		scrollList: function scrollList() {
-
-			var objs = [];
-
-			var _offsetTop = this.offsetTop;
-			var els = this.selector().find("li");
-			for (var i = 0; i < els.length; i++) {
-
-				var _el = $(els[i]).find("a").attr("href");
-
-				if (_el) {
-
-					var obj = {};
-					var _top = Math.floor($(_el).offset().top) - _offsetTop;
-
-					var maxTop = 0;
-					if (i < els.length - 1) {
-						var _el2 = $(els[i + 1]).find("a").attr("href");
-						maxTop = Math.floor($(_el2).offset().top) - _offsetTop;
-					} else {
-						maxTop = Math.floor($(document).height());
-					}
-
-					obj.selector = _el;
-					obj.top = _top;
-					obj.maxTop = maxTop;
-					objs.push(obj);
-				}
-			}
-
-			return this.getScrollList = objs;
-		},
-
-		getScrollList: []
-
-	};
-
-	return {
-		init: function init(top) {
-			obj.init(top);
-		},
-		setOffsetTop: function setOffsetTop(top) {
-			obj.setOffsetTop(top);
-		}
-	};
-}(window.jQuery || window.Zepto);
-/*
-
-三级联动地址
-
-<select id="address_1"  >
-	<option value="">==省份==</option>
-</select>
-<select id="address_2"  >
-	<option value="">==省份==</option>
-</select>
-<select id="address_3"  >
-	<option value="">==省份==</option>
-</select>
-var el_select1 = document.getElementById("address_1");
-var el_select2 = document.getElementById("address_2");
-var el_select3 = document.getElementById("address_3");
-
- * */
-
-var threeAddress = function () {
-
-	var _init = function _init(v1, v2, v3) {
-		var el_select1 = document.getElementById("address_1");
-		var el_select2 = document.getElementById("address_2");
-		var el_select3 = document.getElementById("address_3");
-		var select_data2 = [];
-
-		v1 = v1 || "省区";
-		v2 = v2 || "市区";
-		v3 = v3 || "县城";
-
-		//  一级地址
-		for (var i in cityData3) {
-
-			var el_option = document.createElement("option");
-			el_option.value = cityData3[i].text.toString();
-			el_option.innerText = cityData3[i].text.toString();
-			el_select1.insertBefore(el_option, null);
-		}
-
-		// 二级地址 change event
-		el_select1.addEventListener("change", function (e) {
-			e = e || event;
-
-			select_data2 = getBYcityValue(cityData3, e.target.value);
-			el_select2.innerHTML = "";
-			var el_empty = document.createElement("option");
-			el_empty.innerText = v2;
-			el_select2.insertBefore(el_empty, null);
-			for (var i2 in select_data2) {
-				var el_option = document.createElement("option");
-				el_option.value = select_data2[i2].text.toString();
-				el_option.innerText = select_data2[i2].text.toString();
-
-				el_select2.insertBefore(el_option, null);
-			}
-
-			// 恢复三级
-			el_select3.innerHTML = "";
-			var el_empty3 = document.createElement("option");
-			el_empty3.innerText = v3;
-			el_select3.insertBefore(el_empty3, null);
-		});
-
-		// 三级地址 change event
-		el_select2.addEventListener("change", function (e) {
-			e = e || event;
-
-			var l3 = getBYcityValue(select_data2, e.target.value);
-			el_select3.innerHTML = "";
-			var el_empty3 = document.createElement("option");
-			el_empty3.innerText = v3;
-			el_select3.insertBefore(el_empty3, null);
-			for (var i3 in l3) {
-				var el_option = document.createElement("option");
-				el_option.value = l3[i3].text.toString();
-				el_option.innerText = l3[i3].text.toString();
-				el_select3.insertBefore(el_option, null);
-			}
-		});
-
-		function getBYcityValue(objs, val) {
-
-			for (var name in objs) {
-				if (objs[name].text.trim() === val.trim()) {
-					return objs[name].children || [];
-				}
-			}
-		}
-	};
-
-	return {
-		init: _init
-	};
-}();
-/*
- 三级地址
- * 
- * <div class="form-group form-inline">
- * 
-	<label for="">year</label>
-
-	<select class="form-control" name="" id="date-year" data-start="1970" data-text="==选择年份==">
-
-	</select>
-	<label for="">Month</label>
-
-	<select class="form-control" name="" id="date-month" data-text="==选择月份==">
-
-	</select>
-	<label for="">date</label>
-
-	<select class="form-control" name="" id="date-day" data-text="==选择天数==">
-
-	</select>
-
-	</div>
- * 
- * */
-
-var threeDate = function () {
-
-	var _init = function _init() {
-
-		var _year = document.getElementById("date-year");
-		var _month = document.getElementById("date-month");
-		var _day = document.getElementById("date-day");
-
-		createYear();
-
-		_year.onchange = function () {
-			var v = _year.value || "";
-
-			if (v == "") {
-				createMonth(0);
-				createday(0);
-			} else {
-				createMonth(12);
-				createday(0);
-			}
-		};
-
-		_month.onchange = function () {
-			var y = _year.value || "";
-			if (y == "") {
-				return;
-			}
-			var m = _month.value || "";
-			if (m == "") {
-				createday(0);
-				return;
-			}
-			y = Number(y);
-			m = Number(m);
-			var d = 0;
-			switch (m) {
-				case 1:
-					d = 31;
-					break;
-				case 2:
-					d = 30;
-					if (y % 400 == 0 || y % 4 == 0 && y % 100 != 0) {
-						//document.write(num + "是闰年。");
-						d = 29;
-					} else {
-						//document.write(num + "是平年。");
-						d = 28;
-					}
-
-					break;
-				case 3:
-					d = 31;
-					break;
-				case 4:
-					d = 30;
-					break;
-				case 5:
-					d = 31;
-					break;
-				case 6:
-					d = 30;
-					break;
-				case 7:
-					d = 31;
-					break;
-				case 8:
-					d = 31;
-					break;
-				case 9:
-					d = 30;
-					break;
-				case 10:
-					d = 31;
-					break;
-				case 11:
-					d = 30;
-					break;
-				case 12:
-					d = 31;
-					break;
-			}
-
-			createday(d);
-		};
-
-		function createYear() {
-
-			var fragment = document.createDocumentFragment();
-
-			var startid = _year.getAttribute("data-start") || 1970;
-			var _yearName = _year.getAttribute("data-text") || "==选择年份==";
-			startid = Number(startid);
-			startid = isNaN(startid) ? 1970 : startid;
-
-			var fragment = document.createDocumentFragment();
-			var endId = new Date().getFullYear();
-
-			var _notOption = document.createElement("option");
-			_notOption.innerText = _yearName;
-			_notOption.value = "";
-			_notOption.selected = "selected";
-			fragment.appendChild(_notOption);
-
-			for (; startid <= endId; endId--) {
-				var _option = document.createElement("option");
-				_option.innerText = endId;
-				_option.value = endId;
-				fragment.appendChild(_option);
-			}
-			_year.innerHTML = "";
-			_year.appendChild(fragment);
-		}
-
-		function createMonth(max) {
-
-			//max=max.constructor===Number?max:12;
-			var fragment = document.createDocumentFragment();
-			var _monthName = _month.getAttribute("data-text") || "==选择月份==";
-			var _notOption = document.createElement("option");
-			_notOption.innerText = _monthName;
-			_notOption.value = "";
-			_notOption.selected = "selected";
-			fragment.appendChild(_notOption);
-			for (var m = 0; m < max; m++) {
-				var _option = document.createElement("option");
-				_option.innerText = m + 1;
-				_option.value = m + 1;
-				fragment.appendChild(_option);
-			}
-			_month.innerHTML = "";
-			_month.appendChild(fragment);
-		}
-
-		function createday(max) {
-
-			var fragment = document.createDocumentFragment();
-			var _dayName = _day.getAttribute("data-text") || "==选择天数==";
-			var _notOption = document.createElement("option");
-			_notOption.innerText = _dayName;
-			_notOption.value = "";
-			_notOption.selected = "selected";
-			fragment.appendChild(_notOption);
-			for (var d = 0; d < max; d++) {
-				var _option = document.createElement("option");
-				_option.innerText = d + 1;
-				_option.value = d + 1;
-				fragment.appendChild(_option);
-			}
-			_day.innerHTML = "";
-			_day.appendChild(fragment);
-		}
-	};
-
-	return {
-		init: _init
-	};
-}();
 /** 上拉加载
  * 
  * <!--pullToRefresh-big 上拉加载大框-->
@@ -1335,6 +819,61 @@ var pickerSelect = function (mui) {
 		threeSelect: _threeSelect
 	};
 }(mui);
+/**延迟加载**/
+
+/**
+ * 延迟加载
+ *  * <img class="load-lazy"
+ * 	src="images/Home/lazy.jpg"
+ * alt="新品上市图片"
+ * data-src="images/Home/板块图片1.png"
+ * > 
+ * 
+ * wxLazy.init(); // 图片延迟加载
+ * */
+var wxLazy = function ($) {
+
+	var _init = function _init() {
+
+		var window_h = $(window).height();
+
+		$(window).scroll(function () {
+			setTimeout(function () {
+
+				$(".load-lazy").each(function () {
+
+					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
+					var img_h2 = parseInt($(this).offset().top) + $(this).height();
+					if ($(window).scrollTop() >= img_h && $(window).scrollTop() < img_h2) {
+
+						$(this).attr("src", $(this).attr("data-src"));
+
+						/*ie8 不支持
+       * .animate({
+      "opacity":0.2
+      }).animate({
+      "opacity": 1
+      }, 500);
+      		
+      * */
+					}
+				});
+			}, 400);
+		});
+	};
+
+	var _reset = function _reset() {
+
+		$(".load-lazy").each(function () {
+			$(this).attr("src", $(this).attr("data-src"));
+		});
+	};
+
+	return {
+		init: _init,
+		reset: _reset
+	};
+}(window.jQuery || window.Zepto);
 
 
 /*check按钮组件
@@ -1418,8 +957,11 @@ mui.init({
 // 页脚的跳转
 $(".mui-bar-tab a").on("tap", function () {
 
+	$(this).removeClass("mui-active");
 	var href = $(this).attr("href");
 	window.location.assign(href);
+
+	return false;
 });
 
 // 头部搜索页的跳转
@@ -1750,7 +1292,7 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 		});
 	});
 }(window.jQuery || window.Zepto);
-/*  左右两边滑动菜单
+/*  上下滑动菜单
  * 
  * 	<!--头部-->
 	<header class=" topBottomTab-top">	</header>
@@ -1783,10 +1325,8 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 	<!-- 底部--->
 	<nav class="topBottomTab-bottom"></nav>
 
-	
-
  
- 	//  左右两边滑动菜单ttl 点击事件
+ 	//  上下滑动菜单ttl 点击事件
 	$(".topBottomTab-menu-ttl ").on("topBottomTab_tap",function(target,el){
 		alert($(el).text());
 	});
@@ -1805,9 +1345,9 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 	function setHeight() {
 
 		//获取head高度
-		var top_h = $(".topBottomTab-top").height() + 1;
+		var top_h = $(".topBottomTab-top").height();
 		//获取底部高度
-		var bottom_h = $(".topBottomTab-bottom").height() + 1;
+		var bottom_h = $(".topBottomTab-bottom").height();
 		//获取windown高度
 		var windown_h = $(window).height();
 
