@@ -24,27 +24,27 @@
 		</header>
 
 		<!-- 底部--->
-		<nav class="footer mui-bar mui-bar-tab  topBottomTab-bottom">
-
-			<a class="mui-tab-item" href="index.html">
+		<nav class="footer mui-bar mui-bar-tab topBottomTab-bottom">
+			
+			<a class="mui-tab-item " href="index.html">
 				<span class="mui-icon iconfont icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-
+			
 			<a class="mui-tab-item" href="搜索页.html">
 				<span class="mui-icon iconfont  icon-sousuo2"></span>
 				<span class="mui-tab-label">搜索</span>
 			</a>
 
-			<a class="mui-tab-item  mui-active" href="分类.html">
+			<a class="mui-tab-item mui-active"  href="分类.html" >
 				<span class="mui-icon  iconfont icon-menu"></span>
 				<span class="mui-tab-label">全部</span>
 			</a>
-			<a class="mui-tab-item " href="javascript:;">
+			<a class="mui-tab-item " href="购物车.html">
 				<span class="mui-icon  iconfont icon-shopping"></span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
-			<a class="mui-tab-item " href="javascript:;">
+			<a class="mui-tab-item " href="我的.html">
 				<span class="mui-icon  iconfont icon-geren"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
@@ -55,7 +55,7 @@
 
 			<div class="topBottomTab-menu  mui-row  tab-big">
 
-				<div class=" topBottomTab-menu-ttl  mui-col-xs-3">
+				<div class=" topBottomTab-menu-ttl  width-2-5">
 					<ul class="tab-ttl">
 						<li class="active">
 							<a class="tab-item" href="javascript:;" data-page="10"  data-type="1" data-target="#a1">奶粉</a>
@@ -76,12 +76,12 @@
 					</ul>
 				</div>
 
-				<div class=" topBottomTab-menu-content mui-col-xs-9  prodclass-cont tab-content">
+				<div class=" topBottomTab-menu-content  width-7-5  prodclass-cont tab-content">
 
 					<div class="tab-content-item   pullToRefresh-big active" id="a1">
 						<!--奶粉-->
 						<div class="item">
-							<h4 class="ttl-1">奶粉</h4>
+							<h4 class="ttl-1"></h4>
 							<div class="mui-row mui-clearfix pullToRefresh-box">
 								<!--							
 								<div class="mui-col-xs-4">
@@ -122,7 +122,7 @@
 					<div class="tab-content-item " id="a2">
 						<div class="item">
 
-							<h4 class="ttl-1">婴儿食品</h4>
+							<h4 class="ttl-1"></h4>
 							<div class="mui-row mui-clearfix pullToRefresh-box">
 
 							</div>
@@ -135,7 +135,7 @@
 					<div class="tab-content-item " id="a3">
 						<div class="item">
 
-							<h4 class="ttl-1">童鞋/童装</h4>
+							<h4 class="ttl-1"></h4>
 							<div class="mui-row mui-clearfix pullToRefresh-box">
 
 							</div>
@@ -148,7 +148,7 @@
 					<div class="tab-content-item " id="a4">
 						<div class="item">
 
-							<h4 class="ttl-1">尿裤湿巾</h4>
+							<h4 class="ttl-1"></h4>
 							<div class="mui-row mui-clearfix pullToRefresh-box">
 
 							</div>
@@ -161,7 +161,7 @@
 					<div class="tab-content-item " id="a5">
 						<div class="item">
 
-							<h4 class="ttl-1">妈妈专区</h4>
+							<h4 class="ttl-1"></h4>
 							<div class="mui-row mui-clearfix pullToRefresh-box">
 
 							</div>
@@ -182,8 +182,11 @@
 
 			{{#lists}}
 			<div class="mui-col-xs-4">
-				<img src='{{img}}' alt="" />
-				<h5>{{ttl}}</h5>
+				<a href="商品详情.html">
+					<img src='{{img}}' alt="" />
+					<h5>{{ttl}}</h5>
+				</a>
+				
 			</div>
 			{{/lists}}
 

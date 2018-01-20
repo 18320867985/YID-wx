@@ -1,0 +1,54 @@
+/**
+ *     
+ * 购物车
+ * 
+ * **/
+
+.shop-cont{
+    margin-top: 15px;
+}
+.shop-item{
+    padding: 15px 10px;
+    height: 140px;
+    background: #fff;
+    
+    // checkbox
+    .check-box{
+        position: relative; 
+        margin-top: 150%;
+    }
+    
+    img{
+        
+        width: 80px;
+        height: 100px;
+    }
+    
+    ul{
+        padding: 0;
+        margin: 0;
+        li{
+            
+            margin-bottom: 0;
+            
+            // h4
+            .ttl{
+               
+                line-height: 20px;
+                color:$text-777;
+                font-size: 14px;
+            }
+             //数字框
+            @include  number(100px,28px,#ddd,14px)
+            
+            &+li{
+                margin-top: 5px;
+            }
+            
+            .number{
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+   
+}

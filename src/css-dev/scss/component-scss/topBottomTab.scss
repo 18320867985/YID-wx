@@ -34,6 +34,7 @@ $topBottomTab-bg:rgb(238,242,245);
                 height: 100%;
                 padding: 12px 5px ;
                 color: #666;
+                font-size: 14px;
                 text-align: center;
                 background: $topBottomTab-bg;
             }
@@ -41,6 +42,7 @@ $topBottomTab-bg:rgb(238,242,245);
             &.active a {
                 background: #fff;
                 color: darken( $text-danger,5%);
+                border-left:  2px solid darken( $text-danger,5%);
             }
             
             &+li{

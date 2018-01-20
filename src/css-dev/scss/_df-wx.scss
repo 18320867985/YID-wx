@@ -1,5 +1,4 @@
-﻿co
-/*默认样式*/
+﻿/*默认样式*/
 
 body {
     font-size: 14px;
@@ -202,42 +201,102 @@ input:focus,
 
 .width-0-5 {
     width: 5%;
+    float: left;
 }
 
 .width-1 {
     width: 10%;
+    float: left;
 }
 
 .width-1-5 {
     width: 15%;
+    float: left;
 }
 
 .width-2 {
     width: 20%;
+    float: left;
 }
 
 .width-2-5 {
     width: 25%;
+    float: left;
 }
 
 .width-3 {
     width: 30%;
+    float: left;
 }
 
 .width-3-5 {
     width: 35%;
+    float: left;
 }
 
 .width-4 {
     width: 40%;
+    float: left;
 }
 
 .width-4-5 {
     width: 45%;
+    float: left;
 }
 
 .width-5 {
     width: 50%;
+    float: left;
+}
+
+.width-5-5 {
+    width: 55%;
+    float: left;
+}
+
+.width-6 {
+    width: 60%;
+    float: left;
+}
+
+.width-6-5 {
+    width: 65%;
+    float: left;
+}
+
+.width-7 {
+    width: 70%;
+    float: left;
+}
+
+.width-7-5 {
+    width: 75%;
+    float: left;
+}
+
+.width-8 {
+    width: 80%;
+    float: left;
+}
+
+.width-8-5 {
+    width: 85%;
+    float: left;
+}
+
+.width-9 {
+    width: 90%;
+    float: left;
+}
+
+.width-9-5 {
+    width: 95%;
+    float: left;
+}
+
+.width-100 {
+    width: 100%;
+   clear: both;
 }
 
 
@@ -378,39 +437,37 @@ a .spin {
 }
 
 //三联选择地址poppicker
-    .mui-poppicker-body .mui-picker ,
-    .mui-dtpicker-body .mui-picker {
-        background: #fff;
-    }
-    .mui-poppicker-body .mui-picker ul li {
-        color: #666;
-    }
-    .mui-pciker-rule.mui-pciker-rule-ft {
-//      background: orange;
-//      opacity: .5;
-   }
-   
-   
-   
+.mui-poppicker-body .mui-picker,
+.mui-dtpicker-body .mui-picker {
+    background: #fff;
+}
+
+.mui-poppicker-body .mui-picker ul li {
+    color: #666;
+}
+
+.mui-pciker-rule.mui-pciker-rule-ft {
+    //      background: orange;
+    //      opacity: .5;
+}
 
 //确定按钮
 .mui-btn.mui-btn-blue.mui-poppicker-btn-ok,
-.mui-dtpicker-header .mui-btn.mui-btn-blue
-{
+.mui-dtpicker-header .mui-btn.mui-btn-blue {
     background: $text-primary;
-    color:#fff;
-    border: 1px solid darken($text-primary,10%);
+    color: #fff;
+    border: 1px solid darken($text-primary, 10%);
 }
 
 //取消按钮
 .mui-btn.mui-poppicker-btn-cancel,
-.mui-dtpicker-header .mui-btn{
-  background: $text-warning;
-    color:#fff;
-    border: 1px solid darken($text-warning,10%);  
+.mui-dtpicker-header .mui-btn {
+    background: $text-warning;
+    color: #fff;
+    border: 1px solid darken($text-warning, 10%);
 }
 
 //选中项的样式
-.mui-pciker-list li.highlight{ 
+.mui-pciker-list li.highlight {
     color: $text-danger !important;
 }

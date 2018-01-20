@@ -80,8 +80,29 @@ $reresh-bottom-color :#999;
     background-color: $reresh-color;
 }
 
+// 上拉加载动画icon
+.load-pullToRefresh {
+    position: relative;
+    left: 50%;
+    display: block;
+    margin-top: 50%;
+    margin-left: -50px;
+    width: 100px;
+    font-size: 16px;
+    color: #999;
+}
+
+.load-pullToRefresh .iconfont {
+    margin-right: 2px;
+    color: #999;
+}
+
+.pullToRefresh-box {
+    position: relative;
+}
+
 // 没有更多数据
-.mui-pull-bottom-wrapper{
-     color: $reresh-bottom-color;
-     font-size: 16px;
+.mui-pull-bottom-wrapper {
+    color: $reresh-bottom-color;
+    font-size: 16px;
 }
