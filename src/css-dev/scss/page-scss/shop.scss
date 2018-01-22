@@ -4,51 +4,113 @@
  * 
  * **/
 
-.shop-cont{
-    margin-top: 15px;
-}
-.shop-item{
-    padding: 15px 10px;
-    height: 140px;
-    background: #fff;
-    
-    // checkbox
-    .check-box{
-        position: relative; 
-        margin-top: 150%;
+.shop-cont {
+    margin-top: 10px;
+    // checkbox 选择的样式 
+    input[type='checkbox']:checked:before {
+        color: $text-danger;
     }
-    
-    img{
-        
+}
+
+.shop-item {
+    padding: 15px 10px;
+    height: 130px;
+    background: #fff;
+    // checkbox
+    .check-box {
+        position: relative;
+        margin-top: 135%;
+    }
+    img {
         width: 80px;
         height: 100px;
     }
-    
-    ul{
+    ul {
         padding: 0;
         margin: 0;
-        li{
-            
+        li {
             margin-bottom: 0;
-            
             // h4
-            .ttl{
-               
+            .ttl {
                 line-height: 20px;
-                color:$text-777;
+                color: $text-777;
                 font-size: 14px;
             }
-             //数字框
-            @include  number(100px,28px,#ddd,14px)
-            
-            &+li{
-                margin-top: 5px;
+            //数字框
+            @include number(100px, 28px, #ddd, 14px);
+            @media(max-width:320px) {
+                @include number(80px, 28px, #ccc, 14px);
             }
-            
-            .number{
+            &.price-box {
+                height: 28px;
+                line-height: 28px;
+            }
+            &+li {
+                margin-top: 10px;
+            }
+            .number {
                 margin-bottom: 0 !important;
+                margin-left: 10px;
             }
         }
     }
-   
+    // 相连的每一项
+    &+.shop-item {
+        //border: 1px solid $text-ash-3;
+        margin-top: 5px;
+    }
+}
+
+// 计算购物车
+.shop-select{
+    position: fixed;
+    left: 0;
+    bottom: 60px;
+    z-index: 99;
+  
+    margin-top: 10px;
+    width: 100%;
+    
+    border-top: 1px solid #ddd;
+    background:  #fff;
+     
+     // checkbox
+    .check-box{
+      
+      margin-top: 13px;  
+      padding-left: 20px;
+    }   
+    
+    
+    // 计算单价部分  
+      .js{
+          padding-top: 5px;
+          p{
+              margin-bottom: 0;
+          }
+      }
+      
+     // 结算btn
+     .btn{
+       //  width: ;
+        height: 50px;
+        width: 80px;
+        line-height: 50px;
+         text-align: center;
+         font-size: 16px;
+        background: darken( $text-danger,5%);
+        color:#fff;
+        
+        &:active{
+           background: darken( $text-danger,10%);
+          
+        }
+     }
+}
+
+
+// 内容的padding-bottom
+
+ .footer ~ .shop.mui-content{
+     padding-bottom: 120px;
 }

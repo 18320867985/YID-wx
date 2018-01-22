@@ -5013,6 +5013,7 @@ a .spin {
       height: 30px;
       line-height: 30px;
       padding: 0;
+      margin-bottom: 0;
       text-align: center;
       font-size: 16px;
       border-radius: 0;
@@ -5245,15 +5246,17 @@ a .spin {
  * 
  * **/
 .shop-cont {
-  margin-top: 15px; }
+  margin-top: 10px; }
+  .shop-cont input[type='checkbox']:checked:before {
+    color: #ff0000; }
 
 .shop-item {
   padding: 15px 10px;
-  height: 140px;
+  height: 130px;
   background: #fff; }
   .shop-item .check-box {
     position: relative;
-    margin-top: 150%; }
+    margin-top: 135%; }
   .shop-item img {
     width: 80px;
     height: 100px; }
@@ -5275,6 +5278,7 @@ a .spin {
           height: 28px;
           line-height: 28px;
           padding: 0;
+          margin-bottom: 0;
           text-align: center;
           font-size: 14px;
           border-radius: 0;
@@ -5291,7 +5295,70 @@ a .spin {
           border-left: none;
           border-right: none;
           background: #fff; }
+      @media (max-width: 320px) {
+        .shop-item ul li .number {
+          width: 80px; }
+          .shop-item ul li .number .btn,
+          .shop-item ul li .number .num {
+            display: inline-block;
+            float: left;
+            height: 28px;
+            line-height: 28px;
+            padding: 0;
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 0;
+            border: 1px solid #ccc; }
+          .shop-item ul li .number .btn {
+            width: 24px;
+            background: transparent;
+            color: #333; }
+            .shop-item ul li .number .btn:active {
+              background: #f0f3f5;
+              border: 1px solid #ccc; }
+          .shop-item ul li .number .num {
+            width: 32px;
+            border-left: none;
+            border-right: none;
+            background: #fff; } }
+      .shop-item ul li.price-box {
+        height: 28px;
+        line-height: 28px; }
       .shop-item ul li + li {
-        margin-top: 5px; }
+        margin-top: 10px; }
       .shop-item ul li .number {
-        margin-bottom: 0 !important; }
+        margin-bottom: 0 !important;
+        margin-left: 10px; }
+  .shop-item + .shop-item {
+    margin-top: 5px; }
+
+.shop-select {
+  position: fixed;
+  left: 0;
+  bottom: 60px;
+  z-index: 99;
+  margin-top: 10px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff; }
+  .shop-select .check-box {
+    margin-top: 13px;
+    padding-left: 20px; }
+  .shop-select .js {
+    padding-top: 5px; }
+    .shop-select .js p {
+      margin-bottom: 0; }
+  .shop-select .btn {
+    height: 50px;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    background: #e60000;
+    color: #fff; }
+    .shop-select .btn:active {
+      background: #cc0000; }
+
+.footer ~ .shop.mui-content {
+  padding-bottom: 120px; }
