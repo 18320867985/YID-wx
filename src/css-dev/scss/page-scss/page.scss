@@ -7,20 +7,26 @@
 
 @import "index.scss";                           // 首页   
 
-@import "jingpin.scss";                           // 精品推荐
+@import "jingpin.scss";                         // 精品推荐
 
-@import "prodlist.scss";                           // 商品列表
+@import "prodlist.scss";                        // 商品列表
 
-@import "proddtl.scss";                           // 商品详情
+@import "proddtl.scss";                          // 商品详情
 
-@import "conforder.scss";                           // 确认订单
+@import "conforder.scss";                         // 确认订单
 
 @import "search.scss";                           // 搜索页
 
-@import "addr.scss";                           // 收货地址
+@import "addr.scss";                          // 收货地址
 
 @import "editaddr.scss";                        // 编辑收货地址 prodclass.scss
 
 @import "prodclass.scss";                       // 分类
 
 @import "shop.scss";                        // 购物车
+
+@import "info.scss";                        // 个人信息
+
+@import "baseSetting.scss";                  // 基本设置
+
+@import "myorder.scss";                  // 我的订单

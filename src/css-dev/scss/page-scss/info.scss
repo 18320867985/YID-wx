@@ -1,0 +1,149 @@
+/*个人信息*
+ * 
+ */
+
+// 头部
+.info-head {
+    // setting icon
+    .iconfont.icon-shezhi {
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        font-size: 28px;
+        color: $text-777;
+    }
+    // h1
+    h1 {
+        color: $text-777;
+    }
+    // right icon
+    .icon-cc-message {
+        position: absolute;
+        top: 12px;
+        right: 10px;
+        font-size: 28px;
+        color: $text-777;
+    }
+}
+
+// info-content
+.info-content {}
+
+// info-banner
+.info-banner {
+    position: relative;
+    .img-big {
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+        max-height: 350px;
+        padding: 0;
+        margin: 0;
+    }
+    //info-person 个人 图像
+    .info-person {
+        position: absolute;
+        top: 90px;
+        left: 50%;
+        margin-left: -30px;
+        
+        text-align: center;
+        .img-person {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        
+        h5{
+            width: 100%;
+            font-size: 16px;
+            text-shadow: 2px 2px 5px $text-default;
+         
+        }
+    }
+}
+
+// info-credit
+.info-credit {
+    margin: -5px 0 0 0;
+    padding: 10px;
+    background: #fff;
+    li {
+        .mui-col-xs-6 {
+            position: relative;
+            padding-left: 20px;
+            .men {
+                margin-right: 10px;
+                font-size: 18px;
+            }
+            h4 {
+                font-size: 14px;
+                font-weight: 400;
+                color: $text-777;
+            }
+            // right icon
+            .mui-icon-arrowright {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+                z-index: 2;
+                color: $text-ash;
+                font-size: 18px;
+            }
+            &+.mui-col-xs-6 {
+                border-left: 1px solid $text-ash-3;
+            }
+        }
+    }
+}
+
+.info-prod {
+    color: $text-777;
+    font-size: 16px;
+    &+.info-prod {
+        margin-top: 10px;
+    }
+}
+
+// info-order
+.info-order{
+    margin: 10px 0;
+
+    .ttl-1{
+        font-size: 16px;
+        color:$text-777;
+    }
+					
+    .mui-col-xs-3 {
+        
+        position: relative;
+        padding-top: 10px;
+    }
+    // iconfont
+    .iconfont{
+      
+        font-size: 30px;
+        color:$text-999;
+        
+    }
+    
+    // mui-badge 
+    .mui-badge {
+        position: absolute; 
+        top:-5px;
+        right:18px ;
+    }
+    
+    
+    h5{
+        margin-top: 10px;
+        text-align: center;
+        color:#666;
+    }
+}
+
+
+// info-list
+.info-list {
+    padding-bottom: 10px;
+}

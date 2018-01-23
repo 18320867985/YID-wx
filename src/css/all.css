@@ -1468,7 +1468,7 @@ input[type="submit"],
 
 .mui-table-view-cell {
   position: relative;
-  padding: 11px 15px;
+  padding: 15px 15px;
   overflow: hidden;
   -webkit-touch-callout: none; }
   .mui-table-view-cell:after {
@@ -2265,7 +2265,7 @@ select {
       border-left-width: 0;
       border-bottom: 1px solid #c8c7cc; }
   .mui-segmented-control.mui-scroll-wrapper {
-    height: 38px; }
+    height: 44px; }
     .mui-segmented-control.mui-scroll-wrapper .mui-scroll {
       height: 40px;
       width: auto;
@@ -4022,8 +4022,7 @@ body > .mui-progressbar {
   -webkit-transition: all 0.8s;
   transition: all 0.8s; }
   .tab-content-item.active {
-    display: block;
-    background: #fff; }
+    display: block; }
 
 /*
   <div class="radio-box">
@@ -5245,6 +5244,16 @@ a .spin {
  * 购物车
  * 
  * **/
+.shop-head .head-right-btn {
+  position: absolute;
+  right: 15px;
+  top: 11px;
+  z-index: 2;
+  color: #777;
+  font-size: 16px; }
+  .shop-head .head-right-btn:active {
+    color: #ff0000; }
+
 .shop-cont {
   margin-top: 10px; }
   .shop-cont input[type='checkbox']:checked:before {
@@ -5344,7 +5353,7 @@ a .spin {
   background: #fff; }
   .shop-select .check-box {
     margin-top: 13px;
-    padding-left: 20px; }
+    padding-left: 10px; }
   .shop-select .js {
     padding-top: 5px; }
     .shop-select .js p {
@@ -5362,3 +5371,202 @@ a .spin {
 
 .footer ~ .shop.mui-content {
   padding-bottom: 120px; }
+
+/*个人信息*
+ * 
+ */
+.info-head .iconfont.icon-shezhi {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  font-size: 28px;
+  color: #777; }
+
+.info-head h1 {
+  color: #777; }
+
+.info-head .icon-cc-message {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  font-size: 28px;
+  color: #777; }
+
+.info-banner {
+  position: relative; }
+  .info-banner .img-big {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    max-height: 350px;
+    padding: 0;
+    margin: 0; }
+  .info-banner .info-person {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    margin-left: -30px;
+    text-align: center; }
+    .info-banner .info-person .img-person {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%; }
+    .info-banner .info-person h5 {
+      width: 100%;
+      font-size: 16px;
+      text-shadow: 2px 2px 5px #8e8e8e; }
+
+.info-credit {
+  margin: -5px 0 0 0;
+  padding: 10px;
+  background: #fff; }
+  .info-credit li .mui-col-xs-6 {
+    position: relative;
+    padding-left: 20px; }
+    .info-credit li .mui-col-xs-6 .men {
+      margin-right: 10px;
+      font-size: 18px; }
+    .info-credit li .mui-col-xs-6 h4 {
+      font-size: 14px;
+      font-weight: 400;
+      color: #777; }
+    .info-credit li .mui-col-xs-6 .mui-icon-arrowright {
+      position: absolute;
+      right: 10px;
+      top: 18px;
+      z-index: 2;
+      color: #aab2bd;
+      font-size: 18px; }
+    .info-credit li .mui-col-xs-6 + .mui-col-xs-6 {
+      border-left: 1px solid #f0f3f5; }
+
+.info-prod {
+  color: #777;
+  font-size: 16px; }
+  .info-prod + .info-prod {
+    margin-top: 10px; }
+
+.info-order {
+  margin: 10px 0; }
+  .info-order .ttl-1 {
+    font-size: 16px;
+    color: #777; }
+  .info-order .mui-col-xs-3 {
+    position: relative;
+    padding-top: 10px; }
+  .info-order .iconfont {
+    font-size: 30px;
+    color: #999; }
+  .info-order .mui-badge {
+    position: absolute;
+    top: -5px;
+    right: 18px; }
+  .info-order h5 {
+    margin-top: 10px;
+    text-align: center;
+    color: #666; }
+
+.info-list {
+  padding-bottom: 10px; }
+
+/*
+ 基本设置
+ * */
+.baseset {
+  margin-top: 10px; }
+
+.baseset-xx {
+  margin: 0;
+  padding: 10px 15px;
+  background: #fff; }
+  .baseset-xx li label, .baseset-xx li span {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: #777; }
+  .baseset-xx li span {
+    margin-right: 10px; }
+  .baseset-xx li img {
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%; }
+  .baseset-xx li + li {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #e6e9ed; }
+
+.baseset-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #777; }
+
+/**
+ *    我的订单
+ * **/
+.myorder-slider.mui-segmented-control {
+  position: fixed !important;
+  top: 44px;
+  left: 0;
+  -webkit-box-shadow: 2px 2px 5px #ccc;
+          box-shadow: 2px 2px 5px #ccc; }
+  .myorder-slider.mui-segmented-control .mui-control-item {
+    padding: 3px 15px; }
+    .myorder-slider.mui-segmented-control .mui-control-item.mui-active {
+      border: none; }
+
+.myorder-content {
+  margin-top: 10px !important; }
+
+.myorder-order {
+  background: #fff; }
+  .myorder-order > h4 {
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 1px solid #ddd;
+    background: #fff; }
+  .myorder-order img {
+    position: relative;
+    top: 8px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 5px; }
+  .myorder-order .mui-row {
+    padding: 10px; }
+    .myorder-order .mui-row .cont {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 5px; }
+    .myorder-order .mui-row ul {
+      margin: 0;
+      padding: 0; }
+      .myorder-order .mui-row ul h4 {
+        height: 40px;
+        line-height: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #666; }
+      .myorder-order .mui-row ul li label,
+      .myorder-order .mui-row ul li .text-ash {
+        font-size: 16px; }
+      .myorder-order .mui-row ul li .confim-ok {
+        float: right;
+        margin-right: 5px;
+        font-size: 14px; }
+      .myorder-order .mui-row ul li + li {
+        margin-top: 10px; }
+    .myorder-order .mui-row .confim-box {
+      height: 33px;
+      line-height: 33px; }
+  .myorder-order + .myorder-order {
+    margin-top: 10px !important; }
+
+.mui-bar-nav ~ .myorder.mui-content {
+  padding-top: 88px; }
+
+.mui-pull-bottom-wrapper {
+  background: #fafafa !important; }

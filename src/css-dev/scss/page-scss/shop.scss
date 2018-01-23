@@ -3,7 +3,24 @@
  * 购物车
  * 
  * **/
-
+// 头部信息
+.shop-head{
+    
+    // 编辑按钮
+    .head-right-btn{
+        position:  absolute;
+        right:15px;
+        top:11px;
+        z-index: 2;
+        color:$text-777;
+        font-size: 16px;
+        
+        // active
+        &:active{
+            color:$text-danger;
+        }
+    }
+}
 .shop-cont {
     margin-top: 10px;
     // checkbox 选择的样式 
@@ -78,7 +95,7 @@
     .check-box{
       
       margin-top: 13px;  
-      padding-left: 20px;
+      padding-left: 10px;
     }   
     
     

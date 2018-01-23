@@ -17,9 +17,10 @@
 	<body>
 
 		<!--头部-->
-		<header class="child-head mui-bar mui-bar-nav">
+		<header class=" mui-bar mui-bar-nav shop-head">
 			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
 			<h1 class="mui-title">购物车</h1>
+			<span class="head-right-btn " data-text='{"edit":"编辑","complate":"完成"}'> 编辑</span>
 
 		</header>
 		<!-- 底部--->
@@ -51,7 +52,7 @@
 
 		<!--主体内容-->
 		<section class=" shop mui-content ">
-			<form  class="shop-cont">
+			<form class="shop-cont">
 
 				<div class="shop-item  mui-clearfix">
 					<div class="mui-row mui-clearfix">
@@ -251,14 +252,20 @@
 						</div>
 
 						<div class="mui-col-xs-7 mui-clearfix">
-							<div class="js mui-pull-left">
-								<label for="">总计：</label>
-								<span class="iconfont icon-renminbi text-danger"></span>
-								<span class="price text-danger">58.00</span>
-								<p>共<span class="count">0</span>件,不含运费</p>
+							<div class="edit">
+								<div class="js mui-pull-left">
+									<label for="">总计：</label>
+									<span class="iconfont icon-renminbi text-danger"></span>
+									<span class="price text-danger">58.00</span>
+									<p>共<span class="count">0</span>件,不含运费</p>
+								</div>
+
+								<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
 							</div>
-					
-							<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
+							
+							<div class="complate v-hide">
+								<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
+							</div>
 
 						</div>
 
@@ -274,51 +281,36 @@
 
 		<script type="text/javascript">
 			$(function() {
+				// page init
+				shop.init();
+				
+				// 结算
 				$(".submit-btn").on("tap", function() {
-			
+
 					alert($(".shop-item input[type=checkbox]:checked").length);
 				});
-			});
-
-			$("#check_all").on("click", function() {
-
-				if($(this).attr("data-bl")) {
-					$(this).removeAttr("data-bl");
-					select_ck(false);
-
-				} else {
-					
-					$(this).attr("data-bl", "true");
-					select_ck(true);
-
-				}
-
-			});
-
-			function select_ck(bl) {
 				
-				if(bl) {
-					
-					$(".shop-item input[type=checkbox]").each(function() {
-						if($(this).attr("checked") != "false") {
-							$(this).triggerHandler("tap");
-							
-							$(this).attr("checked", true);
+				// 删除
+				$(".delete-btn").on("tap", function() {
+					var els=$(".shop-item input[type=checkbox]:checked");
+					if(els.length===0){
+						mui.alert("还没有选择数据！"," ","确定");
+						return;
+					}
+					mui.confirm("确认要删除数据?"," ",["确认","取消"],function(e){
+						if(e.index==0){
+							els.each(function(){
+								$(this).parents(".shop-item").remove()
+							});
 						}
-
+					
 					});
-
-				} else {
-
-					$(".shop-item input[type=checkbox]").each(function() {
-						$(this).triggerHandler("tap");
-						$(this).removeAttr("checked");
-						
-					});
+					
+					
+				});
 				
-				}
-
-			}
+				
+			});
 		</script>
 
 	</body>

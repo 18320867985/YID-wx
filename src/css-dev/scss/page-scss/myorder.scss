@@ -1,0 +1,98 @@
+/**
+ *    我的订单
+ * **/
+
+// myorder-slider
+.myorder-slider.mui-segmented-control {
+    position: fixed !important;
+    top: 44px;
+    left: 0;
+    box-shadow: 2px 2px 5px #ccc;
+    // 左右拖拉菜单
+    .mui-control-item {
+        padding: 3px 15px;
+        // color:$text-default;
+        &.mui-active {
+            border: none;
+        }
+    }
+}
+
+//  myorder-content
+.myorder-content {
+    margin-top: 10px !important;
+}
+
+.myorder-order {
+    background: #fff;
+    >h4 {
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 400;
+        border-bottom: 1px solid #ddd;
+        background: #fff;
+    }
+    img {
+        position: relative;
+        top: 8px;
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .mui-row {
+        padding: 10px;
+        .cont {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            h4 {
+                height: 40px;
+                line-height: 20px;
+                font-size: 16px;
+                font-weight: 400;
+                color: #666;
+            }
+            li {
+                label,
+                .text-ash {
+                    font-size: 16px;
+                }
+                // 确认收货
+                .confim-ok {
+                   
+                    float: right;
+                    margin-right: 5px;
+                    font-size: 14px;
+                }
+                &+li {
+                    margin-top: 10px;
+                }
+            }
+        }
+        
+        .confim-box{
+            height: 33px;
+            line-height: 33px;
+        }
+    }
+    
+    
+    &+.myorder-order {
+        margin-top: 10px !important;
+    }
+}
+
+// padding-top
+.mui-bar-nav~.myorder.mui-content {
+    padding-top: 88px;
+}
+
+// 上拉加载
+.mui-pull-bottom-wrapper{
+    background: #fafafa !important;
+}

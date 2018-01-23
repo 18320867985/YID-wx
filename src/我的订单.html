@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>我的订单</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body class="">
+		<!--头部-->
+		<header class="child-head prodlist-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+
+		<!--主体内容-->
+		<section class="myorder mui-content ">
+
+			<!--左右拖拉菜单-->
+			<div class="tab-big">
+
+				<div class="myorder-slider mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="tab-ttl mui-scroll">
+						<a class="tab-item active mui-control-item mui-active" data-page="9" data-type="0" data-target="#a1">
+							全部
+						</a>
+						<a class=" tab-item mui-control-item" data-page="2" data-type="1" data-target="#a2">
+							待审核
+						</a>
+						<a class=" tab-item mui-control-item" data-page="3" data-type="2" data-target="#a3">
+							待审核
+						</a>
+						<a class=" tab-item mui-control-item" data-page="4" data-type="3" data-target="#a4">
+							已完成
+						</a>
+
+					</div>
+				</div>
+
+				<div class="tab-content  myorder-content">
+
+					<!--列表-->
+					<!--pullToRefresh-big 上拉加载大框-->
+					<div class="index-list tab-content-item  active pullToRefresh-big" id="a1">
+
+						<!-- pullToRefresh-box 上拉加载每一项-->
+						<div class=" pullToRefresh-box ">
+
+							<!--订单信息-->
+							<!--<div class="myorder-order">
+
+								<div class="mui-row">
+
+									<div class="cont mui-clearfix">
+
+										<div class="mui-col-xs-5 mui-pull-left">
+											<img src="images/proddtl.png" alt="商品信息图片" />
+										</div>
+
+										<ul class="mui-col-xs-7 mui-pull-left">
+											<li class="mui-clearfix">
+												<h4 class="mui-ellipsis-2 ttl">卡乐儿童 三轮车 三轮宝宝推车 尼诺二代</h4>
+											</li>
+											<li class="mui-clearfix">
+												<label class="text-label" for="">颜色:</label>
+												<span class="text-ash">酷炫黄</span>
+
+											</li>
+											<li class="mui-clearfix">
+												<span class="iconfont icon-renminbi text-danger"></span>
+												<span class="text-danger">288.00</span>
+												<span class="text-ash" style="margin-left: 10px;">x1</span>
+												<span class="text-ash confim-ok">已确认收货</span>
+											</li>
+
+										</ul>
+									</div>
+
+									<div class="confim-box mui-row mui-clearfix">
+
+										<label class="" for="">实际付款:</label>
+										<span class="text-danger">188.00</span>
+
+										<a class="mui-btn  rd-no2 mui-pull-right" href="javascript:;">确认付款</a>
+
+									</div>
+								</div>
+
+							</div>
+						-->
+						</div>
+
+					</div>
+
+					<div class="index-list tab-content-item   pullToRefresh-big" id="a2">
+
+						<!-- pullToRefresh-box 上拉加载每一项-->
+						<div class="mui-row pullToRefresh-box">
+
+						</div>
+
+					</div>
+					<div class="index-list tab-content-item   pullToRefresh-big" id="a3">
+
+						<!-- pullToRefresh-box 上拉加载每一项-->
+						<div class="mui-row pullToRefresh-box">
+
+						</div>
+
+					</div>
+					<div class="index-list tab-content-item  pullToRefresh-big" id="a4">
+
+						<!-- pullToRefresh-box 上拉加载每一项-->
+						<div class="mui-row pullToRefresh-box">
+
+						</div>
+
+					</div>
+					<div class="index-list tab-content-item   pullToRefresh-big" id="a5">
+
+						<!-- pullToRefresh-box 上拉加载每一项-->
+						<div class="mui-row pullToRefresh-box">
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<!--置顶-->
+			<aside class="zhiding">
+				<span class="iconfont icon-top "></span>
+			</aside>
+
+		</section>
+
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+			<!--订单信息-->
+			<div class="myorder-order">
+
+				<div class="mui-row">
+
+					<div class="cont mui-clearfix">
+
+						<div class="mui-col-xs-5 mui-pull-left">
+							<img src="images/proddtl.png" alt="商品信息图片" />
+						</div>
+
+						<ul class="mui-col-xs-7 mui-pull-left">
+							<li class="mui-clearfix">
+								<h4 class="mui-ellipsis-2 ttl">{{ttl}}</h4>
+							</li>
+							<li class="mui-clearfix">
+								<label class="text-label" for="">颜色:</label>
+								<span class="text-ash">{{color}}</span>
+
+							</li>
+							<li class="mui-clearfix">
+								<span class="iconfont icon-renminbi text-danger"></span>
+								<span class="text-danger">{{price}}</span>
+								<span class="text-ash" style="margin-left: 10px;">x1</span>
+								<span class="text-ash confim-ok">已确认收货</span>
+							</li>
+
+						</ul>
+					</div>
+
+					<div class="confim-box mui-row mui-clearfix">
+
+						<label class="" for="">实际付款:</label>
+						<span class="text-danger">188.00</span>
+
+						<!--审核中-->
+						{{#gg type 1 }}
+						<a href="">{{firstName}}</a>
+						<a class="mui-btn  rd-no2 mui-pull-right" href="javascript:;">审核中</a>
+						{{/gg}}
+
+						<!--待审核-->
+						{{#gg type 2 }}
+						<a href="">{{firstName}}</a>
+						<a class="mui-btn  rd-no2 mui-pull-right" href="javascript:;">确认收货</a>
+						{{/gg}}
+
+						<!--已完成-->
+						{{#gg type 3 }}
+						<a href="">{{firstName}}</a>
+						<a class="mui-btn  rd-no2 mui-pull-right" href="javascript:;">再次购买</a>
+						{{/gg}}
+
+					</div>
+				</div>
+
+			</div>
+
+			{{/lists}}
+
+		</script>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			mui("#index_slider").slider({
+				interval: 3000
+			});
+
+			wxLazy.init(); // 图片延迟加载
+
+			// 左右拖拉菜单
+			$(" .mui-scroll").on("tap", ".mui-control-item", function() {
+
+				var _id = $(this).attr("data-page") || 1;
+				var _bl = $(this).attr("data-bl");
+				var _type = $(this).attr("data-type")||0; // 类型
+				var _targetId = $(this).attr("data-target");
+				var _cont = $(".pullToRefresh-box", _targetId)
+				//alert(_targetId)
+				if(_bl === undefined) {
+					$(this).attr("data-bl", true);
+
+					// 加载icon动画
+					var _load = document.createElement("span");
+					var _load2 = document.createElement("span");
+					var _load3 = document.createElement("span");
+					_load.classList.add("load-pullToRefresh");
+					_load2.classList.add("iconfont");
+					_load2.classList.add("icon-jiazai");
+					_load2.classList.add("spin");
+					_load3.innerText = "加载中...";
+					_load.appendChild(_load2);
+					_load.appendChild(_load3);
+					_cont.html(_load);
+
+					//setTimeout(function() {
+
+					$.get("json/myorder.json?pullToRefreshId=" + Math.random().toString(), {
+						id: _id
+					}, function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						// 类型判断
+						if(_type != 0) {
+							data = com.list.where(data, function(item) {
+								return item.type == _type
+							});
+						}
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+
+						_cont.find(".load-pullToRefresh").css("display", "none");
+						_cont.append(html);
+						wxLazy.reset(); //重新获取延时加载的图片
+						getData(1, Number(_id), _targetId, {}, _type);
+
+					});
+
+					//	}, 1000);
+
+				}
+
+			});
+
+			// 分页
+			mui.ready(function() {
+				// 第一次加载
+				$(" .mui-scroll .mui-control-item").eq(0).trigger("tap");
+			});
+
+			// ajax 分页
+			function getData(indexPage, allPage, pullToRefreshBig, obj, _type) {
+
+				muiPullToRefresh.init({
+					indexPage: indexPage, // 当前页
+					maxPage: allPage, // 总共页数
+					pullToRefreshBig: pullToRefreshBig, // 上拉的大框
+					pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+					url: "json/myorder.json", // ajax url
+					showText: { // 上拉 的文本
+						init: "上拉显示更多",
+						down: "上拉显示更多",
+						refresh: "正在加载...",
+						nomore: "没有更多数据了"
+					},
+					obj: obj, // ajax 参数
+					fn: function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						
+						// 类型判断
+						if(_type != 0) {
+							data = com.list.where(data, function(item) {
+								return item.type == _type
+							});
+						}
+
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+
+						$(".load").css("display", "none");
+						$(this.pullToRefreshBig).find(this.pullToRefreshBox).append(html);
+
+					}
+				});
+
+			}
+		</script>
+
+	</body>
+
+</html>
