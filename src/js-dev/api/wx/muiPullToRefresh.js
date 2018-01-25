@@ -68,7 +68,8 @@ var muiPullToRefresh = (function(mui, $) {
 		return;
 	}
 
-	var _init = function pullUpToRefresh(obj) {
+
+	var _init = function pullUpToRefresh(obj,fn) {
 		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
 		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;
 		obj.pullToRefreshBig = typeof obj.pullToRefreshBig === "string" ? obj.pullToRefreshBig : ".pullToRefresh-big";
@@ -76,9 +77,26 @@ var muiPullToRefresh = (function(mui, $) {
 		obj.url = typeof obj.url === "string" ? obj.url : "";
 		obj.obj = obj.obj || {};
 		obj.obj = obj.obj.constructor === Object ? obj.obj : {};
+		
 		obj.fn = typeof obj.fn === "function" ? obj.fn : function() {};
 		obj.showText=obj.showText||{init:"上拉显示更多",down:"上拉显示更多",	refresh:"正在加载...",nomore:"没有更多数据了"};
 
+	
+	
+		// ajax数据 ......		
+		$.get(obj.url + "?pullToRefreshBoxid=" + obj.indexPage, obj.obj, function(data) {
+			
+			$(obj.pullToRefreshBox).empty();
+			obj.fn(data);
+			obj.indexPage++; //页码
+		
+			// 回调函数
+			 if(typeof fn==="function"){
+			 	fn(data);
+			 }
+		});
+
+			
 		// 没有更多数据
 		if(obj.maxPage <= obj.indexPage) {
 			var div = document.createElement("div");
@@ -89,19 +107,25 @@ var muiPullToRefresh = (function(mui, $) {
 			//div.style.color = "#777";
 			//div.style.fontSize = "14px";
 			div.classList.add("mui-pull-bottom-wrapper");
+			//document.querySelector(obj.pullToRefreshBig).innerHTML="";
 			document.querySelector(obj.pullToRefreshBig).appendChild(div);
 			$(obj.pullToRefreshBig).css("margin-bottom", "0");
-
+			
 			return;
 		}
+	
+		 
 		//循环初始化所有下拉刷新，上拉加载。
 		mui.each(document.querySelectorAll(obj.pullToRefreshBig), function(index, pullRefreshEl) {
+			
 
 			mui(pullRefreshEl).pullToRefresh({
-
+	
 				up: {
+					
 					callback: function() {
 						var self = this;
+						self.refresh(true);
 						setTimeout(function() {
 							var ul = self.element.querySelector(obj.pullToRefreshBox);
 
@@ -110,7 +134,8 @@ var muiPullToRefresh = (function(mui, $) {
 
 								obj.fn(data);
 								obj.indexPage++; //页码
-								self.endPullUpToRefresh((obj.indexPage >= obj.maxPage));
+								self.endPullUpToRefresh((obj.indexPage > obj.maxPage));
+							
 							});
 
 						}, 1000);
@@ -124,11 +149,15 @@ var muiPullToRefresh = (function(mui, $) {
 			});
 
 		});
-
+		
+		return obj;
 	}
+	
+
 
 	return {
-		init: _init
+		init: _init,
+		
 	}
 
 })(mui, window.Zepto || window.jQuery);

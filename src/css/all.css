@@ -4502,13 +4502,20 @@ a .spin {
 .mui-pciker-list li.highlight {
   color: #ff0000 !important; }
 
+/**mui-popup**/
+.mui-popup .mui-popup-buttons .mui-popup-button {
+  font-weight: 400; }
+
+.mui-popup .mui-popup-buttons .mui-popup-button-bold {
+  font-weight: 400; }
+
 /*错误显示*/
 .vd-box .vd-req,
 .vd-box .vd-pattern,
 .vd-box .vd-remote,
 .vd-box .vd-compare {
   display: none;
-  color: red; }
+  color: #cc0000; }
 
 /* 错误 */
 .vd-box .vd-req.vd-error,
@@ -4520,48 +4527,42 @@ a .spin {
 
 /*当前的元素 ok*/
 .vd-box.vd-ok .vd-item {
-  color: green !important;
-  border: 1px solid green !important; }
+  color: #3d8b3d !important;
+  border: 1px solid #3d8b3d !important; }
 
 .vd-box.vd-ok .btn.btn-default {
-  color: green !important;
-  border: 1px solid green !important; }
+  color: #3d8b3d !important;
+  border: 1px solid #3d8b3d !important; }
 
 .vd-box.vd-ok textarea.vd-item {
-  color: green !important;
-  border: 1px solid green !important; }
+  color: #3d8b3d !important;
+  border: 1px solid #3d8b3d !important; }
 
 .vd-box.vd-ok label {
-  color: green !important; }
-
-.vd-dep-btn.vd-ok {
-  color: green !important; }
+  color: #3d8b3d !important; }
 
 .vd-box.vd-ok .iconfont {
-  color: green !important; }
+  color: #3d8b3d !important; }
 
 /*提交按钮*/
 /*当前的元素error*/
 .vd-box.vd-error .vd-item.vd-error {
-  color: red !important;
-  border: 1px solid red !important; }
+  color: #cc0000 !important;
+  border: 1px solid #cc0000 !important; }
 
 .vd-box.vd-error .btn.btn-default {
-  color: red !important;
-  border: 1px solid red !important; }
+  color: #cc0000 !important;
+  border: 1px solid #cc0000 !important; }
 
 .vd-box.vd-error textarea.vd-item.vd-error {
-  color: red !important;
-  border: 1px solid red !important; }
+  color: #cc0000 !important;
+  border: 1px solid #cc0000 !important; }
 
 .vd-box.vd-error label {
-  color: red !important; }
-
-.vd-dep-btn.vd-error {
-  color: red !important; }
+  color: #cc0000 !important; }
 
 .vd-box.vd-error .iconfont {
-  color: red !important; }
+  color: #cc0000 !important; }
 
 /*提交按钮*/
 .mui-bar ~ .mui-content .mui-fullscreen {
@@ -4688,7 +4689,7 @@ a .spin {
 
 .head.mui-bar .mui-title input {
   position: relative;
-  top: -2px;
+  top: 0;
   font-size: 14px;
   color: #8e8e8e;
   background: #fff; }
@@ -4697,17 +4698,27 @@ a .spin {
   position: absolute;
   right: 3px;
   top: 12px;
-  font-size: 17px;
+  font-size: 16px;
   color: #fff; }
+  .head.mui-bar .head-right-btn:active {
+    color: #ff0000; }
 
-.head.mui-bar.mui-active .mui-icon-bars {
-  color: #8e8e8e; }
-
+.head.mui-bar.mui-active .login-link,
 .head.mui-bar.mui-active .head-right-btn {
   color: #8e8e8e; }
 
 .head.mui-bar .mui-action-back:active {
   color: #f0ad4e; }
+
+.head.mui-bar .login-link {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  z-index: 2;
+  font-size: 14px;
+  color: #fff; }
+  .head.mui-bar .login-link:active {
+    color: #ff0000; }
 
 .child-head .mui-icon.iconfont {
   color: #666; }
@@ -5208,7 +5219,9 @@ a .spin {
   color: #666; }
 
 .prodclass-cont {
-  background: #fff; }
+  background: #fff !important; }
+  .prodclass-cont .tab-content-item {
+    background: #fff !important; }
   .prodclass-cont .item .ttl-1 {
     margin-left: 8%;
     margin-bottom: 10px;
@@ -5351,9 +5364,23 @@ a .spin {
   width: 100%;
   border-top: 1px solid #ddd;
   background: #fff; }
-  .shop-select .check-box {
-    margin-top: 13px;
-    padding-left: 10px; }
+  .shop-select .check-big {
+    position: relative;
+    height: 50px;
+    line-height: 50px; }
+    .shop-select .check-big .check-all {
+      margin-top: 13px;
+      padding-left: 10px;
+      font-size: 24px; }
+      .shop-select .check-big .check-all.icon-checknormal {
+        color: #ddd; }
+      .shop-select .check-big .check-all.icon-xuanzhongduigou {
+        color: #ff0000; }
+    .shop-select .check-big label {
+      margin-left: 3px;
+      position: relative;
+      top: -4px;
+      color: #777; }
   .shop-select .js {
     padding-top: 5px; }
     .shop-select .js p {
@@ -5570,3 +5597,304 @@ a .spin {
 
 .mui-pull-bottom-wrapper {
   background: #fafafa !important; }
+
+/*
+ 收藏夹
+ * */
+.collection .shop-item input[type=checkbox] {
+  display: none; }
+
+.collection-select {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  margin-top: 10px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff; }
+  .collection-select .check-big {
+    position: relative;
+    height: 50px;
+    line-height: 50px; }
+    .collection-select .check-big .check-all {
+      margin-top: 13px;
+      padding-left: 10px;
+      font-size: 24px; }
+      .collection-select .check-big .check-all.icon-checknormal {
+        color: #ddd; }
+      .collection-select .check-big .check-all.icon-xuanzhongduigou {
+        color: #ff0000; }
+    .collection-select .check-big label {
+      margin-left: 3px;
+      position: relative;
+      top: -4px;
+      color: #777; }
+  .collection-select .js {
+    padding-top: 5px; }
+    .collection-select .js p {
+      margin-bottom: 0; }
+  .collection-select .btn {
+    height: 50px;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    background: #e60000;
+    color: #fff; }
+    .collection-select .btn:active {
+      background: #cc0000; }
+
+.mui-bar-nav ~ .collection.mui-content {
+  padding-bottom: 60px; }
+
+/**
+ *     
+ *商品批量购买 
+ * **/
+.batch-select {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  margin-top: 10px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  background: #fff; }
+  .batch-select .check-big {
+    position: relative;
+    height: 50px;
+    line-height: 50px; }
+    .batch-select .check-big .check-all {
+      margin-top: 13px;
+      padding-left: 10px;
+      font-size: 24px; }
+      .batch-select .check-big .check-all.icon-checknormal {
+        color: #ddd; }
+      .batch-select .check-big .check-all.icon-xuanzhongduigou {
+        color: #ff0000; }
+    .batch-select .check-big label {
+      margin-left: 3px;
+      position: relative;
+      top: -4px;
+      color: #777; }
+  .batch-select .js {
+    padding-top: 5px; }
+    .batch-select .js p {
+      margin-bottom: 0; }
+  .batch-select .btn {
+    height: 50px;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    background: #e60000;
+    color: #fff; }
+    .batch-select .btn:active {
+      background: #cc0000; }
+
+.mui-bar-nav ~ .batch.mui-content {
+  padding-bottom: 50px; }
+
+/**
+ *  消息中心   
+ * 
+ * **/
+.message ul li a {
+  font-size: 16px; }
+  .message ul li a .iconfont {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #777; }
+
+.message ul + ul {
+  margin-top: 10px; }
+
+.message-list {
+  margin-top: 10px; }
+  .message-list ul li {
+    padding: 10px 15px; }
+    .message-list ul li p {
+      margin-bottom: 10px; }
+  .message-list ul + ul {
+    margin-top: 10px; }
+
+/**
+ *   对账单  
+ * 
+ * **/
+.duizhangdan-search {
+  padding: 10px;
+  background: #fff; }
+  .duizhangdan-search label,
+  .duizhangdan-search input[type="text"],
+  .duizhangdan-search a {
+    display: inline-block;
+    float: left; }
+  .duizhangdan-search label,
+  .duizhangdan-search a {
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #323232; }
+  .duizhangdan-search input[type="text"] {
+    width: 150px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 12px;
+    height: 34px;
+    background: #fafafa; }
+
+.duizhangdan-list {
+  text-align: center; }
+  .duizhangdan-list .not-data {
+    display: inline-block;
+    float: none;
+    margin-top: 50px;
+    width: 200px;
+    height: 200px; }
+
+/*
+ 咨询与回复
+ * */
+.zixun-list {
+  margin-top: 10px; }
+  .zixun-list ul li {
+    padding: 12px 15px; }
+    .zixun-list ul li a {
+      font-size: 16px; }
+    .zixun-list ul li .mui-row + .mui-row {
+      margin-top: 5px; }
+    .zixun-list ul li .date {
+      display: block;
+      margin-top: 10px; }
+
+/**
+ *   
+ * 登陆  
+ * **/
+.login {
+  background: #fff; }
+
+.login-head .link {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  z-index: 2;
+  color: #777;
+  font-size: 16px; }
+
+.login-form {
+  padding: 50px 15px 10px 15px; }
+  .login-form .mui-col-xs-2 {
+    position: relative; }
+    .login-form .mui-col-xs-2 label {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: left; }
+    .login-form .mui-col-xs-2 .iconfont {
+      font-size: 30px;
+      color: #999; }
+      .login-form .mui-col-xs-2 .iconfont.icon-geren {
+        font-size: 26px; }
+  .login-form .mui-col-xs-10 input {
+    width: 100% !important;
+    font-size: 18px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #e6e9ed; }
+  .login-form .form-group + .form-group {
+    margin-top: 20px; }
+  .login-form .findpwd {
+    margin-top: 0 !important;
+    padding: 0 10px; }
+    .login-form .findpwd a {
+      color: #777; }
+      .login-form .findpwd a:active {
+        color: #ff0000; }
+  .login-form .submit-btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 18px;
+    background: #15ace4;
+    color: #fff;
+    border: none; }
+    .login-form .submit-btn:active, .login-form .submit-btn:focus {
+      background: #139acd !important; }
+    .login-form .submit-btn.vd-btn.vd-error {
+      background: #e6e9ed;
+      color: #777; }
+      .login-form .submit-btn.vd-btn.vd-error:active, .login-form .submit-btn.vd-btn.vd-error:focus {
+        background: #c8cfd8 !important; }
+  .login-form .vd-box.vd-error .vd-item.vd-error {
+    border: none !important;
+    border-bottom: 1px solid #cc0000 !important; }
+  .login-form .vd-box.vd-ok .vd-item {
+    border: none !important;
+    border-bottom: 1px solid #3d8b3d !important; }
+
+/**
+ *   注册
+ * 
+ * **/
+.reg {
+  background: #fff; }
+
+.reg-form {
+  padding: 20px 15px 10px 15px; }
+  .reg-form .mui-col-xs-2 {
+    position: relative; }
+    .reg-form .mui-col-xs-2 label {
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: left; }
+    .reg-form .mui-col-xs-2 .iconfont {
+      font-size: 30px;
+      color: #999; }
+      .reg-form .mui-col-xs-2 .iconfont.icon-geren {
+        font-size: 26px; }
+  .reg-form .mui-col-xs-10 input {
+    width: 100% !important;
+    font-size: 18px;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #e6e9ed; }
+  .reg-form .form-group + .form-group {
+    margin-top: 10px; }
+  .reg-form .findpwd {
+    margin-top: 0 !important;
+    padding: 0 10px; }
+    .reg-form .findpwd a {
+      color: #777; }
+      .reg-form .findpwd a:active {
+        color: #ff0000; }
+  .reg-form .submit-btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 18px;
+    background: #15ace4;
+    color: #fff;
+    border: none; }
+    .reg-form .submit-btn:active, .reg-form .submit-btn:focus {
+      background: #139acd !important; }
+    .reg-form .submit-btn.vd-btn.vd-error {
+      background: #e6e9ed;
+      color: #777; }
+      .reg-form .submit-btn.vd-btn.vd-error:active, .reg-form .submit-btn.vd-btn.vd-error:focus {
+        background: #c8cfd8 !important; }
+  .reg-form .getYzm {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    z-index: 2; }
+  .reg-form .vd-box.vd-error .vd-item.vd-error {
+    border: none !important;
+    border-bottom: 1px solid #cc0000 !important; }
+  .reg-form .vd-box.vd-ok .vd-item {
+    border: none !important;
+    border-bottom: 1px solid #3d8b3d !important; }

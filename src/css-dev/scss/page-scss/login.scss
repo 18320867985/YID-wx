@@ -1,0 +1,97 @@
+/**
+ *   
+ * 登陆  
+ * **/
+
+.login {
+    background: #fff;
+}
+
+// login-head
+.login-head .link {
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    z-index: 2;
+    color: #777;
+    font-size: 16px;
+}
+
+.login-form {
+    padding: 50px 15px 10px 15px;
+    //ui-col-xs-2
+    .mui-col-xs-2 {
+        position: relative;
+        label {
+            display: inline-block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+        }
+        .iconfont {
+            font-size: 30px;
+            color: $text-999;
+            &.icon-geren {
+                font-size: 26px;
+            }
+        }
+    }
+    .mui-col-xs-10 {
+        input {
+            width: 100% !important;
+            font-size: 18px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid $text-ash-2;
+        }
+    }
+    .form-group+.form-group {
+        margin-top: 20px;
+    }
+    // 忘记密码
+    .findpwd {
+        margin-top: 0 !important;
+        padding: 0 10px;
+        a {
+            color: $text-777;
+            &:active {
+                color: $text-danger;
+            }
+        }
+    }
+    // submit-btn
+    .submit-box {
+        //padding: 0 15px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 18px;
+        background: $text-primary;
+        color: #fff;
+        border: none;
+        &:active,
+        &:focus {
+            background: darken( $text-primary,5%) !important;
+        }
+        // vd-error
+        &.vd-btn.vd-error {
+            background: $text-ash-2;
+            color: #777;
+            &:active,
+            &:focus {
+                background: darken( $text-ash-2, 10%) !important;
+            }
+        }
+    }
+    // 验证
+    .vd-box.vd-error .vd-item.vd-error {
+        border: none !important;
+        border-bottom: 1px solid #cc0000 !important;
+    }
+    .vd-box.vd-ok .vd-item {
+        border: none !important;
+        border-bottom: 1px solid #3d8b3d !important;
+    }
+}

@@ -296,7 +296,7 @@ input:focus,
 
 .width-100 {
     width: 100%;
-   clear: both;
+    clear: both;
 }
 
 
@@ -470,4 +470,18 @@ a .spin {
 //选中项的样式
 .mui-pciker-list li.highlight {
     color: $text-danger !important;
+}
+
+
+/**mui-popup**/
+
+.mui-popup {
+    .mui-popup-buttons {
+        .mui-popup-button {
+            font-weight: 400;
+        }
+        .mui-popup-button-bold {
+            font-weight: 400;
+        }
+    }
 }

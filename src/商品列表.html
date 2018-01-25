@@ -196,30 +196,12 @@
 				
 					//setTimeout(function() {
 
-						$.get("json/index.json?pullToRefreshId=" + Math.random().toString(), {
-							id: _id
-						}, function(data) {
-
-							data = data.constructor === Array ? data : JSON.parse(data);
-
-							 data = common.list.map(data, function(item) {
-								item.a2 = _targetId + "#" + item.a2
-								return item;
-							})  // 发布删掉
-							
-							var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-							var html = template({
-								lists: data
+							_cont.find(".load-pullToRefresh").css("display", "none");
+							getData(1, Number(_id), _targetId, {},function(){
+								wxLazy.reset(); //重新获取延时加载的图片	
 							});
 
-							_cont.find(".load-pullToRefresh").css("display", "none");
-							_cont.append(html);
-							wxLazy.reset(); //重新获取延时加载的图片
-							getData(1, Number(_id), _targetId, {});
-
-						});
-
-				//	}, 1000);
+				//}, 1000);
 
 				}
 
@@ -232,7 +214,7 @@
 			});
 
 			// ajax 分页
-			function getData(indexPage, allPage, pullToRefreshBig, obj) {
+			function getData(indexPage, allPage, pullToRefreshBig, obj,fn) {
 
 				muiPullToRefresh.init({
 					indexPage: indexPage, // 当前页
@@ -265,7 +247,7 @@
 						$(this.pullToRefreshBig).find(this.pullToRefreshBox).append(html);
 
 					}
-				});
+				},fn);
 
 			}
 		</script>

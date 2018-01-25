@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>商品批量购买</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body>
+
+		<!--头部-->
+		<header class=" mui-bar mui-bar-nav shop-head">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">商品批量购买</h1>
+
+		</header>
+
+		<!--主体内容-->
+		<!--pullToRefresh-big 上拉加载大框-->
+		<section class="batch mui-content pullToRefresh-big">
+
+		
+			<form class="shop-cont ">
+				<!-- pullToRefresh-box 上拉加载每一项-->
+				<div class="pullToRefresh-box">
+					<!--
+					<div class="shop-item  mui-clearfix">
+						<div class="mui-row mui-clearfix">
+							<div class="mui-col-xs-1 ">
+								<div class="check-box">
+
+									<div class="check-item">
+										<input type="checkbox">
+									</div>
+
+								</div>
+							</div>
+							<div class="mui-col-xs-4 ">
+								<img src="images/1段奶粉.png" alt="" />
+							</div>
+							<div class="mui-col-xs-7">
+								<ul>
+									<li>
+										<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
+									</li>
+									<li class="text-ash">
+										<label for="">类型:</label>
+										<span>一段奶粉</span>
+									</li>
+									<li class="mui-clearfix price-box">
+										<div class="mui-pull-left">
+											<span class="iconfont icon-renminbi text-danger"></span>
+											<span class="price text-danger">58.00</span>
+										</div>
+										<div class=" mui-pull-left">
+											<div class="number">
+												<button class="minus btn" type="button">-</button>
+												<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
+												<button class="plus btn" type="button">+</button>
+											</div>
+										</div>
+
+									</li>
+
+								</ul>
+
+							</div>
+						</div>
+
+					</div>-->
+
+				</div>
+
+			</form>
+
+			<!--选择和计算购物车-->
+			<div class="batch-select">
+				<div class="mui-row mui-clearfix">
+					<div class="mui-col-xs-5">
+						<div class=" check-big">
+							<span class="iconfont icon-checknormal check-all"></span>
+							<label class="label-click">全选</label>
+						</div>
+
+					</div>
+
+					<div class="mui-col-xs-7 mui-clearfix">
+						<div class="edit">
+							<div class="js mui-pull-left">
+								<label for="">总计：</label>
+								<span class="iconfont icon-renminbi text-danger"></span>
+								<span class="price text-danger">58.00</span>
+								<p>共<span class="count">0</span>件,不含运费</p>
+							</div>
+
+							<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
+						</div>
+
+						<div class="complate v-hide">
+							<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+			
+					<div class="shop-item  mui-clearfix">
+						<div class="mui-row mui-clearfix">
+							<div class="mui-col-xs-1 ">
+								<div class="check-box">
+		
+									<div class="check-item">
+										<input type="checkbox">
+									</div>
+		
+								</div>
+							</div>
+							<div class="mui-col-xs-4 ">
+								<img class="load-lazy"  src="images/lazy.jpg"  data-src="images/1段奶粉.png" alt="" />
+							</div>
+							<div class="mui-col-xs-7">
+								<ul>
+									<li>
+										<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
+									</li>
+									<li class="text-ash">
+										<label for="">类型:</label>
+										<span>一段奶粉</span>
+									</li>
+									<li class="mui-clearfix price-box">
+										<div class="mui-pull-left">
+											<span class="iconfont icon-renminbi text-danger"></span>
+											<span class="price text-danger">58.00</span>
+										</div>
+										<div class=" mui-pull-left">
+											<div class="number">
+												<button class="minus btn" type="button">-</button>
+												<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
+												<button class="plus btn" type="button">+</button>
+											</div>
+										</div>
+		
+									</li>
+		
+								</ul>
+		
+							</div>
+						</div>
+		
+					</div>
+
+			{{/lists}}
+
+		</script>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				// page init
+				batch.init();
+
+				// 结算
+				$(".submit-btn").on("tap", function() {
+//				page(1,2,{},function(){
+//					wxLazy.reset(); // 重新执行 图片延迟加载
+//				});
+
+					//muiPullToRefresh_obj.maxPage=10;
+					//muiPullToRefresh_obj.indexPage=1;
+					//alert($(".shop-item input[type=checkbox]:checked").length);
+				});
+
+				// 删除
+				$(".delete-btn").on("tap", function() {
+					var els = $(".shop-item input[type=checkbox]:checked");
+					if(els.length === 0) {
+						mui.alert("还没有选择数据！", " ", "确定");
+						return;
+					}
+					mui.confirm("确认要删除数据?", " ", ["确认", "取消"], function(e) {
+						if(e.index == 0) {
+							els.each(function() {
+								$(this).parents(".shop-item").remove()
+							});
+						}
+
+					});
+
+				});
+
+			});
+			
+			
+			wxLazy.init(); // 图片延迟加载
+			var muiPullToRefresh_obj={};
+			mui.ready(function() {
+			muiPullToRefresh_obj=page(1,3,{},function(){
+					wxLazy.reset(); // 重新执行 图片延迟加载
+				});
+			
+			});
+			
+		// 分页
+		function page(min,max,obj,fn){
+		 return 	muiPullToRefresh.init({
+					indexPage: min, // 当前页
+					maxPage: max, // 总共页数
+					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
+					pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+					url: "json/index.json", // ajax url
+					showText: { // 上拉 的文本
+						init: "上拉显示更多",
+						down: "上拉显示更多",
+						refresh: "正在加载...",
+						nomore: "没有更多数据了"
+					},
+				
+					obj: obj, // ajax 参数
+					fn: function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+						
+						$(this.pullToRefreshBox).append(html);
+
+					}
+				},fn);
+
+		}
+		
+		// 数字框点击事件
+		$(document).on("number_click",function(event,element){			
+			//element 当前点击的元素	
+			//var p=$(element).parents(".number");
+			//alert($(p).find(".num").val());
+								
+		});
+		</script>
+
+	</body>
+
+</html>

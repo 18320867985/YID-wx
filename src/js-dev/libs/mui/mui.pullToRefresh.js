@@ -42,6 +42,7 @@
 					tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/
 				}
 			}, options);
+			
 			this.stopped = this.isNeedRefresh = this.isDragging = false;
 			this.state = STATE_BEFORECHANGEOFFSET;
 			this.isInScroll = this.element.classList.contains(CLASS_SCROLL);

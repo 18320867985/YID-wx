@@ -4,8 +4,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  *	公共类库
  */
 
-;
-(function ($) {
+;(function () {
 
 	// 冲突common兼容
 	var _common = window.common = window.Common = window.com;
@@ -640,7 +639,7 @@ var muiPullToRefresh = function (mui, $) {
 		return;
 	}
 
-	var _init = function pullUpToRefresh(obj) {
+	var _init = function pullUpToRefresh(obj, fn) {
 		obj.indexPage = typeof obj.indexPage === "number" ? obj.indexPage : 0;
 		obj.maxPage = typeof obj.maxPage === "number" ? obj.maxPage : 0;
 		obj.pullToRefreshBig = typeof obj.pullToRefreshBig === "string" ? obj.pullToRefreshBig : ".pullToRefresh-big";
@@ -648,8 +647,22 @@ var muiPullToRefresh = function (mui, $) {
 		obj.url = typeof obj.url === "string" ? obj.url : "";
 		obj.obj = obj.obj || {};
 		obj.obj = obj.obj.constructor === Object ? obj.obj : {};
+
 		obj.fn = typeof obj.fn === "function" ? obj.fn : function () {};
 		obj.showText = obj.showText || { init: "上拉显示更多", down: "上拉显示更多", refresh: "正在加载...", nomore: "没有更多数据了" };
+
+		// ajax数据 ......		
+		$.get(obj.url + "?pullToRefreshBoxid=" + obj.indexPage, obj.obj, function (data) {
+
+			$(obj.pullToRefreshBox).empty();
+			obj.fn(data);
+			obj.indexPage++; //页码
+
+			// 回调函数
+			if (typeof fn === "function") {
+				fn(data);
+			}
+		});
 
 		// 没有更多数据
 		if (obj.maxPage <= obj.indexPage) {
@@ -661,19 +674,23 @@ var muiPullToRefresh = function (mui, $) {
 			//div.style.color = "#777";
 			//div.style.fontSize = "14px";
 			div.classList.add("mui-pull-bottom-wrapper");
+			//document.querySelector(obj.pullToRefreshBig).innerHTML="";
 			document.querySelector(obj.pullToRefreshBig).appendChild(div);
 			$(obj.pullToRefreshBig).css("margin-bottom", "0");
 
 			return;
 		}
+
 		//循环初始化所有下拉刷新，上拉加载。
 		mui.each(document.querySelectorAll(obj.pullToRefreshBig), function (index, pullRefreshEl) {
 
 			mui(pullRefreshEl).pullToRefresh({
 
 				up: {
+
 					callback: function callback() {
 						var self = this;
+						self.refresh(true);
 						setTimeout(function () {
 							var ul = self.element.querySelector(obj.pullToRefreshBox);
 
@@ -682,7 +699,7 @@ var muiPullToRefresh = function (mui, $) {
 
 								obj.fn(data);
 								obj.indexPage++; //页码
-								self.endPullUpToRefresh(obj.indexPage >= obj.maxPage);
+								self.endPullUpToRefresh(obj.indexPage > obj.maxPage);
 							});
 						}, 1000);
 					},
@@ -694,10 +711,13 @@ var muiPullToRefresh = function (mui, $) {
 
 			});
 		});
+
+		return obj;
 	};
 
 	return {
 		init: _init
+
 	};
 }(mui, window.Zepto || window.jQuery);
 
@@ -968,7 +988,7 @@ mui.init({
 	$(".zhiding").on("tap", function () {
 		mui.scrollTo(0, 300);
 	});
-})(window.Zepto, mui);
+})(window.Zepto || window.jQuery, mui);
 
 // 页脚的跳转
 $(".mui-bar-tab a").on("tap", function () {
@@ -981,7 +1001,7 @@ $(".mui-bar-tab a").on("tap", function () {
 });
 
 // 头部搜索页的跳转
-$(".head.mui-bar").find("input[type=search]").on("tap", function () {
+$(".mui-bar").find("[data-toggle=skip]").on("tap", function () {
 	$(this).blur();
 	if ($(this).attr("data-toggle") === "skip") {
 		var url = $(this).attr("data-url");
@@ -1003,7 +1023,7 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
  * 事件：number_click
  *
  * 点击事件
-	$(".number").on("number_click",function(event,element){			
+	$(document).on("number_click",function(event,element){			
 		//element 当前点击的元素	
 		var p=$(element).parents(".number");
 		alert($(p).find(".num").val());
@@ -1014,7 +1034,7 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 +function ($) {
 
 	//minus
-	$(".minus").on("click", function (e) {
+	$(document).on("click", ".minus", function (e) {
 		e.stopPropagation();
 		e.preventDefault();
 
@@ -1048,7 +1068,7 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 	});
 
 	//plus
-	$(".plus").on("click", function (e) {
+	$(document).on("click", ".plus", function (e) {
 		e.stopPropagation();
 		e.preventDefault();
 		var p = $(this).parents(".number");
@@ -1385,6 +1405,143 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function () {
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 }(window.jQuery || window.Zepto);
+/*
+ * 商品批量购买
+ * */
+
+var batch = function () {
+
+	var _init = function _init() {
+
+		// checkbox 选择
+		$(".batch-select .check-all").on("tap", function () {
+
+			if ($(this).attr("data-bl")) {
+				$(this).removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(this).removeAttr("data-bl");
+				select_ck(false);
+			} else {
+				$(this).removeClass("icon-checknormal").addClass("icon-xuanzhongduigou");
+				$(this).attr("data-bl", true);
+				select_ck(true);
+			}
+		});
+
+		//	label-click	
+		$(".batch-select  .label-click").on("tap", function () {
+			$(".check-all", ".batch-select").trigger("tap");
+		});
+
+		// checkbox function
+		function select_ck(bl) {
+
+			if (bl) {
+				var els = $(".shop-cont input[type=checkbox]");
+				els.attr("checked", false);
+				els.click();
+				els.attr("checked", true);
+			} else {
+				var els = $(".shop-cont input[type=checkbox]");
+				els.click();
+				els.attr("checked", false);
+			}
+		}
+	};
+
+	return {
+		init: _init
+	};
+}();
+/*
+ 
+ * */
+
+var collection = function () {
+
+	var _init = function _init() {
+
+		// 编辑
+		$(".head-right-btn").on("tap", function () {
+			var o = $(this).attr("data-text") || {};
+			o = JSON.parse(o);
+			var isEdit = $(this).attr("data-edit");
+
+			if (typeof isEdit === "undefined") {
+
+				// 编辑
+				$(this).text(o.complate);
+				$(this).attr("data-edit", true);
+				isShow(false);
+				select_ck(false);
+				$(".collection-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".collection-select .check-all").removeAttr("data-bl");
+				$(".collection-select").show();
+			} else {
+
+				//完成
+				$(this).text(o.edit);
+				$(this).removeAttr("data-edit");
+				isShow(true);
+				select_ck(false);
+				$(".collection-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".collection-select .check-all").removeAttr("data-bl");
+				$(".collection-select").hide();
+			}
+		});
+
+		// 结算与删除 show  or  hide
+		function isShow(bl) {
+
+			if (bl) {
+				$(".shop-select .edit").show();
+				$(".shop-select .complate").hide();
+				$(".shop-item input[type=checkbox]").hide();
+			} else {
+				$(".shop-select .edit").hide();
+				$(".shop-select .complate").show();
+				$(".shop-item input[type=checkbox]").show();
+			}
+		}
+
+		// checkbox 选择
+		$(".collection-select .check-all").on("tap", function () {
+
+			if ($(this).attr("data-bl")) {
+				$(this).removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(this).removeAttr("data-bl");
+				select_ck(false);
+			} else {
+				$(this).removeClass("icon-checknormal").addClass("icon-xuanzhongduigou");
+				$(this).attr("data-bl", true);
+				select_ck(true);
+			}
+		});
+
+		//	label-click	
+		$(".collection-select  .label-click").on("tap", function () {
+			$(".check-all", ".collection-select").trigger("tap");
+		});
+
+		// checkbox function
+		function select_ck(bl) {
+
+			if (bl) {
+				var els = $(".shop-cont input[type=checkbox]");
+				els.attr("checked", false);
+				els.click();
+				els.attr("checked", true);
+			} else {
+				var els = $(".shop-cont input[type=checkbox]");
+				els.click();
+				els.attr("checked", false);
+			}
+		}
+	};
+
+	return {
+		init: _init
+	};
+}();
 var index = function () {
 
 	var _init = function _init() {};
@@ -1409,12 +1566,18 @@ var shop = function () {
 				$(this).text(o.complate);
 				$(this).attr("data-edit", true);
 				isShow(false);
+				select_ck(false);
+				$(".shop-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".shop-select .check-all").removeAttr("data-bl");
 			} else {
 
 				//完成
 				$(this).text(o.edit);
 				$(this).removeAttr("data-edit");
 				isShow(true);
+				select_ck(false);
+				$(".shop-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".shop-select .check-all").removeAttr("data-bl");
 			}
 		});
 
@@ -1431,35 +1594,36 @@ var shop = function () {
 		}
 
 		// checkbox 选择
-		$("#check_all").on("click", function () {
+		$(".shop-select .check-all").on("tap", function () {
 
 			if ($(this).attr("data-bl")) {
+				$(this).removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
 				$(this).removeAttr("data-bl");
 				select_ck(false);
 			} else {
-
-				$(this).attr("data-bl", "true");
+				$(this).removeClass("icon-checknormal").addClass("icon-xuanzhongduigou");
+				$(this).attr("data-bl", true);
 				select_ck(true);
 			}
+		});
+
+		//	label-click	
+		$(".shop-select .label-click").on("tap", function () {
+			$(".shop-select .check-all").trigger("tap");
 		});
 
 		// checkbox function
 		function select_ck(bl) {
 
 			if (bl) {
-
-				$(".shop-item input[type=checkbox]").each(function () {
-					if ($(this).attr("checked") != "false") {
-						$(this).triggerHandler("tap");
-						$(this).attr("checked", true);
-					}
-				});
+				var els = $(".shop-cont input[type=checkbox]");
+				els.attr("checked", false);
+				els.click();
+				els.attr("checked", true);
 			} else {
-
-				$(".shop-item input[type=checkbox]").each(function () {
-					$(this).triggerHandler("tap");
-					$(this).removeAttr("checked");
-				});
+				var els = $(".shop-cont input[type=checkbox]");
+				els.click();
+				els.attr("checked", false);
 			}
 		}
 	};

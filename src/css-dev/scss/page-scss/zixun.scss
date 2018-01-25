@@ -1,0 +1,28 @@
+/*
+ 咨询与回复
+ * */
+
+.zixun {}
+
+// zixun-list
+.zixun-list {
+    margin-top: 10px;
+    
+    ul {
+        li {
+            padding: 12px 15px;
+           a{
+               font-size: 16px;
+           } 
+           
+           .mui-row+.mui-row{
+               margin-top: 5px;
+           }
+           
+           .date{
+               display: block;
+               margin-top: 10px;
+           }
+        }
+    }
+}

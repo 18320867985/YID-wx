@@ -14,14 +14,14 @@
 	</head>
 
 	<body>
-		
+
 		<!--头部-->
 		<header class="child-head mui-bar mui-bar-nav">
-		    <a class=" mui-icon iconfont icon-back mui-pull-left"></a>
-		    <h1 class="mui-title">精品推荐</h1>
-		    <span class="child-right-btn  mui-icon iconfont icon-share"> </span>
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">精品推荐</h1>
+			<span class="child-right-btn  mui-icon iconfont icon-share"> </span>
 		</header>
-		
+
 		<!-- 底部--->
 		<!--<nav class="footer mui-bar mui-bar-tab ">
 			
@@ -51,18 +51,20 @@
 
 		<!--主体内容-->
 		<section class="jingpin mui-content  bg-white">
-			
-			<!-- banner 图-->	
+
+			<!-- banner 图-->
 			<div class="jingpin-banner">
 				<img src="images/slider.png" alt="banner 图" />
 			</div>
-		
+
 			<!--列表-->
 			<!--pullToRefresh-big 上拉加载大框-->
 			<div class="index-list  pullToRefresh-big">
-				
+
 				<!-- pullToRefresh-box 上拉加载每一项-->
 				<div class="mui-row pullToRefresh-box">
+
+					<!--	
 					<div class="mui-col-xs-6 ">
 						<a href="商品详情.html">
 							<img src="images/index-list (1).png" alt="img" />
@@ -133,89 +135,92 @@
 						</div>
 						
 					</div>
-					
+					-->
+
 				</div>
-				
+
 			</div>
-			
-		<!--置顶-->
-		<aside class="zhiding">
-			<span class="iconfont icon-top "></span>
-		</aside>
-			
+
+			<!--置顶-->
+			<aside class="zhiding">
+				<span class="iconfont icon-top "></span>
+			</aside>
+
 		</section>
-		
+
 		<!--模板-->
 		<script type="text/template" id="handlebars-templete">
 
 			{{#lists}}
-			
-				<div class="mui-col-xs-6">
-					<a href="商品详情.html">
-						<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="{{a1}}" />
-					</a>
-					
-					<div class="caption mui-text-left">
-						<h4 class="mui-ellipsis width-100">{{a2}}</h4>
-						<p class="mui-ellipsis">{{a3}}</p>
-						<p>{{a4}}<span>家庭装</span></p>
-						
-						<div class="op mui-clearfix  mui-ellipsis">
-							<span class="text-danger">{{a5}}元/箱</span>
-							 <button class="btn" type="button">立即购买</button>
-						</div>
+
+			<div class="mui-col-xs-6">
+				<a href="商品详情.html">
+					<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="{{a1}}" />
+				</a>
+
+				<div class="caption mui-text-left">
+					<h4 class="mui-ellipsis width-100">{{a2}}</h4>
+					<p class="mui-ellipsis">{{a3}}</p>
+					<p>{{a4}}<span>家庭装</span></p>
+
+					<div class="op mui-clearfix  mui-ellipsis">
+						<span class="text-danger">{{a5}}元/箱</span>
+						<button class="btn" type="button">立即购买</button>
 					</div>
-					
 				</div>
-					
+
+			</div>
+
 			{{/lists}}
-			
+
 		</script>
-			
+
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			
 			mui("#index_slider").slider({
 				interval: 3000
 			});
-			
-			wxLazy.init(); // 图片延迟加载	
-			// 分页
+
+			wxLazy.init(); // 图片延迟加载
 			mui.ready(function() {
+				page(1, 2, {}, function() {
 
-					muiPullToRefresh.init({
-						indexPage:1  , 								 // 当前页
-						maxPage :10   , 								// 总共页数
-						pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
-						pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
-						url: "json/index.json",                		// ajax url
-						showText:{									// 上拉 的文本
-								init:"上拉显示更多",
-								down:"上拉显示更多",
-								refresh:"正在加载...",
-								nomore:"没有更多数据了"
-								},   
-						obj:{}  ,                              	// ajax 参数
-						fn:function(data){
-							data = data.constructor === Array ? data : JSON.parse(data);
-							var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-							var html = template({
-									lists: data
-							});
-								
-						$(this.pullToRefreshBox).append(html);
-																			
-											
-						}
-					});
-					
-
+					wxLazy.reset(); // 重新执行 图片延迟加载
 				});
 
+			});
 
+			// 分页
+			function page(min, max, obj, fn) {
+				muiPullToRefresh.init({
+					indexPage: min, // 当前页
+					maxPage: max, // 总共页数
+					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
+					pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+					url: "json/index.json", // ajax url
+					showText: { // 上拉 的文本
+						init: "上拉显示更多",
+						down: "上拉显示更多",
+						refresh: "正在加载...",
+						nomore: "没有更多数据了"
+					},
+					obj: obj, // ajax 参数
+					fn: function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+
+						$(this.pullToRefreshBox).append(html);
+
+					}
+				}, fn);
+
+			}
 		</script>
 
 	</body>

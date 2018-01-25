@@ -1,0 +1,46 @@
+/**
+ *  消息中心   
+ * 
+ * **/
+
+.message{
+    
+    ul{
+        li{
+            a{
+                font-size: 16px;
+                
+                // icon
+                .iconfont{
+                    margin-right: 10px;
+                    font-size: 20px;
+                    color:$text-777;
+                }
+            }
+            
+        }
+        &+ul{
+            margin-top: 10px;
+        }
+    }
+}
+
+
+// message-list  系统通知
+.message-list{
+    
+    margin-top: 10px;
+    ul{
+        li{
+            padding: 10px 15px;
+                p{
+                    margin-bottom: 10px;
+                }
+            
+        }
+        
+        &+ul{
+            margin-top: 10px;
+        }
+    }
+}

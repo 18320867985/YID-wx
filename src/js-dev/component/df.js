@@ -29,20 +29,20 @@ mui.init({
 		mui.scrollTo(0, 300);
 	});
 
-})(window.Zepto, mui);
+})(window.Zepto || window.jQuery, mui);
 
 // 页脚的跳转
 $(".mui-bar-tab a").on("tap", function() {
-	
+
 	$(this).removeClass("mui-active");
 	var href = $(this).attr("href");
 	window.location.assign(href);
-	
+
 	return false;
 })
 
 // 头部搜索页的跳转
-$(".head.mui-bar").find("input[type=search]").on("tap", function() {
+$(".mui-bar").find("[data-toggle=skip]").on("tap", function() {
 	$(this).blur();
 	if($(this).attr("data-toggle") === "skip") {
 		var url = $(this).attr("data-url");
@@ -50,6 +50,5 @@ $(".head.mui-bar").find("input[type=search]").on("tap", function() {
 			window.location.assign(url);
 		}
 	}
-	
 
 });

@@ -13,8 +13,12 @@
 
 // 右边内容
 .prodclass-cont {
-    background: #fff;
+    background: #fff !important;
+    .tab-content-item {
+       background: #fff !important;
+    }
     .item {
+           
         .ttl-1 {
             margin-left: 8%;
             margin-bottom: 10px;

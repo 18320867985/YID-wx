@@ -1,8 +1,8 @@
 
 
-$vd-ok-color:green;
+$vd-ok-color:darken( $text-success,15%);
 
-$vd-error-color:red;
+$vd-error-color: darken( red,10%);
 
 /*错误显示*/
 .vd-box .vd-req,
@@ -47,9 +47,9 @@ $vd-error-color:red;
     color: $vd-ok-color !important;
 }
 
-.vd-dep-btn.vd-ok{
-    color: $vd-ok-color !important;
-}
+//.vd-dep-btn.vd-ok{
+//  color: $vd-ok-color !important;
+//}
 
 .vd-box.vd-ok .iconfont {
     color: $vd-ok-color !important;
@@ -86,9 +86,9 @@ $vd-error-color:red;
 .vd-box.vd-error label {
     color: $vd-error-color !important;
 }
-.vd-dep-btn.vd-error{
-    color: $vd-error-color !important;
-}
+//.vd-dep-btn.vd-error{
+//  color: $vd-error-color !important;
+//}
 
 .vd-box.vd-error .iconfont {
      color: $vd-error-color !important;

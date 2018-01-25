@@ -1,0 +1,77 @@
+
+/*
+ 收藏夹
+ * */
+.collection{
+    .shop-item {
+       
+       input[type=checkbox]{
+           display: none;
+       } 
+    }
+}
+
+
+// 计算购物车
+.collection-select {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 99;
+    margin-top: 10px;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    // checkbox
+    .check-big {
+        position: relative;
+      
+        height: 50px;
+        line-height: 50px;
+        .check-all {
+            margin-top: 13px;
+            padding-left: 10px;
+            font-size: 24px;
+            &.icon-checknormal {
+                color: #ddd;
+            }
+            &.icon-xuanzhongduigou {
+                color: $text-danger;
+            }
+        }
+        
+        label{
+           margin-left:3px;
+            position: relative;
+            top:-4px;
+            color:$text-777;
+             }
+    }
+    
+    // 计算单价部分  
+    .js {
+        padding-top: 5px;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    // 结算btn
+    .btn {
+        //  width: ;
+        height: 50px;
+        width: 80px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        background: darken( $text-danger, 5%);
+        color: #fff;
+        &:active {
+            background: darken( $text-danger, 10%);
+        }
+    }
+}
+
+// 内容的padding-bottom
+.mui-bar-nav~.collection.mui-content {
+    padding-bottom: 60px;
+}

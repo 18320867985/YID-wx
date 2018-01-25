@@ -6,6 +6,7 @@
 		<title></title>
 
 		<link rel="stylesheet" type="text/css" href="../css/all.css" />
+		<link rel="stylesheet" type="text/css" href="../css/radioCheckCstfont/iconfont.css" />
 		<style type="text/css">
 			body {
 				padding: 100px;
@@ -26,83 +27,57 @@
 	</head>
 
 	<body>
+		<div class="check-box">
 
- <button type="submit"  id="id">btn</button>
-		<select>
-			<optgroup label="js">
-			
-				<option value="0">
-					jquery
-				</option>
+								<div class="check-item">
+									<input type="checkbox">
 
-				<option value="1">
-					vuejs
-				</option>
+								</div>
 
-				<option value="2">
-					html5
-				</option>
-			</optgroup>
-		</select>
+							</div><div class="check-box">
 
-		<ul>
-			<li class="comp-btn">
-				<a class="comp-btn-item">技术牛逼</a>
-			</li>
-			<li class="comp-btn">
-				<a class="comp-btn-item">信息大师</a>
-			</li>
-		</ul>
-		
-		<input type="text" name="" id=""   value="" list="data_list"  />
-		<datalist id="data_list">
-				<option value="jquery">
-					jquery
-				</option>
+								<div class="check-item">
+									<input type="checkbox">
 
-				<option value="vuejs">
-					vuejs
-				</option>
+								</div>
 
-				<option value="html5">
-					html5
-				</option>
-		</datalist>
+							</div><div class="check-box">
 
-	<script src="../js-dev/libs/jq/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+								<div class="check-item">
+									<input type="checkbox">
+
+								</div>
+
+							</div><div class="check-box">
+
+								<div class="check-item">
+									<input type="checkbox">
+
+								</div>
+
+							</div>
+		<button type="button" id="id">btn</button>
+		<button type="button" id="id2">btn</button>
+
 		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/all.js" type="text/javascript" charset="utf-8"></script>
-
 
 		<!--[if lte IE 8]>
 			<script src="../js/respond.min.js" type="text/javascript" charset="utf-8"></script>
 		<![endif]-->
 
 		<script type="text/javascript">
-	
-		var FF=window.w=function (name){
+			$("#id").click(function() {
 				
-				return new  FF.fn.init(name);
-			}
-			
-			FF.fn=FF.prototype={
-				
-				init:function(name){
-					this.name=name;
-					return this;
-				},
-				name:"ffFunction"
-				
-				
-			}
-			
-			FF.fn.init.prototype=FF.fn;
-			
-	       var arr= ["a","b","c","d"];
-	       var o={};
-	   
-	       Array.prototype.push.apply(o,arr);
-        	
+				$("input[type=checkbox]").attr("checked", false);
+				$("input[type=checkbox]").click()
+				$("input[type=checkbox]").attr("checked", "checked");
+			});
+
+			$("#id2").click(function() {
+				$("input[type=checkbox]").click()
+				$("input[type=checkbox]").attr("checked", false);
+			});
 		</script>
 
 	</body>

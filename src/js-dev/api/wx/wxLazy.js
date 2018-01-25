@@ -13,7 +13,7 @@
 var wxLazy = (function($) {
 
 	var _init = function() {
-
+		
 		var window_h = $(window).height();
 
 		$(window).scroll(function() {

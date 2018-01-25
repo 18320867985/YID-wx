@@ -240,15 +240,11 @@
 				<div class="shop-select">
 					<div class="mui-row mui-clearfix">
 						<div class="mui-col-xs-5">
-							<div class="check-box">
-								<div class="check-item">
-									<!--<a href="javascript:;" id="check_all">select</a>-->
-									<input type="checkbox" class="check_all" id="check_all">
-									<!--	<label for="check_all">全选</label>-->
-
-								</div>
-
+							<div class=" check-big">
+									<span class="iconfont icon-checknormal check-all"></span>	
+									<label class="label-click">全选</label>
 							</div>
+						
 						</div>
 
 						<div class="mui-col-xs-7 mui-clearfix">
@@ -262,7 +258,7 @@
 
 								<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
 							</div>
-							
+
 							<div class="complate v-hide">
 								<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
 							</div>
@@ -283,33 +279,31 @@
 			$(function() {
 				// page init
 				shop.init();
-				
+
 				// 结算
 				$(".submit-btn").on("tap", function() {
 
 					alert($(".shop-item input[type=checkbox]:checked").length);
 				});
-				
+
 				// 删除
 				$(".delete-btn").on("tap", function() {
-					var els=$(".shop-item input[type=checkbox]:checked");
-					if(els.length===0){
-						mui.alert("还没有选择数据！"," ","确定");
+					var els = $(".shop-item input[type=checkbox]:checked");
+					if(els.length === 0) {
+						mui.alert("还没有选择数据！", " ", "确定");
 						return;
 					}
-					mui.confirm("确认要删除数据?"," ",["确认","取消"],function(e){
-						if(e.index==0){
-							els.each(function(){
+					mui.confirm("确认要删除数据?", " ", ["确认", "取消"], function(e) {
+						if(e.index == 0) {
+							els.each(function() {
 								$(this).parents(".shop-item").remove()
 							});
 						}
-					
+
 					});
-					
-					
+
 				});
-				
-				
+
 			});
 		</script>
 

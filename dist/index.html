@@ -15,35 +15,36 @@
 
 	<body>
 		<!--头部-->
-
-		<header class="head mui-bar    mui-bar-transparent">
+		<header class="head mui-bar mui-bar-transparent">
 			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
 			<h1 class="mui-title">
-		    	<input type="search" name="" id="" value="" placeholder="输入关键字" />
+		    	<input type="search" name="" id="" value="" placeholder="输入关键字" data-toggle="skip" data-url="搜索页.html" />
 		    </h1>
 			<span class="head-right-btn"> 搜索</span>
 		</header>
 
 		<!-- 底部--->
 		<nav class="footer mui-bar mui-bar-tab ">
-			<a class="mui-tab-item mui-active" href="#">
+			
+			<a class="mui-tab-item mui-active" href="index.html">
 				<span class="mui-icon iconfont icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item">
+			
+			<a class="mui-tab-item" href="搜索页.html">
 				<span class="mui-icon iconfont  icon-sousuo2"></span>
 				<span class="mui-tab-label">搜索</span>
 			</a>
 
-			<a class="mui-tab-item" href="javascript:;">
+			<a class="mui-tab-item"  href="分类.html" >
 				<span class="mui-icon  iconfont icon-menu"></span>
 				<span class="mui-tab-label">全部</span>
 			</a>
-			<a class="mui-tab-item " href="javascript:;">
+			<a class="mui-tab-item " href="购物车.html">
 				<span class="mui-icon  iconfont icon-shopping"></span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
-			<a class="mui-tab-item " href="javascript:;">
+			<a class="mui-tab-item " href="我的.html">
 				<span class="mui-icon  iconfont icon-geren"></span>
 				<span class="mui-tab-label">我的</span>
 			</a>
@@ -172,11 +173,11 @@
 				<div class="mui-row pullToRefresh-box">
 					<div class="mui-col-xs-6 ">
 					<a href="商品详情.html">
-							<img src="images/index-list (1).png" alt="img" />
+							<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="images/index-list (1).png" />
 						</a>
 						<div class="caption mui-text-left">
 							<h4 class="mui-ellipsis width-100">Theland新西兰进口牛奶牛市兰</h4>
-							<p class="">口牛奶牛市兰</p>
+							<p class="mui-ellipsis">口牛奶牛市兰</p>
 							<p>250ml*24 <span>家庭装</span></p>
 							
 							<div class="op mui-clearfix mui-ellipsis">
@@ -189,7 +190,7 @@
 			
 					<div class="mui-col-xs-6">
 						<a href="商品详情.html">
-							<img src="images/index-list (2).png" alt="img" />
+							<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="images/index-list (2).png" />
 						</a>
 					
 						<div class="caption mui-text-left">
@@ -207,7 +208,7 @@
 						
 					<div class="mui-col-xs-6">
 					<a href="商品详情.html">
-							<img src="images/index-list (3).png" alt="img" />
+							<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="images/index-list (3).png" />
 						</a>
 						
 						<div class="caption mui-text-left">
@@ -225,7 +226,7 @@
 						
 					<div class="mui-col-xs-6">
 					<a href="商品详情.html">
-							<img src="images/index-list (4).png" alt="img" />
+							<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="images/index-list (4).png" />
 						</a>
 						
 						<div class="caption mui-text-left">
@@ -259,7 +260,8 @@
 			
 				<div class="mui-col-xs-6">
 					<a href="商品详情.html">
-						<img src="{{a1}}" alt="img" />
+						<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="{{a1}}" />
+				
 					</a>
 					
 					<div class="caption mui-text-left">
@@ -284,17 +286,18 @@
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			
+		
 			mui("#index_slider").slider({
 				interval: 3000
 			});
 			
+			wxLazy.init(); // 图片延迟加载
 			// 分页
 			mui.ready(function() {
 
 					muiPullToRefresh.init({
 						indexPage:1  , 								 // 当前页
-						maxPage :10   , 								// 总共页数
+						maxPage :20   , 								// 总共页数
 						pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
 						pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
 						url: "json/index.json",                		// ajax url

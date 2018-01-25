@@ -1,0 +1,58 @@
+/**
+ *   对账单  
+ * 
+ * **/
+
+.duizhangdan{
+    
+}
+
+
+// duizhangdan-search  ===> search box title
+.duizhangdan-search{
+     padding: 10px;
+     background: #fff;
+     
+    label,
+    input[type="text"],
+    a{
+        display: inline-block;
+        float:left;
+      
+    }
+    
+    label,
+    a{
+          height: 34px;
+          line-height: 34px;
+          font-size: 16px;
+          color:$text-h;
+    }
+    
+       input[type="text"]{
+           width: 150px;
+           margin-bottom: 0;
+           margin-left: 10px;
+           margin-right: 10px;
+           padding: 10px 12px;
+           height: 34px;
+           background: #fafafa;
+           
+       }
+}
+
+
+
+// duizhangdan-list
+.duizhangdan-list{
+    text-align: center;
+    
+    .not-data{
+        display: inline-block;
+        float: none;
+        margin-top: 50px;
+        width:200px;
+        height: 200px;
+        
+    }
+}

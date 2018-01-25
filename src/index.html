@@ -14,9 +14,10 @@
 	</head>
 
 	<body>
+		
 		<!--头部-->
 		<header class="head mui-bar mui-bar-transparent">
-			<a class="mui-icon mui-icon-bars mui-pull-left"></a>
+			<a class=" login-link mui-pull-left" href="登录.html"> 登录</a>
 			<h1 class="mui-title">
 		    	<input type="search" name="" id="" value="" placeholder="输入关键字" data-toggle="skip" data-url="搜索页.html" />
 		    </h1>
@@ -25,18 +26,18 @@
 
 		<!-- 底部--->
 		<nav class="footer mui-bar mui-bar-tab ">
-			
+
 			<a class="mui-tab-item mui-active" href="index.html">
 				<span class="mui-icon iconfont icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			
+
 			<a class="mui-tab-item" href="搜索页.html">
 				<span class="mui-icon iconfont  icon-sousuo2"></span>
 				<span class="mui-tab-label">搜索</span>
 			</a>
 
-			<a class="mui-tab-item"  href="分类.html" >
+			<a class="mui-tab-item" href="分类.html">
 				<span class="mui-icon  iconfont icon-menu"></span>
 				<span class="mui-tab-label">全部</span>
 			</a>
@@ -55,7 +56,7 @@
 
 			<!-- 图像轮播-->
 			<div class="index-slider mui-slider" id="index_slider">
-				
+
 				<div class="mui-slider-group mui-slider-loop">
 					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
 					<div class="mui-slider-item mui-slider-item-duplicate">
@@ -112,14 +113,14 @@
 							<img src="images/index-jingxian.png" alt="" />
 							<h4>精选好货</h4>
 						</a>
-					
+
 					</li>
 					<li class="width-2">
 						<a href="商品列表.html">
 							<img src="images/index-yinger.png" alt="" />
 							<h4>婴儿车</h4>
 						</a>
-					
+
 					</li>
 					<li class="width-2">
 						<img src="images/index-lengshi.png" alt="" />
@@ -171,7 +172,8 @@
 				
 				<!-- pullToRefresh-box 上拉加载每一项-->
 				<div class="mui-row pullToRefresh-box">
-					<div class="mui-col-xs-6 ">
+					
+					<!--<div class="mui-col-xs-6 ">
 					<a href="商品详情.html">
 							<img class="load-lazy" src="images/lazy.jpg" alt="img" data-src="images/index-list (1).png" />
 						</a>
@@ -241,7 +243,7 @@
 						</div>
 						
 					</div>
-					
+					-->
 				</div>
 				
 			</div>
@@ -291,38 +293,43 @@
 				interval: 3000
 			});
 			
+			
 			wxLazy.init(); // 图片延迟加载
-			// 分页
 			mui.ready(function() {
-
-					muiPullToRefresh.init({
-						indexPage:1  , 								 // 当前页
-						maxPage :20   , 								// 总共页数
-						pullToRefreshBig:".pullToRefresh-big" ,	 	// 上拉的大框
-						pullToRefreshBox:".pullToRefresh-box"  ,	// 上拉的加载框
-						url: "json/index.json",                		// ajax url
-						showText:{									// 上拉 的文本
-								init:"上拉显示更多",
-								down:"上拉显示更多",
-								refresh:"正在加载...",
-								nomore:"没有更多数据了"
-								},   
-						obj:{}  ,                              	// ajax 参数
-						fn:function(data){
+				page(1,20,{},function(){
+					//wxLazy.reset(); // 重新执行 图片延迟加载
+				});
+				
+			});
+		
+			// 分页
+			function page(min,max,obj,fn){
+				muiPullToRefresh.init({
+						indexPage: min, // 当前页
+						maxPage: max, // 总共页数
+						pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
+						pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+						url: "json/index.json", // ajax url
+						showText: { // 上拉 的文本
+							init: "上拉显示更多",
+							down: "上拉显示更多",
+							refresh: "正在加载...",
+							nomore: "没有更多数据了"
+						},
+						obj: obj, // ajax 参数
+						fn: function(data) {
 							data = data.constructor === Array ? data : JSON.parse(data);
 							var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 							var html = template({
-									lists: data
+								lists: data
 							});
-								
+	
 							$(this.pullToRefreshBox).append(html);
-																							
+	
 						}
-					});
-					
-
-				});
-
+					},fn);
+	
+			}
 
 		</script>
 

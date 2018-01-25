@@ -74,9 +74,12 @@ var paths = {
 			
 		"src/js-dev/libs/mui/mui.pullToRefresh.material.js", // 循环初始化所有下拉刷新，上拉加载2。
 		
-
-		"src/js-dev/libs/zepto/zepto.js", //zepto.js
-			
+		"src/js-dev/libs/jq/jquery-2.1.0.min.js", //jquery-1.11.0.js
+	
+		//"src/js-dev/libs/zepto/zepto.js", //zepto.js 
+		
+		"src/js-dev/common/common.js",
+		
 		"src/js-dev/libs/vd/vd.js",  //数据验证
 	
 		//"src/js-dev/libs/vue/vue.min.js",  // vue.min.js

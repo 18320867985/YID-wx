@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body class="bg-white">
+
+		<!--头部-->
+		<header class="login-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+			<a class="link" href="登录.html">登录</a>
+		</header>
+
+		<!--主体内容-->
+		<section class="reg  mui-content  ">
+
+			<form class="reg-form">
+				<!--用户名-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="userName">	
+							<span  class="iconfont icon-geren"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="text" name="userName" id="userName" value="" placeholder="账户" vd-req vd-req-msg="账户不能为空！" />
+					</div>
+				</div>
+
+				<!--公司名称-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="compName">	
+								<span  class="iconfont icon-gongsi"></span>
+							</label>
+					</div>
+					<div class="mui-col-xs-10">
+						<input class="vd-item" type="text" name="compName" id="compName" value="" placeholder="公司名称" vd-req vd-req-msg="公司名称不能为空！" />
+					</div>
+
+				</div>
+
+				<!--邮箱-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="email">	
+							<span  class="iconfont  icon-message"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="text" name="email" id="email" value="" placeholder="邮箱" vd-req vd-req-msg="邮箱不能为空！" vd-pattern="^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$" vd-pattern-msg="邮箱格式不对" />
+					</div>
+				</div>
+
+				<!--手机-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="phone">	
+							<span  class="iconfont icon-phone"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="text" name="phone" id="phone" value="" placeholder="手机号" vd-req vd-req-msg="手机号码不能为空" vd-pattern="^1\d{10}$" vd-pattern-msg="手机格式不对" maxlength="11" vd-remote="json/remote.json" vd-remote-msg="手机号码已存在" />
+					</div>
+				</div>
+
+				<!--密码-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="pwd">	
+							<span  class="iconfont icon-i-pwd"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="password" name="pwd" id="pwd" value="" placeholder="密码" vd-req vd-req-msg="密码不能为空!" vd-compare-emit="pwd2" vd-pattern="^\S{8,32}$" vd-pattern-msg="密码长度8到32位" />
+					</div>
+				</div>
+
+				<!--确认密码-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="pwd2">	
+							<span  class="iconfont icon-i-pwd"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="password" name="pwd2" id="pwd2" value="" placeholder="确认密码" vd-req vd-req-msg="密码不能为空" vd-compare="pwd" vd-compare-msg="两次密码不能相同" />
+					</div>
+				</div>
+
+				<!--获取验证码-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="yzm">	
+							<span  class="iconfont icon-yanzhengma"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10  relative">
+						<input class=" vd-item" type="text" name="yzm" id="yzm" value="" placeholder="验证码" 
+							vd-req vd-req-msg="验证码不能为空" 
+							vd-remote="json/yzm.json"	vd-remote-length="6" 
+							 vd-remote-msg="验证码不对" maxlength="6"
+							 />
+						<button class="getYzm vd-dep-btn" type='button'>获取验证码</button>
+					</div>
+				</div>
+
+				<!--btn-->
+				<div class="form-group submit-box">
+					<input class="submit-btn vd-btn" type="button" name="" id="" value="注册" />
+				</div>
+
+			</form>
+
+		</section>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				// 初始化验证对象
+				var vd1 = vd.create(".reg-form");
+				vd1.init();
+				$(".vd-btn").on("tap", function() {
+					// 是否验证成功
+					vd1.isSuccess(function(obj) {
+						vd1.disabled($(vd1.formName).find("input")); //禁用
+						//vd1.enabled(this); //激活
+						$(this).val("提交中...");
+						alert(JSON.stringify(obj));
+
+					}.bind(this), function(obj) {
+
+						// error 
+						mui.alert(obj.errorMsg, " ", "确定", function() {
+							obj.el.focus();
+						});
+
+					});
+				});
+
+				// 点击 enter键
+				$(document).on("keyup", function(event) {
+
+					if(event.keyCode === 13) {
+						$(".reg-form .vd-btn").trigger("tap");
+					}
+				});
+
+				// 发送验证码
+				var yzmClickBl = true;
+				$(".vd-dep-btn ").on("tap", function() {
+
+					// 根据name属性获取对象
+					if(vd1.getObj("phone").bl) {
+
+						//这里写ajax代码 => 获取的bool值付给yzmClickBl变量
+						if(yzmClickBl) {
+							
+							mui.alert("验证码已发送", " ", "确定", function() {});
+							$(this).removeClass("vd-ok").addClass("error");
+							yzmClickBl = false;
+							var yzmTime = 60;
+
+							var i = setInterval(function() {
+								if(yzmTime > 0) {
+									yzmTime = yzmTime - 1;
+									var yzmTime2 = yzmTime.toString().length > 1 ? yzmTime : "0" + yzmTime;
+									if(yzmTime === 0) {
+
+										$(".getYzm").text("重新发送").addClass('vd-ok').removeClass("error");
+										yzmClickBl = true;
+										clearInterval(i);
+
+									} else {
+										$(".getYzm ").html("重新发送(<span class='text-warning'>" + yzmTime2 + "s</span>)");
+
+									}
+								}
+							}, 1000);
+
+						};
+
+					} else {
+						mui.alert(vd1.getObj("phone").errorMsg, " ", "确定", function() {
+							$(vd1.getObj("phone").el).focus();
+						});
+					};
+
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

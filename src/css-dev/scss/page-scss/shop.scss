@@ -3,24 +3,24 @@
  * 购物车
  * 
  * **/
+
 // 头部信息
-.shop-head{
-    
+.shop-head {
     // 编辑按钮
-    .head-right-btn{
-        position:  absolute;
-        right:15px;
-        top:11px;
+    .head-right-btn {
+        position: absolute;
+        right: 15px;
+        top: 11px;
         z-index: 2;
-        color:$text-777;
+        color: $text-777;
         font-size: 16px;
-        
         // active
-        &:active{
-            color:$text-danger;
+        &:active {
+            color: $text-danger;
         }
     }
 }
+
 .shop-cont {
     margin-top: 10px;
     // checkbox 选择的样式 
@@ -79,55 +79,65 @@
 }
 
 // 计算购物车
-.shop-select{
+.shop-select {
     position: fixed;
     left: 0;
     bottom: 60px;
     z-index: 99;
-  
     margin-top: 10px;
     width: 100%;
-    
     border-top: 1px solid #ddd;
-    background:  #fff;
-     
-     // checkbox
-    .check-box{
+    background: #fff;
+    // checkbox
+    .check-big {
+        position: relative;
       
-      margin-top: 13px;  
-      padding-left: 10px;
-    }   
-    
+        height: 50px;
+        line-height: 50px;
+        .check-all {
+            margin-top: 13px;
+            padding-left: 10px;
+            font-size: 24px;
+            &.icon-checknormal {
+                color: #ddd;
+            }
+            &.icon-xuanzhongduigou {
+                color: $text-danger;
+            }
+        }
+        
+        label{
+           margin-left:3px;
+            position: relative;
+            top:-4px;
+            color:$text-777;
+             }
+    }
     
     // 计算单价部分  
-      .js{
-          padding-top: 5px;
-          p{
-              margin-bottom: 0;
-          }
-      }
-      
-     // 结算btn
-     .btn{
-       //  width: ;
+    .js {
+        padding-top: 5px;
+        p {
+            margin-bottom: 0;
+        }
+    }
+    // 结算btn
+    .btn {
+        //  width: ;
         height: 50px;
         width: 80px;
         line-height: 50px;
-         text-align: center;
-         font-size: 16px;
-        background: darken( $text-danger,5%);
-        color:#fff;
-        
-        &:active{
-           background: darken( $text-danger,10%);
-          
+        text-align: center;
+        font-size: 16px;
+        background: darken( $text-danger, 5%);
+        color: #fff;
+        &:active {
+            background: darken( $text-danger, 10%);
         }
-     }
+    }
 }
 
-
 // 内容的padding-bottom
-
- .footer ~ .shop.mui-content{
-     padding-bottom: 120px;
+.footer~.shop.mui-content {
+    padding-bottom: 120px;
 }

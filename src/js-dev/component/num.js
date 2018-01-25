@@ -11,7 +11,7 @@
 	 * 事件：number_click
 	 *
 	 * 点击事件
-		$(".number").on("number_click",function(event,element){			
+		$(document).on("number_click",function(event,element){			
 			//element 当前点击的元素	
 			var p=$(element).parents(".number");
 			alert($(p).find(".num").val());
@@ -22,7 +22,7 @@
 	+(function($) {
 
 		//minus
-		$(".minus").on("click", function(e) {
+		$(document).on("click",".minus", function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 
@@ -57,7 +57,7 @@
 		});
 
 		//plus
-		$(".plus").on("click", function(e) {
+		$(document).on("click",".plus", function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			var p = $(this).parents(".number");

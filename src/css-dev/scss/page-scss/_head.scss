@@ -10,7 +10,7 @@
     // input
     .mui-title input {
         position: relative;
-        top:-2px;
+        top:0;
         font-size: 14px;
         color: $text-default;
         background: #fff;
@@ -20,15 +20,16 @@
         position: absolute;
         right: 3px;
         top: 12px;
-        font-size: 17px;
+        font-size: 16px;
         color: #fff;
+         &:active{
+           color: $text-danger;
+       }
     }
     // mui-active 上拉的
     &.mui-active {
         // 菜单图标 
-        .mui-icon-bars {
-            color: $text-default;
-        }
+         .login-link,
         .head-right-btn {
             color: $text-default;
         }
@@ -37,6 +38,21 @@
     .mui-action-back:active {
         
        color:$text-warning;
+    }
+    
+    // 登陆链接
+    .login-link{
+        position: absolute;
+        top:12px;
+        left: 5px;
+        z-index: 2;
+       font-size: 14px;
+       color:#fff;
+       
+       &:active{
+           color: $text-danger;
+       }
+
     }
 }
 
