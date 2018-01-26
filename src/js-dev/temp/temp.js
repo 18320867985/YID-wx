@@ -1072,15 +1072,38 @@ $(".mui-bar-tab a").on("tap", function () {
 });
 
 // 头部搜索页的跳转
-$(".mui-bar").find("[data-toggle=skip]").on("tap", function () {
+$(document).find("[data-toggle=skip]").on("tap", function () {
 	$(this).blur();
-	if ($(this).attr("data-toggle") === "skip") {
+
+	if ($(this).attr("data-toggle") == "skip") {
 		var url = $(this).attr("data-url");
 		if (typeof url !== "undefined") {
-			window.location.assign(url);
+			window.location.href = url;
 		}
 	}
 });
+
+// 加入购物车
+$(document).on("tap", "button.btn", function () {
+
+	var v = $(".shopcar").text() || 0;
+	v = Number(v);
+	v = isNaN(v) ? 0 : v;
+	v++;
+	$(".shopcar").text(v);
+	// 存入 localStorage
+	var arrs = com.localStorage.getItem("shopcar") || [];
+	arrs.push({});
+	com.localStorage.setItem("shopcar", arrs);
+});
+
+// 获取购物车数量
+shopCar();
+function shopCar() {
+	var v = com.localStorage.getItem("shopcar") || 0;
+
+	$(".shopcar-local").text(v.length);
+}
 /*
   
 <div class="number" >

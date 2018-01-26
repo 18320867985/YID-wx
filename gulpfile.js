@@ -78,8 +78,6 @@ var paths = {
 	
 		//"src/js-dev/libs/zepto/zepto.js", //zepto.js 
 		
-		"src/js-dev/common/common.js",
-		
 		"src/js-dev/libs/vd/vd.js",  //数据验证
 	
 		//"src/js-dev/libs/vue/vue.min.js",  // vue.min.js

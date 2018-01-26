@@ -4736,13 +4736,29 @@ a .spin {
   .footer.mui-bar-tab .mui-tab-item .iconfont {
     font-size: 20px; }
   .footer.mui-bar-tab .mui-tab-item .icon-shopping {
+    position: relative;
     font-size: 26px; }
   .footer.mui-bar-tab .mui-tab-item .mui-tab-label {
+    position: relative;
     margin-top: 5px;
     font-size: 14px; }
 
 .footer + .mui-content {
   padding-bottom: 60px; }
+
+.shopcar {
+  position: absolute;
+  top: -2px;
+  right: -18px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+  text-align: center;
+  background: #ff0000; }
 
 /*index*/
 .index-slider .mui-slider .mui-slider-item img {
@@ -5926,7 +5942,7 @@ a .spin {
     border-radius: 0;
     border-bottom: 1px solid #e6e9ed; }
   .reg-form .form-group + .form-group {
-    margin-top: 10px; }
+    margin-top: 5px; }
   .reg-form .findpwd {
     margin-top: 0 !important;
     padding: 0 10px; }

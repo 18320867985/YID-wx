@@ -41,7 +41,9 @@
 				<span class="mui-tab-label">全部</span>
 			</a>
 			<a class="mui-tab-item  mui-active" href="购物车.html">
-				<span class="mui-icon  iconfont icon-shopping"></span>
+				<span class="mui-icon  iconfont icon-shopping">
+				<span class="shopcar shopcar-local">0</span>
+				</span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
 			<a class="mui-tab-item " href="我的.html">
@@ -53,7 +55,8 @@
 		<!--主体内容-->
 		<section class=" shop mui-content ">
 			<form class="shop-cont">
-
+				
+				<!--
 				<div class="shop-item  mui-clearfix">
 					<div class="mui-row mui-clearfix">
 						<div class="mui-col-xs-1 ">
@@ -97,145 +100,10 @@
 						</div>
 					</div>
 
-				</div>
+				</div>-->
 
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox">
-
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									<div class=" mui-pull-left">
-										<div class="number">
-											<button class="minus btn" type="button">-</button>
-											<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
-											<button class="plus btn" type="button">+</button>
-										</div>
-									</div>
-
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox" autocomplete="off">
-
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									<div class=" mui-pull-left">
-										<div class="number">
-											<button class="minus btn" type="button">-</button>
-											<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
-											<button class="plus btn" type="button">+</button>
-										</div>
-									</div>
-
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox">
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									<div class=" mui-pull-left">
-										<div class="number">
-											<button class="minus btn" type="button">-</button>
-											<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
-											<button class="plus btn" type="button">+</button>
-										</div>
-									</div>
-
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
+			</form>
+	
 				<!--选择和计算购物车-->
 				<div class="shop-select">
 					<div class="mui-row mui-clearfix">
@@ -268,12 +136,69 @@
 					</div>
 				</div>
 
-			</form>
-
 		</section>
 
+
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+			
+				<div class="shop-item  mui-clearfix">
+					<div class="mui-row mui-clearfix">
+						<div class="mui-col-xs-1 ">
+							<div class="check-box">
+
+								<div class="check-item">
+									<input type="checkbox">
+								</div>
+
+							</div>
+						</div>
+						<div class="mui-col-xs-4 ">
+							<a href="商品详情.html">
+								<img src="images/1段奶粉.png" alt="" />
+							</a>
+						
+						</div>
+						<div class="mui-col-xs-7">
+							<ul>
+								<li>
+									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
+								</li>
+								<li class="text-ash">
+									<label for="">类型:</label>
+									<span>一段奶粉</span>
+								</li>
+								<li class="mui-clearfix price-box">
+									<div class="mui-pull-left">
+										<span class="iconfont icon-renminbi text-danger"></span>
+										<span class="price text-danger">58.00</span>
+									</div>
+									<div class=" mui-pull-left">
+										<div class="number">
+											<button class="minus btn" type="button">-</button>
+											<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
+											<button class="plus btn" type="button">+</button>
+										</div>
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+					</div>
+
+				</div>
+
+			
+					
+			{{/lists}}
+			
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
 			$(function() {
@@ -286,7 +211,7 @@
 					alert($(".shop-item input[type=checkbox]:checked").length);
 				});
 
-				// 删除
+				// 删除购物车
 				$(".delete-btn").on("tap", function() {
 					var els = $(".shop-item input[type=checkbox]:checked");
 					if(els.length === 0) {
@@ -299,11 +224,32 @@
 								$(this).parents(".shop-item").remove()
 							});
 						}
+						
+						//  localStorage获取购物车的数量
+						var arrs= com.localStorage.getItem("shopcar")||[];
+						arrs.splice(0,els.length);
+						com.localStorage.setItem("shopcar",arrs);
+						getshopCar();
 
 					});
 
 				});
-
+				
+				// localStorage获取购物车的数量
+				getshopCar();
+				function getshopCar(){
+					var arrs=com.localStorage.getItem("shopcar")||[];
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+						lists: arrs
+					});
+		
+					$(".shop-cont").html(html);
+					$(".shopcar-local").text(arrs.length);
+				}
+			
+				
+					
 			});
 		</script>
 

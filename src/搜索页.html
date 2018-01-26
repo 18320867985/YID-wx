@@ -42,7 +42,9 @@
 				<span class="mui-tab-label">全部</span>
 			</a>
 			<a class="mui-tab-item " href="购物车.html">
-				<span class="mui-icon  iconfont icon-shopping"></span>
+				<span class="mui-icon  iconfont icon-shopping">
+					<span class="shopcar shopcar-local">0</span>
+				</span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
 			<a class="mui-tab-item " href="我的.html">
@@ -169,9 +171,12 @@
 
 					// 点击搜索
 					$(".head-right-btn").on("tap", function() {
+					
+						var txt = $(".search-head  input[type=search]").val()||"";
+						if(txt.trim()==""){
+							return;
+						}
 						$(".search-ttl,.search-history").hide(); // 隐藏历史项
-						var txt = $(".search-head  input[type=search]").val();
-
 						if($(this).attr("data-bl")) {
 							resetPage(1, 4, {
 								txt: txt

@@ -7,10 +7,12 @@
             font-size: 20px;
         }
         .icon-shopping{
+            position: relative;
             font-size: 26px;
         }
         // tab-label
         .mui-tab-label {
+            position: relative;
             margin-top: 5px;
             font-size: 14px;
         }
@@ -22,4 +24,22 @@
 
 .footer + .mui-content {
   padding-bottom: 60px;  
+}
+
+
+// 购物车图标
+.shopcar{
+    position: absolute;
+     top: -2px;
+    right: -18px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    color:#fff;
+    font-size: 12px;
+    border-radius: 50%;
+    text-align: center;
+   
+    background: $text-danger;
 }
