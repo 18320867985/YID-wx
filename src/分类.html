@@ -250,7 +250,7 @@
 				});
 
 				// ajax 分页
-				function getData(indexPage, allPage, pullToRefreshBig, obj,_type,fn) {
+				function getData(indexPage, allPage, pullToRefreshBig, obj,_type,fn,olddata) {
 
 					muiPullToRefresh.init({
 						indexPage: indexPage, // 当前页
@@ -281,7 +281,7 @@
 							$(this.pullToRefreshBig).find(this.pullToRefreshBox).append(html);
 
 						}
-					},fn);
+					},fn,olddata);
 
 				}
 

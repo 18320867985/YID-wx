@@ -3,7 +3,75 @@
  *商品批量购买 
  * **/
 
+//batch-head
+.batch-head{
+   box-shadow: none;
+   border-bottom: 1px solid $text-ash-2;
+}
 
+// 搜索框 batch-search
+.batch-search {
+    position: fixed;
+    top: 44px;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid $text-ash-2;
+    box-shadow:  2px 0 5px #ddd;
+    background: #fff;
+    .search input,
+    .select select,
+    a {
+        float: left;
+        display: inline-block;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    .search {
+        padding: 0 5px;
+        input {
+            height: 34px;
+            padding: 13px 15px;
+            font-size: 14px;
+            color: $text-777;
+            border: 1px solid #ddd;
+        }
+    }
+    .select {
+        position: relative;
+        padding: 0 5px;
+        select {
+            position: absolute;
+            top: -1px;
+            height: 34px;
+            padding: 0;
+            line-height: 34px;
+           text-indent: 10px;
+            font-size: 14px;
+            color: $text-777;
+            border: 1px solid #ddd !important;
+        }
+        option{
+            display: inline-block;
+            padding-left: 10px;
+       
+        }
+    }
+    .btn {
+        a {
+            display: block;
+            margin-left: 10px;
+            height: 34px;
+            line-height: 34px;
+            font-size: 16px;
+            color: $text-999;
+            &:active {
+                color: $text-danger;
+            }
+        }
+    }
+}
 
 // 计算购物车
 .batch-select {
@@ -18,7 +86,6 @@
     // checkbox
     .check-big {
         position: relative;
-      
         height: 50px;
         line-height: 50px;
         .check-all {
@@ -32,15 +99,13 @@
                 color: $text-danger;
             }
         }
-        
-        label{
-           margin-left:3px;
+        label {
+            margin-left: 3px;
             position: relative;
-            top:-4px;
-            color:$text-777;
-             }
+            top: -4px;
+            color: $text-777;
+        }
     }
-    
     // 计算单价部分  
     .js {
         padding-top: 5px;
@@ -62,11 +127,17 @@
             background: darken( $text-danger, 10%);
         }
     }
+    
+ 
+    
 }
 
-
+ .batch .shop-cont {
+    margin-top: 5px;
+}
 
 // 内容的padding-bottom
 .mui-bar-nav~.batch.mui-content {
     padding-bottom: 50px;
+    padding-top: 99px;
 }

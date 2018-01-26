@@ -5652,6 +5652,63 @@ a .spin {
  *     
  *商品批量购买 
  * **/
+.batch-head {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-bottom: 1px solid #e6e9ed; }
+
+.batch-search {
+  position: fixed;
+  top: 44px;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #e6e9ed;
+  -webkit-box-shadow: 2px 0 5px #ddd;
+          box-shadow: 2px 0 5px #ddd;
+  background: #fff; }
+  .batch-search .search input,
+  .batch-search .select select,
+  .batch-search a {
+    float: left;
+    display: inline-block;
+    margin-bottom: 0;
+    border-radius: 0; }
+  .batch-search .search {
+    padding: 0 5px; }
+    .batch-search .search input {
+      height: 34px;
+      padding: 13px 15px;
+      font-size: 14px;
+      color: #777;
+      border: 1px solid #ddd; }
+  .batch-search .select {
+    position: relative;
+    padding: 0 5px; }
+    .batch-search .select select {
+      position: absolute;
+      top: -1px;
+      height: 34px;
+      padding: 0;
+      line-height: 34px;
+      text-indent: 10px;
+      font-size: 14px;
+      color: #777;
+      border: 1px solid #ddd !important; }
+    .batch-search .select option {
+      display: inline-block;
+      padding-left: 10px; }
+  .batch-search .btn a {
+    display: block;
+    margin-left: 10px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    color: #999; }
+    .batch-search .btn a:active {
+      color: #ff0000; }
+
 .batch-select {
   position: fixed;
   left: 0;
@@ -5693,8 +5750,12 @@ a .spin {
     .batch-select .btn:active {
       background: #cc0000; }
 
+.batch .shop-cont {
+  margin-top: 5px; }
+
 .mui-bar-nav ~ .batch.mui-content {
-  padding-bottom: 50px; }
+  padding-bottom: 50px;
+  padding-top: 99px; }
 
 /**
  *  消息中心   
