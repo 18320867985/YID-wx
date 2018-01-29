@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+	</head>
+
+	<body class="bg-white">
+
+		<!--头部-->
+		<header class="login-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">登录</h1>
+			<a class="link" href="注册.html">注册</a>
+		</header>
+
+		<!--主体内容-->
+		<section class="login  mui-content  ">
+
+			<form class="login-form">
+
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="userName">	
+							<span  class="iconfont icon-geren"></span>
+						</label>
+
+					</div>
+					<div class="mui-col-xs-10 ">
+						<input class=" vd-item" type="text" name="userName" id="userName" value="" placeholder="输入用户名" vd-req vd-req-msg="用户名不能为空！" />
+					</div>
+				</div>
+
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-2">
+						<label for="pwd">	
+								<span  class="iconfont icon-i-pwd"></span>
+							</label>
+					</div>
+					<div class="mui-col-xs-10">
+						<input class="vd-item" type="password" name="pwd" id="pwd" value="" placeholder="输入密码" vd-req vd-req-msg="密码不能为空！" />
+					</div>
+
+				</div>
+				<div class="form-group mui-clearfix findpwd">
+				<!--	<a class="mui-pull-left" href="注册.html">注册</a>-->
+					<a class="mui-pull-right" href="javascript:;">忘记密码</a>
+				</div>
+				<div class="form-group submit-box">
+					<input class="submit-btn vd-btn" type="button" name="" id="" value="登录" />
+				</div>
+
+			</form>
+
+		</section>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+
+		<script type="text/javascript">
+			//$(function() {
+
+				// 初始化验证对象
+				var vd1 = vd.create(".login-form");
+				vd1.init();
+				$(".vd-btn").on("tap", function() {
+					// 是否验证成功
+					vd1.isSuccess(function(obj) {
+						vd1.disabled($(vd1.formName).find("input")); //禁用
+						//vd1.enabled(this); //激活
+						$(this).val("登录中...");
+						alert(JSON.stringify(obj));
+
+					}.bind(this), function(obj) {
+
+						// error 
+						mui.alert(obj.errorMsg, " ", "确定", function() {
+							obj.el.focus();
+						});
+					
+					});
+				});
+
+				// 点击 enter键
+				$(document).on("keyup", function(event) {
+
+					if(event.keyCode === 13) {
+						$(".login-form .vd-btn").trigger("tap");
+					}
+				})
+
+			//});
+		</script>
+
+	</body>
+
+</html>

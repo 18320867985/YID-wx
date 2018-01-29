@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>订单通知</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body>
+
+		<!--头部-->
+		<header class=" mui-bar mui-bar-nav shop-head">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">订单通知</h1>
+
+		</header>
+
+		<!--主体内容-->
+		<section class="message mui-content ">
+
+			<!--pullToRefresh-big 上拉加载大框-->
+			<div class="index-list  pullToRefresh-big">
+
+				<!-- pullToRefresh-box 上拉加载每一项-->
+				<div class="message-list pullToRefresh-box ">
+
+					<!--<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								<span class="iconfont icon-tubiaolunkuo-"></span> 订单通知
+							</a>
+						</li>
+						<li class="mui-table-view-cell ">
+							<a href="javascript:;">订单通知
+								<p class="mui-ellipsis-2">你的好友一注册，就差一步就可以领导礼品，你的好友一注册，就差一步就可以领导礼品</p>
+								<span class="text-ash">2018-1-29</span>
+							</a>
+
+						</li>
+
+					</ul>-->
+
+				</div>
+			</div>
+
+			<!--置顶-->
+			<aside class="zhiding">
+				<span class="iconfont icon-top "></span>
+			</aside>
+		</section>
+
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="iconfont icon-tubiaolunkuo-"></span> 订单通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell ">
+					<a href="javascript:;">
+						<p class="mui-ellipsis-2">你的好友一注册，就差一步就可以领导礼品，你的好友一注册，就差一步就可以领导礼品</p>
+						<span class="text-ash">2018-1-29</span>
+					</a>
+
+				</li>
+
+			</ul>
+
+			{{/lists}}
+		</script>
+		
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			wxLazy.init(); // 图片延迟加载
+			mui.ready(function() {
+				page(1, 20, {}, function() {
+					//wxLazy.reset(); // 重新执行 图片延迟加载
+				});
+
+			});
+
+			// 分页
+			function page(min, max, obj, fn) {
+				muiPullToRefresh.init({
+					indexPage: min, // 当前页
+					maxPage: max, // 总共页数
+					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
+					pullToRefreshBox: ".pullToRefresh-box", // 上拉的加载框
+					url: "json/index.json", // ajax url
+					showText: { // 上拉 的文本
+						init: "上拉显示更多",
+						down: "上拉显示更多",
+						refresh: "正在加载...",
+						nomore: "没有更多数据了"
+					},
+					obj: obj, // ajax 参数
+					fn: function(data) {
+						data = data.constructor === Array ? data : JSON.parse(data);
+						var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+						var html = template({
+							lists: data
+						});
+
+						$(this.pullToRefreshBox).append(html);
+
+					}
+				}, fn);
+
+			}
+		</script>
+
+	</body>
+
+</html>

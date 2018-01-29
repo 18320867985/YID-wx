@@ -140,7 +140,23 @@
     // 可选择菜单 mui-popover
     .popover-content {
         background: #fff;
-      padding: 10px 0 20px;
+        padding: 10px 0 20px;
+        
+      //  close
+      .close{
+          
+          margin-right: 10px;
+          color:$text-777;
+          .mui-icon{
+                 font-size: 32px;
+                 
+                 &:active{
+                     color:$text-danger;
+                 }
+          }
+       
+      }
+             
         .img-box {
             border-bottom: 1px solid $text-ash-2;
             img {

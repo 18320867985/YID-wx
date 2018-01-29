@@ -11,7 +11,7 @@
 .reg-form {
     padding: 20px 15px 10px 15px;
     //ui-col-xs-2
-    .mui-col-xs-2 {
+    //.mui-col-xs-2 {
         position: relative;
         label {
             display: inline-block;
@@ -27,8 +27,8 @@
                 font-size: 26px;
             }
         }
-    }
-    .mui-col-xs-10 {
+  //  }
+   // .mui-col-xs-10 {
         input {
             width: 100% !important;
             font-size: 18px;
@@ -36,7 +36,7 @@
             border-radius: 0;
             border-bottom: 1px solid $text-ash-2;
         }
-    }
+  //  }
     .form-group+.form-group {
         margin-top: 5px;
     }

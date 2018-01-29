@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<title>修改密码</title>
+		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
+		<link rel="stylesheet" href="css/all.css" />
+
+	</head>
+
+	<body class="bg-white">
+
+		<!--头部-->
+		<header class="login-head mui-bar mui-bar-nav ">
+			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+			<h1 class="mui-title">修改密码</h1>
+		
+		</header>
+
+		<!--主体内容-->
+		<section class="reg  mui-content  ">
+
+			<form class="reg-form pwd">
+				<!--用户名-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-3">
+						<label for="userName">	
+							旧密码
+						</label>
+
+					</div>
+					<div class="mui-col-xs-9">
+						<input class=" vd-item" type="password" name="userName" id="userName" value="" placeholder="旧密码" vd-req vd-req-msg="旧密码不能为空"  vd-remote="json/yzm.json"	vd-remote-length="8" 
+							 vd-remote-msg="旧密码码不对" maxlength="8" />
+					</div>
+				</div>
+				<!--密码-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-3">
+						<label for="pwd">	
+						新密码
+						</label>
+
+					</div>
+					<div class="mui-col-xs-9 ">
+						<input class=" vd-item" type="password" name="pwd" id="pwd" value="" placeholder="新密码" vd-req vd-req-msg="密码不能为空!" vd-compare-emit="pwd2" vd-pattern="^\S{8,32}$" vd-pattern-msg="密码长度8到32位" />
+					</div>
+				</div>
+
+				<!--确认密码-->
+				<div class="form-group mui-row mui-clearfix vd-box">
+					<div class="mui-col-xs-3">
+						<label for="pwd2">	
+							确认密码
+						</label>
+
+					</div>
+					<div class="mui-col-xs-9 ">
+						<input class=" vd-item" type="password" name="pwd2" id="pwd2" value="" placeholder="确认新密码" vd-req vd-req-msg="密码不能为空" vd-compare="pwd" vd-compare-msg="两次密码不能相同" />
+					</div>
+				</div>
+				
+				<!--btn-->
+				<div class="form-group submit-box">
+					<input class="submit-btn vd-btn" type="button" name="" id="" value="修改" />
+				</div>
+
+			</form>
+		
+
+
+
+		</section>
+
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				// 初始化验证对象
+				var vd1 = vd.create(".reg-form");
+				vd1.init();
+				$(".vd-btn").on("tap", function() {
+					// 是否验证成功
+					vd1.isSuccess(function(obj) {
+						vd1.disabled($(vd1.formName).find("input")); //禁用
+						//vd1.enabled(this); //激活
+						$(this).val("提交中...");
+						alert(JSON.stringify(obj));
+						mui.alert("密码修改成功", " ", "确定", function() {
+						   	history.back();
+						});
+
+					}.bind(this), function(obj) {
+
+						// error 
+						mui.alert(obj.errorMsg, " ", "确定", function() {
+							obj.el.focus();
+						});
+
+					});
+				});
+
+				// 点击 enter键
+				$(document).on("keyup", function(event) {
+
+					if(event.keyCode === 13) {
+						$(".reg-form .vd-btn").trigger("tap");
+					}
+				});
+
+			
+			});
+		</script>
+
+	</body>
+
+</html>

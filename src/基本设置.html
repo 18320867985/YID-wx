@@ -25,74 +25,82 @@
 		<section class=" baseset mui-content ">
 
 			<!--列表-->
-
 			<ul class="baseset-xx ">
 
-				<li class="mui-row mui-clearfix">
+				<li class="mui-row mui-clearfix progress-box">
 					<label class="mui-col-xs-6">
 					 	头像
 					 </label>
-					<div class="mui-col-xs-6">
-						<img src="images/头像.png" alt="图像图片" />
+					<div class="mui-col-xs-6 h5-fileupload-btn">
+						<img class="h5-fileupload" src="images/头像.png" alt="图像图片" />
+					</div>
+
+					<!-- 点击提交按钮-->
+
+					<input class=" fileUp  v-hide-text-index" type="file" name="" id="fileUp" value="" />
+
+					<!--进度条-->
+					<div class="progress-all mui-clearfix v-hide ">
+						<div class="progress-now"></div>
+						<div class="progress-num">0%</div>
 					</div>
 				</li>
 				<li class="mui-row mui-clearfix">
-					<label class="mui-col-xs-6">
+					<label class="mui-col-xs-4">
 					 	邮箱
 					 </label>
-					<div class="mui-col-xs-6  mui-text-right">
+					<div class="mui-col-xs-8 mui-ellipsis mui-text-right edit " data-filed="email" data-empty="邮箱不能空！" data-pattern="^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$" data-pattern-msg="邮箱格式不对！">
 						<span>754485868@qq.com</span>
 					</div>
 				</li>
 				<li class="mui-row mui-clearfix">
-					<label class="mui-col-xs-6">
+					<label class="mui-col-xs-4">
 					 	称妮
 					 </label>
-					<div class="mui-col-xs-6  mui-text-right">
+					<div class="mui-col-xs-8 mui-ellipsis  mui-text-right  edit" data-filed="said" data-empty="称妮不能空！">
 						<span>风雨无阻</span>
 					</div>
 				</li>
-				
+
 				<li class="mui-row mui-clearfix">
-					<label class="mui-col-xs-6">
+					<label class="mui-col-xs-4">
 					 	手机号码
 					 </label>
-					<div class="mui-col-xs-6  mui-text-right">
+					<div class="mui-col-xs-8  mui-ellipsis mui-text-right  edit" data-filed="phone" data-empty="手机号码不能空！" data-pattern="^1\d{10}$" data-pattern-msg="手机格式不对！">
 						<span>13899998888</span>
 					</div>
 				</li>
-				
-				<li class="mui-row mui-clearfix">
+
+				<li class="mui-row mui-clearfix ">
 					<label class="mui-col-xs-4">
 					 	公司名称
 					 </label>
-					<div class="mui-col-xs-8  mui-text-right mui-ellipsis">
+					<div class="mui-col-xs-8 mui-ellipsis  mui-text-right mui-ellipsis edit" data-filed="compName"  data-empty="公司名称不能空！">
 						<span>深圳市新司南技术有限公司</span>
 					</div>
 				</li>
-
 
 			</ul>
 
 			<ul class="baseset-list mui-table-view ">
 				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
+					<a class="mui-navigate-right" href="修改密码.html">
 						密码修改
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<!--<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
 						我的开票单位
 					</a>
-				</li>
-					<li class="mui-table-view-cell">
-					<a class="mui-navigate-right">
+				</li>-->
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" href="收货地址.html">
 						我的收货地址
 					</a>
 				</li>
 
 			</ul>
-			
+<!--
 			<ul class="baseset-list mui-table-view ">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
@@ -104,13 +112,33 @@
 						收邮箱
 					</a>
 				</li>
-					<li class="mui-table-view-cell">
+				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
 						给管理员发信息
 					</a>
 				</li>
 
-			</ul>
+			</ul>-->
+
+		<!--修改框-->
+		<aside class="baseinfo-alert v-hide">
+				<article>
+					<header class="mui-clearfix">
+						<div class="mui-pull-left ">
+							<span class="mui-icon mui-icon-arrowthinleft close "></span>
+							<span class="back-ttl">更改企业名称</span>
+						</div>
+						<div class="mui-pull-right">
+							<input class="btn" type="button" name="" id="" value="保存" data-btn-text="确定" />
+						</div>
+					</header>
+					<section>
+
+						<input class="txt-v" type="text" name="" id="" value="" />
+
+					</section>
+
+				</article>
 
 		</section>
 
@@ -118,6 +146,90 @@
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
 
 		<script type="text/javascript">
+			$(function() {
+
+				//文件上传
+				$(".h5-fileupload-btn").on("click", function() {
+					$(this).parents(".progress-box").find(".fileUp").click();
+				});
+				$(".fileUp").change(function() {
+
+					fileupff(this, this.id);
+				});
+
+				//  图片上传
+				var fileupff = function(obj, fileId) {
+
+					var img = $(obj).parents(".progress-box").find(".progress-all");
+					img.show();
+
+					var file = document.getElementById(fileId).files[0];
+					h5File.upload({
+						data: file, //选择的文件
+						url: "", //上传网址
+						outTime: 30000,
+						el: $(obj), //当前element
+						size: 30000000000000, //1m=1000000  300000000
+						seccess: function(data) {
+							img.hide();
+							// 成功回调
+							// 成功设置img的src
+							var url = "images/果汁.png";
+							$(obj).parents(".progress-box").find(".file-up").val(url);
+							$(obj).parents(".progress-box").find(".head-img").attr("src", url)
+
+						},
+						error: function(data) {
+							img.hide();
+
+							// 错误回调
+							// 发布删除下面代码... 
+							var url = "images/果汁.png";
+							$(obj).parents(".progress-box").find(".file-up").val(url);
+							$(obj).parents(".progress-box").find(".h5-fileupload").attr("src", url)
+
+						}
+
+					}); //调用上传接口
+				}
+
+				//修改show
+				$(".baseset-xx .edit").on("tap", function() {
+					$(".baseinfo-alert").show();
+					var v = $(this).find("span").text();
+					var p = $(".baseinfo-alert");
+
+					$(".back-ttl", p).text($(this).prevAll("label").text());
+					$(p).find(".txt-v").val(v).focus(); // 内容值
+					$(p).find(".txt-v").attr("data-filed", $(this).attr("data-filed"));
+					var pattern = $(this).attr("data-pattern");
+					var pattern_msg = $(this).attr("data-pattern-msg");
+					if(typeof pattern !== "undefined") {
+						$(p).find(".txt-v").attr("data-pattern", pattern);
+						$(p).find(".txt-v").attr("data-pattern-msg", pattern_msg);
+					} else {
+						$(p).find(".txt-v").removeAttr("data-pattern");
+						$(p).find(".txt-v").removeAttr("data-pattern-msg");
+					}
+
+				});
+
+				
+				// 修改信息api
+				baseset.edit(function(v,filed) {
+					// 服务端ajax todo...
+					//$.post("", {val:v,filed:filed}, function(data) {
+					$(".baseset-xx .edit").each(function() {
+						if($(this).attr("data-filed") === filed) {
+							$(this).find("span").text(v);
+						
+						}
+					});
+
+					//});	
+				});
+
+			});
 		</script>
 
 	</body>

@@ -569,6 +569,113 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	});
 })();
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*
+ * h5文件上传插件
+ * var file=document.getElementById("fileUp").files[0];
+			
+           	h5File.upload({
+           		data:file,
+           		url:"",
+           		outTime:30000,
+           		el:$(this),
+           		size:10000000, //1m=1000000
+           		seccess:function(){},//成功回调
+           		error:function(){} //错误回调
+           	
+           	});//调用上传接口
+
+ <div class="progress-box">
+	<!-- 点击提交按钮-->	
+	<input type="button" name="up" id="up" value="上传" />	
+	<input class="v-hide" type="file" name="" 
+	id="fileUp" value=""   accept="image/*" />
+	<!--进度条-->
+	<div class="progress-all">
+		<div class="progress-now"></div>
+		<div class="progress-num">0%</div>
+	</div>
+			
+</div>
+ * 
+ * 
+ * */
+
+var h5File = function ($, mui) {
+
+	var fileUpload = function fileUpload(option) {
+
+		if ((typeof option === "undefined" ? "undefined" : _typeof(option)) !== 'object') {
+			alert("参数有误！");
+			return;
+		}
+
+		if (option.size) {
+			if (option.data.size > option.size) {
+				mui.alert("文件大于" + option.size / 1000000 + "M");
+				return;
+			}
+		} else {
+			mui.alert("参数没有设置文件大小值[size]");
+			return;
+		}
+
+		var data = new FormData();
+
+		data.append('myFiles', option.data);
+
+		$.ajax({
+			url: option.url,
+			data: data,
+			type: "post",
+			timeout: option.outTime,
+			cache: false,
+			processData: false,
+			contentType: false,
+			xhrFields: {
+				withCredentials: true
+			},
+			xhr: function xhr() {
+				//获取ajaxSettings中的xhr对象，为它的upload属性绑定progress事件的处理函数
+				var myXhr = $.ajaxSettings.xhr();
+				if (myXhr.upload) {
+					//检查upload属性是否存在
+					//绑定progress事件的回调函数
+					myXhr.upload.onprogress = progressFunction;
+				}
+				return myXhr; //xhr对象返回给jQuery或zepto使用
+			},
+			success: option.seccess,
+			error: option.error
+		});
+
+		//progress事件的回调函数
+		function progressFunction(evt) {
+
+			var p = $(option.el).parents(".progress-box");
+			var widthAll = $(".progress-all", p).width();
+			var progressBar = $(".progress-all", p);
+			var percentageDiv = $(".progress-now", p);
+			var percentageNum = $(".progress-num", p);
+
+			if (evt.lengthComputable) {
+				progressBar.max = evt.total;
+				progressBar.value = evt.loaded;
+				$(percentageDiv).css("width", Math.round(evt.loaded / evt.total * widthAll) + "px");
+				$(percentageNum).text(Math.ceil(evt.loaded / evt.total * 100) + "%");
+				//          if (evt.loaded == evt.total) {
+				//            //  console.log("上传完成100%");
+				//          }
+			}
+		}
+	};
+
+	return {
+		upload: fileUpload
+
+	};
+}(window.Zepto || window.jQuery, window.mui);
 /** 上拉加载
  * 
  * <!--pullToRefresh-big 上拉加载大框-->
@@ -1499,6 +1606,83 @@ function shopCar() {
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 }(window.jQuery || window.Zepto);
+/**
+ * baseset 修改基本信息
+ * 
+ * **/
+
+var baseset = function () {
+
+	var edit = function edit(fn) {
+
+		//修改show
+		$(".baseset-xx .edit").on("tap", function () {
+			$(".baseinfo-alert").show();
+			var v = $(this).find("span").text();
+			var p = $(".baseinfo-alert");
+
+			$(".back-ttl", p).text($(this).prevAll("label").text());
+			$(p).find(".txt-v").val(v).focus(); // 内容值
+			$(p).find(".txt-v").attr("data-filed", $(this).attr("data-filed"));
+			var pattern = $(this).attr("data-pattern");
+			var pattern_msg = $(this).attr("data-pattern-msg");
+			var data_empty = $(this).attr("data-empty");
+			$(p).find(".txt-v").attr("data-empty", data_empty);
+			if (typeof pattern !== "undefined") {
+				$(p).find(".txt-v").attr("data-pattern", pattern);
+				$(p).find(".txt-v").attr("data-pattern-msg", pattern_msg);
+			} else {
+				$(p).find(".txt-v").removeAttr("data-pattern");
+				$(p).find(".txt-v").removeAttr("data-pattern-msg");
+			}
+		});
+
+		// 返回hide
+		$(".baseinfo-alert .close").on("tap", function () {
+			$(this).parents(".baseinfo-alert").hide();
+		});
+
+		// 保存
+		$(".baseinfo-alert .btn").on("tap", function () {
+			edit.apply(this);
+		});
+
+		// 修改信息api
+		function edit() {
+
+			var p = $(".baseinfo-alert");
+			var v = $(".txt-v", p).val(); // 内容值
+			var filed = $(".txt-v", p).attr("data-filed") || ""; //字段名称
+			var regx_v = $(".txt-v", p).attr("data-pattern"); //字段名称
+			var regx_msg = $(".txt-v", p).attr("data-pattern-msg") || ""; //字段名称
+			var btn_text = $(this).attr("data-btn-text");
+			var empty = $(".txt-v", p).attr("data-empty") || "not data  is empty";
+			// 非空验证
+			if (v == "" || v === null) {
+				mui.alert(empty, " ", btn_text, function () {});
+				return;
+			}
+			// 正则验证
+			var regx = new RegExp(regx_v, "ig");
+			if (!regx.test(v)) {
+				mui.alert(regx_msg, " ", btn_text, function () {});
+				return;
+			}
+
+			if (typeof fn !== "undefined") {
+				fn(v, filed);
+			}
+
+			$(".baseinfo-alert").hide(); // 大框hide
+			// $(".txt-v", p).val();
+			//	});
+		};
+	};
+
+	return {
+		edit: edit
+	};
+}();
 /*
  * 商品批量购买
  * */

@@ -37,11 +37,15 @@
 			</a>
 
 			<a class="mui-tab-item mui-active"  href="分类.html" >
-				<span class="mui-icon  iconfont icon-menu"></span>
+				<span class="mui-icon  iconfont icon-menu">
+					
+				</span>
 				<span class="mui-tab-label">全部</span>
 			</a>
 			<a class="mui-tab-item " href="购物车.html">
-				<span class="mui-icon  iconfont icon-shopping"></span>
+				<span class="mui-icon  iconfont icon-shopping">
+					<span class="shopcar shopcar-local">0</span>
+				</span>
 				<span class="mui-tab-label">购物车</span>
 			</a>
 			<a class="mui-tab-item " href="我的.html">
@@ -227,30 +231,15 @@
 						_load.appendChild(_load3);
 						_cont.html(_load);
 					
-					
 						//	setTimeout(function() {
-
-						$.get("json/prodclass.json?pullToRefreshId=" + Math.random().toString(), {
-							id: _id
-						}, function(data) {
-
-							data = data.constructor === Array ? data : JSON.parse(data);
-							data=com.list.where(data,function(item){
-								
-								return item.type==_type;
-							});
-							var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
-							var html = template({
-								lists: data
-							});
-
 							_cont.find(".load-pullToRefresh").css("display", "none");
-							_cont.append(html);
+							//_cont.append(html);
 							$(_targetId).find(".ttl-1").text($(element).text()); 	// h4的标题文本设置
-							wxLazy.reset(); //重新获取延时加载的图片
-							getData(1, Number(_id), _targetId, {},_type);  				// 分页
+							
+							getData(1, Number(_id), _targetId, {},_type,function(){
+								wxLazy.reset(); // 重新执行 图片延迟加载
+							});  				
 
-						});
 
 						//}, 1000);
 
@@ -265,7 +254,7 @@
 				});
 
 				// ajax 分页
-				function getData(indexPage, allPage, pullToRefreshBig, obj,_type) {
+				function getData(indexPage, allPage, pullToRefreshBig, obj,_type,fn,olddata) {
 
 					muiPullToRefresh.init({
 						indexPage: indexPage, // 当前页
@@ -296,7 +285,7 @@
 							$(this.pullToRefreshBig).find(this.pullToRefreshBox).append(html);
 
 						}
-					});
+					},fn,olddata);
 
 				}
 
