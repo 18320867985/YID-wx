@@ -28,7 +28,7 @@
 
 				<div class="myorder-slider mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="tab-ttl mui-scroll">
-						<a class="tab-item active mui-control-item mui-active" data-page="9" data-type="0" data-target="#a1">
+						<a class="tab-item active mui-control-item" data-page="9" data-type="0" data-target="#a1">
 							全部
 						</a>
 						<a class=" tab-item mui-control-item" data-page="2" data-type="1" data-target="#a2">
@@ -269,8 +269,10 @@
 
 			// 分页
 			mui.ready(function() {
+				var indexId=common.url.GetQueryString("qid")||0;
+				indexId=isNaN(Number(indexId))?0:Number(indexId);
 				// 第一次加载
-				$(" .mui-scroll .mui-control-item").eq(0).trigger("tap");
+				$(" .mui-scroll .mui-control-item").eq(indexId).trigger("tap");
 			});
 
 			// ajax 分页

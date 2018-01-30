@@ -1191,21 +1191,58 @@ $(document).find("[data-toggle=skip]").on("tap", function () {
 });
 
 // 加入购物车
-$(document).on("tap", "button.btn", function () {
+$(document).on("click", "button.btn", function (e) {
 
 	var v = $(".shopcar").text() || 0;
 	v = Number(v);
 	v = isNaN(v) ? 0 : v;
-	v++;
-	$(".shopcar").text(v);
-	// 存入 localStorage
-	var arrs = com.localStorage.getItem("shopcar") || [];
-	arrs.push({});
-	com.localStorage.setItem("shopcar", arrs);
+	v = v + 1;
+	animate(e, function () {
+
+		// 存入 localStorage
+		var arrs = com.localStorage.getItem("shopcar") || [];
+		arrs.push({});
+		com.localStorage.setItem("shopcar", arrs);
+		$(".shopcar").text(arrs.length);
+	}); //添加购物车的动画
 });
+
+var animate = function animate(e, fn) {
+
+	// 创建span
+	var span = document.createElement("span");
+	span.classList.add("animate-cart");
+	span.classList.add("iconfont");
+	span.classList.add("icon-shopping");
+	$("body").append(span);
+	var els = $(".animate-cart");
+	els.show();
+	// 开始位置
+	els.css({
+		left: e.clientX,
+		top: e.clientY
+	});
+
+	// 结束位置
+	var _top2 = $(window).height() - $(".footer").height();
+	//alert(_top2)
+
+	var _left2 = $(".footer .shopcar").offset().left;
+	els.animate({
+		top: _top2 - 1,
+		left: _left2 + 1
+
+	}, 1000, function () {
+		if (typeof fn === "function") {
+			fn();
+		}
+		els.hide(200).remove();
+	});
+};
 
 // 获取购物车数量
 shopCar();
+
 function shopCar() {
 	var v = com.localStorage.getItem("shopcar") || 0;
 
@@ -1822,11 +1859,46 @@ var collection = function () {
 }();
 var index = function () {
 
-	var _init = function _init() {};
+	// 添加购物车的动画
+	//	var _animate = function() {
+	//
+	//		$(document).on("click", ".animate-btn", function(e) {
+	//
+	//			var tt = $(document).height() - $(this).offset().top;
+	//			// 创建span
+	//			var span = document.createElement("span");
+	//			span.classList.add("animate-cart");
+	//			span.classList.add("iconfont");
+	//			span.classList.add("icon-shopping");
+	//			$("body").append(span)
+	//			var els = $(".animate-cart");
+	//			els.show();
+	//			// 开始位置
+	//			els.css({
+	//				left: e.clientX,
+	//				top: e.clientY
+	//			});
+	//
+	//			// 结束位置
+	//			var _top2 = $(window).height() - $(".footer").height();
+	//			//alert(_top2)
+	//
+	//			var _left2 = $(".footer .shopcar").offset().left;
+	//			els.animate({
+	//				top: _top2,
+	//				left: _left2,
+	//
+	//			}, 1000, function() {
+	//				els.fadeOut(200).remove();
+	//			});
+	//
+	//		});
+	//	}
+	//
+	//	return {
+	//		animate: _animate
+	//	}
 
-	return {
-		init: _init
-	};
 }();
 var shop = function () {
 

@@ -135,3 +135,23 @@
         }
     }
 }
+
+// animate
+.animate-cart{
+    position: fixed;
+    z-index: 99;
+    display: block;
+   
+    width: 20px ;
+    height:20px;
+    line-height: 20px;
+    border-radius: 50%; 
+    text-align: center;
+    color:#fff;
+    font-size: 16px;
+    background:rgba($text-danger,0.8);
+   
+    
+    
+
+}

@@ -1,6 +1,9 @@
 /*footer*/
 
 .footer.mui-bar-tab {
+    position: fixed;
+    left: 0;
+   
     padding:  3px 0;
     .mui-tab-item {
         .iconfont{
@@ -33,9 +36,9 @@
      top: -2px;
     right: -18px;
     display: block;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
     color:#fff;
     font-size: 12px;
     border-radius: 50%;
