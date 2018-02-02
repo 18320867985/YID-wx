@@ -121,6 +121,7 @@
                     color: #fff;
                     background: $text-danger;
                     border: none;
+                    outline:none !important;
                     transition: all 0.5s;
                     @media(max-width: 320px) {
                         float: none;
@@ -128,6 +129,7 @@
                     }
                     &:active {
                         background: darken($text-danger, 10%);
+                    
                     }
                 }
                 border-bottom: 1px solid #ddd;

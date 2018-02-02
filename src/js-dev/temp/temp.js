@@ -1191,7 +1191,7 @@ $(document).find("[data-toggle=skip]").on("tap", function () {
 });
 
 // 加入购物车
-$(document).on("click", "button.btn", function (e) {
+$(document).on("click", ".animate-btn", function (e) {
 
 	var v = $(".shopcar").text() || 0;
 	v = Number(v);
@@ -1224,9 +1224,8 @@ var animate = function animate(e, fn) {
 	});
 
 	// 结束位置
-	var _top2 = $(window).height() - $(".footer").height();
-	//alert(_top2)
-
+	//window.innerHeight  兼容所以手机端的和pc端    
+	var _top2 = window.innerHeight - $(".footer").height();
 	var _left2 = $(".footer .shopcar").offset().left;
 	els.animate({
 		top: _top2 - 1,

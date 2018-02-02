@@ -56,21 +56,22 @@ $(document).find("[data-toggle=skip]").on("tap", function() {
 });
 
 // 加入购物车
-$(document).on("click", "button.btn", function(e) {
+$(document).on("click", ".animate-btn", function(e) {
+	
+		
+		var v = $(".shopcar").text() || 0;
+		v = Number(v);
+		v = isNaN(v) ? 0 : v;
+		v = v + 1;
+		animate(e, function() {
 
-	var v = $(".shopcar").text() || 0;
-	v = Number(v);
-	v = isNaN(v) ? 0 : v;
-	v = v + 1;
-	animate(e, function() {
-
-		// 存入 localStorage
-		var arrs = com.localStorage.getItem("shopcar") || [];
-		arrs.push({});
-		com.localStorage.setItem("shopcar", arrs);
-		$(".shopcar").text(arrs.length);
-	}); //添加购物车的动画
-
+			// 存入 localStorage
+			var arrs = com.localStorage.getItem("shopcar") || [];
+			arrs.push({});
+			com.localStorage.setItem("shopcar", arrs);
+			$(".shopcar").text(arrs.length);
+		}); //添加购物车的动画
+	
 })
 
 var animate = function(e, fn) {
@@ -90,9 +91,8 @@ var animate = function(e, fn) {
 	});
 
 	// 结束位置
-	var _top2 = $(window).height() - $(".footer").height();
-	//alert(_top2)
-
+	//window.innerHeight  兼容所以手机端的和pc端    
+	var _top2 = window.innerHeight - $(".footer").height();
 	var _left2 = $(".footer .shopcar").offset().left;
 	els.animate({
 		top: _top2 - 1,
