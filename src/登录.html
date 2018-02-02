@@ -74,10 +74,19 @@
 				$(".vd-btn").on("tap", function() {
 					// 是否验证成功
 					vd1.isSuccess(function(obj) {
-						vd1.disabled($(vd1.formName).find("input")); //禁用
+					//	vd1.disabled($(vd1.formName).find("input")); //禁用
 						//vd1.enabled(this); //激活
 						$(this).val("登录中...");
-						alert(JSON.stringify(obj));
+						//alert(JSON.stringify(obj));
+						if(adminInfo.setLogin(obj.userName,obj.pwd)){
+							location.assign("我的.html");
+						}else{
+							$(this).val("登录");
+							mui.alert("用户名与密码不匹配", " ", "确定", function() {
+							
+						});
+						}
+					
 
 					}.bind(this), function(obj) {
 

@@ -542,7 +542,7 @@
 			},
 
 			//localStorage删除指定键对应的值
-			deleteItem: function(item) {
+			removeItem: function(item) {
 				item = item || "";
 				if(typeof item !== "string") {
 					return;
@@ -588,7 +588,7 @@
 			},
 
 			// sessionStorage 删除指定键对应的值
-			deleteItem: function(item) {
+			removeItem: function(item) {
 				item = item || "";
 				if(typeof item !== "string") {
 					return;

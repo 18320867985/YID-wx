@@ -23,13 +23,13 @@
 			<span class="head-right-btn " data-text='{"edit":"编辑","complate":"完成"}'> 编辑</span>
 
 		</header>
-		
+
 		<!--主体内容-->
 		<section class=" collection mui-content ">
-			
+
 			<form class="shop-cont">
 
-				<div class="shop-item  mui-clearfix">
+				<!--<div class="shop-item  mui-clearfix">
 					<div class="mui-row mui-clearfix">
 						<div class="mui-col-xs-1 ">
 							<div class="check-box">
@@ -57,7 +57,6 @@
 										<span class="iconfont icon-renminbi text-danger"></span>
 										<span class="price text-danger">58.00</span>
 									</div>
-								
 
 								</li>
 
@@ -66,154 +65,81 @@
 						</div>
 					</div>
 
-				</div>
-
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox">
-
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									
-
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox" autocomplete="off">
-
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
-
-								<div class="check-item">
-									<input type="checkbox">
-								</div>
-
-							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<img src="images/1段奶粉.png" alt="" />
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									
-
-								</li>
-
-							</ul>
-
-						</div>
-					</div>
-
-				</div>
-
-				<!--选择和计算购物车-->
-				<div class="collection-select v-hide">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-5">
-							<div class=" check-big">
-									<span class="iconfont icon-checknormal check-all"></span>	
-									<label class="label-click">全选</label>
-							</div>
-						
-						</div>
-
-						<div class="mui-col-xs-7 mui-clearfix">
-						
-							<div>
-								<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
+				</div>-->
 
 			</form>
+			<!--选择和计算购物车-->
+			<div class="collection-select v-hide">
+				<div class="mui-row mui-clearfix">
+					<div class="mui-col-xs-5">
+						<div class=" check-big">
+							<span class="iconfont icon-checknormal check-all"></span>
+							<label class="label-click">全选</label>
+						</div>
+
+					</div>
+
+					<div class="mui-col-xs-7 mui-clearfix">
+
+						<div>
+							<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
 
 		</section>
 
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+			<div class="shop-item  mui-clearfix">
+				<div class="mui-row mui-clearfix">
+					<div class="mui-col-xs-1 ">
+						<div class="check-box">
+
+							<div class="check-item">
+								<input type="checkbox">
+							</div>
+
+						</div>
+					</div>
+					<div class="mui-col-xs-4 ">
+						<img src="images/1段奶粉.png" alt="" />
+					</div>
+					<div class="mui-col-xs-7">
+						<ul>
+							<li>
+								<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
+							</li>
+							<li class="text-ash">
+								<label for="">类型:</label>
+								<span>一段奶粉</span>
+							</li>
+							<li class="mui-clearfix price-box">
+								<div class="mui-pull-left">
+									<span class="iconfont icon-renminbi text-danger"></span>
+									<span class="price text-danger">58.00</span>
+								</div>
+
+							</li>
+
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+
+			{{/lists}}
+		</script>
+
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
 			$(function() {
@@ -238,11 +164,35 @@
 							els.each(function() {
 								$(this).parents(".shop-item").remove()
 							});
+							
+							// localStorage删除
+							var arrs = com.localStorage.getItem("shoucang") || [];
+							if(arrs.length > 0) {
+								arrs.splice(0, els.length);
+								com.localStorage.setItem("shoucang", arrs);
+							}
+							
+							// localStorage获取收藏的数据
+							getShouCang();
 						}
 
 					});
 
 				});
+
+				// localStorage获取收藏的数据
+				getShouCang();
+
+				function getShouCang() {
+					var arrs = com.localStorage.getItem("shoucang") || [];
+					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+					var html = template({
+						lists: arrs
+					});
+
+					$(".shop-cont").html(html);
+
+				}
 
 			});
 		</script>

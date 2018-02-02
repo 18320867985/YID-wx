@@ -12,7 +12,7 @@ $text-primary: #15ace4; // 选中
 $text-success:#5cb85c;  // 成功
 $text-info : #5bc0de; // 信息
 $text-warning: #f0ad4e; // 警告   
-$text-danger : #ff0000; // 危险 
+$text-danger : darken( #ff0000,5%); ; // 危险 
 
 
 $text-777: #777;    

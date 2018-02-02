@@ -32,6 +32,10 @@ $vd-error-color: darken( red,10%);
     border: 1px solid $vd-ok-color !important;
 }
 
+.vd-box.vd-ok .vd-item[type=checkbox] {
+   
+    border: none !important;
+}
 .vd-box.vd-ok .btn.btn-default {
     color: $vd-ok-color !important;
     border: 1px solid $vd-ok-color !important;

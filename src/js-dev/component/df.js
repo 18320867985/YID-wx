@@ -55,6 +55,8 @@ $(document).find("[data-toggle=skip]").on("tap", function() {
 
 });
 
+
+
 // 加入购物车
 $(document).on("click", ".animate-btn", function(e) {
 	
@@ -108,6 +110,10 @@ var animate = function(e, fn) {
 
 }
 
+
+
+
+
 // 获取购物车数量
 shopCar();
 
@@ -116,3 +122,6 @@ function shopCar() {
 
 	$(".shopcar-local").text(v.length);
 }
+
+
+

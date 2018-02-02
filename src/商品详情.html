@@ -29,11 +29,11 @@
 				<div class="mui-col-xs-4 item">
 					<!--购物车-->
 					<a class="shop-cart" href="购物车.html">
-						<span class="mui-icon  iconfont icon-shopping" ></span>
+						<span class="mui-icon  iconfont icon-shopping"></span>
 						<span class="mui-badge  mui-badge-danger shopcar-local">0</span>
 					</a>
 					<!--收藏-->
-					<a href="收藏夹.html">
+					<a href="javascript:;">
 						<span class="mui-icon  iconfont icon-shoucang"></span>
 					</a>
 
@@ -212,7 +212,6 @@
 			<aside class="zhiding">
 				<span class="iconfont icon-top "></span>
 			</aside>
-			
 
 		</section>
 
@@ -227,16 +226,46 @@
 
 			// 加入购物车
 			$(".shop-add").on("tap", function() {
-				var $badge = $(".proddtl-footer .shop-cart").find(".mui-badge")
-				var v = $badge.text();
-				v = Number(v);
-				v = isNaN(v) ? 0 : ++v;
-				$badge.text(v);
-				// 存入 localStorage
-				var arrs = com.localStorage.getItem("shopcar") || [];
-				arrs.push({});
-				com.localStorage.setItem("shopcar", arrs);
+				if(typeof $(this).attr("data-bl") === "undefined") {
+					$(this).attr("data-bl", true);
+					var $badge = $(".proddtl-footer .shop-cart").find(".mui-badge")
+					var v = $badge.text();
+					v = Number(v);
+					v = isNaN(v) ? 0 : ++v;
+					$badge.text(v);
+					// 存入 localStorage
+					var arrs = com.localStorage.getItem("shopcar") || [];
+					arrs.push({});
+					com.localStorage.setItem("shopcar", arrs);
+				} else {
+					mui.alert("购物车已添了"," ","确定");
+				}
 			});
+			
+			// 加入收藏夹
+			$(".proddtl-footer .icon-shoucang").on("tap",function(){
+				if(typeof $(this).attr("data-bl") === "undefined") {
+				$(this).attr("data-bl", true);
+				$(this).addClass("active");
+				 mui.toast("已收藏"," ","确定");
+				
+				// 存入 localStorage
+					var arrs = com.localStorage.getItem("shoucang") || [];
+					arrs.push({});
+					com.localStorage.setItem("shoucang", arrs);
+				}else{
+					 mui.toast("取消收藏"," ","确定");
+					$(this).removeClass("active");
+					$(this).removeAttr("data-bl");
+					
+					var arrs = com.localStorage.getItem("shoucang") || [];
+					if(arrs.length>0){
+						arrs.splice(0,1);
+					}
+					com.localStorage.setItem("shoucang", arrs);
+				}
+			});
+
 
 			// nummer点击事件
 			$(".number").on("number_click", function(event, element) {
@@ -251,8 +280,6 @@
 					$(el).parents(".popover-content").find(".select-color").text(el.innerText);
 				}
 			});
-			
-		
 		</script>
 
 	</body>

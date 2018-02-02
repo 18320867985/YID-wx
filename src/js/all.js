@@ -9080,7 +9080,7 @@ var vd = (function($) {
 
 	var Obj = function(formName) {
 
-			this.formName = typeof formName==="undefined"?".form":formName,
+		this.formName = typeof formName === "undefined" ? ".form" : formName,
 
 			this.init = function() {
 
@@ -9108,7 +9108,7 @@ var vd = (function($) {
 					return;
 				}
 				for(var i = 0; i < this.arrs.length; i++) {
-					if($.trim(this.arrs[i].elName) ===$.trim( compareName)) {
+					if($.trim(this.arrs[i].elName) === $.trim(compareName)) {
 						$(el).trigger("keyup");
 						break;
 					}
@@ -9185,7 +9185,7 @@ var vd = (function($) {
 				for(var i = 0; i < this.arrs.length; i++) {
 					var _obj = this.arrs[i];
 					var el = _obj.el; // document.forms[_obj.pName][_obj.elName];
-					var $this=this;
+					var $this = this;
 					$(el).on("keyup", _obj, function(event) {
 						$this.checkElement(event.data, event.target, true, true);
 						$this.addVdBtnStyle(el);
@@ -9204,6 +9204,9 @@ var vd = (function($) {
 			},
 
 			this.checkElement = function(_obj2, el, isRemote, isRadio) {
+
+				// not vd 不做验证
+				var _vd_not = el.getAttribute("vd-not");
 
 				// req
 				var _req = el.getAttribute("vd-req");
@@ -9225,6 +9228,7 @@ var vd = (function($) {
 
 				// type=checkbox 复选框
 				var _ck = el.getAttribute("vd-ck");
+
 				var _ck_true = el.getAttribute("vd-ck-true"); // 选中的值
 				var _ck_false = el.getAttribute("vd-ck-false"); // 没选中的值
 				var _ck_msg = el.getAttribute("vd-ck-msg");
@@ -9236,8 +9240,6 @@ var vd = (function($) {
 
 				// 当前的值
 				var v = $.trim(el.value);
-
-				
 
 				// 单选
 				if(_rd !== null) {
@@ -9254,7 +9256,7 @@ var vd = (function($) {
 
 						// 遍历选择项 设为false
 						for(var i = 0; i < this.arrs.length; i++) {
-							if($.trim(this.arrs[i].elName) ===$.trim( _obj2.elName)) {
+							if($.trim(this.arrs[i].elName) === $.trim(_obj2.elName)) {
 								this.arrs[i].rd_req = false; // radio组是否为空  false为空
 								_obj2.bl = false;
 								_obj2.val = v;
@@ -9279,7 +9281,7 @@ var vd = (function($) {
 
 						// 遍历选择项 设为false
 						for(var i = 0; i < this.arrs.length; i++) {
-							if($.trim(this.arrs[i].elName) ===$.trim( _obj2.elName)) {
+							if($.trim(this.arrs[i].elName) === $.trim(_obj2.elName)) {
 								this.arrs[i].bl = false;
 								this.arrs[i].rd_req = true; // radio组是否为空 true不为空
 							}
@@ -9302,12 +9304,12 @@ var vd = (function($) {
 						_obj2.errorMsg = _req_msg;
 						var p = $(el).parents(".vd-box");
 						$(p).removeClass("vd-pattern vd-remote vd-compare").addClass("vd-error  ");
-						
+
 						$(p).find(".vd-req,.vd-pattern,.vd-remote,.vd-compare").removeClass("vd-error");
 						$(p).find(".vd-req").addClass("vd-error").text(_req_msg);
 						$(el).addClass("vd-error");
 						$(p).removeClass("vd-ok ");
-						
+
 						$(".vd-dep-btn", p).addClass("vd-error").removeClass("vd-ok"); //依赖按钮
 
 						return;
@@ -9319,13 +9321,12 @@ var vd = (function($) {
 							_obj2.bl = true;
 							var p = $(el).parents(".vd-box");
 							$(p).removeClass("vd-error ");
-							
+
 							$(p).find(".vd-req").removeClass("vd-error").text("");
 							$(el).removeClass("vd-error");
 							$(p).addClass("vd-ok");
 							$(".vd-dep-btn", p).removeClass("vd-error").addClass("vd-ok"); //依赖按钮
-								
-							
+
 						}
 
 					}
@@ -9346,10 +9347,10 @@ var vd = (function($) {
 						_obj2.val = v;
 						var p = $(el).parents(".vd-box");
 						$(p).addClass("vd-error");
-						
+
 						$(p).find(".vd-req,.vd-pattern,.vd-remote,.vd-compare").removeClass("vd-error");
-						
-						$(p).find(".vd-pattern").addClass("vd-error").text( _pattern_msg);
+
+						$(p).find(".vd-pattern").addClass("vd-error").text(_pattern_msg);
 						$(el).addClass("vd-error");
 						$(p).removeClass("vd-ok");
 						$(".vd-dep-btn", p).addClass("vd-error").removeClass("vd-ok"); //依赖按钮
@@ -9361,7 +9362,7 @@ var vd = (function($) {
 						_obj2.bl = true;
 						var p = $(el).parents(".vd-box");
 						$(p).removeClass("vd-error ");
-						
+
 						$(p).find(".vd-pattern").removeClass("vd-error").text("");
 						$(el).removeClass("vd-error");
 						$(p).addClass("vd-ok");
@@ -9378,7 +9379,7 @@ var vd = (function($) {
 						_obj2.bl = true;
 						var p = $(el).parents(".vd-box");
 						$(p).removeClass("vd-error ");
-						
+
 						$(p).find(".vd-pattern").removeClass("vd-error").text("");
 						$(el).removeClass("vd-error");
 						$(p).addClass("vd-ok");
@@ -9398,7 +9399,7 @@ var vd = (function($) {
 						_obj2.errorMsg = _compare_msg;
 						var p = $(el).parents(".vd-box");
 						$(p).addClass("vd-error");
-						
+
 						$(p).find(".vd-req,.vd-pattern,.vd-remote,.vd-compare").removeClass("vd-error");
 						$(p).find(".vd-compare").addClass("vd-error").text(_compare_msg);
 						$(p).removeClass("vd-ok");
@@ -9413,7 +9414,7 @@ var vd = (function($) {
 						_obj2.bl = true;
 						var p = $(el).parents(".vd-box");
 						$(p).removeClass("vd-error vd-compare ");
-						
+
 						$(p).find(".vd-compare").removeClass("vd-error").text("");
 						$(el).removeClass("vd-error");
 						$(p).addClass("vd-ok");
@@ -9430,11 +9431,11 @@ var vd = (function($) {
 						_obj2.errorMsg = _remote_msg;
 						_obj2.bl = false;
 						_obj2.val = v;
-						_obj2.remote_bl=_obj2.bl;
+						_obj2.remote_bl = _obj2.bl;
 
 						var p = $(el).parents(".vd-box");
 						$(p).addClass("vd-error ");
-						
+
 						$(p).find(".vd-req,.vd-pattern,.vd-remote,.vd-compare").removeClass("vd-error");
 						$(p).find(".vd-remote").addClass("vd-error").text(_remote_msg);
 						$(el).addClass("vd-error");
@@ -9452,13 +9453,13 @@ var vd = (function($) {
 							type: "get",
 							timeout: 10000,
 							success: function(data) {
-								data=data||false;
-								
-								if(typeof data!=="number"){
-									var _num=Number(data);
-									data=isNaN(_num)?false:_num;
+								data = data || false;
+
+								if(typeof data !== "number") {
+									var _num = Number(data);
+									data = isNaN(_num) ? false : _num;
 								}
-								
+
 								if(!data) {
 
 									$remote.remoteFunError(_obj2, el, _remote_msg);
@@ -9468,7 +9469,6 @@ var vd = (function($) {
 
 									$remote.remoteFunOk(_obj2, el);
 									$remote.addVdBtnStyle(el);
-									
 
 								}
 							},
@@ -9480,14 +9480,14 @@ var vd = (function($) {
 
 						});
 
-					}else{
-						
-						if(_obj2.remote_bl){
+					} else {
+
+						if(_obj2.remote_bl) {
 							$remote.remoteFunOk(_obj2, el);
 							$remote.addVdBtnStyle(el);
-						}else{
+						} else {
 							$remote.remoteFunError(_obj2, el, _remote_msg);
-							$remote.addVdBtnStyle(el);	
+							$remote.addVdBtnStyle(el);
 						}
 					}
 
@@ -9499,23 +9499,31 @@ var vd = (function($) {
 						_obj2.errorMsg = "";
 						_obj2.val = _ck_true !== null ? _ck_true : 0;
 						_obj2.bl = true;
-						var p = $(el).parents(".vd-box");
-						$(p).removeClass("vd-error  ");
-						$(el).removeClass("vd-error");
-						$(p).addClass("vd-ok");
-						$(".vd-dep-btn", p).removeClass("vd-error").addClass("vd-ok"); //依赖按钮
-					
+						if(_vd_not===null) {
+							
+							var p = $(el).parents(".vd-box");
+							$(p).removeClass("vd-error  ");
+							$(el).removeClass("vd-error");
+							$(p).addClass("vd-ok");
+							$(".vd-dep-btn", p).removeClass("vd-error").addClass("vd-ok"); //依赖按钮
+						}else{
+							_obj2.bl = true;
+						}
 
 					} else {
 						_obj2.bl = false;
 						_obj2.val = _ck_false !== null ? _ck_false : 0;
 						_obj2.errorMsg = _ck_msg;
-						var p = $(el).parents(".vd-box");
-						$(p).addClass("vd-error vd-ck ");
-						$(p).removeClass("vd-ok");
-						$(el).addClass("vd-error");
-						$(".vd-dep-btn", p).addClass("vd-error").removeClass("vd-ok"); //依赖按钮
+						if(_vd_not ===null) {
 							
+							var p = $(el).parents(".vd-box");
+							$(p).addClass("vd-error vd-ck ");
+							$(p).removeClass("vd-ok");
+							$(el).addClass("vd-error");
+							$(".vd-dep-btn", p).addClass("vd-error").removeClass("vd-ok"); //依赖按钮	
+						}else{
+						_obj2.bl = true;	
+						}
 
 						return;
 
@@ -9604,7 +9612,7 @@ var vd = (function($) {
 					var obj = this.arrs[i];
 					var el = obj.el;
 					this.checkElement(obj, el, isRemote, isRadio); // false 不去remote验证    isRadio不做比较
-					this.addVdBtnStyle(el);  // 添加vd-btn提交按钮样式
+					this.addVdBtnStyle(el); // 添加vd-btn提交按钮样式
 				}
 			},
 
@@ -9612,11 +9620,11 @@ var vd = (function($) {
 				_obj2.errorMsg = "";
 				_obj2.bl = true;
 				_obj2.val = $(el).val();
-				_obj2.remote_bl=_obj2.bl;
+				_obj2.remote_bl = _obj2.bl;
 
 				var p = $(el).parents(".vd-box");
 				$(p).removeClass("vd-error ");
-				
+
 				$(p).find(".vd-remote").removeClass("vd-error").text("");
 				$(el).removeClass("vd-error");
 				$(p).addClass("vd-ok");
@@ -9628,11 +9636,11 @@ var vd = (function($) {
 				_obj2.errorMsg = _remote_msg;
 				_obj2.bl = false;
 				_obj2.val = $(el).val();
-				_obj2.remote_bl=_obj2.bl;
+				_obj2.remote_bl = _obj2.bl;
 
 				var p = $(el).parents(".vd-box");
 				$(p).addClass("vd-error ");
-				
+
 				$(p).find(".vd-req,.vd-pattern,.vd-remote,.vd-compare").removeClass("vd-error");
 				$(p).find(".vd-remote").addClass("vd-error").text(_remote_msg);
 				$(el).addClass("vd-error");
@@ -9669,14 +9677,14 @@ var vd = (function($) {
 
 				return baseBl;
 			},
-			
-			this.addVdBtnStyle=function(el){
-				
+
+			this.addVdBtnStyle = function(el) {
+
 				// 提交按钮
 				var p = $(el).parents(this.formName);
 				var $vd_btn = $(".vd-btn", p);
 				if($vd_btn.length > 0) {
-					
+
 					if(this.vdIsOk()) {
 						$vd_btn.removeClass("vd-error").addClass("vd-ok");
 					} else {
@@ -9685,8 +9693,7 @@ var vd = (function($) {
 					}
 				}
 			}
-	
-	
+
 	}
 
 	return {
@@ -10203,7 +10210,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			},
 
 			//localStorage删除指定键对应的值
-			deleteItem: function deleteItem(item) {
+			removeItem: function removeItem(item) {
 				item = item || "";
 				if (typeof item !== "string") {
 					return;
@@ -10248,7 +10255,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			},
 
 			// sessionStorage 删除指定键对应的值
-			deleteItem: function deleteItem(item) {
+			removeItem: function removeItem(item) {
 				item = item || "";
 				if (typeof item !== "string") {
 					return;
@@ -11340,6 +11347,52 @@ function shopCar() {
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 }(window.jQuery || window.Zepto);
+/*
+ 登录信息
+ * */
+
+var adminInfo = function () {
+
+	var _loginInfo = {
+		isLogin: false,
+		userName: "admin",
+		pwd: "12345678"
+		// 是否登陆
+	};var _getLogin = function _getLogin() {
+
+		var Info = common.localStorage.getItem("loginInfo") || _loginInfo;
+
+		return Info;
+	};
+
+	// 是否登陆
+	var _setLogin = function _setLogin(userName, pwd) {
+
+		userName = userName || "";
+		pwd = pwd || "";
+
+		if (_loginInfo.userName === userName && _loginInfo.pwd === pwd) {
+			_loginInfo.isLogin = true;
+			common.localStorage.setItem("loginInfo", _loginInfo);
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	// 退出登录
+	var _logout = function _logout() {
+
+		common.localStorage.removeItem("loginInfo");
+	};
+
+	return {
+		getLogin: _getLogin,
+		setLogin: _setLogin,
+		logout: _logout
+
+	};
+}();
 /**
  * baseset 修改基本信息
  * 

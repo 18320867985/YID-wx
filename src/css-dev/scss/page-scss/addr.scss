@@ -33,3 +33,17 @@
         }
     }
 }
+
+// addr-head-link
+.addr-head-link{
+    
+    position: absolute;
+    right: 10px;
+    top:11px;
+    z-index: 2;
+    font-size: 18px;
+    
+    &:active{
+        color:$text-danger;
+    }
+}

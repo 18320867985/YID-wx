@@ -13,7 +13,7 @@
   color: #f0ad4e; }
 
 .text-danger {
-  color: #ff0000; }
+  color: #e60000; }
 
 .text-ash {
   color: #aab2bd; }
@@ -351,7 +351,7 @@ a {
   background-color: #4cd964; }
 
 .mui-bg-negative {
-  background-color: #ff0000; }
+  background-color: #e60000; }
 
 .mui-error {
   margin: 88px 35px;
@@ -853,16 +853,16 @@ input[type="submit"],
 .mui-btn-danger,
 .mui-btn-red {
   color: #fff;
-  background-color: #ff0000;
-  border: 1px solid #ff0000; }
+  background-color: #e60000;
+  border: 1px solid #e60000; }
   .mui-btn-negative:enabled:active, .mui-btn-negative.mui-active:enabled,
   .mui-btn-danger:enabled:active,
   .mui-btn-danger.mui-active:enabled,
   .mui-btn-red:enabled:active,
   .mui-btn-red.mui-active:enabled {
     color: #fff;
-    background-color: #cc0000;
-    border: 1px solid #cc0000; }
+    background-color: #b30000;
+    border: 1px solid #b30000; }
 
 .mui-btn-royal,
 .mui-btn-purple {
@@ -894,7 +894,7 @@ input[type="submit"],
   .mui-btn-outlined.mui-btn-warning, .mui-btn-outlined.mui-btn-yellow {
     color: #f0ad4e; }
   .mui-btn-outlined.mui-btn-negative, .mui-btn-outlined.mui-btn-danger, .mui-btn-outlined.mui-btn-red {
-    color: #ff0000; }
+    color: #e60000; }
   .mui-btn-outlined.mui-btn-royal, .mui-btn-outlined.mui-btn-purple {
     color: #8a6de9; }
   .mui-btn-outlined.mui-btn-primary:enabled:active, .mui-btn-outlined.mui-btn-blue:enabled:active, .mui-btn-outlined.mui-btn-positive:enabled:active, .mui-btn-outlined.mui-btn-success:enabled:active, .mui-btn-outlined.mui-btn-green:enabled:active, .mui-btn-outlined.mui-btn-warning:enabled:active, .mui-btn-outlined.mui-btn-yellow:enabled:active, .mui-btn-outlined.mui-btn-negative:enabled:active, .mui-btn-outlined.mui-btn-danger:enabled:active, .mui-btn-outlined.mui-btn-red:enabled:active, .mui-btn-outlined.mui-btn-royal:enabled:active, .mui-btn-outlined.mui-btn-purple:enabled:active {
@@ -913,7 +913,7 @@ input[type="submit"],
 .mui-btn-block {
   display: block;
   width: 100%;
-  padding: 15px 0;
+  padding: 12px 0;
   margin-bottom: 10px;
   font-size: 18px; }
 
@@ -1218,9 +1218,9 @@ input[type="submit"],
 
 .mui-badge-danger, .mui-badge-red {
   color: #fff;
-  background-color: #ff0000; }
+  background-color: #e60000; }
   .mui-badge-danger.mui-badge-inverted, .mui-badge-red.mui-badge-inverted {
-    color: #ff0000;
+    color: #e60000;
     background-color: transparent; }
 
 .mui-badge-royal, .mui-badge-purple {
@@ -2327,19 +2327,19 @@ select {
     background-color: #4cd964; }
 
 .mui-segmented-control-negative {
-  border: 1px solid #ff0000; }
+  border: 1px solid #e60000; }
   .mui-segmented-control-negative .mui-control-item {
-    color: #ff0000;
+    color: #e60000;
     border-color: inherit; }
     .mui-segmented-control-negative .mui-control-item.mui-active {
       color: #fff;
-      background-color: #ff0000; }
+      background-color: #e60000; }
   .mui-segmented-control-negative.mui-segmented-control-inverted .mui-control-item.mui-active {
-    color: #ff0000;
+    color: #e60000;
     background: none;
-    border-bottom: 2px solid #ff0000; }
+    border-bottom: 2px solid #e60000; }
   .mui-segmented-control-negative.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
-    background-color: #ff0000; }
+    background-color: #e60000; }
 
 .mui-control-content {
   position: relative;
@@ -4120,8 +4120,8 @@ body > .mui-progressbar {
       background: #eef2f5; }
     .topBottomTab-menu-ttl ul li.active a {
       background: #fff;
-      color: #e60000;
-      border-left: 2px solid #e60000;
+      color: #cc0000;
+      border-left: 2px solid #cc0000;
       -webkit-box-sizing: border-box;
               box-sizing: border-box; }
     .topBottomTab-menu-ttl ul li + li {
@@ -4500,7 +4500,7 @@ a .spin {
   border: 1px solid #ec971f; }
 
 .mui-pciker-list li.highlight {
-  color: #ff0000 !important; }
+  color: #e60000 !important; }
 
 /**mui-popup**/
 .mui-popup .mui-popup-buttons .mui-popup-button {
@@ -4529,6 +4529,9 @@ a .spin {
 .vd-box.vd-ok .vd-item {
   color: #3d8b3d !important;
   border: 1px solid #3d8b3d !important; }
+
+.vd-box.vd-ok .vd-item[type=checkbox] {
+  border: none !important; }
 
 .vd-box.vd-ok .btn.btn-default {
   color: #3d8b3d !important;
@@ -4736,7 +4739,7 @@ a .spin {
   font-size: 16px;
   color: #fff; }
   .head.mui-bar .head-right-btn:active {
-    color: #ff0000; }
+    color: #e60000; }
 
 .head.mui-bar.mui-active .login-link,
 .head.mui-bar.mui-active .head-right-btn {
@@ -4747,13 +4750,13 @@ a .spin {
 
 .head.mui-bar .login-link {
   position: absolute;
-  top: 12px;
-  left: 5px;
+  top: 14px;
+  left: 10px;
   z-index: 2;
-  font-size: 14px;
+  font-size: 18px;
   color: #fff; }
   .head.mui-bar .login-link:active {
-    color: #ff0000; }
+    color: #e60000; }
 
 .child-head .mui-icon.iconfont {
   color: #666; }
@@ -4793,7 +4796,7 @@ a .spin {
   font-size: 12px;
   border-radius: 50%;
   text-align: center;
-  background: #ff0000; }
+  background: #e60000; }
 
 /*index*/
 .index-slider .mui-slider .mui-slider-item img {
@@ -4882,7 +4885,7 @@ a .spin {
       margin-right: 5px;
       padding: 3px 5px;
       color: #fff;
-      background: #ff0000;
+      background: #e60000;
       border: none;
       outline: none !important;
       -webkit-transition: all 0.5s;
@@ -4892,7 +4895,7 @@ a .spin {
           float: none;
           margin-right: 0; } }
       .index-list .mui-col-xs-6 .caption .op .btn:active {
-        background: #cc0000; }
+        background: #b30000; }
 
 .animate-cart {
   position: fixed;
@@ -4905,7 +4908,7 @@ a .spin {
   text-align: center;
   color: #fff;
   font-size: 16px;
-  background: rgba(255, 0, 0, 0.8); }
+  background: rgba(230, 0, 0, 0.8); }
 
 /*
  * 精品推荐
@@ -5021,13 +5024,15 @@ a .spin {
       vertical-align: middle;
       color: #8e8e8e; }
       .proddtl-footer .item .iconfont:active {
-        color: #ff0000; }
+        color: #e60000; }
       .proddtl-footer .item .iconfont.icon-shopping {
         position: relative;
         top: 2px;
         font-size: 30px; }
       .proddtl-footer .item .iconfont + .iconfont {
         margin-left: 30px; }
+    .proddtl-footer .item .icon-shoucang.active {
+      color: #e60000; }
     .proddtl-footer .item .shop-cart {
       position: relative;
       margin-right: 10px; }
@@ -5038,7 +5043,7 @@ a .spin {
     .proddtl-footer .item .shop-add {
       color: #777; }
       .proddtl-footer .item .shop-add:active {
-        color: #ff0000; }
+        color: #e60000; }
     .proddtl-footer .item .mui-btn {
       margin: 0; }
 
@@ -5051,7 +5056,7 @@ a .spin {
     .proddtl-select .popover-content .close .mui-icon {
       font-size: 32px; }
       .proddtl-select .popover-content .close .mui-icon:active {
-        color: #ff0000; }
+        color: #e60000; }
   .proddtl-select .popover-content .img-box {
     border-bottom: 1px solid #e6e9ed; }
     .proddtl-select .popover-content .img-box img {
@@ -5082,7 +5087,7 @@ a .spin {
     .proddtl-select .option li .radio-btn-item.active {
       background: #e60000;
       color: #fff;
-      border: 1px solid #ff0000; }
+      border: 1px solid #e60000; }
   .proddtl-select .option li + li {
     padding-top: 15px;
     border-top: 1px solid #ddd; }
@@ -5194,7 +5199,7 @@ a .spin {
 .proddtl-footer.conforder .mui-col-xs-8 {
   padding-right: 10px; }
   .proddtl-footer.conforder .mui-col-xs-8 .icon-renminbi {
-    color: #ff0000; }
+    color: #e60000; }
 
 /*
  * search
@@ -5206,7 +5211,7 @@ a .spin {
   .search-head .head-right-btn {
     color: #666 !important; }
   .search-head .head-right-btn:active {
-    color: #ff0000 !important; }
+    color: #e60000 !important; }
 
 .search-ttl {
   padding: 20px 10px 10px 10px; }
@@ -5216,7 +5221,7 @@ a .spin {
     .search-ttl h4 .mui-icon {
       font-size: 18px; }
   .search-ttl .next-btn:active {
-    color: #ff0000; }
+    color: #e60000; }
 
 .search-history {
   padding: 10px 0; }
@@ -5232,7 +5237,7 @@ a .spin {
       font-size: 14px;
       background: #fff; }
       .search-history .mui-col-xs-4 a:active {
-        color: #ff0000; }
+        color: #e60000; }
 
 /*
  addr 收货地址
@@ -5258,7 +5263,16 @@ a .spin {
     font-size: 28px;
     color: #777; }
     .addr-item > .editaddr-btn:active {
-      color: #ff0000; }
+      color: #e60000; }
+
+.addr-head-link {
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  z-index: 2;
+  font-size: 18px; }
+  .addr-head-link:active {
+    color: #e60000; }
 
 /*
  * 编辑地址
@@ -5337,12 +5351,12 @@ a .spin {
   color: #777;
   font-size: 16px; }
   .shop-head .head-right-btn:active {
-    color: #ff0000; }
+    color: #e60000; }
 
 .shop-cont {
   margin-top: 10px; }
   .shop-cont input[type='checkbox']:checked:before {
-    color: #ff0000; }
+    color: #e60000; }
 
 .shop-item {
   padding: 15px 10px;
@@ -5447,7 +5461,7 @@ a .spin {
       .shop-select .check-big .check-all.icon-checknormal {
         color: #ddd; }
       .shop-select .check-big .check-all.icon-xuanzhongduigou {
-        color: #ff0000; }
+        color: #e60000; }
     .shop-select .check-big label {
       margin-left: 3px;
       position: relative;
@@ -5463,10 +5477,10 @@ a .spin {
     line-height: 50px;
     text-align: center;
     font-size: 16px;
-    background: #e60000;
+    background: #cc0000;
     color: #fff; }
     .shop-select .btn:active {
-      background: #cc0000; }
+      background: #b30000; }
 
 .footer ~ .shop.mui-content {
   padding-bottom: 120px; }
@@ -5567,6 +5581,10 @@ a .spin {
 
 .info-list {
   padding-bottom: 10px; }
+
+.mui-btn-box {
+  margin-top: 10px;
+  padding: 10px; }
 
 /*
  基本设置
@@ -5697,7 +5715,7 @@ a .spin {
       .collection-select .check-big .check-all.icon-checknormal {
         color: #ddd; }
       .collection-select .check-big .check-all.icon-xuanzhongduigou {
-        color: #ff0000; }
+        color: #e60000; }
     .collection-select .check-big label {
       margin-left: 3px;
       position: relative;
@@ -5713,10 +5731,10 @@ a .spin {
     line-height: 50px;
     text-align: center;
     font-size: 16px;
-    background: #e60000;
+    background: #cc0000;
     color: #fff; }
     .collection-select .btn:active {
-      background: #cc0000; }
+      background: #b30000; }
 
 .mui-bar-nav ~ .collection.mui-content {
   padding-bottom: 60px; }
@@ -5780,7 +5798,7 @@ a .spin {
     font-size: 16px;
     color: #999; }
     .batch-search .btn a:active {
-      color: #ff0000; }
+      color: #e60000; }
 
 .batch-select {
   position: fixed;
@@ -5802,7 +5820,7 @@ a .spin {
       .batch-select .check-big .check-all.icon-checknormal {
         color: #ddd; }
       .batch-select .check-big .check-all.icon-xuanzhongduigou {
-        color: #ff0000; }
+        color: #e60000; }
     .batch-select .check-big label {
       margin-left: 3px;
       position: relative;
@@ -5818,10 +5836,10 @@ a .spin {
     line-height: 50px;
     text-align: center;
     font-size: 16px;
-    background: #e60000;
+    background: #cc0000;
     color: #fff; }
     .batch-select .btn:active {
-      background: #cc0000; }
+      background: #b30000; }
 
 .batch .shop-cont {
   margin-top: 5px; }
@@ -5948,7 +5966,7 @@ a .spin {
     .login-form .findpwd a {
       color: #777; }
       .login-form .findpwd a:active {
-        color: #ff0000; }
+        color: #e60000; }
   .login-form .submit-btn {
     width: 100%;
     padding: 10px 15px;
@@ -6005,7 +6023,7 @@ a .spin {
     .reg-form .findpwd a {
       color: #777; }
       .reg-form .findpwd a:active {
-        color: #ff0000; }
+        color: #e60000; }
   .reg-form .submit-btn {
     width: 100%;
     padding: 10px 15px;

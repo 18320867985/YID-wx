@@ -505,7 +505,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			},
 
 			//localStorage删除指定键对应的值
-			deleteItem: function deleteItem(item) {
+			removeItem: function removeItem(item) {
 				item = item || "";
 				if (typeof item !== "string") {
 					return;
@@ -550,7 +550,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			},
 
 			// sessionStorage 删除指定键对应的值
-			deleteItem: function deleteItem(item) {
+			removeItem: function removeItem(item) {
 				item = item || "";
 				if (typeof item !== "string") {
 					return;
@@ -1642,6 +1642,52 @@ function shopCar() {
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 }(window.jQuery || window.Zepto);
+/*
+ 登录信息
+ * */
+
+var adminInfo = function () {
+
+	var _loginInfo = {
+		isLogin: false,
+		userName: "admin",
+		pwd: "12345678"
+		// 是否登陆
+	};var _getLogin = function _getLogin() {
+
+		var Info = common.localStorage.getItem("loginInfo") || _loginInfo;
+
+		return Info;
+	};
+
+	// 是否登陆
+	var _setLogin = function _setLogin(userName, pwd) {
+
+		userName = userName || "";
+		pwd = pwd || "";
+
+		if (_loginInfo.userName === userName && _loginInfo.pwd === pwd) {
+			_loginInfo.isLogin = true;
+			common.localStorage.setItem("loginInfo", _loginInfo);
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	// 退出登录
+	var _logout = function _logout() {
+
+		common.localStorage.removeItem("loginInfo");
+	};
+
+	return {
+		getLogin: _getLogin,
+		setLogin: _setLogin,
+		logout: _logout
+
+	};
+}();
 /**
  * baseset 修改基本信息
  * 

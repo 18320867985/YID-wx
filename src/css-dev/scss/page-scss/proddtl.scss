@@ -112,6 +112,13 @@
                 margin-left: 30px;
             }
         }
+        // 收藏夹
+        .icon-shoucang{
+            &.active{
+                color:$text-danger;
+            }
+        }
+        
         .shop-cart {
             position: relative;
             margin-right: 10px;
@@ -196,7 +203,7 @@
                margin-bottom: 15px;
                
                &.active {
-                   background: darken($text-danger,5%);
+                   background: $text-danger;
                    color:#fff;
                     border: 1px solid $text-danger;
                    
