@@ -7,34 +7,12 @@
 
 		<link rel="stylesheet" type="text/css" href="../css/all.css" />
 		<link rel="stylesheet" type="text/css" href="../css/radioCheckCstfont/iconfont.css" />
-		<style type="text/css">
-			
-			html,body{
-				height:  100%;
-				margin: 0;
-				padding: 10px;
-				 background: red;
-			}
-			.test{
-				width: 100%;
-				height: 100%;
-				 background: blue;
-				border: 1px solid #ddd;
-		</style>
 
 	</head>
 
 	<body>
-		<div  class="test">
-			div
-			  <label for="">Label</label>
-			<!--<input type="text" name="" id="" value="" />-->
-			 <span id="">
-			 	span
-			 	
-			 </span>
-		</div>
-	
+		<input type="text" name="copy" id="copy" class="v-hide-text-index2" value="12412341" />
+		<input type="button" value="BTN" />
 
 		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/all.js" type="text/javascript" charset="utf-8"></script>
@@ -44,17 +22,32 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			$("#id").click(function() {
-				
-				$("input[type=checkbox]").attr("checked", false);
-				$("input[type=checkbox]").click()
-				$("input[type=checkbox]").attr("checked", "checked");
+			$("[type=button]").click(function() {
+					
+				copy("8888888888888888");
 			});
+			
+			
+			function copy(value){
+					try {
+					var _el=document.createElement("input");
+					_el.setAttribute("type","text");
+					_el.value=value;
+					_el.id="copy1";
+					document.getElementsByTagName("body")[0].appendChild(_el);
+					
+				var el = document.getElementById("copy1");
 
-			$("#id2").click(function() {
-				$("input[type=checkbox]").click()
-				$("input[type=checkbox]").attr("checked", false);
-			});
+					el.select();
+					var copy = document.execCommand("copy");
+					var msg = copy ? "复制成功" : "复制失败";
+					document.getElementsByTagName("body")[0].removeChild(el);
+					alert(msg)
+
+				} catch(e) {
+					alert("不支持复制");
+				}
+			}
 		</script>
 
 	</body>

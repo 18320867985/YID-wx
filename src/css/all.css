@@ -5255,15 +5255,22 @@ a .spin {
       font-size: 14px; }
     .addr-item ul li + li {
       margin-top: 10px; }
-  .addr-item > .editaddr-btn {
+  .addr-item .op-box {
     position: absolute;
-    top: 40px;
-    right: 15px;
-    z-index: 9;
-    font-size: 28px;
-    color: #777; }
-    .addr-item > .editaddr-btn:active {
-      color: #e60000; }
+    top: 20px;
+    right: 5px;
+    z-index: 9; }
+    .addr-item .op-box > .editaddr-btn {
+      font-size: 28px;
+      color: #777; }
+      .addr-item .op-box > .editaddr-btn:active {
+        color: #e60000; }
+    .addr-item .op-box > .del-btn {
+      color: #777; }
+      .addr-item .op-box > .del-btn:active {
+        color: #e60000; }
+  .addr-item + .addr-item {
+    margin-top: 10px !important; }
 
 .addr-head-link {
   position: absolute;

@@ -42,7 +42,7 @@
 
 		url: {
 			//采用正则表达式获取地址栏参数：（ 强烈推荐，既实用又方便！）
-			GetQueryString: function GetQueryString(name) {
+			getQueryString: function (name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 				var r = window.location.search.substr(1).match(reg);
 				if(r != null) return unescape(r[2]);
@@ -50,14 +50,14 @@
 			},
 
 			//从WebAPI获取日期json数据 转换成日期时间戳
-			jsonToDate: function jsonToDate(apidate) {
+			jsonToDate: function (apidate) {
 				var txts = apidate.replace("/Date(", "").replace(")/", "");
 				return parseInt(txts.trim());
 
 			},
 
 			// 取当前页面名称(不带后缀名)
-			getPageName: function getPageName() {
+			getPageName: function () {
 				var a = location.href;
 				var b = a.split("/");
 				var c = b.slice(b.length - 1, b.length).toString(String).split(".");
@@ -65,7 +65,7 @@
 			},
 
 			//取当前页面名称(带后缀名)
-			getPageNameExention: function getPageNameExention() {
+			getPageNameExention: function () {
 				var strUrl = location.href;
 				var arrUrl = strUrl.split("/");
 				var strPage = arrUrl[arrUrl.length - 1];
@@ -442,6 +442,27 @@
 				}
 
 				return temp;
+
+			},
+			// index
+			 index: function(data,fn) {
+				data = data || [];
+				if(data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+
+				if(data.length <= 0) {
+					return [];
+				}
+				
+				if(typeof fn ==="function"){
+					for(var i=0; i<data.length;i++){
+						if(fn(data[i])){
+							return i;
+						}
+					}
+				}
+				return -1;
 
 			},
 

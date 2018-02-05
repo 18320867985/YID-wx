@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
 		<meta name="Keywords" content="" />
 		<meta name="Description" content="" />
-		<title>编辑收货地址</title>
+		<title>添加收货地址</title>
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
 		<link rel="stylesheet" href="css/all.css" />
@@ -19,7 +19,7 @@
 		<!--头部-->
 		<header class="child-head mui-bar mui-bar-nav">
 			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
-			<h1 class="mui-title">编辑收货地址</h1>
+			<h1 class="mui-title">添加收货地址</h1>
 
 		</header>
 
@@ -27,6 +27,7 @@
 		<section class="editaddr mui-content ">
 
 			<div class="editaddr-item">
+
 				<form class="editaddr-form" action="" novalidate="novalidate">
 
 					<ul>
@@ -36,7 +37,7 @@
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2 vd-item " type="text" name="name" id="user" value="" placeholder="收货人" vd-req vd-req-msg="收货人不能为空！" />
+								<input class=" rd-no2 vd-item " type="text" name="userName" id="userName" value="" placeholder="收货人" vd-req vd-req-msg="收货人不能为空！" />
 							</div>
 
 						</li>
@@ -56,7 +57,7 @@
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2 address vd-item" type="text" name="address" id="iunput_3" value="" placeholder="选择地址" vd-req vd-req-msg="地址不能为空！" />
+								<input class=" rd-no2 address vd-item" type="text" name="address" id="iunput_3" value="" placeholder="选择地址"   vd-req vd-req-msg="地址不能为空！" />
 							</div>
 
 						</li>
@@ -71,7 +72,7 @@
 							</div>
 
 						</li>
-
+ 
 						<li class="mui-row mui-clearfix   vd-box">
 							<div class="mui-col-xs-4">
 								<label for="iunput_5">设为默认地址</label>
@@ -79,7 +80,7 @@
 
 							<div class="mui-col-xs-8 check-box">
 								<div class="check-item mui-pull-right">
-									<input class=" vd-item" name="isDefault" type="checkbox" id="inpu_5" vd-ck-not vd-ck vd-ck-true="1" vd-ck-false="0" vd-ck-msg="">
+									<input  class=" vd-item"  name="def" type="checkbox" id="inpu_5" vd-ck-not vd-ck  vd-ck-true="1" vd-ck-false="0"  vd-ck-msg="">
 
 								</div>
 							</div>
@@ -89,7 +90,7 @@
 
 					<!--submit btn-->
 					<div class="submit-box">
-						<button class="mui-btn mui-btn-block mui-btn-danger  vd-btn" type="button">修改</button>
+						<button class="mui-btn mui-btn-block mui-btn-danger  vd-btn" type="button">添加</button>
 					</div>
 
 				</form>
@@ -106,7 +107,8 @@
 
 		<script type="text/javascript">
 			pickerSelect.threeSelect(".address");
-		//	$(function() {
+		
+			$(function() {
 				// 初始化验证对象
 				var vd1 = vd.create(".editaddr-form");
 				vd1.init();
@@ -114,18 +116,10 @@
 				$(".vd-btn").on("tap", function() {
 					// 是否验证成功
 					vd1.isSuccess(function(obj) {
-						//vd1.disabled($(vd1.formName).find("input")); //禁用
+						vd1.disabled($(vd1.formName).find("input")); //禁用
 						//vd1.enabled(this); //激活
 						$(this).text("提交中...");
-						//	alert(JSON.stringify(obj));
-						obj.id = qid || 0; // id
-						// 添加收货地址
-						if(address.edit(obj)) {
-							mui.alert("数据修改成功", " ", "确定", function() {
-								window.location.assign("收货地址.html");
-							});
-
-						}
+						alert(JSON.stringify(obj));
 
 					}.bind(this), function(obj) {
 
@@ -145,26 +139,7 @@
 					}
 				});
 
-			//});
-
-			// 获取收货地址
-			var qid = common.url.getQueryString("qid") || 0;
-			var item = address.where(Number(qid));
-			//alert(JSON.stringify(item))
-			item = item[0];
-			for(var prop in item) {
-				var $el = $('.editaddr-form').find("input[name=" + prop.trim() + "]");
-				$el.val(item[prop]);
-
-				// 设为默认值
-				if(prop == "isDefault") {
-					if(Number(item[prop])) {
-						$el.attr("checked", true);
-					} else {
-						$el.removeAttr("checked");
-					}
-				}
-			}
+			});
 		</script>
 
 	</body>

@@ -135,7 +135,7 @@ var vd = (function($) {
 			this.checkElement = function(_obj2, el, isRemote, isRadio) {
 
 				// not vd 不做验证
-				var _vd_not = el.getAttribute("vd-not");
+				var _vd_not = el.getAttribute("vd-ck-not");
 
 				// req
 				var _req = el.getAttribute("vd-req");
@@ -370,6 +370,7 @@ var vd = (function($) {
 						$(el).addClass("vd-error");
 						$(p).removeClass("vd-ok");
 						$(".vd-dep-btn", p).removeClass("vd-ok").addClass("vd-error"); //依赖按钮
+					
 						return;
 					}
 
@@ -411,7 +412,7 @@ var vd = (function($) {
 
 					} else {
 
-						if(_obj2.remote_bl) {
+						if(_obj2.bl) {
 							$remote.remoteFunOk(_obj2, el);
 							$remote.addVdBtnStyle(el);
 						} else {

@@ -140,11 +140,11 @@
 						对账单
 					</a>
 				</li>
-				<li class="mui-table-view-cell">
+				<!--<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
 						快速下单
 					</a>
-				</li>
+				</li>-->
 			</ul>
 
 			<ul class="info-prod mui-table-view ">
@@ -160,7 +160,13 @@
 				</li>
 
 			</ul>
+			
+			<!--退出登陆-->
+			<div class="mui-btn-box">
+				 <button  class="mui-btn mui-btn-block mui-btn-danger" type="button" > 退出</button>
+			</div>
 		
+			  
 			</div>
 
 		
@@ -173,7 +179,22 @@
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
 
 		<script type="text/javascript">
-		
+			
+			
+				//　js验证是否登陆
+				var  userInfo=adminInfo.getLogin()
+				if(!userInfo.isLogin){
+					location.assign("登录.html");
+				}
+				
+				
+				// 退出登陆
+				$(".mui-btn-box .mui-btn").on("tap",function(){
+					
+					adminInfo.logout();	
+					location.assign("登录.html");
+				});
+				
 			
 	</script>
 

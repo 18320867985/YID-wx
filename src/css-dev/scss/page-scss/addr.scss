@@ -19,31 +19,43 @@
             margin-top: 10px;
         }
     }
-    // 右边icon
-    >.editaddr-btn {
+    .op-box {
         position: absolute;
-        top: 40px;
-        right: 15px;
+        top: 20px;
+        right: 5px;
         z-index: 9;
-        font-size: 28px;
-        color:$text-label;
-        
-        &:active{
-            color:$text-danger;
+        // 右边icon
+        >.editaddr-btn {
+            font-size: 28px;
+            color: $text-label;
+            &:active {
+                color: $text-danger;
+            }
         }
+        // 删除数据
+        >.del-btn {
+           color: $text-label;
+            &:active {
+                color: $text-danger;
+            }
+        }
+    }
+    
+    
+    // 相连的每一项
+    &+.addr-item {
+        margin-top: 10px !important;
     }
 }
 
 // addr-head-link
-.addr-head-link{
-    
+.addr-head-link {
     position: absolute;
     right: 10px;
-    top:11px;
+    top: 11px;
     z-index: 2;
     font-size: 18px;
-    
-    &:active{
-        color:$text-danger;
+    &:active {
+        color: $text-danger;
     }
 }

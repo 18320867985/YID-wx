@@ -9206,7 +9206,7 @@ var vd = (function($) {
 			this.checkElement = function(_obj2, el, isRemote, isRadio) {
 
 				// not vd 不做验证
-				var _vd_not = el.getAttribute("vd-not");
+				var _vd_not = el.getAttribute("vd-ck-not");
 
 				// req
 				var _req = el.getAttribute("vd-req");
@@ -9441,6 +9441,7 @@ var vd = (function($) {
 						$(el).addClass("vd-error");
 						$(p).removeClass("vd-ok");
 						$(".vd-dep-btn", p).removeClass("vd-ok").addClass("vd-error"); //依赖按钮
+					
 						return;
 					}
 
@@ -9482,7 +9483,7 @@ var vd = (function($) {
 
 					} else {
 
-						if(_obj2.remote_bl) {
+						if(_obj2.bl) {
 							$remote.remoteFunOk(_obj2, el);
 							$remote.addVdBtnStyle(el);
 						} else {
@@ -9748,7 +9749,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 		url: {
 			//采用正则表达式获取地址栏参数：（ 强烈推荐，既实用又方便！）
-			GetQueryString: function GetQueryString(name) {
+			getQueryString: function getQueryString(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
 				var r = window.location.search.substr(1).match(reg);
 				if (r != null) return unescape(r[2]);
@@ -10117,6 +10118,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				}
 
 				return temp;
+			},
+			// index
+			index: function index(data, fn) {
+				data = data || [];
+				if (data.constructor !== Array) {
+					throw new Error("参数必须是个数组");
+				}
+
+				if (data.length <= 0) {
+					return [];
+				}
+
+				if (typeof fn === "function") {
+					for (var i = 0; i < data.length; i++) {
+						if (fn(data[i])) {
+							return i;
+						}
+					}
+				}
+				return -1;
 			}
 
 		}
@@ -11347,6 +11368,96 @@ function shopCar() {
 		$(this).trigger("topBottomTab_tap", [this]);
 	});
 }(window.jQuery || window.Zepto);
+/**
+ * 收货地址
+ * **/
+
+var address = function () {
+
+	var obj = {
+		id: 1,
+		isDefault: true, // 是否设为默认值
+		name: "刘小明",
+		phone: "13488889999",
+		address: "广东省-深圳市-福田区",
+		dtlAddress: "福华路海鹰大厦28E"
+	};
+	var list = [];
+	//list.push(obj);
+
+	// 获取地址列表
+	var _getAddressList = function _getAddressList() {
+
+		return com.localStorage.getItem("address") || [];
+	};
+	// 获取地址列表
+	var _setAddress = function _setAddress(obj) {
+		var arrs = com.localStorage.getItem("address") || [];
+
+		// 设为默认
+		if (obj.isDefault == "1") {
+			com.list.map(arrs, function (item) {
+				item.isDefault = false;
+			});
+		}
+		obj.isDefault = Number(obj.isDefault);
+		//自增id
+		var lastObj = common.list.last(arrs);
+		obj.id = lastObj ? lastObj.id + 1 : 1;
+
+		var index = arrs.push(obj);
+		com.localStorage.setItem("address", arrs);
+		return index;
+	};
+
+	// 根据id去查询数据
+	function _where(qid) {
+		return com.list.where(com.localStorage.getItem("address") || [], function (item) {
+			return item.id == qid;
+		});
+	};
+
+	// 修改数据
+	function _edit(obj) {
+		var data = com.localStorage.getItem("address") || [];
+
+		var index = com.list.index(data, function (item) {
+			return item.id == obj.id;
+		});
+
+		// 设置默认值
+		if (Number(obj.isDefault)) {
+			com.list.map(data, function (item) {
+				item.isDefault = 0;
+				return item;
+			});
+		}
+		data.splice(index, 1, obj);
+		com.localStorage.setItem("address", data);
+		return true;
+	}
+
+	// 删除数据
+	function _delete(id) {
+		var data = com.localStorage.getItem("address") || [];
+
+		var index = com.list.index(data, function (item) {
+			return id === item.id;
+		});
+
+		data.splice(index, 1);
+		com.localStorage.setItem("address", data);
+		return index;
+	};
+
+	return {
+		getAddressList: _getAddressList,
+		setAddress: _setAddress,
+		where: _where,
+		edit: _edit,
+		delete: _delete
+	};
+}();
 /*
  登录信息
  * */

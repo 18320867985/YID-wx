@@ -73,6 +73,7 @@ var shop = (function() {
 					els.attr("checked", false);
 					els.click();
 					els.attr("checked", true);
+					
 
 			} else {
 				var els=$(".shop-cont input[type=checkbox]");
