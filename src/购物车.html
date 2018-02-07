@@ -254,12 +254,14 @@
 
 				});
 
-				// 购物车单价计算  checkbox change event
-				$(".shop-cont").on("change", ".check-item input[type=checkbox]", function(e) {
-					
+				// 购物车单价计算  checkbox 
+				$(".shop-cont").on("click", ".check-item input[type=checkbox]", function(e) {
 						calPrice();
-					
+				});
 
+				// 购物车单价计算  全选
+				$(".shop-select").on("click", ".check-all", function(e) {
+						calPrice();
 				});
 
 				function calPrice() {

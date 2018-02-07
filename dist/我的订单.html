@@ -269,7 +269,7 @@
 
 			// 分页
 			mui.ready(function() {
-				var indexId=common.url.GetQueryString("qid")||0;
+				var indexId=common.url.getQueryString("qid")||0;
 				indexId=isNaN(Number(indexId))?0:Number(indexId);
 				// 第一次加载
 				$(" .mui-scroll .mui-control-item").eq(indexId).trigger("tap");

@@ -37,7 +37,7 @@
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2 vd-item " type="text" name="userName" id="userName" value="" placeholder="收货人" vd-req vd-req-msg="收货人不能为空！" />
+								<input class=" rd-no2 vd-item " type="text" name="name" id="userName" value="" placeholder="收货人" vd-req vd-req-msg="收货人不能为空！" />
 							</div>
 
 						</li>
@@ -80,7 +80,7 @@
 
 							<div class="mui-col-xs-8 check-box">
 								<div class="check-item mui-pull-right">
-									<input  class=" vd-item"  name="def" type="checkbox" id="inpu_5" vd-ck-not vd-ck  vd-ck-true="1" vd-ck-false="0"  vd-ck-msg="">
+									<input  class=" vd-item"  name="isDefault" type="checkbox" id="inpu_5" vd-ck-not vd-ck  vd-ck-true="1" vd-ck-false="0"  vd-ck-msg="">
 
 								</div>
 							</div>
@@ -119,8 +119,15 @@
 						vd1.disabled($(vd1.formName).find("input")); //禁用
 						//vd1.enabled(this); //激活
 						$(this).text("提交中...");
-						alert(JSON.stringify(obj));
+					//	alert(JSON.stringify(obj));
+						// 添加收货地址
+						if(addAddress(obj)){
+							mui.alert("数据添加成功", " ", "确定", function() {
+								window.location.assign("收货地址.html");
+							});
 
+						}
+						
 					}.bind(this), function(obj) {
 
 						// error 
@@ -140,6 +147,14 @@
 				});
 
 			});
+			
+		//  添加收货地址
+		function addAddress(obj){
+		 return address.setAddress(obj);
+			
+		}
+			
+			
 		</script>
 
 	</body>

@@ -19,14 +19,14 @@
 		<header class="child-head mui-bar mui-bar-nav">
 			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
 			<h1 class="mui-title">收货地址</h1>
-		   		<span  class="addr-head-link iconfont icon-jia" data-toggle="skip" data-url="添加收货地址.html" ></span>
+			<span class="addr-head-link iconfont icon-jia" data-toggle="skip" data-url="添加收货地址.html"></span>
 		</header>
 
 		<!--主体内容-->
 		<section class="addr mui-content ">
 
 			<div class="addr-item">
-
+				<!--
 				<ul>
 					<li>
 						<span class="text-danger default">[默认]</span>
@@ -40,21 +40,87 @@
 						<p>广东省 深圳市 福田区 福华路海鹰大厦28E</p>
 					</li>
 
-				</ul>
-				
+				</ul>-->
+
 				<!--右边的icon-->
-				<a class="editaddr-btn" href="编辑收货地址.html">
-					<span class="mui-icon mui-icon-compose"></span>
-				</a>
-				
-					
+				<!--<div class="op-box">
+					<a class="editaddr-btn" href="编辑收货地址.html">
+						<span class="mui-icon mui-icon-compose"></span>
+					</a>
+
+					<span class="mui-icon mui-icon-trash del-btn"></span>
+				</div>-->
+
 			</div>
 		</section>
 
+		<!--模板-->
+		<script type="text/template" id="handlebars-templete">
+
+			{{#lists}}
+			<div class="addr-item">
+				<ul>
+					<!--默认-->
+					{{#gg isDefault 1 }}
+					<li>
+						<span class="text-danger default">[默认]</span>
+
+					</li>
+					{{/gg}}
+					<li>
+						<label for="">{{name}}</label>
+						<span>{{phone}}</span>
+					</li>
+
+					<li>
+						<p>{{address}} {{dtlAddress}}</p>
+					</li>
+
+				</ul>
+
+				<!--右边的icon-->
+				<div class="op-box">
+
+					<a class="editaddr-btn" href="编辑收货地址.html?qid={{id}}">
+						<span class="mui-icon mui-icon-compose"></span>
+					</a>
+
+					<span class="mui-icon mui-icon-trash del-btn" data-id="{{id}}"></span>
+				</div>
+
+			</div>
+
+			{{/lists}}
+
+		</script>
+
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
+		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
+			getAddress();
+			// 获取收货地址
+			function getAddress() {
+				var arrs = address.getAddressList();
+				var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
+				var html = template({
+					lists: arrs
+				});
+				$(".addr").html(html);
+			}
+
+			// 删除数据
+			$(document).on("tap", ".del-btn", function() {
+				mui.confirm("确认要删除数据?", " ", ["确认", "取消"], function(e) {
+					if(e.index == 0) {
+						var id =Number($(this).attr("data-id"))||0;
+						address.delete(id);
+						getAddress();
+					}
+
+				}.bind(this));
+			});
 		</script>
 
 	</body>

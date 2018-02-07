@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="css/cstfont/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="css/radioCheckCstfont/iconfont.css" />
 		<link rel="stylesheet" href="css/all.css" />
-	
+
 	</head>
 
 	<body>
@@ -27,60 +27,59 @@
 		<section class="editaddr mui-content ">
 
 			<div class="editaddr-item">
-
-				<form action="" novalidate="novalidate">
+				<form class="editaddr-form" action="" novalidate="novalidate">
 
 					<ul>
-						<li class="mui-row mui-clearfix">
+						<li class="mui-row mui-clearfix  vd-box">
 							<div class="mui-col-xs-3">
 								<label for="iunput_1">收货人</label>
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2" type="text" name="" id="iunput_1" value="" placeholder="输入收货人" />
+								<input class=" rd-no2 vd-item " type="text" name="name" id="user" value="" placeholder="收货人" vd-req vd-req-msg="收货人不能为空！" />
 							</div>
 
 						</li>
-						<li class="mui-row mui-clearfix">
+						<li class="mui-row mui-clearfix vd-box">
 							<div class="mui-col-xs-3">
 								<label for="iunput_2">手机号码</label>
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2" type="text" name="" id="iunput_2" value="" placeholder="输入手机号码" />
+								<input class=" rd-no2 vd-item" type="text" name="phone" id="phone" value="" placeholder="手机号" vd-req vd-req-msg="手机号码不能为空" vd-pattern="^1\d{10}$" vd-pattern-msg="手机格式不对" maxlength="11" vd-remote="json/remote.json" vd-remote-msg="手机号码已存在" />
 							</div>
 
 						</li>
-						<li class="mui-row mui-clearfix">
+						<li class="mui-row mui-clearfix vd-box">
 							<div class="mui-col-xs-3">
 								<label for="iunput_3">地址</label>
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2 address" type="text" name="" id="iunput_3" value="" placeholder="选择地址" />
+								<input class=" rd-no2 address vd-item" type="text" name="address" id="iunput_3" value="" placeholder="选择地址" vd-req vd-req-msg="地址不能为空！" />
 							</div>
 
 						</li>
 
-						<li class="mui-row mui-clearfix">
+						<li class="mui-row mui-clearfix vd-box">
 							<div class="mui-col-xs-3">
 								<label for="iunput_4">详细地址</label>
 							</div>
 
 							<div class="mui-col-xs-9">
-								<input class=" rd-no2" type="text" name="" id="iunput_4" value="" placeholder="输入详细地址" />
+								<input class=" rd-no2 vd-item" type="text" name="dtlAddress" id="iunput_4" value="" placeholder="输入详细地址" vd-req vd-req-msg="输入详细地址不能为空！" />
 							</div>
 
 						</li>
 
-						<li class="mui-row mui-clearfix">
+						<li class="mui-row mui-clearfix   vd-box">
 							<div class="mui-col-xs-4">
 								<label for="iunput_5">设为默认地址</label>
 							</div>
 
 							<div class="mui-col-xs-8 check-box">
 								<div class="check-item mui-pull-right">
-									<input type="checkbox" id="inpu_5">
+									<input class=" vd-item" name="isDefault" type="checkbox" id="inpu_5" vd-ck-not vd-ck vd-ck-true="1" vd-ck-false="0" vd-ck-msg="">
 
 								</div>
 							</div>
@@ -90,9 +89,9 @@
 
 					<!--submit btn-->
 					<div class="submit-box">
-							<button class="mui-btn mui-btn-block mui-btn-danger " type="button">修改</button>
+						<button class="mui-btn mui-btn-block mui-btn-danger  vd-btn" type="button">修改</button>
 					</div>
-				
+
 				</form>
 
 			</div>
@@ -106,8 +105,66 @@
 		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			
 			pickerSelect.threeSelect(".address");
+		//	$(function() {
+				// 初始化验证对象
+				var vd1 = vd.create(".editaddr-form");
+				vd1.init();
+
+				$(".vd-btn").on("tap", function() {
+					// 是否验证成功
+					vd1.isSuccess(function(obj) {
+						//vd1.disabled($(vd1.formName).find("input")); //禁用
+						//vd1.enabled(this); //激活
+						$(this).text("提交中...");
+						//	alert(JSON.stringify(obj));
+						obj.id = qid || 0; // id
+						// 添加收货地址
+						if(address.edit(obj)) {
+							mui.alert("数据修改成功", " ", "确定", function() {
+								window.location.assign("收货地址.html");
+							});
+
+						}
+
+					}.bind(this), function(obj) {
+
+						// error 
+						mui.alert(obj.errorMsg, " ", "确定", function() {
+							obj.el.focus();
+						});
+
+					});
+				});
+
+				// 点击 enter键
+				$(document).on("keyup", function(event) {
+
+					if(event.keyCode === 13) {
+						$(".editaddr-form .vd-btn").trigger("tap");
+					}
+				});
+
+			//});
+
+			// 获取收货地址
+			var qid = common.url.getQueryString("qid") || 0;
+			var item = address.where(Number(qid));
+			//alert(JSON.stringify(item))
+			item = item[0];
+			for(var prop in item) {
+				var $el = $('.editaddr-form').find("input[name=" + prop.trim() + "]");
+				$el.val(item[prop]);
+
+				// 设为默认值
+				if(prop == "isDefault") {
+					if(Number(item[prop])) {
+						$el.attr("checked", true);
+					} else {
+						$el.removeAttr("checked");
+					}
+				}
+			}
 		</script>
 
 	</body>
