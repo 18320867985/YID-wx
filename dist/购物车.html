@@ -21,7 +21,6 @@
 			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
 			<h1 class="mui-title">购物车</h1>
 			<span class="head-right-btn " data-text='{"edit":"编辑","complate":"完成"}'> 编辑</span>
-
 		</header>
 		<!-- 底部--->
 		<nav class="footer mui-bar mui-bar-tab ">
@@ -55,7 +54,7 @@
 		<!--主体内容-->
 		<section class=" shop mui-content ">
 			<form class="shop-cont">
-				
+
 				<!--
 				<div class="shop-item  mui-clearfix">
 					<div class="mui-row mui-clearfix">
@@ -103,100 +102,97 @@
 				</div>-->
 
 			</form>
-	
-				<!--选择和计算购物车-->
-				<div class="shop-select">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-5">
-							<div class=" check-big">
-									<span class="iconfont icon-checknormal check-all"></span>	
-									<label class="label-click">全选</label>
-							</div>
-						
-						</div>
 
-						<div class="mui-col-xs-7 mui-clearfix">
-							<div class="edit">
-								<div class="js mui-pull-left">
-									<label for="">总计：</label>
-									<span class="iconfont icon-renminbi text-danger"></span>
-									<span class="price text-danger">58.00</span>
-									<p>共<span class="count">0</span>件,不含运费</p>
-								</div>
-
-								<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
-							</div>
-
-							<div class="complate v-hide">
-								<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
-							</div>
-
+			<!--选择和计算购物车-->
+			<div class="shop-select">
+				<div class="mui-row mui-clearfix">
+					<div class="mui-col-xs-4">
+						<div class=" check-big">
+							<span class="iconfont icon-checknormal check-all"></span>
+							<label class="label-click">全选</label>
 						</div>
 
 					</div>
+
+					<div class="mui-col-xs-8 mui-clearfix">
+						<div class="edit">
+							<div class="js mui-pull-left">
+								<label for="">总计：</label>
+								<span class="iconfont icon-renminbi text-danger"></span>
+								<span class="price text-danger">0.00</span>
+								<p>共<span class="count">0</span>件,不含运费</p>
+							</div>
+
+							<a href="javascript:;" class="btn mui-pull-right submit-btn" type="button">结算</a>
+						</div>
+
+						<div class="complate v-hide">
+							<a href="javascript:;" class="btn mui-pull-right delete-btn" type="button">删除</a>
+						</div>
+
+					</div>
+
 				</div>
+			</div>
 
 		</section>
-
 
 		<!--模板-->
 		<script type="text/template" id="handlebars-templete">
 
 			{{#lists}}
-			
-				<div class="shop-item  mui-clearfix">
-					<div class="mui-row mui-clearfix">
-						<div class="mui-col-xs-1 ">
-							<div class="check-box">
 
-								<div class="check-item">
-									<input type="checkbox">
-								</div>
+			<div class="shop-item  mui-clearfix">
+				<div class="mui-row mui-clearfix">
+					<div class="mui-col-xs-1 ">
+						<div class="check-box">
 
+							<div class="check-item">
+								<input type="checkbox">
 							</div>
-						</div>
-						<div class="mui-col-xs-4 ">
-							<a href="商品详情.html">
-								<img src="images/1段奶粉.png" alt="" />
-							</a>
-						
-						</div>
-						<div class="mui-col-xs-7">
-							<ul>
-								<li>
-									<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
-								</li>
-								<li class="text-ash">
-									<label for="">类型:</label>
-									<span>一段奶粉</span>
-								</li>
-								<li class="mui-clearfix price-box">
-									<div class="mui-pull-left">
-										<span class="iconfont icon-renminbi text-danger"></span>
-										<span class="price text-danger">58.00</span>
-									</div>
-									<div class=" mui-pull-left">
-										<div class="number">
-											<button class="minus btn" type="button">-</button>
-											<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
-											<button class="plus btn" type="button">+</button>
-										</div>
-									</div>
-
-								</li>
-
-							</ul>
 
 						</div>
 					</div>
+					<div class="mui-col-xs-4 ">
+						<a href="商品详情.html">
+							<img src="images/1段奶粉.png" alt="" />
+						</a>
 
+					</div>
+					<div class="mui-col-xs-7">
+						<ul>
+							<li>
+								<h4 class="ttl mui-ellipsis">惠氏(Wyeth)惠氏新配方奶粉</h4>
+							</li>
+							<li class="text-ash">
+								<label for="">类型:</label>
+								<span>一段奶粉</span>
+							</li>
+							<li class="mui-clearfix price-box">
+								<div class="mui-pull-left">
+									<span class="iconfont icon-renminbi text-danger"></span>
+									<span class="price text-danger">58.00</span>
+								</div>
+								<div class=" mui-pull-left">
+									<div class="number">
+										<button class="minus btn" type="button">-</button>
+										<input class="num" type="number" value="1" data-min="1" data-max="9999" data-step="1" />
+										<button class="plus btn" type="button">+</button>
+									</div>
+								</div>
+
+							</li>
+
+						</ul>
+
+					</div>
 				</div>
 
-			
-					
+			</div>
+
 			{{/lists}}
 		</script>
-		
+
 		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/all.js " type="text/javascript " charset="utf-8 "></script>
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
@@ -220,37 +216,71 @@
 						return;
 					}
 					mui.confirm("确认要删除数据?", " ", ["确认", "取消"], function(e) {
-						if(e.index == 0) {
+
+						if(e.index === 0) {
 							els.each(function() {
 								$(this).parents(".shop-item").remove()
 							});
+
+							//  localStorage获取购物车的数量
+							var arrs = com.localStorage.getItem("shopcar") || [];
+							arrs.splice(0, els.length);
+							com.localStorage.setItem("shopcar", arrs);
+							getshopCar();
 						}
-						
-						//  localStorage获取购物车的数量
-						var arrs= com.localStorage.getItem("shopcar")||[];
-						arrs.splice(0,els.length);
-						com.localStorage.setItem("shopcar",arrs);
-						getshopCar();
 
 					});
 
 				});
-				
+
 				// localStorage获取购物车的数量
 				getshopCar();
-				function getshopCar(){
-					var arrs=com.localStorage.getItem("shopcar")||[];
+
+				function getshopCar() {
+					var arrs = com.localStorage.getItem("shopcar") || [];
 					var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 					var html = template({
 						lists: arrs
 					});
-		
+
 					$(".shop-cont").html(html);
 					$(".shopcar-local").text(arrs.length);
 				}
-			
-				
-					
+
+				// numberbox 点击事件
+				$(document).on("number_click", function(event, element) {
+					//element 当前点击的元素	
+						calPrice();
+
+				});
+
+				// 购物车单价计算  checkbox 
+				$(".shop-cont").on("click", ".check-item input[type=checkbox]", function(e) {
+						calPrice();
+				});
+
+				// 购物车单价计算  全选
+				$(".shop-select").on("click", ".check-all", function(e) {
+						calPrice();
+				});
+
+				function calPrice() {
+
+					var sum = 0;
+
+					var els = $(".shop-cont").find(".shop-item input[type=checkbox]:checked");
+					els.each(function() {
+
+						var _price = $(this).closest(".shop-item").find(".price").text() || 0;
+						var _count = $(this).closest(".shop-item").find(".num").val() || 0;
+						sum += Number(_price) * Number(_count);
+
+					});
+
+					$(".shop-select").find(".price").text(sum.toFixed(2));
+					$(".shop-select").find(".count").text(els.length);
+
+				}
 			});
 		</script>
 
