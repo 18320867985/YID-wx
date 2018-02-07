@@ -11789,6 +11789,8 @@ var shop = function () {
 				select_ck(false);
 				$(".shop-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
 				$(".shop-select .check-all").removeAttr("data-bl");
+				$(".shop-select").find(".price").text("0.00");
+				$(".shop-select").find(".count").text("0");
 			}
 		});
 
