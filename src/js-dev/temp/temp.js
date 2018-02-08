@@ -1049,6 +1049,7 @@ var pickerSelect = function (mui) {
  * 
  * wxLazy.init(); // 图片延迟加载
  * */
+
 var wxLazy = function ($) {
 
 	var _init = function _init() {
@@ -1056,6 +1057,7 @@ var wxLazy = function ($) {
 		var window_h = $(window).height();
 
 		$(window).scroll(function () {
+
 			setTimeout(function () {
 
 				$(".load-lazy").each(function () {
@@ -1064,16 +1066,22 @@ var wxLazy = function ($) {
 					var img_h2 = parseInt($(this).offset().top) + $(this).height();
 					if ($(window).scrollTop() >= img_h && $(window).scrollTop() < img_h2) {
 
-						$(this).attr("src", $(this).attr("data-src"));
+						// set src
+						var _src = $(this).attr("src") || "";
+						var _src2 = $(this).attr("data-src") || "";
+						if (_src.trim() !== _src2.trim()) {
 
-						/*ie8 不支持
-       * .animate({
-      "opacity":0.2
-      }).animate({
-      "opacity": 1
-      }, 500);
-      		
-      * */
+							// is support animate
+							if ($(this).animate) {
+								$(this).attr("src", $(this).attr("data-src")).animate({
+									"opacity": 0.8
+								}).animate({
+									"opacity": 1
+								}, 400);
+							} else {
+								$(this).attr("src", $(this).attr("data-src"));
+							}
+						}
 					}
 				});
 			}, 400);
