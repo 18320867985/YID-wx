@@ -35,9 +35,9 @@
 						<input type="text" placeholder="输入商品名/厂家" />
 					</div>
 					<div class="mui-col-xs-4 select">
-						<select name="" >
+						<select name="">
 							<option value="" selected="selected">
-							选择分类
+								选择分类
 							</option>
 							<option value="1">
 								奶粉
@@ -49,7 +49,7 @@
 						</select>
 					</div>
 					<div class="mui-col-xs-2 btn">
-						<a 	class="search-btn" href="javascript:;" >搜索</a>
+						<a class="search-btn" href="javascript:;">搜索</a>
 					</div>
 				</div>
 
@@ -112,7 +112,7 @@
 			<!--选择和计算购物车-->
 			<div class="batch-select">
 				<div class="mui-row mui-clearfix">
-					<div class="mui-col-xs-5">
+					<div class="mui-col-xs-4">
 						<div class=" check-big">
 							<span class="iconfont icon-checknormal check-all"></span>
 							<label class="label-click">全选</label>
@@ -120,7 +120,7 @@
 
 					</div>
 
-					<div class="mui-col-xs-7 mui-clearfix">
+					<div class="mui-col-xs-8 mui-clearfix">
 						<div class="edit">
 							<div class="js mui-pull-left">
 								<label for="">总计：</label>
@@ -240,9 +240,12 @@
 
 				// 查询
 				$(".search-btn").on("tap", function() {
-				var _name=$(".batch-search").find("input").val()||"";
-				var _type=$(".batch-search").find("select").val()||"";
-					resetPage(1, 4,{name:_name,type:_type}); //重新加载分页
+					var _name = $(".batch-search").find("input").val() || "";
+					var _type = $(".batch-search").find("select").val() || "";
+					resetPage(1, 4, {
+						name: _name,
+						type: _type
+					}); //重新加载分页
 				});
 
 			});
@@ -261,7 +264,7 @@
 			}
 
 			// 分页
-			function page(min, max, obj, fn,olddata) {
+			function page(min, max, obj, fn, olddata) {
 				return muiPullToRefresh.init({
 					indexPage: min, // 当前页
 					maxPage: max, // 总共页数
@@ -286,18 +289,42 @@
 						$(this.pullToRefreshBig).find(this.pullToRefreshBox).append(html);
 
 					}
-				}, fn,olddata);
+				}, fn, olddata);
 
 			}
 
-			// 数字框点击事件
+			// numberbox 点击事件
 			$(document).on("number_click", function(event, element) {
 				//element 当前点击的元素	
-				//var p=$(element).parents(".number");
-				//alert($(p).find(".num").val());
+				calPrice();
 
 			});
-			
+			// 购物车单价计算  checkbox 
+			$(".shop-cont").on("click", ".check-item input[type=checkbox]", function(e) {
+				calPrice();
+			});
+
+			// 购物车单价计算  全选
+			$(".batch-select").on("tap", ".check-all", function(e) {
+				calPrice();
+			});
+
+			function calPrice() {
+
+				var sum = 0;
+				var els = $(".shop-cont").find(".shop-item input[type=checkbox]:checked");
+				els.each(function() {
+
+					var _price = $(this).closest(".shop-item").find(".price").text() || 0;
+					var _count = $(this).closest(".shop-item").find(".num").val() || 0;
+					sum += Number(_price) * Number(_count);
+
+				});
+
+				$(".batch-select").find(".price").text(sum.toFixed(2));
+				$(".batch-select").find(".count").text(els.length);
+
+			}
 		</script>
 
 	</body>

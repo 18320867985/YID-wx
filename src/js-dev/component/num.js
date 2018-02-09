@@ -88,6 +88,34 @@
 			$(this).trigger("number_click", [this]);
 
 		});
+		
+		// value
+		$(document).on("blur",".num", function(e) {
+			var p = $(this).parents(".number");
+			//最大值
+			var max = Number($(".num", p).attr("data-max"));
+			max = window.isNaN(max) ? 9999 : max;
+			//最小值
+			var min = Number($(".num", p).attr("data-min"));
+			min = window.isNaN(min) ? 0 : min;
+			
+			var v = Number($(".num", p).val());
+			v = window.isNaN(v) ? min : v;
+
+			if(v>max){
+				v=max;
+			}
+			
+			if(v<min){
+				v=min;
+			}
+			
+			$(".num", p).val(v);
+			//点击触发自定义事件
+			$(this).trigger("number_click", [this]);
+			
+		});
+		
 
 	})(window.jQuery || window.Zepto);
 
