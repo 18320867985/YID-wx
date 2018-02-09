@@ -19,6 +19,7 @@
 		<!--头部-->
 		<header class=" mui-bar mui-bar-nav shop-head">
 			<a class=" mui-icon iconfont icon-back mui-pull-left"></a>
+
 			<h1 class="mui-title">购物车</h1>
 			<span class="head-right-btn " data-text='{"edit":"编辑","complate":"完成"}'> 编辑</span>
 		</header>
@@ -260,14 +261,13 @@
 				});
 
 				// 购物车单价计算  全选
-				$(".shop-select").on("click", ".check-all", function(e) {
-						calPrice();
+				$(".shop-select").on("tap", ".check-all", function(e) {
+					calPrice();
 				});
 
 				function calPrice() {
 
 					var sum = 0;
-
 					var els = $(".shop-cont").find(".shop-item input[type=checkbox]:checked");
 					els.each(function() {
 

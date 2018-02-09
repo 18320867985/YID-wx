@@ -1074,8 +1074,10 @@ var wxLazy = function ($) {
 							// is support animate
 							if ($(this).animate) {
 								$(this).attr("src", $(this).attr("data-src")).animate({
+
 									"opacity": 0.8
-								}).animate({
+								}, 400).animate({
+
 									"opacity": 1
 								}, 400);
 							} else {
