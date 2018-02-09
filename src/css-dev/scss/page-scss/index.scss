@@ -2,7 +2,6 @@
 
 // 轮播图
 .index-slider {
-    
     .mui-slider {
         .mui-slider-item {
             img {
@@ -13,8 +12,6 @@
             }
         }
     }
-   
-   
 }
 
 // 导航
@@ -83,13 +80,13 @@
 .index-list {
     .mui-col-xs-6 {
         padding: 10px;
-        text-align: center;
+        text-align: left;
         @media(max-width: 359px) {
             padding: 10px 2px;
         }
         img {
             width: 140px;
-            height: 160px;
+            height: 140px;
             margin-left: 10px;
             display: inline-block;
             float: none;
@@ -115,13 +112,13 @@
                     font-size: 14px;
                 }
                 .btn {
-                    float: right;
+                    margin-left: 10px;
                     margin-right: 5px;
                     padding: 3px 5px;
                     color: #fff;
                     background: $text-danger;
                     border: none;
-                    outline:none !important;
+                    outline: none !important;
                     transition: all 0.5s;
                     @media(max-width: 320px) {
                         float: none;
@@ -129,7 +126,6 @@
                     }
                     &:active {
                         background: darken($text-danger, 10%);
-                    
                     }
                 }
                 border-bottom: 1px solid #ddd;
@@ -139,21 +135,16 @@
 }
 
 // animate
-.animate-cart{
+.animate-cart {
     position: fixed;
     z-index: 99;
     display: block;
-   
-    width: 20px ;
-    height:20px;
+    width: 20px;
+    height: 20px;
     line-height: 20px;
-    border-radius: 50%; 
+    border-radius: 50%;
     text-align: center;
-    color:#fff;
+    color: #fff;
     font-size: 16px;
-    background:rgba($text-danger,0.8);
-   
-    
-    
-
+    background: rgba($text-danger, 0.8);
 }
