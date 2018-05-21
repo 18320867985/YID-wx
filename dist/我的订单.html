@@ -210,7 +210,7 @@
 				interval: 3000
 			});
 
-			wxLazy.init(); // 图片延迟加载
+			yiqidin.api.wxLazy.init(); // 图片延迟加载
 
 			// 左右拖拉菜单
 			$(" .mui-scroll").on("tap", ".mui-control-item", function() {
@@ -256,7 +256,7 @@
 
 						_cont.find(".load-pullToRefresh").css("display", "none");
 						_cont.append(html);
-						wxLazy.reset(); //重新获取延时加载的图片
+						yiqidin.api.wxLazy.reset(); //重新获取延时加载的图片
 						getData(1, Number(_id), _targetId, {}, _type);
 
 					});
@@ -278,7 +278,7 @@
 			// ajax 分页
 			function getData(indexPage, allPage, pullToRefreshBig, obj, _type) {
 
-				muiPullToRefresh.init({
+					yiqidin.api.muiPullToRefresh.init({
 					indexPage: indexPage, // 当前页
 					maxPage: allPage, // 总共页数
 					pullToRefreshBig: pullToRefreshBig, // 上拉的大框

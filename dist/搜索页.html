@@ -188,14 +188,14 @@
 							page(1, 3, {
 								txt: txt
 							}, function() {
-								wxLazy.reset(); // 重新执行 图片延迟加载
+								yiqidin.api.wxLazy.reset(); // 重新执行 图片延迟加载
 							});
 						}
 
 					});
 				});
 
-				wxLazy.init(); // 图片延迟加载
+					yiqidin.api.wxLazy.init(); // 图片延迟加载
 				var muiPullToRefreshObj = {}; // 获取 上拉加载对象
 				// 重新加载分页
 				function resetPage(min, max, obj) {
@@ -210,7 +210,7 @@
 				}
 				// 分页
 				function page(min, max, obj, fn) {
-					return muiPullToRefreshObj= muiPullToRefresh.init({
+					return muiPullToRefreshObj= yiqidin.api.muiPullToRefresh.init({
 						indexPage: min, // 当前页
 						maxPage: max, // 总共页数
 						pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框

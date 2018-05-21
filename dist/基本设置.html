@@ -164,7 +164,7 @@
 					img.show();
 
 					var file = document.getElementById(fileId).files[0];
-					h5File.upload({
+						yiqidin.api.h5File.upload({
 						data: file, //选择的文件
 						url: "", //上传网址
 						outTime: 30000,
@@ -216,7 +216,7 @@
 
 				
 				// 修改信息api
-				baseset.edit(function(v,filed) {
+					yiqidin.page.baseset.edit(function(v,filed) {
 					// 服务端ajax todo...
 					//$.post("", {val:v,filed:filed}, function(data) {
 					$(".baseset-xx .edit").each(function() {

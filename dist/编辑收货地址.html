@@ -105,8 +105,9 @@
 		<script src="js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			pickerSelect.threeSelect(".address");
-		//	$(function() {
+			yiqidin.api.pickerSelect.threeSelect(".address");
+			var address = yiqidin.page.address;
+			$(function() {
 				// 初始化验证对象
 				var vd1 = vd.create(".editaddr-form");
 				vd1.init();
@@ -145,7 +146,7 @@
 					}
 				});
 
-			//});
+			});
 
 			// 获取收货地址
 			var qid = common.url.getQueryString("qid") || 0;

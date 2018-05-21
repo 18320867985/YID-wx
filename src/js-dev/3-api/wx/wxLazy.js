@@ -13,61 +13,55 @@
 
 namespace.extend(rootObj, "api").wxLazy = (function($) {
 
-var _init = function() {
 
+	var _init = function() {
 		var window_h = $(window).height();
 
 		$(window).scroll(function() {
-			
-				setTimeout(function() {
-					
-						$(".load-lazy").each(function() {
 
-								var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-								var img_h2 = parseInt($(this).offset().top) + $(this).height();
-								if($(window).scrollTop() >= img_h && $(window).scrollTop() < img_h2) {
+			setTimeout(function() {
 
-									// set src
-									var _src = $(this).attr("src") || "";
-									var _src2 = $(this).attr("data-src") || "";
-									if(_src.trim() !== _src2.trim()) {
+				$(".load-lazy").each(function() {
 
-										// is support animate
-										if($(this).animate) {
-											$(this).attr("src", $(this).attr("data-src")).animate({
-											
-												"opacity":0.8
-											},400).animate({
-												
-												"opacity":1
-											},400);
-											
-											
-										} else {
-											$(this).attr("src", $(this).attr("data-src"));
-										}
+					// set src
+					var _src = $(this).attr("src") || "";
+					var _src2 = $(this).attr("data-src") || "";
 
-									}
+					if(_src.trim() !== _src2.trim()) {
 
-								}
+						// is support animate
+						if($(this).animate) {
+							$(this).attr("src", $(this).attr("data-src")).animate({
 
-						});
-				}, 400);
-				
-			});
-		
-};
+								"opacity": 0.8
+							}, 400).animate({
 
-var _reset = function() {
+								"opacity": 1
+							}, 400);
 
-	$(".load-lazy").each(function() {
-		$(this).attr("src", $(this).attr("data-src"));
-	});
-};
+						} else {
+							$(this).attr("src", $(this).attr("data-src")).hide().show();
+						}
 
-return {
-	init: _init,
-	reset: _reset
-}
+					}
 
-})(window.jQuery || window.Zepto);
+				});
+			}, 400);
+
+		});
+
+	};
+
+	var _reset = function() {
+
+		$(".load-lazy").each(function() {
+			$(this).attr("src", $(this).attr("data-src"));
+		});
+	};
+
+	return {
+		init: _init,
+		reset: _reset
+	}
+
+})(window.jQuery || window.Zepto );

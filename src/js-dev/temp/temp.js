@@ -1142,7 +1142,6 @@ namespace.extend(rootObj, "api").pickerSelect = function (mui) {
 namespace.extend(rootObj, "api").wxLazy = function ($) {
 
 	var _init = function _init() {
-
 		var window_h = $(window).height();
 
 		$(window).scroll(function () {
@@ -1151,27 +1150,23 @@ namespace.extend(rootObj, "api").wxLazy = function ($) {
 
 				$(".load-lazy").each(function () {
 
-					var img_h = parseInt($(this).offset().top) - parseInt(window_h);
-					var img_h2 = parseInt($(this).offset().top) + $(this).height();
-					if ($(window).scrollTop() >= img_h && $(window).scrollTop() < img_h2) {
+					// set src
+					var _src = $(this).attr("src") || "";
+					var _src2 = $(this).attr("data-src") || "";
 
-						// set src
-						var _src = $(this).attr("src") || "";
-						var _src2 = $(this).attr("data-src") || "";
-						if (_src.trim() !== _src2.trim()) {
+					if (_src.trim() !== _src2.trim()) {
 
-							// is support animate
-							if ($(this).animate) {
-								$(this).attr("src", $(this).attr("data-src")).animate({
+						// is support animate
+						if ($(this).animate) {
+							$(this).attr("src", $(this).attr("data-src")).animate({
 
-									"opacity": 0.8
-								}, 400).animate({
+								"opacity": 0.8
+							}, 400).animate({
 
-									"opacity": 1
-								}, 400);
-							} else {
-								$(this).attr("src", $(this).attr("data-src"));
-							}
+								"opacity": 1
+							}, 400);
+						} else {
+							$(this).attr("src", $(this).attr("data-src")).hide().show();
 						}
 					}
 				});

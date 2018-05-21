@@ -102,7 +102,7 @@
 			getAddress();
 			// 获取收货地址
 			function getAddress() {
-				var arrs = address.getAddressList();
+				var arrs = 	yiqidin.page.address.getAddressList();
 				var template = Handlebars.compile(document.getElementById("handlebars-templete").innerHTML);
 				var html = template({
 					lists: arrs
@@ -115,7 +115,7 @@
 				mui.confirm("确认要删除数据?", " ", ["确认", "取消"], function(e) {
 					if(e.index == 0) {
 						var id =Number($(this).attr("data-id"))||0;
-						address.delete(id);
+							yiqidin.page.address.delete(id);
 						getAddress();
 					}
 

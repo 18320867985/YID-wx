@@ -203,7 +203,7 @@
 		<script type="text/javascript">
 			$(function() {
 				
-				wxLazy.init(); // 图片延迟加载	
+					yiqidin.api.wxLazy.init(); // 图片延迟加载	
 				
 				// 上下拖拉菜单
 				//点击事件
@@ -237,7 +237,7 @@
 							$(_targetId).find(".ttl-1").text($(element).text()); 	// h4的标题文本设置
 							
 							getData(1, Number(_id), _targetId, {},_type,function(){
-								wxLazy.reset(); // 重新执行 图片延迟加载
+									yiqidin.api.wxLazy.reset(); // 重新执行 图片延迟加载
 							});  				
 
 
@@ -256,7 +256,7 @@
 				// ajax 分页
 				function getData(indexPage, allPage, pullToRefreshBig, obj,_type,fn,olddata) {
 
-					muiPullToRefresh.init({
+						yiqidin.api.muiPullToRefresh.init({
 						indexPage: indexPage, // 当前页
 						maxPage: allPage, // 总共页数
 						pullToRefreshBig: pullToRefreshBig, // 上拉的大框

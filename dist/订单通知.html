@@ -86,17 +86,17 @@
 		<script src="js/handlebars-v4.0.8.min.js" type="text/javascript" charset="utf-8"></script>
 
 		<script type="text/javascript">
-			wxLazy.init(); // 图片延迟加载
+			yiqidin.api.wxLazy.init(); // 图片延迟加载
 			mui.ready(function() {
 				page(1, 20, {}, function() {
-					//wxLazy.reset(); // 重新执行 图片延迟加载
+					//	yiqidin.api.wxLazy.reset(); // 重新执行 图片延迟加载
 				});
 
 			});
 
 			// 分页
 			function page(min, max, obj, fn) {
-				muiPullToRefresh.init({
+					yiqidin.api.muiPullToRefresh.init({
 					indexPage: min, // 当前页
 					maxPage: max, // 总共页数
 					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
