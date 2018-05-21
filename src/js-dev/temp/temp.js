@@ -591,6 +591,95 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 })();
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+/*鸭式变形法*/
+// 定义接口
+function Interface(interName, props) {
+    if (arguments.length !== 2) {
+        throw new Error("parameter length must is two");
+    }
+    if (typeof interName !== "string") {
+        throw new Error("interName must is string");
+    }
+    this.interName = interName;
+    this.props = [];
+    if ((typeof props === "undefined" ? "undefined" : _typeof(props)) === "object" && props.constructor === Array) {
+
+        for (var i in props) {
+            if (typeof props[i] === "string") {
+                this.props.push(props[i]);
+            }
+        }
+    }
+}
+
+// 检查是否实现接口
+Interface.check = function (obj) {
+    if (arguments.length < 2) {
+        throw new Error("arguments  length must  is two");
+    }
+    // 遍历接口
+    for (var i = 1; i < arguments.length; i++) {
+        var inter = arguments[i];
+        if (inter.constructor !== Interface) {
+            throw new Error("not Interface type ");
+        }
+        for (var y in inter.props) {
+            var propName = inter.props[y];
+
+            if (!obj[propName]) {
+                throw new Error(" Interface " + inter.interName + "  not implemented  properties name is " + propName);
+            }
+        }
+    }
+
+    return true;
+};
+
+/*实现例子*/
+
+//// 创建接口 Icat
+//var Icat = new Interface("Icat", ["add", "get"]);
+
+//// 创建类 Cat 并实现Icat接口
+//var Cat = function (name) {
+//    this.name = name;
+//    this.constructor.prototype.add = function () {
+//        alert("add");
+//    }
+//    this.constructor.prototype.get = function () {
+//        alert("get");
+//    }
+
+//    // 检查是否实现接口
+//    Interface.check(this, Icat);
+//}
+
+//var cat1 = new Cat();
+//cat1.add();
+var rootName = "yiqidin"; // 顶级命名空间
+var rootObj = window[rootName] = {};
+
+var namespace = {}; // 
+namespace.extend = function (ns, nsString) {
+	if (typeof nsString !== "string") {
+		throw new Error("nsString must string type");
+	}
+	var parent = ns;
+	var arrs = nsString.split(".");
+	for (var i = 0; i < arrs.length; i++) {
+		var prop = arrs[i];
+		if (typeof ns[prop] === "undefined") {
+			parent[prop] = {};
+		}
+		parent = parent[prop];
+	}
+
+	return parent;
+};
+
+/*namespace.extend(rootObj, "api").bsDate=()(function(){})*/
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /*
  * h5文件上传插件
  * var file=document.getElementById("fileUp").files[0];
@@ -622,7 +711,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  * 
  * */
 
-var h5File = function ($, mui) {
+namespace.extend(rootObj, "api").h5File = function ($, mui) {
 
 	var fileUpload = function fileUpload(option) {
 
@@ -794,7 +883,7 @@ var h5File = function ($, mui) {
  * 
  * **/
 
-var muiPullToRefresh = function (mui, $) {
+namespace.extend(rootObj, "api").muiPullToRefresh = function (mui, $) {
 
 	if (!mui) {
 		return;
@@ -931,7 +1020,7 @@ var muiPullToRefresh = function (mui, $) {
  * 
  * **/
 
-var muiSelectDate = function () {
+namespace.extend(rootObj, "api").muiSelectDate = function () {
 
 	var _init = function _init(selector) {
 		selector = selector || ".mui-date";
@@ -965,7 +1054,7 @@ var muiSelectDate = function () {
 		init: _init
 	};
 }();
-var pickerSelect = function (mui) {
+namespace.extend(rootObj, "api").pickerSelect = function (mui) {
 
 	// 	一级选择 
 	var _oneSelect = function oneSelect(selector, data) {
@@ -1050,7 +1139,7 @@ var pickerSelect = function (mui) {
  * wxLazy.init(); // 图片延迟加载
  * */
 
-var wxLazy = function ($) {
+namespace.extend(rootObj, "api").wxLazy = function ($) {
 
 	var _init = function _init() {
 
@@ -1702,7 +1791,7 @@ function shopCar() {
  * 收货地址
  * **/
 
-var address = function () {
+namespace.extend(rootObj, "page").address = function () {
 
 	var obj = {
 		id: 1,
@@ -1792,7 +1881,7 @@ var address = function () {
  登录信息
  * */
 
-var adminInfo = function () {
+namespace.extend(rootObj, "page").adminInfo = function () {
 
 	var _loginInfo = {
 		isLogin: false,
@@ -1838,8 +1927,7 @@ var adminInfo = function () {
  * baseset 修改基本信息
  * 
  * **/
-
-var baseset = function () {
+namespace.extend(rootObj, "page").baseset = function () {
 
 	var edit = function edit(fn) {
 
@@ -1915,7 +2003,7 @@ var baseset = function () {
  * 商品批量购买
  * */
 
-var batch = function () {
+namespace.extend(rootObj, "page").batch = function () {
 
 	var _init = function _init() {
 
@@ -1962,7 +2050,7 @@ var batch = function () {
  
  * */
 
-var collection = function () {
+namespace.extend(rootObj, "page").collection = function () {
 
 	var _init = function _init() {
 
@@ -2048,7 +2136,8 @@ var collection = function () {
 		init: _init
 	};
 }();
-var index = function () {
+
+namespace.extend(rootObj, "page").index = function () {
 
 	// 添加购物车的动画
 	//	var _animate = function() {
@@ -2091,7 +2180,8 @@ var index = function () {
 	//	}
 
 }();
-var shop = function () {
+
+namespace.extend(rootObj, "page").shop = function () {
 
 	var _init = function _init() {
 

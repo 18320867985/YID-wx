@@ -2,7 +2,6 @@
  * baseset 修改基本信息
  * 
  * **/
-
 namespace.extend(rootObj, "page").baseset = (function() {
 
 	var edit = function(fn) {

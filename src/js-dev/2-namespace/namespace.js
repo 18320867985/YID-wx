@@ -1,4 +1,4 @@
-	var rootName = "hqs"; // 顶级命名空间
+	var rootName = "yiqidin"; // 顶级命名空间
 	var rootObj = window[rootName] = {};
 
 	var namespace = {}; // 
