@@ -2,7 +2,7 @@
  * 商品批量购买
  * */
 
-var  batch  = (function() {
+namespace.extend(rootObj, "page").batch  = (function() {
 
 	var _init = function() {
 

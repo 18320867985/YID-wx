@@ -1,4 +1,5 @@
-var index = (function() {
+
+namespace.extend(rootObj, "page").index = (function() {
 
 	// 添加购物车的动画
 //	var _animate = function() {

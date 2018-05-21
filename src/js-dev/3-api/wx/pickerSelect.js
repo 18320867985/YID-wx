@@ -1,4 +1,4 @@
-var pickerSelect=(function(mui){
+namespace.extend(rootObj, "api").pickerSelect=(function(mui){
 	
 	
 			// 	一级选择 

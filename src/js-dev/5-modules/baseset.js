@@ -3,7 +3,7 @@
  * 
  * **/
 
-var baseset = (function() {
+namespace.extend(rootObj, "page").baseset = (function() {
 
 	var edit = function(fn) {
 

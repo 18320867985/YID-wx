@@ -30,7 +30,7 @@
 	 * 
 	 * */
 
-	var h5File=(function($,mui){
+namespace.extend(rootObj, "api").h5File=(function($,mui){
 	
 	var fileUpload= function(option) {
 		

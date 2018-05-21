@@ -1,8 +1,5 @@
-/*
- 
- * */
 
-var collection  = (function() {
+namespace.extend(rootObj, "page").shop = (function() {
 
 	var _init = function() {
 
@@ -19,9 +16,9 @@ var collection  = (function() {
 				$(this).attr("data-edit", true);
 				isShow(false);
 				select_ck(false);
-				$(".collection-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
-				$(".collection-select .check-all").removeAttr("data-bl");
-				$(".collection-select").show();
+				$(".shop-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".shop-select .check-all").removeAttr("data-bl");
+				
 
 			} else {
 
@@ -30,31 +27,29 @@ var collection  = (function() {
 				$(this).removeAttr("data-edit");
 				isShow(true);
 				select_ck(false);
-				$(".collection-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
-				$(".collection-select .check-all").removeAttr("data-bl");
-				$(".collection-select").hide();
+				$(".shop-select .check-all").removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
+				$(".shop-select .check-all").removeAttr("data-bl");
+				$(".shop-select").find(".price").text("0.00");
+				$(".shop-select").find(".count").text("0");
 
 			}
 		});
 
 
-	
 		// 结算与删除 show  or  hide
 		function isShow(bl) {
 
 			if(bl) {
 				$(".shop-select .edit").show();
 				$(".shop-select .complate").hide();
-				$(".shop-item input[type=checkbox]").hide();
 			} else {
 				$(".shop-select .edit").hide();
 				$(".shop-select .complate").show();
-				$(".shop-item input[type=checkbox]").show();
 			}
 		}
-		
+
 		// checkbox 选择
-			$(".collection-select .check-all").on("tap", function() {
+			$(".shop-select .check-all").on("tap", function() {
 
 				if($(this).attr("data-bl")) {
 					$(this).removeClass("icon-xuanzhongduigou").addClass("icon-checknormal");
@@ -70,8 +65,8 @@ var collection  = (function() {
 			
 
 		//	label-click	
-		$(".collection-select  .label-click").on("tap",function(){
-			$(".check-all",".collection-select").trigger("tap");
+		$(".shop-select .label-click").on("tap",function(){
+			$(".shop-select .check-all").trigger("tap");
 		})
 		
 		// checkbox function
@@ -82,6 +77,7 @@ var collection  = (function() {
 					els.attr("checked", false);
 					els.click();
 					els.attr("checked", true);
+					
 
 			} else {
 				var els=$(".shop-cont input[type=checkbox]");

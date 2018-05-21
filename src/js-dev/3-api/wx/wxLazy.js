@@ -11,7 +11,7 @@
  * wxLazy.init(); // 图片延迟加载
  * */
 
-var wxLazy = (function($) {
+namespace.extend(rootObj, "api").wxLazy = (function($) {
 
 var _init = function() {
 

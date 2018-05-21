@@ -11,8 +11,7 @@
  * 
  * **/ 
  
-
-var muiSelectDate=(function(){
+namespace.extend(rootObj, "api").muiSelectDate=(function(){
 	
 		var _init=  function(selector) {
 				selector=selector||".mui-date";

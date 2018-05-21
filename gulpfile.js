@@ -90,15 +90,17 @@ var paths = {
 	/* 自定的js => 在原有的js库前执行  之后再合并所以js 
 	 * 目的是为es6转e5  兼容原有的js库  取消严格模式
 	 */
-	jsPath: [
+	jsBabel: [
 
-		"src/js-dev/common/**/*.js", 		// 1.公共模块
+		"src/js-dev/1-common/**/*.js", 		// 1.公共类库
 		
-		"src/js-dev/api/**/*.js", 			// 2.自定api
+		"src/js-dev/2-namespace/**/*.js", 	// 2.命名空间
+		
+		"src/js-dev/3-api/**/*.js", 		// 2.自定api
 
-		"src/js-dev/component/**/*.js", 	// 3.公共组件
+		"src/js-dev/4-component/**/*.js", 	// 3.公共组件
 
-		"src/js-dev/modules/**/*.js" 		// 4.自定义模块
+		"src/js-dev/5-modules/**/*.js" 		// 4.自定义模块
 
 	],
 
@@ -215,7 +217,7 @@ gulp.task("t_minjs", ["t_temp"], function() {
 		//.pipe(minJs("all.js")) //压缩js文件
 		.pipe(gulp.dest('./src/js/'));
 
-	gulp.src(paths.jsPath).pipe(connect.reload());
+	gulp.src(paths.jsBabel).pipe(connect.reload());
 
 });
 
@@ -226,7 +228,7 @@ gulp.task("t_minjs", ["t_temp"], function() {
 gulp.task("t_temp", function() {
 
 	// 合并js
-	return gulp.src(paths.jsPath)
+	return gulp.src(paths.jsBabel)
 		.pipe(babel()) // es6编译
 		.pipe(concat('temp.js'))
 		.pipe(gulp.dest('./src/js-dev/temp/'));
@@ -282,7 +284,7 @@ gulp.task('connect', function() {
 gulp.task("watch", ['connect'], function() {
 
 	//合拼压缩js文件
-	gulp.watch(paths.jsPath, ["t_minjs"]);
+	gulp.watch(paths.jsBabel, ["t_minjs"]);
 
 	//less合并压缩css文件
 	//gulp.watch(paths.lessPath, ['t_mincss']);
@@ -322,7 +324,7 @@ gulp.task("watch", ['connect'], function() {
 // 检查js
 gulp.task('t_eslint', function() {
 
-	gulp.src(paths.jsPath).pipe(eslint()).pipe(eslint.format());
+	gulp.src(paths.jsBabel).pipe(eslint()).pipe(eslint.format());
 
 });
 

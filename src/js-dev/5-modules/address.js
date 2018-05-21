@@ -2,7 +2,7 @@
  * 收货地址
  * **/
 
-var address = (function() {
+namespace.extend(rootObj, "page").address = (function() {
 
 	var obj = {
 		id: 1,

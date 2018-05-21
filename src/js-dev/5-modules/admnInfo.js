@@ -2,7 +2,7 @@
  登录信息
  * */
 
-var adminInfo = (function() {
+namespace.extend(rootObj, "page").adminInfo = (function() {
 
 	var _loginInfo = {
 		isLogin: false,

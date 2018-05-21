@@ -96,7 +96,7 @@
  * 
  * **/
 
-var muiPullToRefresh = (function(mui, $) {
+namespace.extend(rootObj, "api").muiPullToRefresh = (function(mui, $) {
 
 	if(!mui) {
 		return;
