@@ -204,7 +204,7 @@
 		<script type="text/javascript">
 			$(function() {
 				// page init
-				batch.init();
+				yiqidin.page.batch.init();
 
 				// 删除
 				$(".delete-btn").on("tap", function() {
@@ -226,7 +226,7 @@
 
 			});
 
-			wxLazy.init(); // 图片延迟加载
+			yiqidin.api.wxLazy.init(); // 图片延迟加载
 
 			mui.ready(function() {
 
@@ -235,7 +235,7 @@
 					name: "mini",
 					age: 12
 				}, function() {
-					wxLazy.reset(); // 重新执行 图片延迟加载
+					yiqidin.api.wxLazy.reset(); // 重新执行 图片延迟加载
 				});
 
 				// 查询
@@ -265,7 +265,7 @@
 
 			// 分页
 			function page(min, max, obj, fn, olddata) {
-				return muiPullToRefresh.init({
+				return yiqidin.api.muiPullToRefresh.init({
 					indexPage: min, // 当前页
 					maxPage: max, // 总共页数
 					pullToRefreshBig: ".pullToRefresh-big", // 上拉的大框
